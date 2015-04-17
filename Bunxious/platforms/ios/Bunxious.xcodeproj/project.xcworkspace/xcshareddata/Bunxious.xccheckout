@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7AB25B65-9347-4353-859F-F2105CF0FA13</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Bunxious</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>64FD1A523C27F99BEF27DC29D8974E6EC2CBF22F</key>
+		<string>https://github.com/Uptown4/bunxious-mobile.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Bunxious/platforms/ios/Bunxious.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>64FD1A523C27F99BEF27DC29D8974E6EC2CBF22F</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Uptown4/bunxious-mobile.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>64FD1A523C27F99BEF27DC29D8974E6EC2CBF22F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>64FD1A523C27F99BEF27DC29D8974E6EC2CBF22F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>bunxious-mobile</string>
+		</dict>
+	</array>
+</dict>
+</plist>

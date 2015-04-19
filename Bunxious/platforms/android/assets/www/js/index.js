@@ -34,6 +34,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        windows.location="http://www.google.com";
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -46,7 +47,7 @@ var app = {
 		
         console.log('Received Event: ' + id);
         
-        windows.location="https://www.google.com";
+        
     }
 };
 

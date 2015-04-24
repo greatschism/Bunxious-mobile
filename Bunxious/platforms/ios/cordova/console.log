@@ -1,0 +1,14 @@
+2015-04-22 08:29:56.305 Bunxious[37201:6951560] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/ben/Library/Developer/CoreSimulator/Devices/5BB76212-1D69-4655-933C-F0373F164F66/data/Containers/Data/Application/6B75D91B-4853-47A6-85FB-6A71D70DABDE/Library/Cookies/Cookies.binarycookies
+2015-04-22 08:29:56.540 Bunxious[37201:6951560] Apache Cordova native platform version 3.8.0 is starting.
+2015-04-22 08:29:56.540 Bunxious[37201:6951560] Multi-tasking -> Device: YES, App: YES
+2015-04-22 08:29:56.548 Bunxious[37201:6951560] Unlimited access to network resources
+2015-04-22 08:29:56.555 Bunxious[37201:6951560] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-22 08:29:57.545 Bunxious[37201:6951560] Resetting plugins due to page load.
+2015-04-22 08:30:03.702 Bunxious[37201:6951560] Finished load of: file:///Users/ben/Library/Developer/CoreSimulator/Devices/5BB76212-1D69-4655-933C-F0373F164F66/data/Containers/Bundle/Application/9DE9A9DC-3EAD-4ED6-8B23-521AFC8C0766/Bunxious.app/www/index.html

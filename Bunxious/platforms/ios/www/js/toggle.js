@@ -14,7 +14,6 @@ function toggle_sidebar(show)
         mainview.style.left="100px";
         toggle.style.left="210px";
         toggle_shown=true;
-        $('#mainlogo').css('display','none');
     }
     else
     {
@@ -22,7 +21,6 @@ function toggle_sidebar(show)
         mainview.style.left="0px";
         toggle.style.left="10px";
         toggle_shown=false;
-        $('#mainlogo').css('display','inline-block');
     }
 }
 

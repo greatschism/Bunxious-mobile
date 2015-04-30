@@ -10,6 +10,9 @@ function toggle_sidebar(show)
            
     if(show)
     {
+        $( "#mainlogo" ).fadeOut( "slow", function() {
+            // Animation complete
+        });
         sidebar.style.left = "0px";
         mainview.style.left="100px";
         toggle.style.left="210px";
@@ -21,6 +24,9 @@ function toggle_sidebar(show)
         mainview.style.left="0px";
         toggle.style.left="10px";
         toggle_shown=false;
+        $( "#mainlogo" ).fadeIn( "slow", function() {
+            // Animation complete
+        });
     }
 }
 

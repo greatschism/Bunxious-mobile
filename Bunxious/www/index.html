@@ -22,8 +22,9 @@
   <meta charset="utf-8" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="msapplication-tap-highlight" content="no" />
-  <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+  <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 
+  width=device-width, height=device-height, -->
+  <meta name="viewport" content="user-scalable=no, width=320" />
   <link rel="stylesheet" type="text/css" href="css/index.css" />
   <link rel="stylesheet" type="text/css" href="css/bunxiousmenu.css" />
   <link rel="stylesheet" type="text/css" href="css/icons.css" />
@@ -39,35 +40,44 @@
 <body>
 
 
-<div id="mainview" class="panel" style="position: fixed; width:100%; height:100%; left: 0px; transition: all 0.5s ease-in-out;">
+<div id="mainview" class="panel" style="position: fixed; width:320px; height:100%; left: 0px; transition: all 0.5s ease-in-out;">
   <div style="height:64px;width: 100%;text-align: center;background-color: #55888f;padding: 20px 0px 0px 0px;">
     <div  class="toggleWrap">
-      <img src="img/menu-button.png" id="toggle" class="toggle" style="position: fixed; left: 10px; top: 35px; transition: all 0.5s ease-in-out;" />
+      <img src="img/menu-button.png" id="toggle" class="toggle" style="position: fixed; left: 10px; top: 25px; transition: all 0.5s ease-in-out;" />
     </div>
     <img id="mainlogo" src="img/logo.png" height="42">
   </div>
 
-  <iframe src="http://bunxious.com/user/login/0/" frameborder="0" seamless="seamless" style="width:420px; width:100%; height:100%;"></iframe>
+<!--  <iframe src="http://bunxious.com/user/login/0/" frameborder="0" seamless="seamless" style="width:420px; width:100%; height:100%;"></iframe> -->
+  <iframe src="http://bunxious.com/" frameborder="0" seamless="seamless" style="width:320px;  height:100%;"></iframe>
 
 </div>
 <div id="sidebar" style="position: fixed; background-color:rgba(98, 148, 155, 1.0) ; height: 100%; width: 200px; left: -200px; transition: all 0.5s ease-in-out;">
 
   <nav class="vertical">
     <div>
-      <img id="menulogo" src="img/logo.png">
+    <br>
+      <div width="100%" >
+        <img id="menulogo" src="img/logo.png" style="display:inline-block;margin:auto;"/>
+      </div>
+      <div class="nav-item"  data-dest="http://bunxious.com/user/login/0/">Sign-In</div>
       <div class="nav-item"  data-dest="http://bunxious.com/user/2190/Stectech">My Profile</div>
-      <div class="nav-item-mnu"  data-dest="http://bunxious.com/store/address">My Addresses</div>
-      <div class="nav-item-mnu"  data-dest="http://bunxious.com/store/purchase">My Purchases</div>
-      <div class="nav-item-mnu"  data-dest="http://bunxious.com/settings/2190">My Settings</div>
-      <div class="nav-item-mnu"  data-dest="http://bunxious.com/cart">My Subscriptions</div>
+      <div class="Xnav-item-mnu"  data-dest="http://bunxious.com/store/address">My Addresses</div>
+      <div class="Xnav-item-mnu"  data-dest="http://bunxious.com/store/purchase">My Purchases</div>
+      <div class="Xnav-item-mnu"  data-dest="http://bunxious.com/settings/2190">My Settings</div>
+      <div class="Xnav-item-mnu"  data-dest="http://bunxious.com/cart">My Subscriptions</div>
+      <br>
       <hr>
-      <div class="nav-item"  data-dest="http://bunxious.com/user/group/2190/Stectech">My Groups</div>
-      <div class="nav-item"  data-dest="http://bunxious.com/user/pin/2190/Stectech">My Items</div>
-      <div class="nav-item-mnu"  data-dest="http://bunxious.com/store/sale">My Sales</div>
-      <div class="nav-item-mnu"  data-dest="http://bunxious.com/store/settings/">Closet Settings</div>
+      <br>
+      <div class="Xnav-item"  data-dest="http://bunxious.com/user/group/2190/Stectech">My Groups</div>
+      <div class="Xnav-item"  data-dest="http://bunxious.com/user/pin/2190/Stectech">My Items</div>
+      <div class="Xnav-item-mnu"  data-dest="http://bunxious.com/store/sale">My Sales</div>
+      <div class="Xnav-item-mnu"  data-dest="http://bunxious.com/store/settings/">Closet Settings</div>
+      <br>
       <hr>
-      <div class="nav-item-mnu"  data-dest="http://bunxious.com/store/uploadpin/">Add New Product</div>
-      <div class="nav-item"  data-dest="http://bunxious.com/store">My Closet</div>
+      <br>
+      <div class="Xnav-item-mnu"  data-dest="http://bunxious.com/store/uploadpin/">Add New Product</div>
+      <div class="Xnav-item"  data-dest="http://bunxious.com/store">My Closet</div>
 
     </div>
   </nav>
@@ -89,13 +99,13 @@
       onclick_togglebutton();
       $('#mainview iframe').attr('src', this.getAttribute("data-dest"));
       setTimeout(function() {
-        $('#mainview iframe').attr('style', "width:420px; margin-top: 0px; width:100%; height:100%");
+        $('#mainview iframe').attr('style', "width:320px; margin-top: 0px; height:100%");
       }, 500);
     });
 
     $('.nav-item-mnu').fastClick(function(e)
     {
-      $('#mainview iframe').attr('style', "width:420px; margin-top: -600px; width:100%; height:100%");
+      $('#mainview iframe').attr('style', "width:320px; margin-top: -600px; height:100%");
       e.preventDefault();e.stopImmediatePropagation();
       onclick_togglebutton();
       $('#mainview iframe').attr('src', this.getAttribute("data-dest"));

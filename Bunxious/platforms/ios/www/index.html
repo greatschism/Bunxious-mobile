@@ -33,29 +33,7 @@
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/jQuery.fastClick.js"></script>
         <script type="text/javascript" src="js/simplefunctions.js"></script>
-        <script type="text/javascript">
-            $(function(){
-
-                $('.toggleWrap').fastClick(function(e)
-                    {
-                        e.preventDefault();e.stopImmediatePropagation();
-                        onclick_togglebutton();
-                    });
-
-			
-                if (/iPhone|iPod|iPad/.test(navigator.userAgent))
-                    $('iframe').wrap(function(){
-                        var $this = $(this);
-                        return $('<div />').css({
-                            width: '100%',//$this.attr('width'),
-                            height: '100%',//$this.attr('3569px'),
-                            overflow: 'scroll',
-                            '-webkit-overflow-scrolling': 'touch'
-                        });
-                    });
-            })
-    </script>
-        <title>Hello World</title>
+             <title>Hello World</title>
         
     </head>
     <body>
@@ -73,17 +51,53 @@
          
     	</div> 
     	<div id="sidebar" style="position: fixed; background-color:rgba(98, 148, 155, 1.0) ; height: 100%; width: 200px; left: -200px; transition: all 0.5s ease-in-out;">
-
+       
+            <nav class="vertical">
+                <div>
+                    <br>
+                    <br>
+                    <img  id="menulogo" src="img/logo.png" height="42px&quot;">
+                    <br>
+                    <br>
+                    <div class="nav-item"  data-dest="http://bunxious.com/category/20/Bags">Bag</div>
+                    <div class="nav-item"  data-dest="http://bunxious.com/category/19/Belts">Belts</div>
+                    <div class="nav-item"  data-dest="http://bunxious.com/category/25/Bottoms">Bottoms</div>
+                    <div class="nav-item"  data-dest="http://bunxious.com/category/11/Christening">Christening</div>
+                    <div class="nav-item"  data-dest="http://bunxious.com/category/24/Dresses">Dresses</div>
+                </div>
+            </nav>
         </div>
-       <!-- <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
 
-        </div>    -->
-	<script>includeHTML('sidebar','sidemenu.html')</script>
-        
     </body>
+    <script type="text/javascript">
+            $(function(){
+
+                $('.toggleWrap').fastClick(function(e)
+                    {
+                        e.preventDefault();e.stopImmediatePropagation();
+                        onclick_togglebutton();
+                    });
+
+                $('.nav-item').fastClick(function(e)
+                    {
+                        e.preventDefault();e.stopImmediatePropagation();
+                        onclick_togglebutton();
+                        $('#mainview iframe').attr('src', this.getAttribute("data-dest"));
+                    });
+
+
+			
+                if (/iPhone|iPod|iPad/.test(navigator.userAgent))
+                    $('#mainview iframe').wrap(function(){
+                        var $this = $(this);
+                        return $('<div />').css({
+                            width: '100%',//$this.attr('width'),
+                            height: '100%',//$this.attr('3569px'),
+                            overflow: 'scroll',
+                            '-webkit-overflow-scrolling': 'touch'
+                        });
+                    });
+            })
+    </script>
+
 </html>

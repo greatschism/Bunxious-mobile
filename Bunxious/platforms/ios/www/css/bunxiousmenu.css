@@ -160,5 +160,15 @@ nav.vertical hr {
 .nav-item-mnu, .nav-item {
   font-size: 12px;
   text-align: left;
+  font-weight: bold;
+  color: #ebebeb;
   padding: 8px 0px 8px 15px;
+}
+
+
+.Xnav-item-mnu, .Xnav-item {
+  font-size: 12px;
+  text-align: left;
+  padding: 8px 0px 8px 15px;
+  color: #aaa;
 }

@@ -31,9 +31,18 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/toggle.js"></script>
         <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jQuery.fastClick.js"></script>
         <script type="text/javascript" src="js/simplefunctions.js"></script>
         <script type="text/javascript">
             $(function(){
+
+                $('.toggleWrap').fastClick(function(e)
+                    {
+                        e.preventDefault();e.stopImmediatePropagation();
+                        onclick_togglebutton();
+                    });
+
+			
                 if (/iPhone|iPod|iPad/.test(navigator.userAgent))
                     $('iframe').wrap(function(){
                         var $this = $(this);
@@ -54,13 +63,12 @@
 
         <div id="mainview" class="panel" style="position: fixed; width:100%; height:100%; left: 0px; transition: all 0.5s ease-in-out;">
             <div style="height:64px;width: 100%;text-align: center;background-color: #55888f;padding: 20px 0px 0px 0px;">
-                <img id="toggle" class="toggle" src="img/menu-button.png" onclick="onclick_togglebutton()" style="position: fixed; left: 10px; top: 35px; transition: all 0.5s ease-in-out;" />
-                <img src="img/logo.png" height="42">
-            </div>  <!-- width:320px; height:10000px;
-<div style="width: 420px; height: 600px; overflow: scroll !important;-webkit-overflow-scrolling:touch !important;">
-    <object type="text/html" data="http://www.bunxious.com" style="width: 820px; height: 600px;">
-    </object>       
-</div>       -->
+                <div  class="toggleWrap">
+                    <img src="img/menu-button.png" id="toggle" class="toggle" style="position: fixed; left: 10px; top: 35px; transition: all 0.5s ease-in-out;" />
+                </div>
+                <img id="mainlogo" src="img/logo.png" height="42">
+            </div>
+            
           <iframe src="http://www.bunxious.com" frameborder="0" seamless="seamless" style="width:100%; height:100%"></iframe>
          
     	</div> 

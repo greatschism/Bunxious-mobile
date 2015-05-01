@@ -7,7 +7,12 @@ function toggle_sidebar(show)
     var mainview = document.getElementById("mainview");
            
 //            console.log(sidebar.style.left);
-           
+
+    // the 'main logo' image in the header of the application has been tied to a jQuery fade fuction
+    // in the toggle actions.  This is because at 320px width, the hamburger will be positioned over
+    // the logo when the menu is showing, and it looks bad.  At higher width resolutions, this issue
+    // is mitigated (the hamburger should not overlap the logo)
+    
     if(show)
     {
         $( "#mainlogo" ).fadeOut( "slow", function() {

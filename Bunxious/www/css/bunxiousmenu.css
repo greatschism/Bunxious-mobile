@@ -157,6 +157,11 @@ nav.vertical hr {
   color:#333;
 }
 
+
+
+/*
+    some styling for active menu items
+*/
 .nav-item-mnu, .nav-item {
   font-size: 12px;
   text-align: left;
@@ -166,6 +171,9 @@ nav.vertical hr {
 }
 
 
+/*
+    some styling for non-active menu items
+*/
 .Xnav-item-mnu, .Xnav-item {
   font-size: 12px;
   text-align: left;

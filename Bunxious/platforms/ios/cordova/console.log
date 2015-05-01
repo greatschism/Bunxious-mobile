@@ -351,3 +351,263 @@ To disable web storage backup to iCloud, set the BackupWebStorage preference to 
 2015-04-30 11:13:47.574 Bunxious[6537:47811] *** WebKit discarded an uncaught exception in the webView:willRemoveScrollingLayer:withContentsLayer:forNode: delegate: <NSInvalidArgumentException> -[WebActionDisablingCALayerDelegate setBeingRemoved:]: unrecognized selector sent to instance 0x7bbcc470
 2015-04-30 11:13:51.596 Bunxious[6537:47811] -[WebActionDisablingCALayerDelegate setBeingRemoved:]: unrecognized selector sent to instance 0x7bbcc470
 2015-04-30 11:13:51.596 Bunxious[6537:47811] *** WebKit discarded an uncaught exception in the webView:willRemoveScrollingLayer:withContentsLayer:forNode: delegate: <NSInvalidArgumentException> -[WebActionDisablingCALayerDelegate setBeingRemoved:]: unrecognized selector sent to instance 0x7bbcc470
+2015-05-01 09:17:28.982 Bunxious[39209:877841] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-01 09:17:28.983 Bunxious[39209:877841] Multi-tasking -> Device: YES, App: YES
+2015-05-01 09:17:28.984 Bunxious[39209:877841] Unlimited access to network resources
+2015-05-01 09:17:28.986 Bunxious[39209:877841] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-01 09:17:29.248 Bunxious[39209:877841] Resetting plugins due to page load.
+2015-05-01 09:17:29.339 Bunxious[39209:877841] Failed to load webpage with error: The operation couldn’t be completed. (NSURLErrorDomain error -999.)
+2015-05-01 09:17:29.341 Bunxious[39209:877841] Resetting plugins due to page load.
+2015-05-01 09:17:30.837 Bunxious[39209:877841] Finished load of: file:///Users/ben/Library/Developer/CoreSimulator/Devices/5BB76212-1D69-4655-933C-F0373F164F66/data/Containers/Bundle/Application/81067552-5BFB-469D-A563-46DB03CA72D9/Bunxious.app/www/index.html
+2015-05-01 09:18:54.944 Bunxious[39278:887695] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-01 09:18:54.946 Bunxious[39278:887695] Multi-tasking -> Device: YES, App: YES
+2015-05-01 09:18:54.947 Bunxious[39278:887695] Unlimited access to network resources
+2015-05-01 09:18:54.953 Bunxious[39278:887695] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-01 09:18:55.212 Bunxious[39278:887695] Resetting plugins due to page load.
+2015-05-01 09:18:55.287 Bunxious[39278:887695] Failed to load webpage with error: The operation couldn’t be completed. (NSURLErrorDomain error -999.)
+2015-05-01 09:18:55.288 Bunxious[39278:887695] Resetting plugins due to page load.
+2015-05-01 09:18:56.981 Bunxious[39278:887695] Finished load of: file:///Users/ben/Library/Developer/CoreSimulator/Devices/5BB76212-1D69-4655-933C-F0373F164F66/data/Containers/Bundle/Application/9AEBB7A7-D0D2-4E14-9324-3620F848EF90/Bunxious.app/www/index.html
+2015-05-01 09:19:51.160 Bunxious[39392:891855] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-01 09:19:51.160 Bunxious[39392:891855] Multi-tasking -> Device: YES, App: YES
+2015-05-01 09:19:51.162 Bunxious[39392:891855] Unlimited access to network resources
+2015-05-01 09:19:51.164 Bunxious[39392:891855] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-01 09:19:51.534 Bunxious[39392:891855] Resetting plugins due to page load.
+2015-05-01 09:19:51.624 Bunxious[39392:891855] Failed to load webpage with error: The operation couldn’t be completed. (NSURLErrorDomain error -999.)
+2015-05-01 09:19:51.626 Bunxious[39392:891855] Resetting plugins due to page load.
+2015-05-01 09:19:53.084 Bunxious[39392:891855] Finished load of: file:///Users/ben/Library/Developer/CoreSimulator/Devices/5BB76212-1D69-4655-933C-F0373F164F66/data/Containers/Bundle/Application/BF30F89C-6939-4B07-8541-393CC675F4EF/Bunxious.app/www/index.html
+2015-05-01 09:20:20.321 Bunxious[39543:898023] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/ben/Library/Developer/CoreSimulator/Devices/5BB76212-1D69-4655-933C-F0373F164F66/data/Containers/Data/Application/FCCFCA05-E4B0-415D-AFE0-96616004EC8A/Library/Cookies/Cookies.binarycookies
+2015-05-01 09:20:20.490 Bunxious[39543:898023] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-01 09:20:20.491 Bunxious[39543:898023] Multi-tasking -> Device: YES, App: YES
+2015-05-01 09:20:20.494 Bunxious[39543:898023] Unlimited access to network resources
+2015-05-01 09:20:20.499 Bunxious[39543:898023] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-01 09:20:21.300 Bunxious[39543:898023] Resetting plugins due to page load.
+2015-05-01 09:20:21.378 Bunxious[39543:898023] Failed to load webpage with error: The operation couldn’t be completed. (NSURLErrorDomain error -999.)
+2015-05-01 09:20:21.380 Bunxious[39543:898023] Resetting plugins due to page load.
+2015-05-01 09:20:25.775 Bunxious[39543:898023] Finished load of: file:///Users/ben/Library/Developer/CoreSimulator/Devices/5BB76212-1D69-4655-933C-F0373F164F66/data/Containers/Bundle/Application/CBD278E2-E2F0-4BBD-AB0D-28953F0317C2/Bunxious.app/www/index.html
+2015-05-01 09:20:49.231 Bunxious[39626:906590] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-01 09:20:49.232 Bunxious[39626:906590] Multi-tasking -> Device: YES, App: YES
+2015-05-01 09:20:49.233 Bunxious[39626:906590] Unlimited access to network resources
+2015-05-01 09:20:49.235 Bunxious[39626:906590] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-01 09:20:49.459 Bunxious[39626:906590] Resetting plugins due to page load.
+2015-05-01 09:20:49.544 Bunxious[39626:906590] Failed to load webpage with error: The operation couldn’t be completed. (NSURLErrorDomain error -999.)
+2015-05-01 09:20:49.545 Bunxious[39626:906590] Resetting plugins due to page load.
+2015-05-01 09:20:50.358 Bunxious[39626:906590] Finished load of: file:///Users/ben/Library/Developer/CoreSimulator/Devices/5BB76212-1D69-4655-933C-F0373F164F66/data/Containers/Bundle/Application/60E2467B-8949-4716-AB21-32F7CD3D0C47/Bunxious.app/www/index.html
+2015-05-01 09:21:52.700 Bunxious[39691:911654] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-01 09:21:52.701 Bunxious[39691:911654] Multi-tasking -> Device: YES, App: YES
+2015-05-01 09:21:52.702 Bunxious[39691:911654] Unlimited access to network resources
+2015-05-01 09:21:52.704 Bunxious[39691:911654] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-01 09:21:52.921 Bunxious[39691:911654] Resetting plugins due to page load.
+2015-05-01 09:21:52.988 Bunxious[39691:911654] Failed to load webpage with error: The operation couldn’t be completed. (NSURLErrorDomain error -999.)
+2015-05-01 09:21:52.990 Bunxious[39691:911654] Resetting plugins due to page load.
+2015-05-01 09:21:54.243 Bunxious[39691:911654] Finished load of: file:///Users/ben/Library/Developer/CoreSimulator/Devices/5BB76212-1D69-4655-933C-F0373F164F66/data/Containers/Bundle/Application/2C5B08CC-FE5D-4CA2-BBEF-4C2846097F64/Bunxious.app/www/index.html
+2015-05-01 09:21:59.718 Bunxious[39750:912697] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-01 09:21:59.719 Bunxious[39750:912697] Multi-tasking -> Device: YES, App: YES
+2015-05-01 09:21:59.720 Bunxious[39750:912697] Unlimited access to network resources
+2015-05-01 09:21:59.722 Bunxious[39750:912697] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-01 09:21:59.927 Bunxious[39750:912697] Resetting plugins due to page load.
+2015-05-01 09:21:59.999 Bunxious[39750:912697] Failed to load webpage with error: The operation couldn’t be completed. (NSURLErrorDomain error -999.)
+2015-05-01 09:22:00.000 Bunxious[39750:912697] Resetting plugins due to page load.
+2015-05-01 09:22:01.067 Bunxious[39750:912697] Finished load of: file:///Users/ben/Library/Developer/CoreSimulator/Devices/5BB76212-1D69-4655-933C-F0373F164F66/data/Containers/Bundle/Application/5F55298A-DF00-4DF8-9A9C-DA8601D89E0E/Bunxious.app/www/index.html
+2015-05-01 09:22:23.444 Bunxious[39855:915511] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-01 09:22:23.445 Bunxious[39855:915511] Multi-tasking -> Device: YES, App: YES
+2015-05-01 09:22:23.446 Bunxious[39855:915511] Unlimited access to network resources
+2015-05-01 09:22:23.448 Bunxious[39855:915511] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-01 09:22:23.704 Bunxious[39855:915511] Resetting plugins due to page load.
+2015-05-01 09:22:23.790 Bunxious[39855:915511] Failed to load webpage with error: The operation couldn’t be completed. (NSURLErrorDomain error -999.)
+2015-05-01 09:22:23.792 Bunxious[39855:915511] Resetting plugins due to page load.
+2015-05-01 09:22:24.752 Bunxious[39855:915511] Finished load of: file:///Users/ben/Library/Developer/CoreSimulator/Devices/5BB76212-1D69-4655-933C-F0373F164F66/data/Containers/Bundle/Application/6D10AF23-182C-4FD3-BD9F-47C5E93203CA/Bunxious.app/www/index.html
+2015-05-01 09:23:20.167 Bunxious[39985:924570] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/ben/Library/Developer/CoreSimulator/Devices/5BB76212-1D69-4655-933C-F0373F164F66/data/Containers/Data/Application/4CCF2448-0B9C-45EA-BF33-98832ADB5192/Library/Cookies/Cookies.binarycookies
+2015-05-01 09:23:20.254 Bunxious[39985:924570] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-01 09:23:20.255 Bunxious[39985:924570] Multi-tasking -> Device: YES, App: YES
+2015-05-01 09:23:20.257 Bunxious[39985:924570] Unlimited access to network resources
+2015-05-01 09:23:20.259 Bunxious[39985:924570] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-01 09:23:20.906 Bunxious[39985:924570] Resetting plugins due to page load.
+2015-05-01 09:23:20.967 Bunxious[39985:924570] Failed to load webpage with error: The operation couldn’t be completed. (NSURLErrorDomain error -999.)
+2015-05-01 09:23:20.968 Bunxious[39985:924570] Resetting plugins due to page load.
+2015-05-01 09:23:24.925 Bunxious[39985:924570] Finished load of: file:///Users/ben/Library/Developer/CoreSimulator/Devices/5BB76212-1D69-4655-933C-F0373F164F66/data/Containers/Bundle/Application/98D037DA-90A4-4FC3-9B11-3495DF5482FA/Bunxious.app/www/index.html
+2015-05-01 09:24:24.825 Bunxious[40100:932607] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/ben/Library/Developer/CoreSimulator/Devices/5BB76212-1D69-4655-933C-F0373F164F66/data/Containers/Data/Application/CC0EE1EE-640D-4BB3-9813-49725D6A1EE5/Library/Cookies/Cookies.binarycookies
+2015-05-01 09:24:24.931 Bunxious[40100:932607] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-01 09:24:24.931 Bunxious[40100:932607] Multi-tasking -> Device: YES, App: YES
+2015-05-01 09:24:24.933 Bunxious[40100:932607] Unlimited access to network resources
+2015-05-01 09:24:24.936 Bunxious[40100:932607] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-01 09:24:25.526 Bunxious[40100:932607] Resetting plugins due to page load.
+2015-05-01 09:24:25.593 Bunxious[40100:932607] Failed to load webpage with error: The operation couldn’t be completed. (NSURLErrorDomain error -999.)
+2015-05-01 09:24:25.595 Bunxious[40100:932607] Resetting plugins due to page load.
+2015-05-01 09:25:35.673 Bunxious[40100:939552] Terminating since there is no system app.
+2015-05-01 09:25:46.369 Bunxious[40213:941114] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/ben/Library/Developer/CoreSimulator/Devices/5BB76212-1D69-4655-933C-F0373F164F66/data/Containers/Data/Application/5A68E851-AAC5-4BBB-BBE7-16ED0338E962/Library/Cookies/Cookies.binarycookies
+2015-05-01 09:25:46.464 Bunxious[40213:941114] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-01 09:25:46.465 Bunxious[40213:941114] Multi-tasking -> Device: YES, App: YES
+2015-05-01 09:25:46.466 Bunxious[40213:941114] Unlimited access to network resources
+2015-05-01 09:25:46.468 Bunxious[40213:941114] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-01 09:25:47.068 Bunxious[40213:941114] Resetting plugins due to page load.
+2015-05-01 09:25:47.135 Bunxious[40213:941114] Failed to load webpage with error: The operation couldn’t be completed. (NSURLErrorDomain error -999.)
+2015-05-01 09:25:47.136 Bunxious[40213:941114] Resetting plugins due to page load.
+2015-05-01 09:25:50.789 Bunxious[40213:941114] Finished load of: file:///Users/ben/Library/Developer/CoreSimulator/Devices/5BB76212-1D69-4655-933C-F0373F164F66/data/Containers/Bundle/Application/1C013B16-8599-4BBE-B360-D9467B99AE88/Bunxious.app/www/index.html
+2015-05-01 09:27:05.082 Bunxious[40331:950158] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/ben/Library/Developer/CoreSimulator/Devices/5BB76212-1D69-4655-933C-F0373F164F66/data/Containers/Data/Application/9C66F9E8-479C-4038-9DE4-081AAB4B58FA/Library/Cookies/Cookies.binarycookies
+2015-05-01 09:27:05.164 Bunxious[40331:950158] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-01 09:27:05.165 Bunxious[40331:950158] Multi-tasking -> Device: YES, App: YES
+2015-05-01 09:27:05.167 Bunxious[40331:950158] Unlimited access to network resources
+2015-05-01 09:27:05.169 Bunxious[40331:950158] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-01 09:27:05.782 Bunxious[40331:950158] Resetting plugins due to page load.
+2015-05-01 09:27:05.863 Bunxious[40331:950158] Failed to load webpage with error: The operation couldn’t be completed. (NSURLErrorDomain error -999.)
+2015-05-01 09:27:05.865 Bunxious[40331:950158] Resetting plugins due to page load.
+2015-05-01 09:27:10.050 Bunxious[40331:950158] Finished load of: file:///Users/ben/Library/Developer/CoreSimulator/Devices/5BB76212-1D69-4655-933C-F0373F164F66/data/Containers/Bundle/Application/EA8AADC7-6963-418F-A0D9-CF71EC3090D4/Bunxious.app/www/index.html
+2015-05-01 09:27:52.566 Bunxious[40396:955703] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-01 09:27:52.567 Bunxious[40396:955703] Multi-tasking -> Device: YES, App: YES
+2015-05-01 09:27:52.568 Bunxious[40396:955703] Unlimited access to network resources
+2015-05-01 09:27:52.571 Bunxious[40396:955703] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-01 09:27:52.836 Bunxious[40396:955703] Resetting plugins due to page load.
+2015-05-01 09:27:52.917 Bunxious[40396:955703] Failed to load webpage with error: The operation couldn’t be completed. (NSURLErrorDomain error -999.)
+2015-05-01 09:27:52.919 Bunxious[40396:955703] Resetting plugins due to page load.
+2015-05-01 09:27:53.746 Bunxious[40396:955703] Finished load of: file:///Users/ben/Library/Developer/CoreSimulator/Devices/5BB76212-1D69-4655-933C-F0373F164F66/data/Containers/Bundle/Application/58CF6CB1-66B2-4752-8B36-049EC7BD2AD3/Bunxious.app/www/index.html
+2015-05-01 09:28:22.561 Bunxious[40461:959995] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-01 09:28:22.562 Bunxious[40461:959995] Multi-tasking -> Device: YES, App: YES
+2015-05-01 09:28:22.563 Bunxious[40461:959995] Unlimited access to network resources
+2015-05-01 09:28:22.565 Bunxious[40461:959995] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-01 09:28:22.836 Bunxious[40461:959995] Resetting plugins due to page load.
+2015-05-01 09:28:22.919 Bunxious[40461:959995] Failed to load webpage with error: The operation couldn’t be completed. (NSURLErrorDomain error -999.)
+2015-05-01 09:28:22.921 Bunxious[40461:959995] Resetting plugins due to page load.
+2015-05-01 09:28:24.279 Bunxious[40461:959995] Finished load of: file:///Users/ben/Library/Developer/CoreSimulator/Devices/5BB76212-1D69-4655-933C-F0373F164F66/data/Containers/Bundle/Application/898636FC-55CA-4F8B-9B6D-1E8058AAF84D/Bunxious.app/www/index.html
+2015-05-01 09:28:57.586 Bunxious[40524:964235] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-01 09:28:57.587 Bunxious[40524:964235] Multi-tasking -> Device: YES, App: YES
+2015-05-01 09:28:57.588 Bunxious[40524:964235] Unlimited access to network resources
+2015-05-01 09:28:57.590 Bunxious[40524:964235] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-01 09:28:57.853 Bunxious[40524:964235] Resetting plugins due to page load.
+2015-05-01 09:28:57.935 Bunxious[40524:964235] Failed to load webpage with error: The operation couldn’t be completed. (NSURLErrorDomain error -999.)
+2015-05-01 09:28:57.936 Bunxious[40524:964235] Resetting plugins due to page load.
+2015-05-01 09:28:58.866 Bunxious[40524:964235] Finished load of: file:///Users/ben/Library/Developer/CoreSimulator/Devices/5BB76212-1D69-4655-933C-F0373F164F66/data/Containers/Bundle/Application/31EF5245-B5EC-45EC-9ABA-16B6AC1A8F1F/Bunxious.app/www/index.html
+2015-05-01 09:29:34.270 Bunxious[40587:967069] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-01 09:29:34.271 Bunxious[40587:967069] Multi-tasking -> Device: YES, App: YES
+2015-05-01 09:29:34.272 Bunxious[40587:967069] Unlimited access to network resources
+2015-05-01 09:29:34.274 Bunxious[40587:967069] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-01 09:29:34.535 Bunxious[40587:967069] Resetting plugins due to page load.
+2015-05-01 09:29:34.618 Bunxious[40587:967069] Failed to load webpage with error: The operation couldn’t be completed. (NSURLErrorDomain error -999.)
+2015-05-01 09:29:34.621 Bunxious[40587:967069] Resetting plugins due to page load.
+2015-05-01 09:29:35.731 Bunxious[40587:967069] Finished load of: file:///Users/ben/Library/Developer/CoreSimulator/Devices/5BB76212-1D69-4655-933C-F0373F164F66/data/Containers/Bundle/Application/367C4DC0-148D-4A2C-8203-52420BA911F5/Bunxious.app/www/index.html
+2015-05-01 09:29:57.491 Bunxious[40650:969407] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-01 09:29:57.492 Bunxious[40650:969407] Multi-tasking -> Device: YES, App: YES
+2015-05-01 09:29:57.493 Bunxious[40650:969407] Unlimited access to network resources
+2015-05-01 09:29:57.495 Bunxious[40650:969407] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-01 09:29:57.761 Bunxious[40650:969407] Resetting plugins due to page load.
+2015-05-01 09:29:57.842 Bunxious[40650:969407] Failed to load webpage with error: The operation couldn’t be completed. (NSURLErrorDomain error -999.)
+2015-05-01 09:29:57.844 Bunxious[40650:969407] Resetting plugins due to page load.
+2015-05-01 09:29:58.803 Bunxious[40650:969407] Finished load of: file:///Users/ben/Library/Developer/CoreSimulator/Devices/5BB76212-1D69-4655-933C-F0373F164F66/data/Containers/Bundle/Application/2DF8C287-74FD-4740-BF57-6389C99A42D5/Bunxious.app/www/index.html

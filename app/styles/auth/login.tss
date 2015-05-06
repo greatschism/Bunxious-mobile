@@ -1,0 +1,67 @@
+
+".container": {
+	backgroundColor: '#202020',
+	layout: 'vertical',
+	top: 0,
+	bottom: '41dp'
+}
+
+"#create_account_wrapper": {
+	bottom: 0,
+	height: '41dp',
+	width: Ti.UI.FILL,
+	backgroundColor: "#000"
+}
+
+"#border": {
+	height: '1dp',
+	backgroundColor: "#262626",
+	top: 0
+}
+
+"#logo": {
+	image: '/images/logo.png',
+	top: '60dp',
+	center: {
+		x: '50%'
+	},
+	width: '157dp',
+	height: '77dp'
+}
+
+"#fbLogin": {
+	top: '50dp',
+	center: {
+		x: '50%'
+	}
+}
+
+".button": {
+	top: '15dp',
+	width: '250dp',
+	height: '40dp',
+	color: '#fff'
+}
+
+"#login_button": {
+	backgroundColor: '#f26b1d',
+	backgroundSelectedColor: '#ff8843'
+}
+
+"#request_invite": {
+	backgroundColor: '#13b5d6',
+	backgroundSelectedColor: '#15ccf1'
+}
+
+"#forgot_pass": {
+	top: '15dp'
+}
+
+"#create_account": {
+	color: "#f26b1d",
+	center: {
+		x: '50%',
+		y: '50%'
+	}
+}
+

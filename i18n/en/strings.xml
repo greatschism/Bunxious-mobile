@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+	<string name="email_address">E-MAIL ADDRESS</string>
+	<string name="password">PASSWORD</string>
+	<string name="password_again">PASSWORD AGAIN</string>
+	<string name="login">Login</string>
+	<string name="forgot_password">Forgot your password?</string>
+	<string name="request_invite">Request an Invitation</string>
+	<string name="create_account">Create a Bunxious Account</string>
+	<string name="request_invitation">REQUEST AN INVITATION</string>
+	<string name="send">SEND</string>
+	<string name="first_name">FIRST NAME</string>
+	<string name="last_name">LAST NAME</string>
+	<string name="username">USERNAME</string>
+	<string name="disclaimer">I would like to receive communications from bunoxious through email.</string>
+	<string name="register">Register</string>
+	<string name="login_to">Login to Bunxious</string>
+</resources>

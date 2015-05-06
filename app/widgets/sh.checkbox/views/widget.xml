@@ -1,0 +1,7 @@
+<Alloy>
+
+	<View id="container" class="w-fill h-fill lo-horizontal" borderColor="white" borderWidth="3" backgroundColor="white">
+		<ImageView id="checkbox" onClick="checkboxClick" class="w-fill h-fill"/>
+		<Label id="label" onClick="checkboxClick" class="w-fill h-fill l-0"/>
+	</View>
+</Alloy>

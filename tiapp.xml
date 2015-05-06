@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+    <id>com.bunxious.mobile</id>
+    <name>Bunxious</name>
+    <version>1.0</version>
+    <publisher>Lego</publisher>
+    <url>http://bunxious.com/</url>
+    <description/>
+    <copyright>2015 by Lego</copyright>
+    <icon>appicon.png</icon>
+    <fullscreen>false</fullscreen>
+    <navbar-hidden>false</navbar-hidden>
+    <analytics>true</analytics>
+    <guid>5e2a669b-3a26-41b3-9aaa-8fb94be839c6</guid>
+    <property name="ti.ui.defaultunit" type="string">dp</property>
+    <ios>
+        <plist>
+            <dict>
+            	<key>CFBundleURLTypes</key>
+                    <array>
+                        <dict>
+                            <key>CFBundleURLName</key>
+                            <!-- Application ID same as the id value in the tiapp.xml file -->
+                            <string>com.bunxious.mobile</string>
+                            <key>CFBundleURLSchemes</key>
+                            <array>
+                                <!-- Prefix the Facebook App ID with 'fb' -->
+                                <string>fb337276043149789</string>
+                            </array>
+                        </dict>
+                    </array>
+                    <key>FacebookAppID</key>
+                    <!-- Facebook App ID -->
+                    <string>337276043149789</string>
+                    <key>FacebookDisplayName</key>
+                    <!-- Facebook App Name from developer.facebook.com -->
+                    <string>Bunxious</string>
+                <key>UISupportedInterfaceOrientations~iphone</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                </array>
+                <key>UISupportedInterfaceOrientations~ipad</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                    <string>UIInterfaceOrientationPortraitUpsideDown</string>
+                    <string>UIInterfaceOrientationLandscapeLeft</string>
+                    <string>UIInterfaceOrientationLandscapeRight</string>
+                </array>
+                <key>UIRequiresPersistentWiFi</key>
+                <false/>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+                <key>UIStatusBarHidden</key>
+                <false/>
+                <key>UIStatusBarStyle</key>
+                <string>UIStatusBarStyleDefault</string>
+            </dict>
+        </plist>
+    </ios>
+    <android xmlns:android="http://schemas.android.com/apk/res/android">
+        <manifest>
+            <application android:theme="@style/Theme.NoActionBar">
+            	<activity android:label="@string/app_name"
+                    android:name="com.facebook.LoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+                <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+            </application>
+            <!-- To activate the ActionBar use this style 				 -->
+            <!-- <application android:theme="@style/Theme.YesActionBar"/> -->
+        </manifest>
+    </android>
+    <mobileweb>
+        <precache/>
+        <splash>
+            <enabled>true</enabled>
+            <inline-css-images>true</inline-css-images>
+        </splash>
+        <theme>default</theme>
+    </mobileweb>
+    <modules>
+        <module platform="android">facebook</module>
+        <module platform="iphone">facebook</module>
+    </modules>
+    <deployment-targets>
+        <target device="iphone">true</target>
+        <target device="ipad">true</target>
+        <target device="android">true</target>
+        <target device="mobileweb">false</target>
+    </deployment-targets>
+    <sdk-version>4.0.0.RC2</sdk-version>
+    <plugins>
+        <plugin version="1.0">ti.alloy</plugin>
+    </plugins>
+    <property name="appc-app-id" type="string">554a446d79ef596b0a6d424d</property>
+    <property name="appc-security-jailbreak-detect">false</property>
+    <property name="appc-security-debugger-detect">false</property>
+    <property name="ti.facebook.appid">337276043149789</property>
+</ti:app>

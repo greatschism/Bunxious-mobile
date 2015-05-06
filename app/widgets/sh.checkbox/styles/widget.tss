@@ -1,0 +1,17 @@
+"#checkbox": {
+	image: WPATH('checkmark-on.png'),
+	width : Ti.UI.FILL,
+	height : Ti.UI.FILL,
+	center : {
+		x : "50%",
+		y: '50%'
+	}
+}
+
+"#label": {
+	color: '#000',
+	font: {
+		fontSize: '18dp',
+		fontWeight: 'bold'
+	}
+}

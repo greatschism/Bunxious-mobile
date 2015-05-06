@@ -1,0 +1,36 @@
+
+".container": {
+	backgroundColor: '#202020',
+	layout: 'vertical',
+	top: 0
+}
+
+"#title": {
+	color: '#fff',
+	top: '50dp',
+	center: {
+		x: '50%'
+	}
+}
+
+"#logo": {
+	image: '/images/logo.png',
+	top: '60dp',
+	center: {
+		x: '50%'
+	},
+	width: '157dp',
+	height: '77dp'
+}
+
+".button": {
+	top: '10dp',
+	width: '250dp',
+	height: '40dp',
+	color: '#fff'
+}
+
+"#request_button": {
+	backgroundColor: '#f26b1d',
+	backgroundSelectedColor: '#ff8843'
+}

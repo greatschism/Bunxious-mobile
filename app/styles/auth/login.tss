@@ -21,7 +21,7 @@
 
 "#logo": {
 	image: '/images/logo.png',
-	top: '60dp',
+	top: '50dp',
 	center: {
 		x: '50%'
 	},
@@ -33,7 +33,9 @@
 	top: '50dp',
 	center: {
 		x: '50%'
-	}
+	},
+	width : '250dp',
+	height : '50dp'
 }
 
 ".button": {
@@ -54,7 +56,8 @@
 }
 
 "#forgot_pass": {
-	top: '15dp'
+	top: '15dp',
+	color : '#666'
 }
 
 "#create_account": {

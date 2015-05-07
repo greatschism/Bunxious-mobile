@@ -20,10 +20,13 @@
 }
 
 "#fbLogin" : {
-	top : '65dp',
+	top : '45dp',
 	center : {
 		x : '50%'
-	}
+	},
+	width : '250dp',
+	width : '250dp',
+	height : '50dp'
 }
 
 ".button": {

@@ -8,5 +8,9 @@
 			<Widget src="com.harkdev.stylehinttextfield" height="40dp" width="250dp" top="10dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('email_address')" tfTop="5dp" tfWidth="220dp" />
 			<Button id="request_button" class="button" title="L('send')" />
 		</View>
+		<View id="login_wrapper">
+			<View id="border"/>
+			<Label id="login_to" text="L('login_to')" />
+		</View>
 	</Window> 
 </Alloy> 

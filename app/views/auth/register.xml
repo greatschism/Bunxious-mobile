@@ -1,7 +1,7 @@
 <Alloy>
 	<Window id="registerWindow">
 		<View class="container">
-			<LoginButton id="fbLogin" module="facebook"/>
+			<LoginButton id="fbLogin" module="facebook" />
 			<Widget src="com.harkdev.stylehinttextfield" height="40dp" width="250dp" top="30dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('email_address')" tfTop="5dp" tfWidth="220dp" />
 			<Widget src="com.harkdev.stylehinttextfield" height="40dp" width="250dp" top="10dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('first_name')" tfTop="5dp" tfWidth="220dp" />
 			<Widget src="com.harkdev.stylehinttextfield" height="40dp" width="250dp" top="10dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('last_name')" tfTop="5dp" tfWidth="220dp" />

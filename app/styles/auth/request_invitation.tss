@@ -2,6 +2,20 @@
 ".container": {
 	backgroundColor: '#202020',
 	layout: 'vertical',
+	top: 0,
+	bottom: '41dp'
+}
+
+"#login_wrapper": {
+	bottom: 0,
+	height: '41dp',
+	width: Ti.UI.FILL,
+	backgroundColor: "#000"
+}
+
+"#border": {
+	height: '1dp',
+	backgroundColor: "#262626",
 	top: 0
 }
 
@@ -34,3 +48,12 @@
 	backgroundColor: '#f26b1d',
 	backgroundSelectedColor: '#ff8843'
 }
+
+"#login_to": {
+	color: "#f26b1d",
+	center: {
+		x: '50%',
+		y: '50%'
+	}
+}
+

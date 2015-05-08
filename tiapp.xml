@@ -2,11 +2,11 @@
 <ti:app xmlns:ti="http://ti.appcelerator.org">
     <id>com.bunxious.mobile</id>
     <name>Bunxious</name>
-    <version>1.0</version>
-    <publisher>Lego</publisher>
+    <version>0.0.5</version>
+    <publisher>Bunxious</publisher>
     <url>http://bunxious.com/</url>
     <description>Bunxious app</description>
-    <copyright>2015 by Lego</copyright>
+    <copyright>2015 by Bunxious</copyright>
     <icon>appicon.png</icon>
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>

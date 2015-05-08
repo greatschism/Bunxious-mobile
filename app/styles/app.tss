@@ -25,7 +25,7 @@ overrode the settings with other TSS, XML, or JS settings:
 
 */
 
-'Window' : {
+'Window[platform=android]' : {
 	windowSoftInputMode : Ti.UI.Android.SOFT_INPUT_STATE_HIDDEN
 }
 

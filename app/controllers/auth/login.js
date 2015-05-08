@@ -1,5 +1,6 @@
 var args = arguments[0] || {};
 
+
 $.request_invite.addEventListener('click', function() {
 	
 	Alloy.createController('auth/request_invitation').getView().open();
@@ -16,4 +17,13 @@ $.create_account.addEventListener('click', function() {
 	}
 	
 	registerWindow.open();
+});
+
+$.login_button.addEventListener('click', function() {
+	
+	Alloy.Globals.API.login($.user.getValue() , $.pass.getValue(), function(currentUser) {
+		
+		Alloy.Globals.currentUser = currentUser;
+		Alloy.createController('main/home').getView().open();
+	});
 });

@@ -1,0 +1,9 @@
+
+".container" : {
+	backgroundColor : '#f4f4f4'
+}
+
+".table" : {
+	separatorColor : 'transparent',
+	rowHeight : '480dp',
+}

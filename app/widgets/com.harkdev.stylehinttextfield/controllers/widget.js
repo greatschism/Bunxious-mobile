@@ -63,18 +63,28 @@ function initTextField()
 {
 	if (args.color != null) $.txtField.color = args.color;
 	if (args.font != null) $.txtField.font = args.font;
+	if (args.tffontsize != null) $.txtField.font = {
+		fontSize : args.tffontsize
+	};
 	$.txtField.passwordMask = args.passwordMask;
 	$.txtField.value = args.value;
 	if (args.borderRadius != null) $.txtField.borderRadius = args.borderRadius;
 	if (args.borderWidth != null) $.txtField.borderWidth = args.borderWidth;
 	if (args.borderColor != null) $.txtField.borderColor = args.borderColor;
 	if (args.height != null) $.txtField.height = args.height;
-	if (args.tfTop != null) $.txtField.top = args.tfTop;
+	//if (args.tfTop != null) $.txtField.top = args.tfTop;
 	if (args.tfWidth != null) $.txtField.width = args.tfWidth;
+	if (args.backgroundColor != null) $.txtField.backgroundColor = args.backgroundColor;
 		
 	$.txtField.center = {
-		x : '50%'
+		x : '50%',
+		y : '50%'
 	};
+	
+	if (OS_ANDROID) {
+		
+		$.txtField.top = '5dp';
+	}
 }
 
 /***

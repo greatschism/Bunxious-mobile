@@ -1,0 +1,26 @@
+
+"#container": {
+	height: '50dp',
+	width : '100%',
+	backgroundColor: '#62949b'
+}
+
+"#title" : {
+	center : {
+		y : '50%'
+	},
+	left : '65dp',
+	color : "#89b1b7",
+	font : {
+		fontSize : '16dp'
+	}
+}
+
+"#icon" : {
+	left : '23dp',
+	height : '25dp',
+	width : '25dp',
+	center : {
+		y : '50%'
+	}
+}

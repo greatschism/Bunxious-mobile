@@ -25,3 +25,16 @@ overrode the settings with other TSS, XML, or JS settings:
 
 */
 
+'Window' : {
+	windowSoftInputMode : Ti.UI.Android.SOFT_INPUT_STATE_HIDDEN
+}
+
+".com.jolicode.pageflow.navBar.center": {
+	backgroundImage : '/images/logo.png',
+	height: '26dp',
+	width : '53dp',
+	center : {
+		x : '50%',
+		y : '50%'
+	},
+},

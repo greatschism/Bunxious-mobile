@@ -3,8 +3,8 @@
 		<View class="container">
 			<ImageView id="logo" />
 			<LoginButton id="fbLogin" module="facebook" />
-			<Widget src="com.harkdev.stylehinttextfield" height="40dp" width="250dp" top="50dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('email_address')" tfTop="5dp" tfWidth="220dp" />
-			<Widget src="com.harkdev.stylehinttextfield" height="40dp" width="250dp" top="10dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('password')" tfTop="5dp" tfWidth="220dp" passwordMask="true" />
+			<Widget id="user" src="com.harkdev.stylehinttextfield" height="40dp" width="250dp" top="50dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('email_address')" tfTop="5dp" tfWidth="220dp" />
+			<Widget id="pass" src="com.harkdev.stylehinttextfield" height="40dp" width="250dp" top="10dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('password')" tfTop="5dp" tfWidth="220dp" passwordMask="true" />
 			<Button id="login_button" class="button" title="L('login')" />
 			<Label id="forgot_pass" text="L('forgot_password')" />
 			<Button id="request_invite" class="button" title="L('request_invite')" />

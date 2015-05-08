@@ -1,0 +1,5 @@
+<Alloy>
+	<View id="openMenu" >
+		<ImageView id="menuButton" />
+	</View>
+</Alloy>

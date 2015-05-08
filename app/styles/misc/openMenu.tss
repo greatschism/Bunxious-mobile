@@ -1,0 +1,15 @@
+"#openMenu" : {
+	width : 44,
+	height : 44,
+	left : 0
+}
+
+"#menuButton" : {
+	image : "/images/menuwhite.png",
+	center : {
+		x : '50%',
+		y : '50%'
+	},
+	width : '25dp',
+	height : '25dp'
+}

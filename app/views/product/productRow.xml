@@ -1,0 +1,17 @@
+<Alloy>
+	<TableViewRow class="row">
+		<View class="container">
+			<ImageView id="pinImage"/>
+			<ImageView id="avatar"/>
+			<View id="boxButton" class="buttonWrapper">
+				<ImageView id="box" class="button" />
+			</View>
+			<View id="heartButton" class="buttonWrapper">
+				<ImageView id="heart" class="button" />
+			</View>
+			<Label id="title" />
+			<Label id="description" />
+			<Label id="price" />
+		</View>
+	</TableViewRow>
+</Alloy>

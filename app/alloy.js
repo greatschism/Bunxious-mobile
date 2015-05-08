@@ -21,3 +21,8 @@ if (OS_ANDROID) {
     Alloy.Globals.jolicode.pageflow.height = Ti.Platform.displayCaps.platformHeight / Ti.Platform.displayCaps.logicalDensityFactor;
     Alloy.Globals.jolicode.pageflow.width = Ti.Platform.displayCaps.platformWidth / Ti.Platform.displayCaps.logicalDensityFactor;
 }
+
+Alloy.Globals.API = require('api');
+
+// Storing the currentUser here for global access
+Alloy.Globals.currentUser = null;

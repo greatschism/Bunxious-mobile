@@ -29,6 +29,10 @@ overrode the settings with other TSS, XML, or JS settings:
 	windowSoftInputMode : Ti.UI.Android.SOFT_INPUT_STATE_HIDDEN
 }
 
+'Window[platform=ios]' : {
+	statusBarStyle : Titanium.UI.iPhone.StatusBar.LIGHT_CONTENT
+}
+
 ".com.jolicode.pageflow.navBar.center": {
 	backgroundImage : '/images/logo.png',
 	height: '26dp',

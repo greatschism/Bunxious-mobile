@@ -1,4 +1,8 @@
+"#iosHeader": {
+	width: '100%',
+	height: '20dp'
+}
 
-".container" : {
-  
+".container[platform=ios]": {
+	layout: 'vertical'
 }

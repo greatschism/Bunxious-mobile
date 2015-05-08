@@ -1,9 +1,9 @@
 ".com.jolicode.pageflow.navBar": {
 	backgroundColor: '#FFFF',
 	height: 44,
-	top: -1,
-	borderColor: '#437379',
-	borderWidth: '1dp'
+	top: 0,
+	// borderColor: '#437379',
+	// borderWidth: '1dp'
 },
 ".com.jolicode.pageflow.navBar.center": {
 	backgroundColor: 'transparent',

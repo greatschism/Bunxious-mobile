@@ -1,4 +1,9 @@
+"#iosHeader": {
+	width: '100%',
+	height: '20dp',
+	backgroundColor : '#62949b'
+}
 
-".container" : {
-  
+"#drawermenu[platform=ios]": {
+	top: '20dp'
 }

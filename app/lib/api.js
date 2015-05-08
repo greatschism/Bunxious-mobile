@@ -78,11 +78,11 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction) {
 
 	xhr.onerror = function(e) {
 
-		Ti.API.info('Transmission error: ' + endpoint + ' ' + JSON.stringify(this));
+		Ti.API.info('Transmission error: ' + endpoint + ' ' + JSON.stringify(this) + this.responseText);
 
-		if (this.responseText && JSON.parse(this.responseText) && errorFunction) {
+		if (errorFunction && this.responseText) {
 
-			errorFunction(JSON.parse(this.responseText));
+			errorFunction(this.responseText);
 
 		} else if (errorFunction) {
 
@@ -97,7 +97,7 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction) {
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xhr.setRequestHeader('Authorization', 'Basic ' + Ti.Utils.base64encode(config.httpUser + ':' + config.httpPass));
 
-	if (data != undefined || data != null) {
+	if (data && method == 'POST') {
 
 		Ti.API.info('gonna hit ' + url + ' and gonna send ' + JSON.stringify(queryString(data)));
 		xhr.send(queryString(data));

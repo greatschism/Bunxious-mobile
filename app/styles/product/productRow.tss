@@ -1,7 +1,7 @@
 
 ".container": {
 	height: '480dp',
-	width: '330dp',
+	width: '300dp',
 	backgroundColor: '#fff',
 	top: '20dp'
 }

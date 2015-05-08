@@ -1,45 +1,48 @@
 <Alloy>
-	<ScrollView class="container">
-		<ImageView id="logo" />
-		<View class="border topBorder" />
-		<Widget src="com.harkdev.stylehinttextfield" tffontsize="12dp" height="30dp" width="220dp" top="10dp" hintLeft="10dp" backgroundColor="#55888f" color="#89b1b7" hintColor="#89b1b7" hintText="L('search')" tfTop="5dp" tfWidth="210dp" rightImage="/images/search.png"/>
-		<View class="border searchBorder" />
-		<View class="userInfo">
-			<ImageView id="userPicture" />
-			<Label id="userName" />
-		</View>
-		<View class="border" />
-		<View class="headerWrapper">
-			<Label class="headerText" text="L('bunxious_caps')" />
-		</View>
-		<View class="border" />
-		<Require src="misc/menuButton" title="L('home')" icon="/images/home.png" />
-		<View class="border" />
-		<Require src="misc/menuButton" title="L('activity')" icon="/images/menu.png" />
-		<View class="border" />
-		<Require src="misc/menuButton" title="L('favorites')" icon="/images/heart.png" />
-		<View class="border" />
-		<Require src="misc/menuButton" title="L('closet')" icon="/images/bag.png" />
-		<View class="border" />
-		<Require src="misc/menuButton" title="L('conversations')" icon="/images/chat.png" />
-		<View class="border" />
-		<Require src="misc/menuButton" title="L('followers')" icon="/images/friends.png" />
-		<View class="border" />
-		<Require src="misc/menuButton" title="L('treasure')" icon="/images/box.png" />
-		<View class="border" />
-		<View class="headerWrapper">
-			<Label class="headerText" text="L('account')" />
-		</View>
-		<View class="border" />
-		<Require src="misc/menuButton" title="L('cart')" icon="/images/cart.png" />
-		<View class="border" />
-		<Require src="misc/menuButton" title="L('my_orders')" icon="/images/clipboard.png" />
-		<View class="border" />
-		<Require src="misc/menuButton" title="L('add_item')" icon="/images/add.png" />
-		<View class="border" />
-		<Require src="misc/menuButton" title="L('settings')" icon="/images/gear.png" />
-		<View class="border" />
-		<Require src="misc/menuButton" title="L('sign_out')" icon="/images/logout.png" />
-		<View class="border" />
-	</ScrollView>
+	<View id="menuWrapper">
+		<View id="iosHeader" platform="ios" />
+		<ScrollView class="container">
+			<ImageView id="logo" />
+			<View class="border topBorder" />
+			<Widget src="com.harkdev.stylehinttextfield" tffontsize="12dp" height="30dp" width="220dp" top="10dp" hintLeft="10dp" backgroundColor="#55888f" color="#89b1b7" hintColor="#89b1b7" hintText="L('search')" tfTop="5dp" tfWidth="210dp" rightImage="/images/search.png"/>
+			<View class="border searchBorder" />
+			<View class="userInfo">
+				<ImageView id="userPicture" />
+				<Label id="userName" />
+			</View>
+			<View class="border" />
+			<View class="headerWrapper">
+				<Label class="headerText" text="L('bunxious_caps')" />
+			</View>
+			<View class="border" />
+			<Require src="misc/menuButton" title="L('home')" icon="/images/home.png" />
+			<View class="border" />
+			<Require src="misc/menuButton" title="L('activity')" icon="/images/menu.png" />
+			<View class="border" />
+			<Require src="misc/menuButton" title="L('favorites')" icon="/images/heart.png" />
+			<View class="border" />
+			<Require src="misc/menuButton" title="L('closet')" icon="/images/bag.png" />
+			<View class="border" />
+			<Require src="misc/menuButton" title="L('conversations')" icon="/images/chat.png" />
+			<View class="border" />
+			<Require src="misc/menuButton" title="L('followers')" icon="/images/friends.png" />
+			<View class="border" />
+			<Require src="misc/menuButton" title="L('treasure')" icon="/images/box.png" />
+			<View class="border" />
+			<View class="headerWrapper">
+				<Label class="headerText" text="L('account')" />
+			</View>
+			<View class="border" />
+			<Require src="misc/menuButton" title="L('cart')" icon="/images/cart.png" />
+			<View class="border" />
+			<Require src="misc/menuButton" title="L('my_orders')" icon="/images/clipboard.png" />
+			<View class="border" />
+			<Require src="misc/menuButton" title="L('add_item')" icon="/images/add.png" />
+			<View class="border" />
+			<Require src="misc/menuButton" title="L('settings')" icon="/images/gear.png" />
+			<View class="border" />
+			<Require src="misc/menuButton" title="L('sign_out')" icon="/images/logout.png" />
+			<View class="border" />
+		</ScrollView>
+	</View>
 </Alloy>

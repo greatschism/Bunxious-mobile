@@ -1,5 +1,6 @@
 <Alloy>
-	 <View>
+	 <View class="container">
+	 	<View id="iosHeader" platform="ios" />
 		<Widget src="com.jolicode.pageflow" id="pageFlow" />
 	 </View>
 </Alloy>

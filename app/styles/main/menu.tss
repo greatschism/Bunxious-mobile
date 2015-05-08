@@ -2,70 +2,83 @@
 ".container": {
 	backgroundColor: '#62949b',
 	width: '250dp',
-	layout : 'vertical',
-	left : 0
+	layout: 'vertical',
+	left: 0,
+	top: 0
+}
+
+"#iosHeader": {
+	width: '100%',
+	height: '20dp',
+	backgroundColor: '#62949b',
+	top: 0,
+	left: 0
+}
+
+"#menuWrapper": {
+	layout: 'vertical'
 }
 
 ".border": {
 	width: '250dp',
 	height: '1dp',
 	backgroundColor: '#46767c',
-	top : 0
+	top: 0
 }
 
-".topBorder" : {
-	top : "9dp",
+".topBorder": {
+	top: "10dp"
 }
 
 "#logo": {
 	image: '/images/logo.png',
-	left : "17dp",
-	top : "7dp",
+	left: "17dp",
+	top: "7dp",
 	width: '53dp',
 	height: '26dp'
 }
 
-".searchBorder" : {
-	top : "10dp"
+".searchBorder": {
+	top: "10dp"
 }
 
-".userInfo" : {
-	height : "60dp"
+".userInfo": {
+	height: "60dp"
 }
 
-"#userPicture" : {
-	left : '15dp',
-	width : '40dp',
-	height : '40dp',
-	center : {
-		y : '50%'
+"#userPicture": {
+	left: '15dp',
+	width: '40dp',
+	height: '40dp',
+	center: {
+		y: '50%'
 	}
 }
 
-"#userName" : {
-	left : '65dp',
-	center : {
-		y : '50%'
+"#userName": {
+	left: '65dp',
+	center: {
+		y: '50%'
 	},
-	font : {
-		fontSize : '15dp'
+	font: {
+		fontSize: '15dp'
 	},
-	color : '#d5dae2'
+	color: '#d5dae2'
 }
 
-".headerWrapper" : {
-	backgroundColor : '#55888f',
-	height : '30dp'
+".headerWrapper": {
+	backgroundColor: '#55888f',
+	height: '30dp'
 }
 
-".headerText" : {
-	left : '20dp',
-	center : {
-		y : '50%'
+".headerText": {
+	left: '20dp',
+	center: {
+		y: '50%'
 	},
-	font : {
-		fontWeight : "bold",
-		fontSize : '14dp'
+	font: {
+		fontWeight: "bold",
+		fontSize: '14dp'
 	},
-	color : '#89b1b7'
+	color: '#89b1b7'
 }

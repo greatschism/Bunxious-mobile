@@ -6,11 +6,11 @@
 			<View class="border topBorder" />
 			<Widget src="com.harkdev.stylehinttextfield" tffontsize="12dp" height="30dp" width="220dp" top="10dp" hintLeft="10dp" backgroundColor="#55888f" color="#89b1b7" hintColor="#89b1b7" hintText="L('search')" tfTop="5dp" tfWidth="210dp" rightImage="/images/search.png"/>
 			<View class="border searchBorder" />
-			<View class="userInfo">
+			<View id="userInfo">
 				<ImageView id="userPicture" />
 				<Label id="userName" />
+				<View class="infoBorder" />
 			</View>
-			<View class="border" />
 			<View class="headerWrapper">
 				<Label class="headerText" text="L('bunxious_caps')" />
 			</View>
@@ -41,7 +41,7 @@
 			<View class="border" />
 			<Require src="misc/menuButton" title="L('settings')" icon="/images/gear.png" />
 			<View class="border" />
-			<Require src="misc/menuButton" title="L('sign_out')" icon="/images/logout.png" />
+			<Require id="login_logout" src="misc/menuButton" title="L('sign_out')" icon="/images/logout.png" />
 			<View class="border" />
 		</ScrollView>
 	</View>

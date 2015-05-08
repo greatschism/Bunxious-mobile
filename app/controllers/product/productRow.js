@@ -6,3 +6,4 @@ $.avatar.image = args.user.avatar_medium.image;
 $.title.text = args.title;
 $.description.text = args.description.replace('\r', '').replace('\n', ''); //stripping new lines
 $.price.text = utils.codeToCurrency(args.currency_code) + args.price;
+

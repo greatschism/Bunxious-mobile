@@ -129,13 +129,16 @@ api.login = function(email, pass, success, fail) {
 	}, success, fail);
 };
 
+api.logout = function(success, fail) {
+
+	httpRequest('user/logout', 'POST', {
+		token : Alloy.Globals.currentUser.token
+	}, success, fail);
+};
+
 api.getHomePins = function(success, fail, offset) {
 	
-	httpRequest('pin/home', 'GET', {
-		token : Alloy.Globals.currentUser.token,
-		limit : 20,
-		offset : offset ? offset : 0,
-	}, success, fail);
+	httpRequest('pin/home', 'GET', null, success, fail);
 };
 
 module.exports = api;

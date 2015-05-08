@@ -24,6 +24,9 @@ $.login_button.addEventListener('click', function() {
 	Alloy.Globals.API.login($.user.getValue() , $.pass.getValue(), function(currentUser) {
 		
 		Alloy.Globals.currentUser = currentUser;
-		Alloy.createController('main/home').getView().open();
+		
+		// Updating the main menu
+		Ti.App.fireEvent('loggedIn');
+		$.loginWindow.close();
 	});
 });

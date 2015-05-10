@@ -7,12 +7,11 @@
 
  */
 
-var utils = {};
 
 /*
  * Helper function for mapping the currency code to symbol
  */
-utils.codeToCurrency = function(code) {
+exports.codeToCurrency = function(code) {
 
 	var currency_symbols = {
 		'USD' : '$', // US Dollar
@@ -35,4 +34,3 @@ utils.codeToCurrency = function(code) {
 	return currency_symbols[code] ? currency_symbols[code] : code;
 };
 
-module.exports = utils;

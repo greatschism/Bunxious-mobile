@@ -1,0 +1,42 @@
+
+".container": {
+	backgroundColor: '#f4f4f4'
+}
+
+".table": {
+	separatorColor: 'transparent',
+	rowHeight: '480dp'
+}
+
+"#favoriteWrapper": {
+	height: '125dp'
+}
+
+"#favoriteSection": {
+	height: '110dp',
+	bottom: 0,
+	width: '300dp'
+}
+
+'#favoriteSection[platform=android]': {
+	width: '320dp'
+}
+
+".labelWrapper" : {
+	backgroundColor : '#e4e7ea',
+	height : '30dp',,
+	top : 0
+}
+
+".favLabel" : {
+	left : '7dp',
+	center : {
+		y : '50%'
+	},
+	color : '#2e2e2f',
+	font : {
+		fontSize : '13dp',
+		fontWeight : 'bold'
+	}
+}
+

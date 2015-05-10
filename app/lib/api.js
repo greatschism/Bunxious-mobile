@@ -33,8 +33,13 @@ function queryString(data) {
 };
 
 function httpRequest(endpoint, method, data, successFunction, errorFunction) {
-
+	
 	var url = config.baseURL + endpoint;
+
+	if (data && method == 'GET')  {
+		
+		url = url + '?' + queryString(data);
+	}
 
 	var xhr = Ti.Network.createHTTPClient();
 
@@ -55,7 +60,7 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction) {
 						successFunction(responseJSON);
 					}
 				} else if (errorFunction) {
-					
+
 					errorFunction(responseJSON.error);
 				}
 			} catch (e) {
@@ -91,7 +96,7 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction) {
 	};
 
 	xhr.timeout = 20000;
-
+	
 	xhr.open(method, url);
 
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -138,28 +143,65 @@ api.logout = function(success, fail) {
 
 api.getHomePins = function(success, fail, offset) {
 	
-	httpRequest('pin/home', 'GET', null, success, fail);
+	var data = {
+		limit : 20,
+	};
+	
+	if (offset) {
+		
+		data.offset = offset;
+	}
+	
+	if (Alloy.Globals.currentUser) {
+		
+		data.token = Alloy.Globals.currentUser.token;
+	}
+
+	httpRequest('pin/home', 'GET', data, success, fail);
 };
 
 api.getAllCategories = function(success, fail) {
-	
+
 	// Cleaning the response and returning just an array of strings
 	function onSuccess(results) {
-		
+
 		var items = [];
-		
+
 		for (var i in results) {
-			
+
 			items.push(results[i].title);
 		}
-		
+
 		if (success) {
-			
+
 			success(items);
 		}
 	}
-	
+
 	httpRequest('category/find-all', 'GET', null, onSuccess, fail);
+};
+
+api.getActivity = function(success, fail) {
+	
+	var data = {
+		token : Alloy.Globals.currentUser.token
+	};
+	
+	httpRequest('activity/find', 'GET', data, success, fail);
+};
+
+api.getUser = function(user_id, success, fail) {
+	
+	var data = {
+		user_id : user_id,
+	};
+		
+	if (Alloy.Globals.currentUser) {
+		
+		data.token = Alloy.Globals.currentUser.token;
+	}
+	
+	httpRequest('user/find', 'GET', data, success, fail);
 };
 
 module.exports = api;

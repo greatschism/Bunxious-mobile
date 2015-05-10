@@ -89,3 +89,8 @@
 	},
 	color: '#89b1b7'
 }
+
+".loginDependant" : {
+	layout : 'vertical',
+	height : Ti.UI.SIZE
+}

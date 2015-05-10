@@ -1,0 +1,76 @@
+
+".container" : {
+	backgroundColor : '#f4f4f4',
+	layout : 'vertical'
+}
+
+".profileWrapper" : {
+	width : '320dp'
+}
+
+'.profileWrapper[platform=ios]' : {
+	width : '300dp'
+}
+
+".userInfo" : {
+	height : '106dp',
+	top : '20dp'
+}
+
+"#avatar" : {
+	left : 0,
+	top : 0,
+	width : '70dp',
+	height : '70dp'
+}
+
+"#userName" : {
+	left : '80dp',
+	top : 0,
+	color : '#d74d0a',
+	font : {
+		fontSize : '15dp',
+		fontWeight : 'bold'
+	}
+}
+
+'#userLocation' : {
+	left : '80dp',
+	top : '18dp',
+	color : '#666',
+	font : {
+		fontSize : '14dp',
+	}
+}
+
+".button" : {
+	width : '66dp',
+	height : '22dp',
+	backgroundColor : '#f26b1d',
+	top : '48dp',
+	left : '80dp',
+}
+
+"#contactButton" : {
+	left : '167dp'
+}
+
+".buttonLabel" : {
+	color : '#fff',
+	font : {
+		fontSize : '12dp',
+		fontWeight : 'bold'
+	},
+	
+}
+
+".followLabel" : {
+	left : '24dp'
+}
+
+".plus" : {
+	image : '/images/pluswhite.png',
+	width : '10dp',
+	height : '10dp',
+	left : '8dp'
+}

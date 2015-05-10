@@ -39,4 +39,7 @@
 	<string name="size">Size</string>
 	<string name="price">Price</string>
 	<string name="sort_by">Sort By</string>
+	<string name="fav_text">NEW ITEMS FOR YOUR FAVORITE CLOSETS</string>
+	<string name="follow">Follow</string>
+	<string name="contact">Contact</string>
 </resources>

@@ -10,7 +10,7 @@ $.drawermenu.init({
     parent: $.mainWindow
 });
 
-Ti.App.addEventListener('openMenu', function() {
+Ti.App.addEventListener('toggleMenu', function() {
 	$.drawermenu.showhidemenu();
 	$.drawermenu.menuOpen=!$.drawermenu.menuOpen;
 });

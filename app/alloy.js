@@ -23,6 +23,7 @@ if (OS_ANDROID) {
 }
 
 Alloy.Globals.API = require('api');
+Alloy.Globals.Utils = require('utils');
 
 // Storing the currentUser here for global access
 Alloy.Globals.currentUser = null;

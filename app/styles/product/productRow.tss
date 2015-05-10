@@ -6,6 +6,10 @@
 	top: '20dp'
 }
 
+'.container[platform=android]' : {
+	width : '320dp'
+}
+
 ".row": {
 	height: '480dp',
 	backgroundColor : 'transparent'

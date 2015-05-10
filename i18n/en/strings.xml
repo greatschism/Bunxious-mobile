@@ -30,4 +30,13 @@
 	<string name="add_item">Add New Item</string>
 	<string name="settings">Settings</string>
 	<string name="sign_out">Sign Out</string>
+	<string name="selector_close">Close X</string>
+	<string name="selector_select">Seleccionar elemento de la lista</string>
+	<string name="selector_new_element">New</string>
+	<string name="all_items">All Items</string>
+	<string name="brand">Brand</string>
+	<string name="gender">Gender</string>
+	<string name="size">Size</string>
+	<string name="price">Price</string>
+	<string name="sort_by">Sort By</string>
 </resources>

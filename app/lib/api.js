@@ -141,4 +141,25 @@ api.getHomePins = function(success, fail, offset) {
 	httpRequest('pin/home', 'GET', null, success, fail);
 };
 
+api.getAllCategories = function(success, fail) {
+	
+	// Cleaning the response and returning just an array of strings
+	function onSuccess(results) {
+		
+		var items = [];
+		
+		for (var i in results) {
+			
+			items.push(results[i].title);
+		}
+		
+		if (success) {
+			
+			success(items);
+		}
+	}
+	
+	httpRequest('category/find-all', 'GET', null, onSuccess, fail);
+};
+
 module.exports = api;

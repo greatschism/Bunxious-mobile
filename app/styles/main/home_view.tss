@@ -7,3 +7,82 @@
 	separatorColor : 'transparent',
 	rowHeight : '480dp',
 }
+
+"#filterWrapper" : {
+	height : '85dp'
+}
+
+"#filterSection" : {
+	height : '60dp',
+	bottom : 0,
+	width : '300dp'
+}
+
+'#filterSection[platform=android]' : {
+	width : '320dp'
+}
+
+".filterWrapper" : {
+	width : '93dp',
+	borderRadius : '3dp',
+	height : '24dp',
+	backgroundColor : '#d1d7dc',
+}
+
+".filterWrapper[platform=ios]" : {
+	width : '86dp',
+}
+
+".topRow" : {
+	top : 0
+}
+
+".botRow" : {
+	bottom : 0
+}
+
+".firstElement" : {
+	left : 0
+}
+
+".centerElement" : {
+	center : {
+		x : '50%'
+	}
+}
+
+".lastElement" : {
+	right : 0
+}
+
+".filterLabel" : {
+	center : {
+		y : '50%'
+	},
+	left : '7dp',
+	font : {
+		fontSize : '12dp'
+	},
+	color : '#596b7c'
+}
+
+".filterSeparator" : {
+	right : '25dp',
+	height : '100%',
+	width : '1dp',
+	backgroundColor : 'white'	
+}
+
+".filterIcon" : {
+	image : '/images/arrow_down.png',
+	width : '10dp',
+	height : '10dp',
+	center : {
+		y : '50%'
+	},
+	right : "7dp"
+}
+
+
+
+

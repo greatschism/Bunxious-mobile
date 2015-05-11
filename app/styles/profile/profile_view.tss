@@ -1,76 +1,175 @@
 
-".container" : {
-	backgroundColor : '#f4f4f4',
-	layout : 'vertical'
+".container": {
+	backgroundColor: '#f4f4f4',
+	layout: 'vertical'
 }
 
-".profileWrapper" : {
-	width : '320dp'
+".profileWrapper": {
+	width: '320dp'
 }
 
-'.profileWrapper[platform=ios]' : {
-	width : '300dp'
+'.profileWrapper[platform=ios]': {
+	width: '300dp'
 }
 
-".userInfo" : {
-	height : '106dp',
-	top : '20dp'
+".userInfo": {
+	height: '106dp',
+	top: '20dp'
 }
 
-"#avatar" : {
-	left : 0,
-	top : 0,
-	width : '70dp',
-	height : '70dp'
+"#avatar": {
+	left: 0,
+	top: 0,
+	width: '70dp',
+	height: '70dp'
 }
 
-"#userName" : {
-	left : '80dp',
-	top : 0,
-	color : '#d74d0a',
-	font : {
-		fontSize : '15dp',
-		fontWeight : 'bold'
+"#userName": {
+	left: '80dp',
+	top: 0,
+	color: '#d74d0a',
+	font: {
+		fontSize: '15dp',
+		fontWeight: 'bold'
 	}
 }
 
-'#userLocation' : {
-	left : '80dp',
-	top : '18dp',
-	color : '#666',
-	font : {
-		fontSize : '14dp',
+'#userLocation': {
+	left: '80dp',
+	top: '18dp',
+	color: '#666',
+	font: {
+		fontSize: '14dp'
 	}
 }
 
-".button" : {
-	width : '66dp',
-	height : '22dp',
-	backgroundColor : '#f26b1d',
-	top : '48dp',
-	left : '80dp',
+".button": {
+	width: '66dp',
+	height: '22dp',
+	backgroundColor: '#f26b1d',
+	top: '48dp',
+	left: '80dp'
 }
 
-"#contactButton" : {
-	left : '167dp'
+"#contactButton": {
+	left: '167dp'
 }
 
-".buttonLabel" : {
-	color : '#fff',
-	font : {
-		fontSize : '12dp',
-		fontWeight : 'bold'
+".buttonLabel": {
+	color: '#fff',
+	font: {
+		fontSize: '12dp',
+		fontWeight: 'bold'
+	}
+}
+
+".followLabel": {
+	left: '24dp'
+}
+
+".plus": {
+	image: '/images/pluswhite.png',
+	width: '10dp',
+	height: '10dp',
+	left: '8dp'
+}
+
+".joinedWrapper": {
+	width: '100%',
+	height: '27dp',
+	top: '80dp'
+}
+
+".border": {
+	width: '100%',
+	height: '1dp',
+	backgroundColor: '#dadada'
+}
+
+".infoLabel": {
+	center: {
+		y: '50%'
 	},
-	
+	color: '#333333',
+	font: {
+		fontSize: '13dp'
+	}
 }
 
-".followLabel" : {
-	left : '24dp'
+"#gender": {
+	left: 0
 }
 
-".plus" : {
-	image : '/images/pluswhite.png',
+"#joined": {
+	left: '50dp'
+}
+
+"#tabChange": {
+	top: '145dp',
+	width:Ti.UI.FILL,
+	height: '30dp',
+	borderWidth: '1dp',
+	borderColor: '#d5dae2'
+}
+
+"#tabTitle": {
+	color: '#666',
+	left: '10dp',
+	center: {
+		y: '50%'
+	},
+	font: {
+		fontSize: '15dp'
+	}
+}
+
+".separator": {
+	width: '1dp',
+	height: Ti.UI.FILL,
+	backgroundColor: '#d5dae2',
+	right: '30dp'
+}
+
+".dropdown": {
+	right : 0,
+	width : '30dp',
+	height : Ti.UI.FILL,
+	backgroundGradient: {
+		type: 'linear',
+		startPoint: {
+			x: '50%',
+			y: '0%'
+		},
+		endPoint: {
+			x: '50%',
+			y: '100%'
+		},
+		colors: [
+			{
+				color: '#f3f4f5',
+				offset: 0.0
+			},
+			{
+				color: '#dbdee0',
+				offset: 1.0
+			}
+		]
+	}
+}
+
+".downArrow" : {
 	width : '10dp',
 	height : '10dp',
-	left : '8dp'
+	image : '/images/arrow_down.png',
+	center : {
+		x : '50%',
+		y : '50%'
+	}
 }
+
+"#tabContent" : {
+	top : '190dp',
+	height : Ti.UI.FILL,
+	width : '100%'
+}
+

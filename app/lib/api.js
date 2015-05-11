@@ -204,4 +204,20 @@ api.getUser = function(user_id, success, fail) {
 	httpRequest('user/find', 'GET', data, success, fail);
 };
 
+api.findBoard = function(user_id, success, fail) {
+	
+	var data = {
+		filters : {
+			user_id : user_id
+		}
+	};
+		
+	if (Alloy.Globals.currentUser) {
+		
+		data.token = Alloy.Globals.currentUser.token;
+	}
+	
+	httpRequest('board/find-by', 'GET', data, success, fail);
+};
+
 module.exports = api;

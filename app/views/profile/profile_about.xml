@@ -1,0 +1,9 @@
+<Alloy>
+	<View class="container">
+		<Label text="L('about')" class="about"/>
+		<Label id="aboutText"/>
+		<View class="labelWrapper">
+			<Label id="favLabel" />
+		</View>
+	</View>
+</Alloy>

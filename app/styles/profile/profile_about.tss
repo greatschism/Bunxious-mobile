@@ -1,0 +1,40 @@
+
+".container" : {
+  layout : 'vertical'
+}
+
+".about" : {
+	color : '#989a9f',
+	font : {
+		fontWeight : 'bold',
+		fontSize : '15dp'
+	},
+	left : 0,
+	top : 0,
+}
+
+"#aboutText" : {
+	color : '#8a8a8a',
+	height : Ti.UI.SIZE,
+	font : {
+		fontSize : '13dp'
+	}
+}
+
+".labelWrapper" : {
+	backgroundColor : '#e4e7ea',
+	height : '30dp',
+	top : '10dp'
+}
+
+"#favLabel" : {
+	left : '7dp',
+	center : {
+		y : '50%'
+	},
+	color : '#2e2e2f',
+	font : {
+		fontSize : '13dp',
+		fontWeight : 'bold'
+	}
+}

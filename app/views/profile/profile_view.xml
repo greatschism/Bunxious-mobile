@@ -1,5 +1,5 @@
 <Alloy>
-	<View class="container">
+	<ScrollView class="container">
 		<View class="profileWrapper">
 			<View class="userInfo">
 				<ImageView id="avatar" />
@@ -12,7 +12,21 @@
 				<View id="contactButton" class="button">
 					<Label class="buttonLabel" text="L('contact')"/>
 				</View>
+				<View class="joinedWrapper">
+					<View class="border" top="0"/>
+					<Label class="infoLabel" id="gender" />
+					<Label class="infoLabel" id="joined" />
+					<View class="border" bottom="1dp"/>
+				</View>
 			</View>
+			<View id="tabChange">
+				<Label id="tabTitle"/>
+				<View class="separator"/>
+				<View class="dropdown">
+					<ImageView class="downArrow"/>
+				</View>
+			</View>
+			<View id="tabContent" />
 		</View>
-	</View>
+	</ScrollView>
 </Alloy>

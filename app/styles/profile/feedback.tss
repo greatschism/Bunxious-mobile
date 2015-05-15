@@ -1,0 +1,28 @@
+
+".container" : {
+  layout : 'vertical'
+}
+
+".labelWrapper" : {
+	backgroundColor : '#e4e7ea',
+	height : '30dp',
+	top : '10dp'
+}
+
+"#feedbackLabel" : {
+	left : '7dp',
+	center : {
+		y : '50%'
+	},
+	color : '#2e2e2f',
+	font : {
+		fontSize : '13dp',
+		fontWeight : 'bold'
+	}
+}
+
+".table" : {
+	separatorColor : 'transparent',
+	rowHeight : '90dp',
+	bottom : 0
+}

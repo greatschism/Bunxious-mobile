@@ -220,4 +220,35 @@ api.findBoard = function(user_id, success, fail) {
 	httpRequest('board/find-by', 'GET', data, success, fail);
 };
 
+api.findLikes = function(user_id, success, fail){
+	
+	var data = {
+		user_id : user_id
+	};
+	
+	if (Alloy.Globals.currentUser) {
+		
+		data.token = Alloy.Globals.currentUser.token;
+	}
+	
+	httpRequest('pin/find-likes', 'GET', data, success, fail);
+};
+
+api.feedback = function(user_id, success, fail){
+	
+	var data = {
+		filters : {
+			user_id : user_id
+		}
+	};
+		
+	if (Alloy.Globals.currentUser) {
+		
+		data.token = Alloy.Globals.currentUser.token;
+	}
+	
+	httpRequest('comments/find-by', 'GET', data, success, fail);
+	
+};
+
 module.exports = api;

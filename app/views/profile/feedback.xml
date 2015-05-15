@@ -1,0 +1,9 @@
+<Alloy>
+	<View class="container">
+		<View class="labelWrapper">
+			<Label id="feedbackLabel" />
+		</View>
+		<TableView id="feedbackTable" class="table" >
+		</TableView>
+	</View>
+</Alloy>

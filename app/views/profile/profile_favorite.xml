@@ -1,0 +1,9 @@
+<Alloy>
+	<View class="container">
+		<View class="labelWrapper">
+			<Label id="favLabel" />
+		</View>
+		<TableView id="itemLikesTable" class="table" >
+		</TableView>
+	</View>
+</Alloy>

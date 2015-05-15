@@ -4,19 +4,19 @@ var moment = require('alloy/moment');
 var tabMapping = {
 	about : {
 		title : L('profile'),
-		controller : 'profile/profile_about'
+		controller : 'profile/profile_about',
 	},
 	favorite : {
 		title : L('favorite_items'),
-		controller : 'profile/profile_favorite'
+		controller : 'profile/profile_favorite',
 	},
 	shops : {
 		title : L('favorite_shops'),
-		controller : 'profile/profile_shops'
+		controller : 'profile/profile_shops',
 	},
 	feedback : {
 		title : L('feedback'),
-		controller : 'profile/profile_feedback'
+		controller : 'profile/feedback',
 	},
 };
 
@@ -52,18 +52,18 @@ if (args.user_id) {
 
 		//$.tabTitle.addEventListener('click', function() {
 
-			//var selectList = [];
+		//var selectList = [];
 
-			//for (var i in tabMapping) { 
- 
-//				selectList.push(tabMapping[i].title);
-	//		}
+		//for (var i in tabMapping) {
+
+		//				selectList.push(tabMapping[i].title);
+		//		}
 
 		//	var popupDialog = Alloy.createWidget('ti.ux.popup.list', 'widget', {
-			//	options : selectList,
-	//		});
+		//	options : selectList,
+		//		});
 
-	//		popupDialog.getView('table').addEventListener('click', function(e) {
+		//		popupDialog.getView('table').addEventListener('click', function(e) {
 
 		//		openTab(tabMapping[e.index], result);
 		//		popupDialog.hide();
@@ -71,6 +71,45 @@ if (args.user_id) {
 
 		//	popupDialog.getView().show();
 		//});
+		$.tabChange.addEventListener("click", function() {
+
+			var selectList = [];
+
+			for (var i in tabMapping) {
+
+				selectList.push(tabMapping[i].title);
+			}
+
+			var popupDialog = Alloy.createWidget('ti.ux.popup.list', 'widget', {
+				closeButton : true,
+				selectable : true,
+				options : selectList,
+			});
+
+			popupDialog.getView('table').addEventListener('click', function(e) {
+				var tabId;
+				switch(e.row.data.title){
+					case L("profile") : 
+						tabId = "about";
+						break;
+					case L("favorite_items") :
+						tabId = "favorite";
+						break;
+					case L("favorite_shops") :
+						tabId = "shops";
+						break;
+					case L("feedback") :
+						tabId = "feedback";
+						break;
+				}
+				
+				openTab(tabId, result);
+				popupDialog.hide();
+			});
+
+			popupDialog.getView().show();
+
+		});
 
 	}, function(error) {
 

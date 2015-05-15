@@ -1,0 +1,68 @@
+
+".row": {
+	height: "90dp"
+}
+
+".container": {
+	height: '90dp',
+	width: '300dp',
+	backgroundColor: '#fff',
+	top: '10dp'
+}
+
+'.container[platform=android]': {
+	width: '320dp'
+}
+
+"#pinImage": {
+	width: '90dp',
+	height: '90dp',
+	top: 0,
+	left: 0
+}
+
+"#textContainer": {
+	left: "100dp",
+	height: "100%",
+	right: 0,
+	layout: "vertical"
+}
+
+"#whoAndWhom": {
+	top: 0,
+	width: "100%",
+	height: "20dp",
+	layout : "horizontal"
+}
+
+"#who":{
+	left : 0,
+	color : "#F26B1D",
+	font : {
+		fontSize : "13dp"
+	}
+}
+
+"#action":{
+	left : "2dp",
+	font : {
+		fontSize : "13dp"
+	}
+}
+
+"#whom":{
+	left : "2dp",
+	color : "#F26B1D",
+	font : {
+		fontSize : "13dp"
+	}
+}
+
+"#productDescription": {
+	top : "2dp",
+	width : "100%",
+	font : {
+		fontSize : "13dp"
+	}
+	
+}

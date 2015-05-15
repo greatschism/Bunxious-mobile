@@ -87,7 +87,7 @@
         <target device="android">true</target>
         <target device="mobileweb">false</target>
     </deployment-targets>
-    <sdk-version>4.0.0.RC2</sdk-version>
+    <sdk-version>4.0.0.RC4</sdk-version>
     <plugins>
         <plugin version="1.0">ti.alloy</plugin>
     </plugins>

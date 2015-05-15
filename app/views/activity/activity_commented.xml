@@ -1,0 +1,15 @@
+<Alloy>
+	<TableViewRow class="row">
+		<View class="container">
+			<ImageView id="pinImage"/>
+			<View id="textContainer">
+				<View id="whoAndWhom">
+					<Label id="who"></Label>
+					<Label id="action" text='L("commented_on")'></Label>
+					<Label id="whom"></Label>
+				</View>
+				<Label id="productDescription"></Label>
+			</View>
+		</View>
+	</TableViewRow>
+</Alloy>

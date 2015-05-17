@@ -1,0 +1,15 @@
+<Alloy>
+	<ScrollView class="wrapper">
+		<View class="container">
+			<Label id="title" />
+			<ImageView id="pinImage"/>
+			<View id="boxButton" class="buttonWrapper">
+				<ImageView id="box" class="button" />
+			</View>
+			<View id="heartButton" class="buttonWrapper">
+				<ImageView id="heart" class="button" />
+			</View>
+			<Label id="price" />
+		</View>
+	</ScrollView>
+</Alloy>

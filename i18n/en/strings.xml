@@ -31,7 +31,7 @@
 	<string name="settings">Settings</string>
 	<string name="sign_out">Sign Out</string>
 	<string name="selector_close">Close X</string>
-	<string name="selector_select">Seleccionar elemento de la lista</string>
+	<string name="selector_select">Select</string>
 	<string name="selector_new_element">New</string>
 	<string name="all_items">All Items</string>
 	<string name="brand">Brand</string>
@@ -44,4 +44,7 @@
 	<string name="contact">Contact</string>
 	<string name="about">About</string>
 	<string name="profile">Profile</string>
+	<string name="favorite_items">Favorite Items</string>
+	<string name="favorite_shops">Favorite Shops</string>
+	<string name="feedback">Feedback</string>
 </resources>

@@ -13,3 +13,8 @@ $.avatar.addEventListener('click', function() {
 		user_id : args.user_id
 	}, true);
 });
+
+$.pinImage.addEventListener('click', function() {
+
+	Alloy.Globals.openWindow('product/pin_view', args, true);
+});

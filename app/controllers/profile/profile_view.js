@@ -50,27 +50,6 @@ if (args.user_id) {
 
 		openTab('about', result);
 
-		//$.tabTitle.addEventListener('click', function() {
-
-		//var selectList = [];
-
-		//for (var i in tabMapping) {
-
-		//				selectList.push(tabMapping[i].title);
-		//		}
-
-		//	var popupDialog = Alloy.createWidget('ti.ux.popup.list', 'widget', {
-		//	options : selectList,
-		//		});
-
-		//		popupDialog.getView('table').addEventListener('click', function(e) {
-
-		//		openTab(tabMapping[e.index], result);
-		//		popupDialog.hide();
-		//	});
-
-		//	popupDialog.getView().show();
-		//});
 		$.tabChange.addEventListener("click", function() {
 
 			var selectList = [];

@@ -1,0 +1,9 @@
+<Alloy>
+	<View class="container">
+		<View id="favoriteSection">
+			<View class="labelWrapper">
+				<Label class="favLabel" text="Favorite" />
+			</View> 
+		</View>
+	</View>
+</Alloy>

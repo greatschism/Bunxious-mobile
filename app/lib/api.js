@@ -22,7 +22,16 @@ function queryString(data) {
 			delete data[key];
 			for (var k in o) {
 				var new_key = key + "[" + k + "]";
-				data[new_key] = o[k];
+				var value = o[k];
+				
+				if (value === true) {
+					value = 1;
+				}
+				
+				if (value === false) {
+					value = 0;
+				}
+				data[new_key] = value;
 			}
 		}
 	}
@@ -33,6 +42,17 @@ function queryString(data) {
 };
 
 function httpRequest(endpoint, method, data, successFunction, errorFunction) {
+	
+	if (!Ti.Network.online) {
+		
+		alert('No internet connection');
+		
+		if (errorFunction) {
+			
+			errorFunction();
+		}
+		return;
+	}
 	
 	var url = config.baseURL + endpoint;
 
@@ -202,6 +222,60 @@ api.getUser = function(user_id, success, fail) {
 	}
 	
 	httpRequest('user/find', 'GET', data, success, fail);
+};
+
+api.updateUser = function(userData, success, fail) {
+	
+	var data = {
+		token : Alloy.Globals.currentUser.token,
+		data : userData
+	};
+	
+	//deleting unnecessary data
+	delete userData.id;
+	delete userData.password;
+	delete userData.password_new;
+	delete userData.password_key;
+	delete userData.pins;
+	delete userData.likes;
+	delete userData.comments;
+	delete userData.boards;
+	delete userData.followers;
+	delete userData.following;
+	delete userData.language_id;
+	delete userData.status;
+	delete userData.country_iso_code_3;
+	delete userData.activate_url;
+	delete userData.avatar_width;
+	delete userData.avatar_height;
+	delete userData.avatar;
+	delete userData.avatar_store_host;
+	delete userData.avatar_store;
+	delete userData.date_added;
+	delete userData.date_modified;
+	delete userData.cover_width;
+	delete userData.cover_height;
+	delete userData.cover_top;
+	delete userData.cover;
+	delete userData.cover_store_host;
+	delete userData.cover_store;
+	delete userData.is_admin;
+	delete userData.status_send;
+	delete userData.first_login;
+	delete userData.send_daily;
+	delete userData.repins;
+	delete userData.last_online;
+	delete userData.activity_open;
+	delete userData.rating_votes;
+	delete userData.rating_average;
+	delete userData.rating_sums;
+	delete userData.following_user;
+	delete userData.avatar_small;
+	delete userData.avatar_medium;
+	delete userData.cover_image;
+	
+	
+	httpRequest('user/update', 'POST', data, success, fail);
 };
 
 api.findBoard = function(user_id, success, fail) {

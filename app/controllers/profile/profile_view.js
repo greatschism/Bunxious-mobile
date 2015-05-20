@@ -32,7 +32,7 @@ if (args.user_id) {
 
 	Alloy.Globals.API.getUser(args.user_id, function(result) {
 		
-		if (Alloy.Globals.currentUser.user_info.id != args.user_id) {
+		if (!Alloy.Globals.currentUser || Alloy.Globals.currentUser.user_info.id != args.user_id) {
 			
 			$.followButton.visible = true;
 			$.contactButton.visible = true;

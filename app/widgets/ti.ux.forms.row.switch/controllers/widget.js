@@ -39,6 +39,10 @@ $.getValue = function(){
 	return $.switchControl.value;
 };
 
+$.setValue = function(value) {
+	$.switchControl.value = value == true ? true : false; 
+};
+
 require('WidgetTools').cleanArgs(args);
 
 

@@ -1,7 +1,7 @@
 <Alloy>
 	<View class="container">
 		<TableView backgroundColor="#eee" class="tableview-form">
-			
+
 			<TableViewSection>
 				<HeaderView>
 					<View class="view-headerview-form" >
@@ -16,11 +16,10 @@
 				<Widget src="ti.ux.forms.row.optionspicker" title="Country" value="1" options="Never|Always|Each 15 minutes" dialogType="popup" />
 				<Widget src="ti.ux.forms.row.optionspicker" title="City" value="1" options="Never|Always|Each 15 minutes|Cancel"dialogType="popup" />
 				<Widget src="ti.ux.forms.row.optionspicker" title="Gender" value="1" cancel="2" options="Boys|Girls|Cancel" />
-				<Widget src="ti.ux.forms.row.text" inputType="textarea" title="" hintText="About You" id="fieldTextArea" />
-				<Widget src="ti.ux.forms.row.text" inputType="url" title="" hintText="Website" id="fieldUrl" />
-				<Widget src="ti.ux.forms.row.switch" title="Search Privacy" value="true" id="fieldSwitch"/>
+				<Widget src="ti.ux.forms.row.text" inputType="textarea" title="" hintText="About You" id="about" />
+				<Widget src="ti.ux.forms.row.text" inputType="url" title="" hintText="Website" id="website" />
+				<Widget src="ti.ux.forms.row.switch" title="Search Privacy" value="true" id="search_engines"/>
 			</TableViewSection>
-			
 			<TableViewSection>
 				<HeaderView>
 					<View class="view-headerview-form">
@@ -30,7 +29,6 @@
 				</HeaderView>
 				<Widget src="ti.ux.forms.row.switch" title="Login with Facebook" value="true" id="fieldSwitch" icon="fa-facebook-square" iconColor="#66f"/>
 			</TableViewSection>
-			
 			<TableViewSection>
 				<HeaderView>
 					<View class="view-headerview-form">
@@ -38,13 +36,20 @@
 						<View class="view-row-separator" />
 					</View>
 				</HeaderView>
-				<Widget src="ti.ux.forms.row.switch" title="Group products" value="false" />
-				<Widget src="ti.ux.forms.row.switch" title="Comments" value="false" />
-				<Widget src="ti.ux.forms.row.switch" title="Like" value="true" />
-				<Widget src="ti.ux.forms.row.switch" title="Treasure Chest" value="true" />
-				<Widget src="ti.ux.forms.row.switch" title="Follows" value="true" />
+				<Widget src="ti.ux.forms.row.switch" title="Group products" value="false" id="notification_group_board"/>
+				<Widget src="ti.ux.forms.row.switch" title="Comments" value="false" id="notification_comment_pin" />
+				<Widget src="ti.ux.forms.row.switch" title="Like" value="true" id="notification_like_pin" />
+				<Widget src="ti.ux.forms.row.switch" title="Treasure Chest" value="false" id="notification_repin_pin"/>
+				<Widget src="ti.ux.forms.row.switch" title="Follows" value="true" id="notification_follow_user"/>
 				<TableViewRow>
 					<View class="view-row-separator"/>
+				</TableViewRow>
+				<TableViewRow>
+					<View class="button_wrapper">
+						<View id="saveButton" class="button">
+							<Label class="buttonLabel" text="L('save')"/>
+						</View>
+					</View>
 				</TableViewRow>
 			</TableViewSection>
 		</TableView>

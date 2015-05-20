@@ -9,15 +9,15 @@
 						<View class="view-row-separator" />
 					</View>
 				</HeaderView>
-				<Widget src="ti.ux.forms.row.text" inputType="text" title="First Name" hintText="First name" id="firstname" />
-				<Widget src="ti.ux.forms.row.text" inputType="text" title="Last Name" hintText="Last name" id="lastname" />
-				<Widget src="ti.ux.forms.row.text" inputType="text" title="User Name" hintText="User Name" id="username" />
-				<Widget src="ti.ux.forms.row.text" inputType="email" title="Email" hintText="Email" id="email" />
+				<Widget src="ti.ux.forms.row.text" inputType="text" title="First Name" id="firstname" />
+				<Widget src="ti.ux.forms.row.text" inputType="text" title="Last Name" id="lastname" />
+				<Widget src="ti.ux.forms.row.text" inputType="text" title="User Name" id="username" />
+				<Widget src="ti.ux.forms.row.text" inputType="email" title="Email" id="email" />
 				<Widget src="ti.ux.forms.row.optionspicker" title="Country" value="1" options="Never|Always|Each 15 minutes" dialogType="popup" />
-				<Widget src="ti.ux.forms.row.text" title="City" inputType="text" hintText="City" id="city" />
+				<Widget src="ti.ux.forms.row.text" title="City" inputType="text" id="city" />
 				<Widget src="ti.ux.forms.row.optionspicker" title="Gender" value="1" cancel="2" options="Boys|Girls|Cancel" />
-				<Widget src="ti.ux.forms.row.text" inputType="textarea" title="" hintText="About You" id="about" />
-				<Widget src="ti.ux.forms.row.text" inputType="url" title="" hintText="Website" id="website" />
+				<Widget src="ti.ux.forms.row.text" inputType="textarea" title="About You" id="about" />
+				<Widget src="ti.ux.forms.row.text" inputType="url" title="Website" id="website" />
 				<Widget src="ti.ux.forms.row.switch" title="Search Privacy" value="true" id="search_engines"/>
 			</TableViewSection>
 			<TableViewSection>
@@ -41,9 +41,7 @@
 				<Widget src="ti.ux.forms.row.switch" title="Like" value="true" id="notification_like_pin" />
 				<Widget src="ti.ux.forms.row.switch" title="Treasure Chest" value="false" id="notification_repin_pin"/>
 				<Widget src="ti.ux.forms.row.switch" title="Follows" value="true" id="notification_follow_user"/>
-				<TableViewRow>
-					<View class="view-row-separator"/>
-				</TableViewRow>
+			
 				<TableViewRow>
 					<View class="button_wrapper">
 						<View id="saveButton" class="button">

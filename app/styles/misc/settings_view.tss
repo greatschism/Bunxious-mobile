@@ -4,13 +4,25 @@
 	layout : 'vertical'
 }
 
-"#favoriteSection": {
-	height: '110dp',
+"TableView": {
 	top: '15dp',
-	width: '300dp'
+	width: '300dp',
+	rowHeight : Ti.UI.SIZE
 }
 
-'#favoriteSection[platform=android]': {
+"TableViewRow[platform=ios]":{
+	selectionStyle: Titanium.UI.iPhone.TableViewCellSelectionStyle.NONE,
+},
+
+"TableViewRow" : {
+	height : Ti.UI.SIZE
+}
+
+"TableView[platform=ios]":{
+	separatorStyle: Ti.UI.iPhone.TableViewSeparatorStyle.NONE
+},
+
+'TableView[platform=android]': {
 	width: '320dp'
 }
 
@@ -31,4 +43,6 @@
 		fontWeight : 'bold'
 	}
 }
+
+
 

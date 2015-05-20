@@ -13,7 +13,8 @@ function initUI(){
 
 	if (args.children) {
 		
-		children = args.children || [];
+		children = args.children|| [];
+		
 		if(OS_IOS){
 			$.container.add(children);
 		}
@@ -26,14 +27,16 @@ function initUI(){
 		
 	}
 	
+	var closeBtnView = $.closeBtn.getView();
 	if(args.closeButton){
-		
-		$.closeBtn.backgroundColor = 'red'
-		
-		$.closeBtn.addEventListener('click', function(e){
+		closeBtnView.visible = true;
+		closeBtnView.addEventListener('click', function(e){
 			cancelPopup(e);
 		});
+	}else{
+		closeBtnView.visible = false;
 	}
+	
 }
 
 $.show = function(){
@@ -46,7 +49,7 @@ $.hide = function(){
 
 function cancelPopup(e){	
 
-	if(e.source !== $.bgView && e.source !== $.closeBtn) return;
+	if(e.source !== $.bgView && e.source !== $.closeBtn.getView()) return;
 	
 	fadeOut();
 }

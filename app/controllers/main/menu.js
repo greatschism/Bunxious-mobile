@@ -123,6 +123,16 @@ $.settingsButton.button.addEventListener('click', function() {
 	Alloy.Globals.openWindow('misc/settings_view');
 });
 
+$.userInfo.addEventListener('click', function() {
+	
+	Ti.App.fireEvent('toggleMenu');
+
+	Alloy.Globals.openWindow('profile/profile_view', {
+		user_id : Alloy.Globals.currentUser.user_info.id
+	}, true);
+});
+
+
 // Will be triggered from login, to update the menu
 Ti.App.addEventListener('loggedIn', function() {
 

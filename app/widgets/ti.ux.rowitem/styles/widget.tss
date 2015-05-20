@@ -1,29 +1,10 @@
 
-"#childrenImage":{
-	height: 28,
-	width: 15
-},
+ "#childrenImage":{
+	height:28, width:15,
+ },
 "#line":{
-	bottom: 0,
-	height: '2dp',
-	backgroundColor: '#6000'
+  bottom:0,
+  height:'2dp',
+  backgroundColor:'#6000'
 }
 
-"#titleLbl": {
-	color : 'black',
-	width : '90%',
-	font :  {
-		fontSize : '17dp'
-	}
-}
-
-".view-row-separator" : {
-	width : Ti.UI.FILL,
-	height : '1dp',
-	backgroundColor : '#ccc',
-	bottom : 0
-}
-
-"#row" : {
-	height : '40dp'
-}

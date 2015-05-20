@@ -31,6 +31,12 @@ function openTab(tab, data) {
 if (args.user_id) {
 
 	Alloy.Globals.API.getUser(args.user_id, function(result) {
+		
+		if (Alloy.Globals.currentUser.user_info.id != args.user_id) {
+			
+			$.followButton.visible = true;
+			$.contactButton.visible = true;
+		}
 
 		$.avatar.image = result.avatar_medium.image;
 		$.userName.text = result.firstname + ' ' + result.lastname;

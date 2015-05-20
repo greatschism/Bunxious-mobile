@@ -1,9 +1,52 @@
 <Alloy>
 	<View class="container">
-		<View id="favoriteSection">
-			<View class="labelWrapper">
-				<Label class="favLabel" text="Settings" />
-			</View> 
-		</View>
+		<TableView backgroundColor="#eee" class="tableview-form">
+			
+			<TableViewSection>
+				<HeaderView>
+					<View class="view-headerview-form" >
+						<Label class="label-tableviewsection-header" text="Basic Info" />
+						<View class="view-row-separator" />
+					</View>
+				</HeaderView>
+				<Widget src="ti.ux.forms.row.text" inputType="text" title="" hintText="First name" id="firstname" />
+				<Widget src="ti.ux.forms.row.text" inputType="text" title="" hintText="Last name" id="lastname" />
+				<Widget src="ti.ux.forms.row.text" inputType="text" title="" hintText="User Name" id="username" />
+				<Widget src="ti.ux.forms.row.text" inputType="email" title="" hintText="Email" id="email" />
+				<Widget src="ti.ux.forms.row.optionspicker" title="Country" value="1" options="Never|Always|Each 15 minutes" dialogType="popup" />
+				<Widget src="ti.ux.forms.row.optionspicker" title="City" value="1" options="Never|Always|Each 15 minutes|Cancel"dialogType="popup" />
+				<Widget src="ti.ux.forms.row.optionspicker" title="Gender" value="1" cancel="2" options="Boys|Girls|Cancel" />
+				<Widget src="ti.ux.forms.row.text" inputType="textarea" title="" hintText="About You" id="fieldTextArea" />
+				<Widget src="ti.ux.forms.row.text" inputType="url" title="" hintText="Website" id="fieldUrl" />
+				<Widget src="ti.ux.forms.row.switch" title="Search Privacy" value="true" id="fieldSwitch"/>
+			</TableViewSection>
+			
+			<TableViewSection>
+				<HeaderView>
+					<View class="view-headerview-form">
+						<Label class="label-tableviewsection-header" text="Social networks" />
+						<View class="view-row-separator" />
+					</View>
+				</HeaderView>
+				<Widget src="ti.ux.forms.row.switch" title="Login with Facebook" value="true" id="fieldSwitch" icon="fa-facebook-square" iconColor="#66f"/>
+			</TableViewSection>
+			
+			<TableViewSection>
+				<HeaderView>
+					<View class="view-headerview-form">
+						<Label class="label-tableviewsection-header" text="Email Notification Settings" />
+						<View class="view-row-separator" />
+					</View>
+				</HeaderView>
+				<Widget src="ti.ux.forms.row.switch" title="Group products" value="false" />
+				<Widget src="ti.ux.forms.row.switch" title="Comments" value="false" />
+				<Widget src="ti.ux.forms.row.switch" title="Like" value="true" />
+				<Widget src="ti.ux.forms.row.switch" title="Treasure Chest" value="true" />
+				<Widget src="ti.ux.forms.row.switch" title="Follows" value="true" />
+				<TableViewRow>
+					<View class="view-row-separator"/>
+				</TableViewRow>
+			</TableViewSection>
+		</TableView>
 	</View>
 </Alloy>

@@ -3,9 +3,9 @@
 		
 		<Widget src="ti.ux.iconfont" id="icon" class="fa-row-icon"></Widget>
 		
-		<Label class="label-row-title" id="titleLbl" />
+		<Label class="label-row-title-text" id="titleLbl" />
 
-		<TextField class="textfield-row-control" id="field" onBlur="validate" onFocus="hideValidationError"/>
+		<TextField class="textfield-row-control-text" id="field" onBlur="validate" onFocus="hideValidationError"/>
 		
 		<ActivityIndicator id="actInd" class="activityindicator-forms-text"/>
 

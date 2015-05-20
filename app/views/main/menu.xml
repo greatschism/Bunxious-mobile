@@ -42,9 +42,9 @@
 				<View class="border" />
 				<Require id="addButton" src="misc/menuButton" title="L('add_item')" icon="/images/add.png" />
 				<View class="border" />
+				<Require id="settingsButton" src="misc/menuButton" title="L('settings')" icon="/images/gear.png" />
+				<View class="border" />
 			</View>
-			<Require id="settingsButton" src="misc/menuButton" title="L('settings')" icon="/images/gear.png" />
-			<View class="border" />
 			<Require id="login_logout" src="misc/menuButton" title="L('sign_out')" icon="/images/logout.png" />
 			<View class="border" />
 		</ScrollView>

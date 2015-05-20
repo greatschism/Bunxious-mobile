@@ -6,6 +6,7 @@ if (Alloy.Globals.currentUser != null) {
 	$.lastname.getField().value = Alloy.Globals.currentUser.user_info.lastname;
 	$.username.getField().value = Alloy.Globals.currentUser.user_info.username;
 	$.email.getField().value = Alloy.Globals.currentUser.user_info.email;
+	$.city.getField().value = Alloy.Globals.currentUser.user_info.city;
 	$.about.getField().value = Alloy.Globals.currentUser.user_info.about;
 	$.website.getField().value = Alloy.Globals.currentUser.user_info.website;
 	$.search_engines.setValue(Alloy.Globals.currentUser.user_info.search_engines);
@@ -22,6 +23,7 @@ if (Alloy.Globals.currentUser != null) {
 		Alloy.Globals.currentUser.user_info.lastname = $.lastname.getField().value;
 		Alloy.Globals.currentUser.user_info.username = $.username.getField().value;
 		Alloy.Globals.currentUser.user_info.email = $.email.getField().value;
+		Alloy.Globals.currentUser.user_info.city = $.city.getField().value;
 		Alloy.Globals.currentUser.user_info.about = $.about.getField().value;
 		Alloy.Globals.currentUser.user_info.website = $.website.getField().value;
 		Alloy.Globals.currentUser.user_info.search_engines = $.search_engines.getValue();

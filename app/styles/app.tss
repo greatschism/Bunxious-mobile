@@ -468,3 +468,24 @@ height: Ti.UI.SIZE //
 ".separator": {
 	height: 0.5
 }
+
+".label-row-title-text":{
+	left: 35,
+	top : 1,
+	color: '#000',
+	font : {
+		fontSize : '10dp'
+	}
+}
+
+".textfield-row-control-text":{
+	bottom : 2,
+	height: '40dp',
+	left: '10dp',
+	right: '10dp',
+	font:{
+		fontSize: '16dp'
+	},
+	borderStyle: Ti.UI.INPUT_BORDERSTYLE_NONE,
+	color: '#333'
+},

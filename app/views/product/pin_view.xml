@@ -2,14 +2,57 @@
 	<ScrollView class="wrapper">
 		<View class="container">
 			<Label id="title" />
-			<ImageView id="pinImage"/>
-			<View id="boxButton" class="buttonWrapper">
-				<ImageView id="box" class="button" />
+			
+			<View id="imageElements">
+				<ImageView id="pinImage"/>
+				<View id="boxButton" class="buttonWrapper">
+					<ImageView id="box" class="button" />
+				</View>
+				<View id="heartButton" class="buttonWrapper">
+					<ImageView id="heart" class="button" />
+				</View>
 			</View>
-			<View id="heartButton" class="buttonWrapper">
-				<ImageView id="heart" class="button" />
-			</View>
+			
 			<Label id="price" />
+			<View id="lineOne"></View>
+			
+			
+			<View id="itemValues">
+				<Label id="brand" />
+				<Label id="size" />
+				<Label id="condition" />
+			</View>
+			
+			
+			<Button id="cart">Add to Cart</Button>
+
+			<View id="lineTwo"></View>
+			
+			<TextArea id="description" />
+			
+			<Label id="shipping" />
+			
+			<View id="shippingDetails">
+				<Label id="shipTo" />
+				<Label id="shipCost" />
+				<Label id="shipWith" />
+				<View id="lineThree"></View>
+				
+				<Label id="shipToOut" />
+				<Label id="shipCostOut" />
+				<Label id="shipWithOut" />
+				<View id="lineFour"></View>
+				
+			</View>
+			
+			
+			<Label id="payment" />
+			
+			<ImageView id="paypal"></ImageView>
+			
+			<Label id="closet" />
+			
+
 		</View>
 	</ScrollView>
 </Alloy>

@@ -1,9 +1,11 @@
 <Alloy>
 	<View class="container">
+		
 		<View id="favoriteSection">
 			<View class="labelWrapper">
 				<Label class="favLabel" text="Add New Item" />
 			</View> 
 		</View>
+		<Widget id="title" src="com.harkdev.stylehinttextfield" height="40dp" width="300dp" top="20dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('title')" tfTop="5dp" tfWidth="220dp" />
 	</View>
 </Alloy>

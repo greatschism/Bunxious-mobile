@@ -5,7 +5,7 @@
 }
 
 "#favoriteSection": {
-	height: '110dp',
+	height: '30dp',
 	top: '15dp',
 	width: '300dp'
 }

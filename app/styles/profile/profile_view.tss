@@ -65,7 +65,7 @@
 }
 
 ".followLabel": {
-	left: '24dp'
+	left: '30dp'
 }
 
 ".plus": {

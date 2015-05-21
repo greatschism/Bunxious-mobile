@@ -3,8 +3,8 @@
 	width: Ti.UI.FILL,
 	// height: Ti.UI.SIZE,
 	// height : '900dp',
-	height : 'auto',
-	contentHeight : '2800px',
+	height: 'auto',
+	contentHeight: '3800px',
 	backgroundColor: '#fff',
 	layout: 'vertical'
 }
@@ -16,13 +16,13 @@
 		fontWeight: 'bold'
 	},
 	left: 0,
-	top : '10dp'
+	top: '10dp'
 }
 
 ".container": {
 	width: '300dp',
-	height : Ti.UI.SIZE,
-	layout : 'vertical'
+	height: Ti.UI.SIZE,
+	layout: 'vertical'
 }
 
 '.container[platform=android]': {
@@ -74,238 +74,402 @@
 	}
 }
 
-"#price" : {
-	top : '10dp',
-	font : {
-		fontWeight : 'bold',
-		fontSize : '14dp'
+"#price": {
+	top: '10dp',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '14dp'
 	},
-	left : 0,
-	color : '#666666',
+	left: 0,
+	color: '#666666'
 }
 
 
-"#itemValues" : {
-	top : '10dp',
-	height : '80dp',
+"#itemValues": {
+	top: '10dp',
+	height: '80dp',
 	// backgroundColor: 'red',
-	layout : ''
+	layout: ''
 }
 
-"#brand" : {
-	top : 0,
-	font : {
-		fontWeight : 'bold',
-		fontSize : '14dp'
+"#brand": {
+	top: 0,
+	font: {
+		fontWeight: 'bold',
+		fontSize: '14dp'
 	},
-	left : 0,
-	color : '#666666',
+	left: 0,
+	color: '#666666'
 }
 
-"#size" : {
-	top : 0,
-	font : {
-		fontWeight : 'bold',
-		fontSize : '14dp'
+"#size": {
+	top: 0,
+	font: {
+		fontWeight: 'bold',
+		fontSize: '14dp'
 	},
-	left : '150dp',
-	color : '#666666',
+	left: '150dp',
+	color: '#666666'
 }
 
-"#condition" : {
-	top : '40dp',
-	font : {
-		fontWeight : 'bold',
-		fontSize : '14dp'
+"#condition": {
+	top: '40dp',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '14dp'
 	},
-	left : 0,
-	color : '#666666',
+	left: 0,
+	color: '#666666'
 }
 
-"#cart" : {
-	top : '10dp',
-	width : '150dp',
-	height : '40dp',
-	font : {
-		fontWeight : 'bold',
-		fontSize : '14dp'
+"#cart": {
+	top: '10dp',
+	width: '150dp',
+	height: '40dp',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '14dp'
 	},
-	left : '150dp',
-	color : '#fff',
-	backgroundColor : '#13B5D6'
+	left: '150dp',
+	color: '#fff',
+	backgroundColor: '#13B5D6'
 }
 
-"#description" : {
+"#description": {
+	top: '20dp',
+	width: '300dp',
+	height: Ti.UI.SIZE,
+	font: {
+		fontWeight: 'bold',
+		fontSize: '14dp'
+	},
+	left: 0,
+	color: '#666666',
+	touchEnabled: false
+}
+
+"#shipping": {
+	top: '20dp',
+	width: '300dp',
+	height: '40dp',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '14dp'
+	},
+	left: 0,
+	backgroundColor: '#E4E7EA',
+	color: '#2E2E2F'
+}
+
+"#shippingDetails": {
+	top: '20dp',
+	height: '65dp'
+}
+
+"#shipTo": {
+	top: 0,
+	left: 0,
+	text: 'SHIP TO',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '12dp'
+	},
+	color: '#636363'
+}
+
+
+"#shipCost": {
+	top: 0,
+	left: '100dp',
+	text: 'COST',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '12dp'
+	},
+	color: '#636363'
+}
+
+"#shipWith": {
+	top: 0,
+	left: '200dp',
+	text: 'WITH ANOTHER ITEM',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '12dp'
+	},
+	color: '#636363'
+}
+
+"#lineThree": {
+	top: '30dp',
+	height: '2px',
+	width: '300dp',
+	backgroundColor: "#DADADA"
+}
+
+
+"#shipToOut": {
+	top: '40dp',
+	left: 0,
+	font: {
+		fontWeight: 'bold',
+		fontSize: '12dp'
+	},
+	color: '#636363'
+}
+
+
+
+
+"#shipCostOut": {
+	top: '40dp',
+	left: '100dp',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '12dp'
+	},
+	color: '#636363'
+}
+
+
+
+"#shipWithOut": {
+	top: '40dp',
+	left: '200dp',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '12dp'
+	},
+	color: '#636363'
+}
+
+
+
+"#lineFour": {
+	top: '60dp',
+	height: '2px',
+	width: '300dp',
+	backgroundColor: "#DADADA"
+}
+
+
+"#payment": {
+	top: '20dp',
+	text: '    PAYMENT METHODS',
+	width: '300dp',
+	height: '40dp',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '14dp'
+	},
+	left: 0,
+	backgroundColor: '#E4E7EA',
+	color: '#2E2E2F'
+}
+
+
+"#paypal": {
+	top: '20dp',
+	left: 0,
+	image: 'http://www.melkstalonderdelen.nl/paypal.png',
+	height: '30dp'
+}
+
+"#closet": {
+	top: '20dp',
+	text: '    CLOSET',
+	width: '300dp',
+	height: '40dp',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '14dp'
+	},
+	left: 0,
+	backgroundColor: '#E4E7EA',
+	color: '#2E2E2F'
+}
+
+"#owner": {
+	top: '20dp',
+	text: '    OWNER',
+	width: '300dp',
+	height: '40dp',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '14dp'
+	},
+	left: 0,
+	backgroundColor: '#E4E7EA',
+	color: '#2E2E2F'
+}
+
+
+
+"#lineOne": {
+	top: '20dp',
+	height: '2px',
+	width: '300dp',
+	backgroundColor: "#DADADA"
+}
+
+"#lineTwo": {
+	top: '20dp',
+	height: '2px',
+	width: '300dp',
+	backgroundColor: "#DADADA"
+}
+
+//
+//	CLOSET TSS
+//
+
+"#closetView" : {
 	top : '20dp',
-	width : '300dp',
+	// layout : 'horizontal',
+	height : '160dp',
+	// height : Ti.UI.SIZE,
+	width : '300dp'
+	// backgroundColor : 'red'
+}
+
+"#closetAvatar" : {
+	top : 0,
+	left : 0,
+	height : '60dp'
+}
+
+"#closetText" : {
+	left : '70dp',
+	layout : 'vertical'
+}
+
+"#closetTitle" : {
+	top : 0,
+	left : 0,
+	text : 'Closet Boutique Closet',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '14dp'
+	},
+	color : '#F26B1D',
+}
+
+"#closetDescription" : {
+	value : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non mattis lectus. Nunc et mattis sapien. Praesent ac metus ac dolor laoreet vulputate ac eu lacus.',
+	top : '5dp',
+	left : 0,
 	height : Ti.UI.SIZE,
-	font : {
-		fontWeight : 'bold',
-		fontSize : '14dp'
+	width : '230dp',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '12dp'
 	},
+	color: '#636363',
+	touchEnabled: false
+}
+
+"#closetFav" : {
+	top : '10dp',
 	left : 0,
-	color : '#666666',
-	touchEnabled : false
-	
+	layout : 'horizontal',
 }
 
-"#shipping" : {
-	top : '20dp',
-	width : '300dp',
-	height : '40dp',
-	font : {
-		fontWeight : 'bold',
-		fontSize : '14dp'
+".closetFavourite" : {
+	font: {
+		fontWeight: 'bold',
+		fontSize: '10dp'
 	},
-	left : 0,
-	backgroundColor : '#E4E7EA',
-	color : '#2E2E2F',
+	width : '100dp',
+	color : '#F26B1D',
+	left : '15dp'
 }
 
-"#shippingDetails" : {
-	top : '20dp',
-	height : '65dp'
+"#closetAdd" : {
+	text : 'Add closet to favorites'
 }
 
-"#shipTo" : {
-	top : 0,
-	left : 0,
-	text : 'SHIP TO',
-	font : {
-		fontWeight : 'bold',
-		fontSize : '12dp'
-	},
-	color : '#636363'
+"#closetSee" : {
+	text : 'See who favorites this item'
 }
 
 
-"#shipCost" : {
-	top : 0,
-	left : '100dp',
-	text : 'COST',
-	font : {
-		fontWeight : 'bold',
-		fontSize : '12dp'
-	},
-	color : '#636363'
+"#imageSlideshow" :{
+	top : '5dp',
+	layout : 'horizontal',
+	// backgroundColor : 'yellow',
+	height : '70dp'
 }
 
-"#shipWith" : {
-	top : 0,
-	left : '200dp',
-	text : 'WITH ANOTHER ITEM',
-	font : {
-		fontWeight : 'bold',
-		fontSize : '12dp'
-	},
-	color : '#636363'
+".placeholderImage" : {
+	image : 'http://i.imgur.com/AUIomGV.jpg'
 }
 
-"#lineThree" : {
-	top : '30dp',
-	height : '2px',
-	width : '300dp',
-	backgroundColor : "#DADADA"
+".small" : {
+	left : '10dp',
+	height : '50dp'
 }
 
+//
+//	PROFILE TSS
+//
 
-"#shipToOut" : {
-	top : '40dp',
-	left : 0,
-	font : {
-		fontWeight : 'bold',
-		fontSize : '12dp'
-	},
-	color : '#636363'
+"#ownerProfile": {
+	height: '106dp',
+	top: '20dp'
 }
 
-
-
-
-"#shipCostOut" : {
-	top : '40dp',
-	left : '100dp',
-	font : {
-		fontWeight : 'bold',
-		fontSize : '12dp'
-	},
-	color : '#636363'
+"#avatar": {
+	left: 0,
+	top: 0,
+	width: '70dp',
+	height: '70dp'
 }
 
-
-
-"#shipWithOut" : {
-	top : '40dp',
-	left : '200dp',
-	font : {
-		fontWeight : 'bold',
-		fontSize : '12dp'
-	},
-	color : '#636363'
+"#userName": {
+	left: '80dp',
+	top: 0,
+	color: '#d74d0a',
+	font: {
+		fontSize: '15dp',
+		fontWeight: 'bold'
+	}
 }
 
+'#userLocation': {
+	left: '80dp',
+	top: '18dp',
+	color: '#666',
+	font: {
+		fontSize: '14dp'
+	}
+}
 
+".buttonLabel": {
+	color: '#fff',
+	font: {
+		fontSize: '12dp',
+		fontWeight: 'bold'
+	}
+}
 
-"#lineFour" : {
-	top : '60dp',
-	height : '2px',
-	width : '300dp',
-	backgroundColor : "#DADADA"
+".plus": {
+	image: '/images/pluswhite.png',
+	width: '10dp',
+	height: '10dp',
+	left: '3dp'
 }
 
 
-"#payment" : {
-	top : '20dp',
-	text : '    PAYMENT METHODS',
-	width : '300dp',
-	height : '40dp',
-	font : {
-		fontWeight : 'bold',
-		fontSize : '14dp'
-	},
-	left : 0,
-	backgroundColor : '#E4E7EA',
-	color : '#2E2E2F',
+".buttonUser": {
+	width: '66dp',
+	height: '22dp',
+	backgroundColor: '#f26b1d',
+	top: '48dp',
+	left: '80dp'
 }
 
-
-"#paypal" : {
-	top : '20dp',
-	left : 0,
-	image : 'http://www.melkstalonderdelen.nl/paypal.png',
-	height : '30dp',	
+"#contactButton": {
+	left: '167dp'
 }
-
-"#closet" : {
-	top : '20dp',
-	text : '    CLOSET',
-	width : '300dp',
-	height : '40dp',
-	font : {
-		fontWeight : 'bold',
-		fontSize : '14dp'
-	},
-	left : 0,
-	backgroundColor : '#E4E7EA',
-	color : '#2E2E2F',
-}
-
-
-"#lineOne" : {
-	top : '20dp',
-	height : '2px',
-	width : '300dp',
-	backgroundColor : "#DADADA"
-}
-
-"#lineTwo" : {
-	top : '20dp',
-	height : '2px',
-	width : '300dp',
-	backgroundColor : "#DADADA"
-}
-
-
-
 
 

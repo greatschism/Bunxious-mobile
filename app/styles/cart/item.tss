@@ -1,0 +1,130 @@
+//
+//	Order View
+//
+
+"#orderView": {
+	top: '5dp',
+	height: '170dp',
+	layout: 'vertical'
+}
+
+
+"#orderItem": {
+	top: '10dp',
+	layout: 'horizontal',
+}
+
+"#orderPhoto": {
+	top: 0,
+	left: 0,
+	height: '60dp',
+	image: 'http://i.imgur.com/AUIomGV.jpg'
+}
+
+"#orderDetails": {
+	left: '10dp',
+	layout: 'vertical',
+	height : Ti.UI.SIZE
+}
+
+"#orderTitle": {
+	top: 0,
+	left: 0,
+	text: 'Lorem Ipsum',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '14dp'
+	},
+	color: '#2E2E2F'
+}
+
+"#orderQuantity": {
+	top: 0,
+	left: 0,
+	text: 'Quantity: 1',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '12dp'
+	},
+	color: '#636363'
+}
+
+"#orderSubPrice": {
+	top: 0,
+	left: 0,
+	text: 'Price: $2 542.45',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '12dp'
+	},
+	color: '#636363'
+}
+
+"#orderBrand": {
+	top: 0,
+	left: 0,
+	text: 'Brand: Lorem Ipsum',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '12dp'
+	},
+	color: '#636363'
+}
+
+"#orderSize": {
+	top: 0,
+	left: 0,
+	text: 'Size: Small',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '12dp'
+	},
+	color: '#636363'
+}
+
+"#orderCondition": {
+	top: 0,
+	left: 0,
+	text: 'Condition: New',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '12dp'
+	},
+	color: '#636363'
+}
+
+"#orderTotal": {
+	top: '10dp',
+	left: 0,
+	height: '30dp',
+	width: '100%'
+}
+
+"#orderEdit": {
+	left: 0,
+	width: '80dp',
+	height: '30dp',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '14dp'
+	},
+	color: '#fff',
+	backgroundColor: '#E4E7EA'
+}
+
+"#orderPrice": {
+	right: 0,
+	text: '$242.20',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '14dp'
+	},
+	color: '#2E2E2F'
+}
+
+".lineBreak": {
+	top: '10dp',
+	height: '1dp',
+	width: '100%',
+	backgroundColor: "#DADADA"
+}

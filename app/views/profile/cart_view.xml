@@ -1,9 +1,8 @@
 <Alloy>
-	<View class="container">
-		<View id="favoriteSection">
-			<View class="labelWrapper">
-				<Label class="favLabel" text="Cart" />
-			</View> 
+	<ScrollView class="wrapper">
+		<View class="container">
+			<Require src="cart/order" />
+			<Require src="cart/order" />
 		</View>
-	</View>
+	</ScrollView>
 </Alloy>

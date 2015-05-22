@@ -1,0 +1,25 @@
+<Alloy>
+	<View id="orderView">
+		<View id="orderItem">
+			<ImageView id="orderPhoto"></ImageView>
+			<View id="orderDetails">
+				<Label id="orderTitle" />
+				<Label id="orderQuantity" />
+				<Label id="orderSubPrice" />
+				<Label id="orderBrand" />
+				<Label id="orderSize" />
+				<Label id="orderCondition" />
+				<View id="orderTotal">
+					<Button id="orderEdit">Edit</Button>
+					<Label id="orderPrice" />
+				</View>
+				
+				
+			</View>
+			
+			<View class="lineBreak"></View>
+			
+		</View>
+		
+	</View>
+</Alloy>

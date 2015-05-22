@@ -1,0 +1,177 @@
+//
+//
+//
+
+"#orderItems": {
+	top: '10dp',
+	layout: 'vertical',
+	height: Ti.UI.SIZE
+}
+
+
+"#orderFromView": {
+	top: '10dp',
+	left: 0,
+	width: '300dp',
+	height: '40dp',
+	backgroundColor: '#E4E7EA'
+}
+
+
+"#orderFromLabel": {
+	layout : 'horizontal',
+	left : 0
+}
+
+"#orderFrom":{
+	top: '10dp',
+	text: '    ORDER FROM ',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '14dp'
+	},
+	color: '#2E2E2F'
+}
+
+
+"#orderFromName": {
+	top: '10dp',
+	text: 'JULIE SMITH',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '14dp'
+	},
+	// left: 0,
+	// backgroundColor : 'red',
+	color: '#F26B1D'
+}
+
+"#close": {
+	top : '5dp',
+	right: 0,
+	image: 'http://i.imgur.com/6DbNGYX.png',
+	height: '30dp'
+}
+
+
+//
+//
+//
+
+".filterWrapper": {
+	width: '100%',
+	borderRadius: '3dp',
+	height: '30dp',
+	backgroundColor: '#d1d7dc'
+}
+
+// ".filterWrapper[platform=ios]" : {
+// width : '86dp',
+// }
+
+".topRow": {
+	top: '5dp'
+}
+
+".firstElement": {
+	left: 0
+}
+
+".filterLabel": {
+	center: {
+		y: '50%'
+	},
+	left: '7dp',
+	font: {
+		fontSize: '12dp'
+	},
+	color: '#596b7c'
+}
+
+".filterSeparator": {
+	right: '25dp',
+	height: '100%',
+	width: '1dp',
+	backgroundColor: 'white'
+}
+
+".filterIcon": {
+	image: '/images/arrow_down.png',
+	width: '10dp',
+	height: '10dp',
+	center: {
+		y: '50%'
+	},
+	right: "7dp"
+}
+
+//
+//
+//
+
+".orderDetails": {
+	// layout : 'horizontal',
+	top: 0,
+	height: '20dp',
+	width: '300dp'
+}
+
+".orderLeft": {
+	left: 0,
+	font: {
+		fontSize: '14dp'
+	},
+	color: '#2E2E2F'
+}
+
+".orderRight": {
+	right: 0,
+	font: {
+		fontSize: '14dp'
+	},
+	color: '#2E2E2F'
+}
+
+".bold": {
+	font: {
+		fontWeight: 'bold'
+	}
+}
+
+"#orderOptional": {
+	hintText: 'ADD OPTIONAL NOTE TO SELLER',
+	paddingLeft: '10dp',
+	font: {
+		fontSize: '14dp'
+	},
+	left: 0,
+	width: '100%',
+	color: '#2E2E2F',
+	backgroundColor: 'white'
+}
+
+"#checkout": {
+	top: '10dp',
+	width: '150dp',
+	height: '40dp',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '14dp'
+	},
+	right: 0,
+	color: '#fff',
+	backgroundColor: '#13B5D6'
+}
+
+".lineBreak": {
+	top: '10dp',
+	height: '1dp',
+	width: '100%',
+	backgroundColor: "#DADADA"
+}
+
+".top": {
+	top: '10dp'
+}
+
+

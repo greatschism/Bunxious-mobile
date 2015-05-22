@@ -1,0 +1,6 @@
+<Alloy>
+	<TableViewRow class="container">
+		<Label id="text"/>
+		<Label id="ago"/>
+	</TableViewRow>
+</Alloy>

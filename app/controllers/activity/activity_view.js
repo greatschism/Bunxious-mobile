@@ -2,14 +2,14 @@ var args = arguments[0] || {};
 
 Alloy.Globals.API.getActivity(function(results) {
 
-	var productArray = [];
+	var activityArray = [];
 
 	for (var i in results) {
 
-		productArray.push(Alloy.createController('product/productRow', results[i]).getView());
+		activityArray.push(Alloy.createController('activity/activityRow', results[i]).getView());
 	}
 	
-	$.activityTable.setData(productArray);
+	$.activityTable.setData(activityArray);
 }, function(error) {
 
 }); 

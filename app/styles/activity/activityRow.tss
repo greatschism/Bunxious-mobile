@@ -1,0 +1,25 @@
+
+".container": {
+	height: '70dp'
+}
+
+"#text" : {
+	left : '10dp',
+	top : '10dp',
+	font : {
+		fontWeight : 'bold',
+		fontSize : '14dp'
+	},
+	color : '#000'
+}
+
+"#ago" : {
+	left : '10dp',
+	bottom : '10dp',
+	font : {
+		fontWeight : 'bold',
+		fontSize : '13dp'
+	},
+	color : '#666'
+}
+

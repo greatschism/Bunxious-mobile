@@ -54,4 +54,12 @@
 	<string name="closet_selection">Closet section</string>
 	<string name="post_in_groups">Post in groups</string>
 	<string name="item_variations">Item Variations</string>
+	<string name="add_new_variation">Add new variation</string>
+	<string name="item_tags">Item Tags</string>
+	<string name="item_shipment">Item Shipment</string>
+	<string name="processing_time">Processing Time</string>
+	<string name="ships_from">Ships from</string>
+	<string name="ships_to">Ships to</string>
+	<string name="everywhere_else">Everywhere else</string>
+	<string name="add_new_item">Add new item</string>
 </resources>

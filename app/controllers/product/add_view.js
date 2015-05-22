@@ -21,3 +21,18 @@ $.category.addEventListener('click', function() {
 
 	});
 });
+
+// we'll need to calculate the tableview's height because the Ti.UI.SIZE is not working in this case.
+var rows = 1;
+
+$.addVariation.addEventListener('click', function() {
+	
+	rows++;
+	var height = 90 * rows + 45 +'dp';
+	
+	$.itemVariationTable.appendRow(Alloy.createController('product/variationRow').getView());
+	
+	$.itemVariationTable.animate({
+		height : height
+	});
+});

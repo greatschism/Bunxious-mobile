@@ -6,24 +6,24 @@
 				<Label class="favLabel" text="Add New Item" />
 			</View>
 		</View>
-		<Widget id="title" src="com.harkdev.stylehinttextfield" height="40dp" width="300dp" top="20dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('title').toUpperCase()" tfTop="5dp" tfWidth="220dp" />
-		<Widget id="title" src="com.harkdev.stylehinttextfield" height="40dp" width="300dp" top="10dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('description').toUpperCase()" tfTop="5dp" tfWidth="220dp" textarea="true" />
+		<Widget id="title" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="300dp" top="20dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('title').toUpperCase()" tfTop="5dp" tfWidth="220dp" />
+		<Widget id="title" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="300dp" top="10dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('description').toUpperCase()" tfTop="5dp" tfWidth="220dp" textarea="true" />
 		<View id="category" class="tabChange">
-			<Label id="category_tabTitle" class="tabTitle" text="L('category').toUpperCase()"/>
+			<Label id="categoryTitle" class="tabTitle" text="L('category').toUpperCase()"/>
 			<View class="separator"/>
 			<View class="dropdown">
 				<ImageView class="downArrow"/>
 			</View>
 		</View>
 		<View id="closet" class="tabChange">
-			<Label id="closet_tabTitle" class="tabTitle" text="L('closet_selection').toUpperCase()"/>
+			<Label id="closetTitle" class="tabTitle" text="L('closet_selection').toUpperCase()"/>
 			<View class="separator"/>
 			<View class="dropdown">
 				<ImageView class="downArrow"/>
 			</View>
 		</View>
 		<View id="groups" class="tabChange">
-			<Label id="groups_tabTitle" class="tabTitle" text="L('post_in_groups').toUpperCase()"/>
+			<Label id="groupsTitle" class="tabTitle" text="L('post_in_groups').toUpperCase()"/>
 			<View class="separator"/>
 			<View class="dropdown">
 				<ImageView class="downArrow"/>
@@ -32,9 +32,60 @@
 		<View class="sectionWrapper">
 			<Label class="sectionLabel" text="L('item_variations').toUpperCase()"/>
 			<View class="border"/>
-			<TableView class="itemVariationTable">
-				
+			<TableView id="itemVariationTable">
+				<FooterView height="45dp">
+					<View class="footerView">
+						<Button id="addVariation" title="L('add_new_variation')" class="variationButton"/>
+					</View>
+				</FooterView>
+				<Require src="product/variationRow"/>
 			</TableView>
+			<View class="border" />
+			<View class="priceWrapper">
+				<Widget id="title" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="165dp" top="0" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('price').toUpperCase()" tfTop="5dp" tfWidth="220dp" />
+				<Label text="$" class="dollarSign" />
+			</View>
+		</View>
+		<View class="sectionWrapper">
+			<Label class="sectionLabel" text="L('item_tags').toUpperCase()"/>
+			<View class="border"/>
+			<Widget id="title" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="100%" top="10dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('style').toUpperCase()" tfTop="5dp" tfWidth="220dp" />
+			<Widget id="title" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="100%" top="10dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('tags').toUpperCase()" tfTop="5dp" tfWidth="220dp" />
+			<Widget id="title" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="100%" top="10dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('materials').toUpperCase()" tfTop="5dp" tfWidth="220dp" />
+		</View>
+		<View class="sectionWrapper">
+			<Label class="sectionLabel" text="L('item_shipment').toUpperCase()"/>
+			<View class="border"/>
+			<Widget id="title" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="100%" top="10dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('processing_time').toUpperCase()" tfTop="5dp" tfWidth="220dp" />
+			<View id="shipsFrom" class="tabChange">
+				<Label id="shipsFromTitle" class="tabTitle" text="L('ships_from').toUpperCase()"/>
+				<View class="separator"/>
+				<View class="dropdown">
+					<ImageView class="downArrow"/>
+				</View>
+			</View>
+			<View class="shippingOptions">
+				<View id="shipsTo" class="tabChange">
+					<Label id="shipsToTitle" class="tabTitle" text="L('ships_to').toUpperCase()"/>
+					<View class="separator"/>
+					<View class="dropdown">
+						<ImageView class="downArrow"/>
+					</View>
+				</View>
+				<View class="shippingPrice">
+					<Label class="dollarSign" text="$"/>
+					<TextField class="priceTextfield"/>
+				</View>
+				<Label class="elsewhere" text="L('everywhere_else').toUpperCase()"/>
+				<View class="shippingElsewherePrice">
+					<Label class="dollarSign" text="$"/>
+					<TextField class="priceTextfield"/>
+				</View>
+			</View>
+			<View class="border paddingTop" />
+			<View class="saveWrapper">
+				<Button class="saveButton" title="L('add_new_item')" />
+			</View>
 		</View>
 	</ScrollView>
 </Alloy>

@@ -61,6 +61,12 @@ function initView() {
 		$.vwContainer.bottom = args.bottom;
 	if (args.backgroundColor != null)
 		$.vwContainer.backgroundColor = args.backgroundColor;
+	if (args.borderRadius != null)
+		$.vwContainer.borderRadius = args.borderRadius;
+	if (args.borderWidth != null)
+		$.vwContainer.borderWidth = args.borderWidth;
+	if (args.borderColor != null)
+		$.vwContainer.borderColor = args.borderColor;
 }
 
 /***
@@ -77,12 +83,6 @@ function initTextField() {
 		};
 	$.txtField.passwordMask = args.passwordMask;
 	$.txtField.value = args.value;
-	if (args.borderRadius != null)
-		$.txtField.borderRadius = args.borderRadius;
-	if (args.borderWidth != null)
-		$.txtField.borderWidth = args.borderWidth;
-	if (args.borderColor != null)
-		$.txtField.borderColor = args.borderColor;
 	if (args.height != null)
 		$.txtField.height = args.height;
 	//if (args.tfTop != null) $.txtField.top = args.tfTop;

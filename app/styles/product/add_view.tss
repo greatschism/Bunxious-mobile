@@ -1,7 +1,9 @@
 
 ".container": {
 	backgroundColor: '#f4f4f4',
-	layout : 'vertical'
+	layout: 'vertical',
+	top: 0,
+	bottom: '20dp'
 }
 
 "#favoriteSection": {
@@ -14,21 +16,21 @@
 	width: '320dp'
 }
 
-".labelWrapper" : {
-	backgroundColor : '#e4e7ea',
-	height : '30dp',
-	top : 0
+".labelWrapper": {
+	backgroundColor: '#e4e7ea',
+	height: '30dp',
+	top: 0
 }
 
-".favLabel" : {
-	left : '7dp',
-	center : {
-		y : '50%'
+".favLabel": {
+	left: '7dp',
+	center: {
+		y: '50%'
 	},
-	color : '#2e2e2f',
-	font : {
-		fontSize : '13dp',
-		fontWeight : 'bold'
+	color: '#2e2e2f',
+	font: {
+		fontSize: '13dp',
+		fontWeight: 'bold'
 	}
 }
 
@@ -38,11 +40,11 @@
 	height: '30dp',
 	borderWidth: '1dp',
 	borderColor: '#d5dae2',
-	backgroundColor : '#fff'
+	backgroundColor: '#fff'
 }
 
-".tabChange[platform=android]" : {
-	width : '320dp'
+".tabChange[platform=android]": {
+	width: '320dp'
 }
 
 ".tabTitle": {
@@ -64,9 +66,9 @@
 }
 
 ".dropdown": {
-	right : 0,
-	width : '30dp',
-	height : Ti.UI.FILL,
+	right: 0,
+	width: '30dp',
+	height: Ti.UI.FILL,
 	backgroundGradient: {
 		type: 'linear',
 		startPoint: {
@@ -90,45 +92,154 @@
 	}
 }
 
-".downArrow" : {
-	width : '10dp',
-	height : '10dp',
-	image : '/images/arrow_down.png',
-	center : {
-		x : '50%',
-		y : '50%'
+".downArrow": {
+	width: '10dp',
+	height: '10dp',
+	image: '/images/arrow_down.png',
+	center: {
+		x: '50%',
+		y: '50%'
 	}
 }
 
-".sectionWrapper" : {
-	layout : 'vertical',
-	height : Ti.UI.SIZE,
-	width : '300dp',
+".sectionWrapper": {
+	layout: 'vertical',
+	height: Ti.UI.SIZE,
+	width: '300dp',
+	top: '10dp'
+}
+
+".sectionWrapper[platform=android]": {
+	width: '320dp'
+}
+
+".sectionLabel": {
+	color: '#000',
+	font: {
+		fontWeight: 'bold'
+	},
+	left: 0
+}
+
+".border": {
+	width: '100%',
+	backgroundColor: '#dadada',
+	height: '1dp'
+}
+
+"#itemVariationTable": {
+	height: '145dp',
+	width: '100%',
+	top: 0,
+	backgroundColor : 'transparent',
+	scrollable: false,
+	separatorInsets: {
+		left: 0,
+		right: 0
+	},
+	selectionStyle: Titanium.UI.iPhone.TableViewCellSelectionStyle.NONE
+}
+
+".variationButton": {
+	left: 0,
+	top: '10dp',
+	width: '165dp',
+	backgroundColor: '#d8dadd',
+	color: '#808080',
+	font: {
+		fontWeight: 'bold'
+	},
+	left: 0,
+	center: {
+		y: '50%'
+	}
+}
+
+".footerView": {
+	backgroundColor : 'transparent',
+	height: '45dp',
+	width: '100%',
+	top: 0
+}
+
+".priceWrapper" : {
+	top : '10dp',
+	height : '40dp',
+	layout : 'horizontal',
+	width : '100%'
+}
+
+".dollarSign" : {
+	color : '#666',
+	left : '10dp'
+}
+
+".shippingOptions" : {
+	height : '75dp', 
 	top : '10dp'
 }
 
-".sectionWrapper[platform=android]" : {
-	width : '320dp'
+"#shipsTo" : {
+	width : '45%',
+	left : 0,
+	top : 0
 }
 
-".sectionLabel" : {
-	color : '#000',
+".shippingPrice" : {
+	left : '55%',
+	top : 0,
+	right : 0,
+	height : '30dp',
+	layout : 'horizontal'
+}
+
+".priceTextfield" : {
+	left : '10dp',
+	backgroundColor : '#fff',
+	right : 0,
+	height : '30dp',
+	borderWidth: '1dp',
+	borderRadius : 0,
+	borderColor: '#d5dae2',
+	backgroundColor: '#fff'
+}
+
+".elsewhere" : {
+	left : 0,
+	bottom : '7dp',
 	font : {
-		fontWeight : 'bold'
+		fontSize : '13dp'
+	}
+}
+
+".shippingElsewherePrice" : {
+	left : '55%',
+	bottom : 0,
+	right : 0,
+	height : '30dp',
+	layout : 'horizontal', 
+}
+
+".paddingTop" : {
+	top : '10dp'
+}
+
+".saveWrapper" : {
+	height : '60dp'
+}
+
+".saveButton" : {
+	left: 0,
+	top: '15dp',
+	width: '165dp',
+	backgroundColor: '#f26b1d',
+	color: '#fff',
+	font: {
+		fontWeight: 'bold'
 	},
-	left : 0
+	left: 0,
+	center: {
+		y: '50%'
+	}
 }
-
-".border" : {
-	width : '100%',
-	backgroundColor : '#dadada',
-	height : '1dp'
-}
-
-".itemVariationTable" : {
-	height : Ti.UI.SIZE,
-	width : '100%',
-	top : '10dp',
-	scrollable : false
-}
-
+ 

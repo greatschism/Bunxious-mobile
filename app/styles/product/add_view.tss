@@ -32,3 +32,103 @@
 	}
 }
 
+".tabChange": {
+	top: '10dp',
+	width: '300dp',
+	height: '30dp',
+	borderWidth: '1dp',
+	borderColor: '#d5dae2',
+	backgroundColor : '#fff'
+}
+
+".tabChange[platform=android]" : {
+	width : '320dp'
+}
+
+".tabTitle": {
+	color: '#666',
+	left: '10dp',
+	center: {
+		y: '50%'
+	},
+	font: {
+		fontSize: '15dp'
+	}
+}
+
+".separator": {
+	width: '1dp',
+	height: Ti.UI.FILL,
+	backgroundColor: '#d5dae2',
+	right: '30dp'
+}
+
+".dropdown": {
+	right : 0,
+	width : '30dp',
+	height : Ti.UI.FILL,
+	backgroundGradient: {
+		type: 'linear',
+		startPoint: {
+			x: '50%',
+			y: '0%'
+		},
+		endPoint: {
+			x: '50%',
+			y: '100%'
+		},
+		colors: [
+			{
+				color: '#f3f4f5',
+				offset: 0.0
+			},
+			{
+				color: '#dbdee0',
+				offset: 1.0
+			}
+		]
+	}
+}
+
+".downArrow" : {
+	width : '10dp',
+	height : '10dp',
+	image : '/images/arrow_down.png',
+	center : {
+		x : '50%',
+		y : '50%'
+	}
+}
+
+".sectionWrapper" : {
+	layout : 'vertical',
+	height : Ti.UI.SIZE,
+	width : '300dp',
+	top : '10dp'
+}
+
+".sectionWrapper[platform=android]" : {
+	width : '320dp'
+}
+
+".sectionLabel" : {
+	color : '#000',
+	font : {
+		fontWeight : 'bold'
+	},
+	left : 0
+}
+
+".border" : {
+	width : '100%',
+	backgroundColor : '#dadada',
+	height : '1dp'
+}
+
+".itemVariationTable" : {
+	height : Ti.UI.SIZE,
+	width : '100%',
+	top : '10dp',
+	scrollable : false
+}
+

@@ -49,4 +49,9 @@
 	<string name="feedback">Feedback</string>
 	<string name="save">Save</string>
 	<string name="title">Title</string>
+	<string name="description">Description</string>
+	<string name="category">Category</string>
+	<string name="closet_selection">Closet section</string>
+	<string name="post_in_groups">Post in groups</string>
+	<string name="item_variations">Item Variations</string>
 </resources>

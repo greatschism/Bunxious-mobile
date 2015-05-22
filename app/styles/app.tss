@@ -96,9 +96,6 @@ height: Ti.UI.SIZE //
 		fontSize: '16dp'
 	},
 	color: '#333',
-	borderWidth: 2,
-	borderColor: "#999",
-	borderRadius: 6
 },
 
 "TextField":{

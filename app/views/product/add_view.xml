@@ -1,11 +1,40 @@
 <Alloy>
-	<View class="container">
-		
+	<ScrollView class="container">
+
 		<View id="favoriteSection">
 			<View class="labelWrapper">
 				<Label class="favLabel" text="Add New Item" />
-			</View> 
+			</View>
 		</View>
-		<Widget id="title" src="com.harkdev.stylehinttextfield" height="40dp" width="300dp" top="20dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('title')" tfTop="5dp" tfWidth="220dp" />
-	</View>
+		<Widget id="title" src="com.harkdev.stylehinttextfield" height="40dp" width="300dp" top="20dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('title').toUpperCase()" tfTop="5dp" tfWidth="220dp" />
+		<Widget id="title" src="com.harkdev.stylehinttextfield" height="40dp" width="300dp" top="10dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('description').toUpperCase()" tfTop="5dp" tfWidth="220dp" textarea="true" />
+		<View id="category" class="tabChange">
+			<Label id="category_tabTitle" class="tabTitle" text="L('category').toUpperCase()"/>
+			<View class="separator"/>
+			<View class="dropdown">
+				<ImageView class="downArrow"/>
+			</View>
+		</View>
+		<View id="closet" class="tabChange">
+			<Label id="closet_tabTitle" class="tabTitle" text="L('closet_selection').toUpperCase()"/>
+			<View class="separator"/>
+			<View class="dropdown">
+				<ImageView class="downArrow"/>
+			</View>
+		</View>
+		<View id="groups" class="tabChange">
+			<Label id="groups_tabTitle" class="tabTitle" text="L('post_in_groups').toUpperCase()"/>
+			<View class="separator"/>
+			<View class="dropdown">
+				<ImageView class="downArrow"/>
+			</View>
+		</View>
+		<View class="sectionWrapper">
+			<Label class="sectionLabel" text="L('item_variations').toUpperCase()"/>
+			<View class="border"/>
+			<TableView class="itemVariationTable">
+				
+			</TableView>
+		</View>
+	</ScrollView>
 </Alloy>

@@ -22,6 +22,10 @@
 	width : '320dp'
 }
 
+"TableViewRow[platform=ios]":{
+	selectionStyle: Titanium.UI.iPhone.TableViewCellSelectionStyle.NONE,
+}
+
 ".filterWrapper" : {
 	width : '93dp',
 	borderRadius : '3dp',

@@ -325,4 +325,19 @@ api.feedback = function(user_id, success, fail){
 	
 };
 
+api.findFollowers = function(user_id, success, fail) {
+	
+	var data = {
+		user_id : user_id,
+		limit : 20,
+	};
+		
+	if (Alloy.Globals.currentUser) {
+		
+		data.token = Alloy.Globals.currentUser.token;
+	}
+	
+	httpRequest('user/get-followers', 'GET', data, success, fail);
+};
+
 module.exports = api;

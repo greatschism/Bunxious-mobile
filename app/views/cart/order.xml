@@ -1,0 +1,39 @@
+<Alloy>
+	<View id="orderItems">
+		<View id="orderFromView">
+			<View id="orderFromLabel">
+				<Label id="orderFrom" />
+				<Label id="orderFromName" />
+			</View>
+			<ImageView id="close"></ImageView>
+		</View>
+		<Require src="cart/item"></Require>
+		<Require src="cart/item"></Require>
+		<View id="addressFilter" class="filterWrapper topRow firstElement">
+			<Label id="addressLabel" class="filterLabel" text="SHIP TO ADDRESS 1" />
+			<View class="filterSeparator" />
+			<ImageView class="filterIcon" />
+		</View>
+		<View class="lineBreak"></View>
+		<View class="orderDetails top">
+			<Label id="orderItemTotal" class="orderLeft"></Label>
+			<Label id="orderItemTotalPrice" class="orderRight"></Label>
+		</View>
+		<View class="orderDetails">
+			<Label id="orderShipping" class="orderLeft"></Label>
+			<Label id="orderShippingPrice" class="orderRight"></Label>
+		</View>
+		<View class="orderDetails">
+			<Label id="orderTax" class="orderLeft"></Label>
+			<Label id="orderTaxPrice" class="orderRight"></Label>
+		</View>
+		<View class="orderDetails">
+			<Label id="orderTotal" class="orderLeft bold"></Label>
+			<Label id="orderTotalPrice" class="orderRight bold"></Label>
+		</View>
+		<View class="lineBreak"></View>
+		<TextField id="orderOptional" class="top"></TextField>
+		<Button id="checkout">Check Out</Button>
+	</View>
+</Alloy>
+

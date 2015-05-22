@@ -1,7 +1,16 @@
+".wrapper": {
+	width: Ti.UI.FILL,
+	height: '100%',
+	contentHeight: '2800px',
+	backgroundColor: '#f4f4f4',
+	layout: 'vertical'
+}
+
 
 ".container": {
-	backgroundColor: '#f4f4f4',
-	layout : 'vertical'
+	width: '300dp',
+	height: Ti.UI.SIZE,
+	layout: 'vertical'
 }
 
 "#favoriteSection": {
@@ -14,21 +23,22 @@
 	width: '320dp'
 }
 
-".labelWrapper" : {
-	backgroundColor : '#e4e7ea',
-	height : '30dp',
-	top : 0
+".labelWrapper": {
+	backgroundColor: '#e4e7ea',
+	height: '30dp',
+	top: 0
 }
 
-".favLabel" : {
-	left : '7dp',
-	center : {
-		y : '50%'
+".favLabel": {
+	left: '7dp',
+	center: {
+		y: '50%'
 	},
-	color : '#2e2e2f',
-	font : {
-		fontSize : '13dp',
-		fontWeight : 'bold'
+	color: '#2e2e2f',
+	font: {
+		fontSize: '13dp',
+		fontWeight: 'bold'
 	}
 }
+
 

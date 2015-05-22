@@ -1,0 +1,109 @@
+"#container": {
+	height : Titanium.UI.SIZE,
+	backgroundColor: '#f4f4f4',
+	layout: 'vertical'
+}
+
+".profileWrapper": {
+	width: '320dp',
+	height : Ti.UI.SIZE,
+	// backgroundColor : 'yellow'
+}
+
+'.profileWrapper[platform=ios]': {
+	width: '300dp'
+}
+
+".userInfo": {
+	height: '106dp',
+	top: '20dp'
+}
+
+"#avatar": {
+	left: 0,
+	top: 0,
+	width: '70dp',
+	height: '70dp'
+}
+
+"#userName": {
+	left: '80dp',
+	top: 0,
+	color: '#d74d0a',
+	font: {
+		fontSize: '15dp',
+		fontWeight: 'bold'
+	},
+	// backgroundColor : 'red'
+}
+
+'#userLocation': {
+	left: '80dp',
+	top: '18dp',
+	color: '#666',
+	font: {
+		fontSize: '14dp'
+	}
+}
+
+".button": {
+	width: '80dp',
+	height: '22dp',
+	backgroundColor: '#f26b1d',
+	top: '48dp',
+	left: '80dp',
+	// visible: false
+}
+
+"#contactButton": {
+	left: '167dp'
+}
+
+".buttonLabel": {
+	color: '#fff',
+	font: {
+		fontSize: '12dp',
+		fontWeight: 'bold'
+	}
+}
+
+".followLabel": {
+	left: '30dp'
+}
+
+".plus": {
+	image: '/images/pluswhite.png',
+	width: '10dp',
+	height: '10dp',
+	left: '12dp'
+}
+
+".joinedWrapper": {
+	width: '100%',
+	height: '27dp',
+	top: '80dp'
+}
+
+".border": {
+	width: '100%',
+	height: '1dp',
+	backgroundColor: '#dadada'
+}
+
+".infoLabel": {
+	center: {
+		y: '50%'
+	},
+	color: '#333333',
+	font: {
+		fontSize: '13dp'
+	}
+}
+
+"#gender": {
+	left: 0
+}
+
+"#joined": {
+	left: '80dp'
+}

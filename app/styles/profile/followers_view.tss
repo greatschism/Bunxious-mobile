@@ -5,7 +5,7 @@
 }
 
 "#favoriteSection": {
-	height: '110dp',
+	height: '40dp',
 	top: '15dp',
 	width: '300dp'
 }
@@ -32,3 +32,8 @@
 	}
 }
 
+"#followersTable" :{
+	top : 0,
+	height : Ti.UI.FILL,
+	backgroundColor : '#f4f4f4'
+}

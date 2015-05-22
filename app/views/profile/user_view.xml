@@ -1,0 +1,26 @@
+<Alloy>
+	<TableViewRow>
+		<View id="container">
+			<View class="profileWrapper">
+				<View class="userInfo">
+					<ImageView id="avatar" />
+					<Label id="userName"/>
+					<Label id="userLocation"/>
+					<View id="followButton" class="button">
+						<ImageView class="plus"/>
+						<Label class="buttonLabel followLabel" text="L('follow')"/>
+					</View>
+					<View id="contactButton" class="button">
+						<Label class="buttonLabel" text="L('contact')"/>
+					</View>
+					<View class="joinedWrapper">
+						<View class="border" top="0"/>
+						<Label class="infoLabel" id="gender" />
+						<Label class="infoLabel" id="joined" />
+						<View class="border" bottom="1dp"/>
+					</View>
+				</View>
+			</View>
+		</View>
+	</TableViewRow>
+</Alloy>

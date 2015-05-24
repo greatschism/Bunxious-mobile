@@ -2,8 +2,9 @@
 	<View class="container">
 		<View id="favoriteSection">
 			<View class="labelWrapper">
-				<Label class="favLabel" text="Favorite" />
+				<Label class="favLabel" text="L('favorite_items')" />
 			</View> 
 		</View>
+		<TableView id="itemLikesTable" class="table" />
 	</View>
 </Alloy>

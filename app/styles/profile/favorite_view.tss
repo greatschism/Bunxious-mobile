@@ -5,7 +5,7 @@
 }
 
 "#favoriteSection": {
-	height: '110dp',
+	height: '30dp',
 	top: '15dp',
 	width: '300dp'
 }
@@ -15,7 +15,6 @@
 }
 
 ".labelWrapper" : {
-	backgroundColor : '#e4e7ea',
 	height : '30dp',
 	top : 0
 }
@@ -32,3 +31,9 @@
 	}
 }
 
+".table" : {
+	backgroundColor : 'transparent',
+	separatorColor : 'transparent',
+	rowHeight : '480dp',
+	bottom : 0
+}

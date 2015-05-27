@@ -34,6 +34,7 @@
 		<View class="lineBreak"></View>
 		<TextField id="orderOptional" class="top"></TextField>
 		<Button id="checkout">Check Out</Button>
+		<View class="padding"/>
 	</View>
 </Alloy>
 

@@ -1,8 +1,6 @@
 <Alloy>
 	<ScrollView class="wrapper">
-		<View class="container">
-			<Require src="cart/order" />
-			<Require src="cart/order" />
+		<View id="container">
 		</View>
 	</ScrollView>
 </Alloy>

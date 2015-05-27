@@ -4,7 +4,6 @@ $.addressFilter.addEventListener('click', function() {
 
 	Alloy.Globals.API.getAllCategories(function(results) {
 
-		Ti.API.info('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' + JSON.stringify(results));
 		var popupDialog = Alloy.createWidget('ti.ux.popup.list', 'widget', {
 			closeButton : true,
 			selectable : true,
@@ -23,6 +22,9 @@ $.addressFilter.addEventListener('click', function() {
 	});
 }); 
 
+Ti.API.error(args);
+
+$.orderFromName.text = args.maindata.orderFrom;
 
 $.orderItemTotal.text = "Item total";
 $.orderItemTotalPrice.text = "$84.40";

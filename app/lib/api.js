@@ -355,4 +355,13 @@ api.findFollowers = function(user_id, success, fail) {
 	httpRequest('user/get-followers', 'GET', data, success, fail);
 };
 
+api.getCart = function(success, fail) {
+	
+	var data = {
+		token : Alloy.Globals.currentUser.token
+	};
+		
+	httpRequest('store/cart', 'POST', data, success, fail);
+};
+
 module.exports = api;

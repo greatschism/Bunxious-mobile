@@ -3,7 +3,7 @@
 //
 
 "#orderItems": {
-	top: '10dp',
+	top: 0,
 	layout: 'vertical',
 	height: Ti.UI.SIZE
 }
@@ -36,7 +36,6 @@
 
 "#orderFromName": {
 	top: '10dp',
-	text: 'JULIE SMITH',
 	font: {
 		fontWeight: 'bold',
 		fontSize: '14dp'
@@ -174,4 +173,7 @@
 	top: '10dp'
 }
 
+".padding" : {
+	height : '10dp'
+}
 

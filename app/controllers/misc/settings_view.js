@@ -1,7 +1,7 @@
 var args = arguments[0] || {};
 
 if (Alloy.Globals.currentUser != null) {
-	
+
 	$.firstname.getField().value = Alloy.Globals.currentUser.user_info.firstname;
 	$.lastname.getField().value = Alloy.Globals.currentUser.user_info.lastname;
 	$.username.getField().value = Alloy.Globals.currentUser.user_info.username;
@@ -15,10 +15,11 @@ if (Alloy.Globals.currentUser != null) {
 	$.notification_like_pin.setValue(Alloy.Globals.currentUser.user_info.notification_like_pin);
 	$.notification_repin_pin.setValue(Alloy.Globals.currentUser.user_info.notification_repin_pin);
 	$.notification_follow_user.setValue(Alloy.Globals.currentUser.user_info.notification_follow_user);
-	
-	
+
 	$.saveButton.addEventListener('click', function() {
-		
+
+		Alloy.Globals.loading.show();
+
 		Alloy.Globals.currentUser.user_info.firstname = $.firstname.getField().value;
 		Alloy.Globals.currentUser.user_info.lastname = $.lastname.getField().value;
 		Alloy.Globals.currentUser.user_info.username = $.username.getField().value;
@@ -32,12 +33,13 @@ if (Alloy.Globals.currentUser != null) {
 		Alloy.Globals.currentUser.user_info.notification_like_pin = $.notification_like_pin.getValue();
 		Alloy.Globals.currentUser.user_info.notification_repin_pin = $.notification_repin_pin.getValue();
 		Alloy.Globals.currentUser.user_info.notification_follow_user = $.notification_follow_user.getValue();
-		
+
 		Alloy.Globals.API.updateUser(Alloy.Globals.currentUser.user_info, function() {
-			
-			alert('Data succesfully saved.');
+
+			Alloy.Globals.loading.hide();
 		}, function() {
-			
+
+			Alloy.Globals.loading.hide();
 			alert('Data save failed.');
 		});
 	});

@@ -1,6 +1,6 @@
 var args = arguments[0] || {};
 
-// Alloy.createController('cart/orderItem').getView().open();
+Alloy.Globals.loading.show();
 
 Alloy.Globals.API.getCart(function(result) {
 	
@@ -26,7 +26,9 @@ Alloy.Globals.API.getCart(function(result) {
 	 		}
 	 	}
 	 }
+	 
+	 Alloy.Globals.loading.hide();
 }, function(error) {
 	
-	Ti.API.error(error);
+	Alloy.Globals.loading.hide();
 });

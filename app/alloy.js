@@ -85,3 +85,5 @@ Alloy.Globals.openWindow = function(controller, arguments, newOne) {
 		currentPage = controller;
 	}
 };
+
+Alloy.Globals.loading = Alloy.createWidget("nl.fokkezb.loading");

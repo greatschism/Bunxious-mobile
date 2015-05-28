@@ -29,9 +29,10 @@ function updateMenu() {
 
 $.login_logout.button.addEventListener('click', function() {
 
-	Ti.App.fireEvent('toggleMenu');
-
 	if ($.login_logout.action == 'login') {
+		
+		// We only need to close it at login, because at logout we'll trigger the click event that will do the exact same thing
+		Ti.App.fireEvent('toggleMenu');
 
 		Alloy.createController('auth/login').getView().open();
 	} else if ($.login_logout.action == 'logout') {
@@ -40,6 +41,7 @@ $.login_logout.button.addEventListener('click', function() {
 
 			Alloy.Globals.currentUser = null;
 			updateMenu();
+			$.homeButton.button.fireEvent('click');
 		});
 	}
 });

@@ -21,9 +21,11 @@ $.create_account.addEventListener('click', function() {
 });
 
 $.login_button.addEventListener('click', function() {
-
+	
+	Alloy.Globals.loading.show();
+	
 	Alloy.Globals.API.login($.user.getValue(), $.pass.getValue(), function(currentUser) {
-
+		
 		Alloy.Globals.currentUser = currentUser;
 
 		// Updating the main menu
@@ -32,5 +34,8 @@ $.login_button.addEventListener('click', function() {
 			fromAnotherController : true
 		}).populateTable();
 		$.loginWindow.close();
+	}, function(error) {
+		
+		Alloy.Globals.loading.hide();
 	});
 });

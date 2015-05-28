@@ -2,6 +2,8 @@ var args = arguments[0] || {};
 
 if (Alloy.Globals.currentUser && Alloy.Globals.currentUser.user_info.id) {
 
+	Alloy.Globals.loading.show();
+	
 	Alloy.Globals.API.findLikes(Alloy.Globals.currentUser.user_info.id, function(results) {
 
 		var productArray = [];
@@ -17,6 +19,12 @@ if (Alloy.Globals.currentUser && Alloy.Globals.currentUser.user_info.id) {
 				title : 'No results.'
 			}));
 		}
+		
 		$.itemLikesTable.setData(productArray);
+		
+		Alloy.Globals.loading.hide();
+	}, function(error) {
+		
+		Alloy.Globals.loading.hide();
 	});
 } 

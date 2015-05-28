@@ -1,5 +1,7 @@
 var args = arguments[0] || {};
 
+Alloy.Globals.loading.show();
+
 Alloy.Globals.API.getActivity(function(results) {
 
 	var activityArray = [];
@@ -10,6 +12,9 @@ Alloy.Globals.API.getActivity(function(results) {
 	}
 	
 	$.activityTable.setData(activityArray);
+	
+	Alloy.Globals.loading.hide();
 }, function(error) {
-
+	
+	Alloy.Globals.loading.hide();
 }); 

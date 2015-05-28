@@ -1,7 +1,9 @@
 var args = arguments[0] || {};
 
 function populateTable() {
-
+	
+	Alloy.Globals.loading.show();
+	
 	Alloy.Globals.API.getHomePins(function(results) {
 
 		var productArray = [];
@@ -19,9 +21,11 @@ function populateTable() {
 		}
 
 		$.homeTable.setData(productArray);
-
+		
+		Alloy.Globals.loading.hide();
 	}, function(error) {
-
+		
+		Alloy.Globals.loading.hide();
 	});
 };
 

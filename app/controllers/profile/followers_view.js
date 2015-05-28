@@ -1,8 +1,8 @@
 var args = arguments[0] || {};
 
-Ti.API.info('Current User: ' + JSON.stringify(Alloy.Globals.currentUser));
-
 if (Alloy.Globals.currentUser.user_info.id) {
+	
+	Alloy.Globals.loading.show();
 
 	Alloy.Globals.API.findFollowers(2190, function(result) {
 
@@ -16,8 +16,10 @@ if (Alloy.Globals.currentUser.user_info.id) {
 		}
 
 		$.followersTable.setData(tableData);
-
+		
+		Alloy.Globals.loading.hide();
 	}, function(error) {
-
+		
+		Alloy.Globals.loading.hide();
 	});
 }

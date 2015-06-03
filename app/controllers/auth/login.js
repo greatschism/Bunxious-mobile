@@ -39,3 +39,8 @@ $.login_button.addEventListener('click', function() {
 		Alloy.Globals.loading.hide();
 	});
 });
+
+$.closeButton.addEventListener('click', function() {
+	
+	$.loginWindow.close();
+});

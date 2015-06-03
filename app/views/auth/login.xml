@@ -1,6 +1,7 @@
 <Alloy>
 	<Window id="loginWindow">
 		<View class="container">
+			<ImageView id="closeButton" />
 			<ImageView id="logo" />
 			<LoginButton id="fbLogin" module="facebook" />
 			<Widget id="user" src="com.harkdev.stylehinttextfield" height="40dp" width="250dp" top="50dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('email_address')" tfTop="5dp" tfWidth="220dp" />

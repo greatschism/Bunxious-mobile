@@ -177,3 +177,9 @@
 	height : '10dp'
 }
 
+"#container" : {
+	width : Ti.UI.FILL,
+	height : Ti.UI.SIZE,
+	layout : 'vertical'
+}
+

@@ -23,11 +23,11 @@ function queryString(data) {
 			for (var k in o) {
 				var new_key = key + "[" + k + "]";
 				var value = o[k];
-				
+
 				if (value === true) {
 					value = 1;
 				}
-				
+
 				if (value === false) {
 					value = 0;
 				}
@@ -42,22 +42,22 @@ function queryString(data) {
 };
 
 function httpRequest(endpoint, method, data, successFunction, errorFunction) {
-	
+
 	if (!Ti.Network.online) {
-		
+
 		alert('No internet connection');
-		
+
 		if (errorFunction) {
-			
+
 			errorFunction();
 		}
 		return;
 	}
-	
+
 	var url = config.baseURL + endpoint;
 
-	if (data && method == 'GET')  {
-		
+	if (data && method == 'GET') {
+
 		url = url + '?' + queryString(data);
 	}
 
@@ -116,7 +116,7 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction) {
 	};
 
 	xhr.timeout = 20000;
-	
+
 	xhr.open(method, url);
 
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -162,18 +162,18 @@ api.logout = function(success, fail) {
 };
 
 api.getHomePins = function(success, fail, offset) {
-	
+
 	var data = {
 		limit : 20,
 	};
-	
+
 	if (offset) {
-		
+
 		data.offset = offset;
 	}
-	
+
 	if (Alloy.Globals.currentUser) {
-		
+
 		data.token = Alloy.Globals.currentUser.token;
 	}
 
@@ -194,6 +194,14 @@ api.getAllCategories = function(success, fail) {
 
 		if (success) {
 
+			items.sort(function(a, b) {
+				if (a < b)
+					return -1;
+				if (a > b)
+					return 1;
+				return 0;
+			});
+			
 			success(items);
 		}
 	}
@@ -202,35 +210,45 @@ api.getAllCategories = function(success, fail) {
 };
 
 api.getActivity = function(success, fail) {
-	
+
 	var data = {
 		token : Alloy.Globals.currentUser.token
 	};
-	
+
 	httpRequest('activity/find', 'GET', data, success, fail);
 };
 
+api.getPin = function(id, success, fail) {
+
+	var data = {
+		id : id,
+		token : Alloy.Globals.currentUser.token
+	};
+
+	httpRequest('pin/find', 'GET', data, success, fail);
+};
+
 api.getUser = function(user_id, success, fail) {
-	
+
 	var data = {
 		user_id : user_id,
 	};
-		
+
 	if (Alloy.Globals.currentUser) {
-		
+
 		data.token = Alloy.Globals.currentUser.token;
 	}
-	
+
 	httpRequest('user/find', 'GET', data, success, fail);
 };
 
 api.updateUser = function(userData, success, fail) {
-	
+
 	var data = {
 		token : Alloy.Globals.currentUser.token,
 		data : userData
 	};
-	
+
 	//deleting unnecessary data
 	delete userData.id;
 	delete userData.password;
@@ -273,94 +291,93 @@ api.updateUser = function(userData, success, fail) {
 	delete userData.avatar_small;
 	delete userData.avatar_medium;
 	delete userData.cover_image;
-	
-	
+
 	httpRequest('user/update', 'POST', data, success, fail);
 };
 
 api.findBoard = function(user_id, success, fail) {
-	
+
 	var data = {
 		filters : {
 			user_id : user_id
 		}
 	};
-		
+
 	if (Alloy.Globals.currentUser) {
-		
+
 		data.token = Alloy.Globals.currentUser.token;
 	}
-	
+
 	httpRequest('board/find-by', 'GET', data, success, fail);
 };
 
-api.findLikes = function(user_id, success, fail){
-	
+api.findLikes = function(user_id, success, fail) {
+
 	var data = {
 		user_id : user_id
 	};
-	
+
 	if (Alloy.Globals.currentUser) {
-		
+
 		data.token = Alloy.Globals.currentUser.token;
 	}
-	
+
 	httpRequest('pin/find-likes', 'GET', data, success, fail);
 };
 
-api.feedback = function(user_id, success, fail){
-	
+api.feedback = function(user_id, success, fail) {
+
 	var data = {
 		filters : {
 			user_id : user_id
 		}
 	};
-		
+
 	if (Alloy.Globals.currentUser) {
-		
+
 		data.token = Alloy.Globals.currentUser.token;
 	}
-	
+
 	httpRequest('comments/find-by', 'GET', data, success, fail);
-	
+
 };
 
 api.findFollowers = function(user_id, success, fail) {
-	
+
 	var data = {
 		user_id : user_id,
 		limit : 20,
 	};
-		
+
 	if (Alloy.Globals.currentUser) {
-		
+
 		data.token = Alloy.Globals.currentUser.token;
 	}
-	
+
 	httpRequest('user/get-followers', 'GET', data, success, fail);
 };
 
 api.findFollowers = function(user_id, success, fail) {
-	
+
 	var data = {
 		user_id : user_id,
 		limit : 20,
 	};
-		
+
 	if (Alloy.Globals.currentUser) {
-		
+
 		data.token = Alloy.Globals.currentUser.token;
 	}
-	
+
 	httpRequest('user/get-followers', 'GET', data, success, fail);
 };
 
 api.getCart = function(success, fail) {
-	
+
 	var data = {
 		token : Alloy.Globals.currentUser.token
 	};
-		
+
 	httpRequest('store/cart', 'POST', data, success, fail);
 };
 

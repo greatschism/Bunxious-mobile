@@ -1,0 +1,34 @@
+
+"TableViewRow": {
+	height: Ti.UI.SIZE,
+	backgroundColor : 'transparent',
+	layout : 'vertical'
+}
+
+"TableViewRow[platform=ios]" : {
+	selectionStyle : Ti.UI.iPhone.TableViewCellSelectionStyle.NONE
+}
+
+"#messageText": {
+	top: '10dp',
+	left: '10dp',
+	right: '10dp',
+	bottom: '10dp',
+	height : Ti.UI.SIZE,
+	font : {
+		fontSize : '13dp'
+	},
+	color : '#64666e'
+}
+
+"#messageWrapper": {
+	width: '230dp',
+	height: Ti.UI.SIZE,
+	backgroundColor : 'transparent'
+}
+
+".padding" : {
+	height : '10dp',
+	width : Ti.UI.FILL,
+	backgroundColor : 'transparent'
+}

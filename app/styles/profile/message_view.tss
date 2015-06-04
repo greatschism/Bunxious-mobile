@@ -1,0 +1,72 @@
+
+".container" : {
+  width : Ti.UI.FILL,
+  height : Ti.UI.FILL,
+  backgroundColor : '#ebedf1',
+}
+
+".userInfo" : {
+	height : '70dp',
+	layout : 'horizontal',
+	backgroundColor : 'transparent',
+	width : '300dp',
+	top : 0
+}
+
+".userInfo[platform=android]" : {
+	width : '320dp'
+}
+
+"#avatar" : {
+	height : '50dp',
+	width : '50dp',
+	left : 0,
+	center : {
+		y : '50%'
+	},
+	borderRadius : '25dp'
+}
+
+"#username" : {
+	left : '10dp',
+	center : {
+		y : '50%'
+	},
+	font : {
+		fontWeight : 'bold',
+		fontSize : '15dp'
+	}
+}
+
+".messageInputWrapper" : {
+	bottom : '20dp',
+	backgroundColor : '#fff',
+	width : Ti.UI.FILL,
+	height : '60dp',
+}
+
+"#textInput" : {
+	left : '10dp',
+	top : 0,
+	right :'60dp' 
+}
+
+"#textSend" : {
+	right : '10dp',
+	width : '40dp',
+	height : '40dp',
+	image : '/images/sendgrey.png'
+}
+
+"#textSend[platform=ios]" : {
+	tintColor : '#A29FA9'
+}
+
+"#messageTable" : {
+	top : '70dp',
+	bottom : '80dp',
+	left : 0,
+	right : 0,
+	backgroundColor : 'transparent',
+	separatorColor : 'transparent',
+}

@@ -1,0 +1,9 @@
+<Alloy>
+	<TableViewRow>
+		<View class="padding" />
+		<View id="messageWrapper">
+			<Label id="messageText" />
+		</View>
+		<View class="padding" />
+	</TableViewRow>
+</Alloy>

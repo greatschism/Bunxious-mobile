@@ -1,9 +1,5 @@
 <Alloy>
 	<View class="container">
-		<View id="favoriteSection">
-			<View class="labelWrapper">
-				<Label class="favLabel" text="Conversations" />
-			</View> 
-		</View>
+		<TableView id="conversationTable" />
 	</View>
 </Alloy>

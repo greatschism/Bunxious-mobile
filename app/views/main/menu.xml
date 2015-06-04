@@ -24,13 +24,14 @@
 				<View class="border" />
 				<Require id="closetButton" src="misc/menuButton" title="L('closet')" icon="/images/bag.png" />
 				<View class="border" />
-				<Require id="conversationButton" src="misc/menuButton" title="L('conversations')" icon="/images/chat.png" />
-				<View class="border" />
+				
 				<Require id="followersButton" src="misc/menuButton" title="L('followers')" icon="/images/friends.png" />
 				<View class="border" />
 				<Require id="treasureButton" src="misc/menuButton" title="L('treasure')" icon="/images/box.png" />
 				<View class="border" />
 			</View>
+			<Require id="conversationButton" src="misc/menuButton" title="L('conversations')" icon="/images/chat.png" />
+				<View class="border" />
 			<View class="headerWrapper">
 				<Label class="headerText" text="L('account')" />
 			</View>

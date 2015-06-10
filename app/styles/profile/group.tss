@@ -1,0 +1,18 @@
+
+".container": {
+	backgroundColor: '#fff',
+	layout: 'vertical'
+}
+
+"#groupTable": {
+	top: 0,
+	width: Ti.UI.FILL,
+	height: Ti.UI.FILL,
+	separatorColor: '#efefef',
+	backgroundColor: 'transparent',
+	rowHeight: '70dp',
+	separatorInsets: {
+		left: 0,
+		right: 0
+	},
+}

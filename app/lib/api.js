@@ -357,6 +357,16 @@ api.findFollowers = function(user_id, success, fail) {
 	httpRequest('user/get-followers', 'GET', data, success, fail);
 };
 
+api.findGroups = function(success, fail) {
+
+	var data = {
+		user_id : Alloy.Globals.currentUser.user_info.id,
+		token : Alloy.Globals.currentUser.token
+	};
+
+	httpRequest('group', 'POST', data, success, fail);
+};
+
 api.findFollowers = function(user_id, success, fail) {
 
 	var data = {

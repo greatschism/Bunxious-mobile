@@ -83,6 +83,13 @@ $.conversationButton.button.addEventListener('click', function() {
 	Alloy.Globals.openWindow('profile/conversation_view');
 });
 
+$.groupButton.button.addEventListener('click', function() {
+
+	Ti.App.fireEvent('toggleMenu');
+
+	Alloy.Globals.openWindow('profile/group');
+});
+
 $.followersButton.button.addEventListener('click', function() {
 
 	Ti.App.fireEvent('toggleMenu');

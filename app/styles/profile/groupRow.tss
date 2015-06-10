@@ -1,0 +1,50 @@
+
+"TableViewRow": {
+	height: '70dp'
+}
+
+"TableViewRow[platform=ios]" : {
+	selectedBackgroundColor : "#fafafa"
+}
+
+"#row": {
+	width : Ti.UI.FILL,
+	height : Ti.UI.FILL,
+}
+
+
+"#avatar" : {
+	height : '50dp',
+	width : '50dp',
+	left : '5dp',
+	borderRadius : '25dp'
+}
+
+"#name" : {
+	left : '65dp',
+	top : '10dp',
+	font : {
+		fontWeight : 'bold',
+		fontSize : '13dp'
+	}
+}
+
+"#created" : {
+	top : '10dp',
+	right : '5dp',
+	textAlign : Ti.UI.TEXT_ALIGNMENT_RIGHT,
+	font : {
+		fontWeight : 'bold',
+		fontSize : '13dp'
+	}
+}
+
+"#description" : {
+	top : '25dp',
+	bottom : '10dp',
+	left : '65dp',
+	color : '#8b909c',
+	font : {
+		fontSize : '12dp'
+	}
+}

@@ -1,0 +1,59 @@
+
+"TableViewRow": {
+	height: '50dp'
+}
+
+"TableViewRow[platform=ios]" : {
+	selectedBackgroundColor : "#fafafa"
+}
+
+"#row": {
+	width : Ti.UI.FILL,
+	height : Ti.UI.FILL,
+}
+
+
+"#status" : {
+	height : '20dp',
+	width : '20dp',
+	left : '10dp',
+}
+
+"#from" : {
+	left : '40dp',
+	top : '8dp',
+	font : {
+		fontWeight : 'bold',
+		fontSize : '13dp'
+	}
+}
+
+"#ago" : {
+	bottom : '8dp',
+	right : '5dp',
+	textAlign : Ti.UI.TEXT_ALIGNMENT_RIGHT,
+	font : {
+		fontSize : '12dp'
+	},
+	color : '#8b909c',
+}
+
+"#id" : {
+	top : '25dp',
+	bottom : '8dp',
+	left : '40dp',
+	color : '#8b909c',
+	font : {
+		fontSize : '12dp'
+	}
+}
+
+"#amount" : {
+	top : '8dp',
+	right : '5dp',
+	textAlign : Ti.UI.TEXT_ALIGNMENT_RIGHT,
+	font : {
+		fontWeight : 'bold',
+		fontSize : '15dp'
+	}
+}

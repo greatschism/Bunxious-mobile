@@ -1,9 +1,5 @@
 <Alloy>
 	<View class="container">
-		<View id="favoriteSection">
-			<View class="labelWrapper">
-				<Label class="favLabel" text="My Orders" />
-			</View> 
-		</View>
+		<TableView id="ordersTable" />
 	</View>
 </Alloy>

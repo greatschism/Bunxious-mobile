@@ -1,0 +1,11 @@
+<Alloy>
+	<TableViewRow>
+		<View id="row">
+			<ImageView id="status" />
+			<Label id="from" />
+			<Label id="ago" />
+			<Label id="id" />
+			<Label id="amount" />
+		</View>
+	</TableViewRow>
+</Alloy>

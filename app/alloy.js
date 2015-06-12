@@ -34,19 +34,17 @@ Alloy.Globals.pageflow = null;
 var currentPage = null;
 
 Alloy.Globals.openWindow = function(controller, arguments, newOne) {
-	
-	if (Alloy.Globals.pageflow.getCurrentPage() == null || newOne === true) { 
-		
+
+	if (Alloy.Globals.pageflow.getCurrentPage() == null || newOne === true) {
+
 		Alloy.Globals.pageflow.addChild({
 			arguments : arguments,
 			controller : controller,
 			backButton : {
-				title : 'Back',
-				width : '50dp',
-				borderRadius : '3dp',
-				height : '35dp',
-				backgroundColor : '#55888f',
-				left: 10,
+				image : '/images/undowhite.png',
+				width : '30dp',
+				height : '30dp',
+				left : 10,
 				hidden : newOne === true ? false : true
 			},
 			navBar : {
@@ -58,14 +56,13 @@ Alloy.Globals.openWindow = function(controller, arguments, newOne) {
 				left : 1
 			}
 		});
-		
+
 		if (!newOne) {
-			
+
 			currentPage = controller;
 		}
-	}
-	else if (currentPage != controller){
-		
+	} else if (currentPage != controller) {
+
 		Alloy.Globals.pageflow.replacePage(0, {
 			arguments : arguments,
 			controller : controller,
@@ -81,7 +78,7 @@ Alloy.Globals.openWindow = function(controller, arguments, newOne) {
 				left : 1
 			}
 		});
-		
+
 		currentPage = controller;
 	}
 };

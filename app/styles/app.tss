@@ -27,12 +27,12 @@ height: Ti.UI.SIZE //
 
 'Window[platform=android]': {
 	windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_STATE_HIDDEN,
-	orientationModes : [Ti.UI.PORTRAIT],   
+	orientationModes: []
 }
 
 'Window[platform=ios]': {
 	statusBarStyle: Titanium.UI.iPhone.StatusBar.LIGHT_CONTENT,
-	orientationModes : [Ti.UI.PORTRAIT], 
+	orientationModes: []
 }
 
 ".com.jolicode.pageflow.navBar.center": {
@@ -45,10 +45,14 @@ height: Ti.UI.SIZE //
 	}
 }
 
-
 "TableView":{
 	backgroundColor: '#fff'
 },
+
+"ImageView": {
+	image: '/images/placeholder.png',
+	defaultImage: '/images/placeholder.png'
+}
 
 "TableViewRow":{
 	backgroundColor: '#fff',
@@ -95,7 +99,7 @@ height: Ti.UI.SIZE //
 	font: {
 		fontSize: '16dp'
 	},
-	color: '#333',
+	color: '#333'
 },
 
 "TextField":{
@@ -153,7 +157,7 @@ height: Ti.UI.SIZE //
 
 ".label-paragraph":{
 	left: 5,
-	right: 5,
+	right: 5
 },
 ".label-row-title":{
 	left: 35,
@@ -468,15 +472,15 @@ height: Ti.UI.SIZE //
 
 ".label-row-title-text":{
 	left: 35,
-	top : 3,
+	top: 3,
 	color: '#000',
-	font : {
-		fontSize : '10dp'
+	font: {
+		fontSize: '10dp'
 	}
 }
 
 ".textfield-row-control-text":{
-	bottom : 2,
+	bottom: 2,
 	height: '40dp',
 	left: '10dp',
 	right: '10dp',

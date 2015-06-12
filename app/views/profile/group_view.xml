@@ -1,0 +1,14 @@
+<Alloy>
+	<ScrollView class="container">
+		<View class="groupWrapper">
+			<View class="groupInfo">
+				<ImageView id="avatar" />
+				<Label id="name"/>
+				<Label id="createdAt"/>
+				<View class="descriptionWrapper">
+					<Label id="description" />
+				</View>
+			</View>
+		</View>
+	</ScrollView>
+</Alloy>

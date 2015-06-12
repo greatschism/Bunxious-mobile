@@ -8,6 +8,7 @@
  */
 
 var config = require('config');
+var moment = require('alloy/moment');
 
 var api = {};
 
@@ -389,6 +390,65 @@ api.getCart = function(success, fail) {
 	};
 
 	httpRequest('store/cart', 'POST', data, success, fail);
+};
+
+api.getOrders = function(success, fail) {
+
+	var orders = [{
+		from : 'Matt Doe',
+		id : '451d823',
+		amount : '$235',
+		date : '06-Jun-2015 11:16:29',
+		status : 'shipped'
+	}, {
+		from : 'Johnny Silverwings',
+		id : '441d8h3',
+		amount : '$85',
+		date : '07-Jun-2015 01:08:08',
+		status : 'paid'
+	}, {
+		from : 'Mark Doe Johnson',
+		id : '9451d823',
+		amount : '$265',
+		date : '07-Jun-2015 04:11:32',
+		status : 'shipped'
+	}, {
+		from : 'Jane Doe',
+		id : '451dw23',
+		amount : '$413',
+		date : '06-Jun-2015 08:39:05',
+		status : 'canceled'
+	}, {
+		from : 'John Doe',
+		id : '521d823',
+		amount : '$56',
+		date : '02-Jun-2015 02:21:45',
+		status : 'shipped'
+	}, {
+		from : 'Doe Jimmy',
+		id : 'g353f23',
+		amount : '$35',
+		date : '11-Jun-2015 04:40:42',
+		status : 'shipped'
+	}, {
+		from : 'Robert Doe',
+		id : '94i17fa',
+		amount : '$245',
+		date : '08-Jun-2015 18:20:57',
+		status : 'paid'
+	}];
+
+	function compareMilli(a, b) {
+		if (moment(new Date(a.date)).unix() < moment(new Date(b.date)).unix())
+			return 1;
+		if (moment(new Date(a.date)).unix() > moment(new Date(b.date)).unix())
+			return -1;
+		return 0;
+	}
+	
+	orders.sort(compareMilli);
+	
+	success(orders);
 };
 
 api.getMessages = function(success, fail) {

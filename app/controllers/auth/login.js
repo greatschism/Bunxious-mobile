@@ -6,8 +6,9 @@ $.request_invite.addEventListener('click', function() {
 });
 
 $.create_account.addEventListener('click', function() {
-
-	var registerWindow = Alloy.createController('auth/register').getView();
+	
+	// sending the loginWindow as a parameter to be able to close it when the user creates an account
+	var registerWindow = Alloy.createController('auth/register', {loginWindow : $.loginWindow}).getView();
 
 	// We now have to create a facebook proxy for Android (FB module > 4.0)
 	if (OS_ANDROID) {

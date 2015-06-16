@@ -4,9 +4,7 @@ if (Alloy.Globals.currentUser.user_info.id) {
 	
 	Alloy.Globals.loading.show();
 
-	Alloy.Globals.API.findFollowers(2190, function(result) {
-
-		Ti.API.info('result: ' + JSON.stringify(result));
+	Alloy.Globals.API.findFollowers(/*Alloy.Globals.currentUser.user_info.id #added for testing purposes, my account does not have any followers. Forever alone :(#*/ 2190, function(result) {
 
 		var tableData = [];
 

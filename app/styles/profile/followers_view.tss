@@ -35,5 +35,6 @@
 "#followersTable" :{
 	top : 0,
 	height : Ti.UI.FILL,
-	backgroundColor : '#f4f4f4'
+	backgroundColor : '#f4f4f4',
+	separatorColor : 'transparent'
 }

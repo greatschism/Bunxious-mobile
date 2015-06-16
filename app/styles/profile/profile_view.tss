@@ -65,7 +65,7 @@
 }
 
 ".followLabel": {
-	left: '30dp'
+	left: '26dp'
 }
 
 ".plus": {
@@ -102,7 +102,7 @@
 }
 
 "#joined": {
-	left: '50dp'
+	left: '70dp'
 }
 
 "#tabChange": {
@@ -172,5 +172,9 @@
 	top : '190dp',
 	height : Ti.UI.FILL,
 	width : '100%'
+}
+
+"#followButton" : {
+	width : '70dp'
 }
 

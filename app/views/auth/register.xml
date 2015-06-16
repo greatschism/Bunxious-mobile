@@ -2,12 +2,12 @@
 	<Window id="registerWindow">
 		<View class="container">
 			<LoginButton id="fbLogin" module="facebook" />
-			<Widget src="com.harkdev.stylehinttextfield" height="40dp" width="250dp" top="30dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('email_address')" tfTop="5dp" tfWidth="220dp" />
-			<Widget src="com.harkdev.stylehinttextfield" height="40dp" width="250dp" top="10dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('first_name')" tfTop="5dp" tfWidth="220dp" />
-			<Widget src="com.harkdev.stylehinttextfield" height="40dp" width="250dp" top="10dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('last_name')" tfTop="5dp" tfWidth="220dp" />
-			<Widget src="com.harkdev.stylehinttextfield" height="40dp" width="250dp" top="10dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('username')" tfTop="5dp" tfWidth="220dp" />
-			<Widget src="com.harkdev.stylehinttextfield" height="40dp" width="250dp" top="10dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('password')" tfTop="5dp" tfWidth="220dp" />
-			<Widget src="com.harkdev.stylehinttextfield" height="40dp" width="250dp" top="10dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('password_again')" tfTop="5dp" tfWidth="220dp" />
+			<Widget src="com.harkdev.stylehinttextfield" height="40dp" width="250dp" top="30dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('email_address')" tfTop="5dp" tfWidth="220dp" id="email"/>
+			<Widget src="com.harkdev.stylehinttextfield" height="40dp" width="250dp" top="10dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('first_name')" tfTop="5dp" tfWidth="220dp" id="firstname" />
+			<Widget src="com.harkdev.stylehinttextfield" height="40dp" width="250dp" top="10dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('last_name')" tfTop="5dp" tfWidth="220dp" id="lastname" />
+			<Widget src="com.harkdev.stylehinttextfield" height="40dp" width="250dp" top="10dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('username')" tfTop="5dp" tfWidth="220dp" id="username" />
+			<Widget src="com.harkdev.stylehinttextfield" height="40dp" width="250dp" top="10dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('password')" tfTop="5dp" tfWidth="220dp" id="pass" passwordMask="true"/>
+			<Widget src="com.harkdev.stylehinttextfield" height="40dp" width="250dp" top="10dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('password_again')" tfTop="5dp" tfWidth="220dp" id="pass2" passwordMask="true" />
 			<View id="disclaimer_container">
 				<Widget src="sh.checkbox" id="checkbox" height="20dp" width="20dp" left="0" top="5dp" />
 				<Label text="L('disclaimer')" id="disclaimer" text="L('disclaimer')"/>

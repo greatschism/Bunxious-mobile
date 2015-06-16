@@ -43,10 +43,14 @@ height: Ti.UI.SIZE //
 		x: '50%',
 		y: '50%'
 	}
-}
+},
 
 "TableView":{
 	backgroundColor: '#fff'
+},
+
+"TableViewRow[platform=ios]" : {
+	selectedBackgroundColor : "#fafafa"
 },
 
 "ImageView": {

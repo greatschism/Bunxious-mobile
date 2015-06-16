@@ -445,9 +445,10 @@ api.getOrders = function(success, fail) {
 			return -1;
 		return 0;
 	}
-	
+
+
 	orders.sort(compareMilli);
-	
+
 	success(orders);
 };
 

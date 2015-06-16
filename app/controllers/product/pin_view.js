@@ -24,11 +24,29 @@ Alloy.Globals.API.getUser(args.user_id, function(result) {
 	if (result.city && result.country_iso_code_3) {
 
 		$.userLocation.text = result.city + ', ' + result.country_iso_code_3;
-	}
-	else if (result.city || result.country_iso_code_3) {
+	} else if (result.city || result.country_iso_code_3) {
 
 		$.userLocation.text = result.city || result.country_iso_code_3;
 	}
 
+});
+
+if (args.liked) {
+
+	$.heartButton.backgroundColor = '#27ae60';
+}
+
+$.heartButton.addEventListener('click', function() {
+
+	Alloy.Globals.API.togglePinLike(args.id, function(result) {
+
+		if (result.status == 'success' && result.action == "like") {
+
+			$.heartButton.backgroundColor = '#27ae60';
+		} else if (result.status == 'success' && result.action == "unlike") {
+
+			$.heartButton.backgroundColor = '#f26b1d';
+		}
+	});
 });
 

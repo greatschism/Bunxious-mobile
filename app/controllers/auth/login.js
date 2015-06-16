@@ -28,6 +28,9 @@ $.login_button.addEventListener('click', function() {
 	Alloy.Globals.API.login($.user.getValue(), $.pass.getValue(), function(currentUser) {
 		
 		Alloy.Globals.currentUser = currentUser;
+		
+		//Also saving the token, for autologin
+		Ti.App.Properties.setString('token', currentUser.token);
 
 		// Updating the main menu
 		Ti.App.fireEvent('loggedIn');

@@ -20,4 +20,24 @@ if (args) {
 
 		Alloy.Globals.openWindow('product/pin_view', args, true);
 	});
+	
+	if (args.liked) {
+		
+		$.heartButton.backgroundColor = '#27ae60';
+	}
+	
+	$.heartButton.addEventListener('click', function() {
+		
+		Alloy.Globals.API.togglePinLike(args.id, function(result) {
+			
+			if (result.status == 'success' && result.action == "like") {
+				
+				$.heartButton.backgroundColor = '#27ae60';
+			}
+			else if (result.status == 'success' && result.action == "unlike") {
+				
+				$.heartButton.backgroundColor = '#f26b1d';
+			}
+		});
+	});
 }

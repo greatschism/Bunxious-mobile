@@ -90,5 +90,9 @@
 	color : '#666666',
 }
 
+"TableViewRow[platform=ios]" : {
+	selectedBackgroundColor : "transparent"
+},
+
 
 

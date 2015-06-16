@@ -1,127 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
-	<id>
-		com.bunxious.mobile
-	</id>
-	<name>
-		Bunxious
-	</name>
-	<version>
-		0.1.1
-	</version>
-	<publisher>
-		Bunxious
-	</publisher>
-	<url>
-		http://bunxious.com/
-	</url>
-	<description>
-		Bunxious app
-	</description>
-	<copyright>
-		2015 by Bunxious
-	</copyright>
-	<icon>
-		appicon.png
-	</icon>
-	<fullscreen>
-		false
-	</fullscreen>
-	<navbar-hidden>
-		false
-	</navbar-hidden>
-	<analytics>
-		true
-	</analytics>
-	<guid>
-		5e2a669b-3a26-41b3-9aaa-8fb94be839c6
-	</guid>
-	<property name="ti.ui.defaultunit" type="string">
-		dp
-	</property>
+	<id>com.bunxious.mobile</id>
+	<name>Bunxious</name>
+	<version>0.1.1</version>
+	<publisher>Bunxious</publisher>
+	<url>http://bunxious.com/</url>
+	<description>Bunxious app</description>
+	<copyright>2015 by Bunxious</copyright>
+	<icon>appicon.png</icon>
+	<fullscreen>false</fullscreen>
+	<navbar-hidden>false</navbar-hidden>
+	<analytics>true</analytics>
+	<guid>5e2a669b-3a26-41b3-9aaa-8fb94be839c6</guid>
+	<property name="ti.ui.defaultunit" type="string">dp</property>
 	<ios>
 		<plist>
 			<dict>
-				<key>
-					CFBundleURLTypes
-				</key>
+				<key>CFBundleURLTypes</key>
 				<array>
 					<dict>
-						<key>
-							CFBundleURLName
-						</key>
+						<key>CFBundleURLName</key>
 						<!-- Application ID same as the id value in the tiapp.xml file -->
-						<string>
-							com.bunxious.mobile
-						</string>
-						<key>
-							CFBundleURLSchemes
-						</key>
+						<string>com.bunxious.mobile</string>
+						<key>CFBundleURLSchemes</key>
 						<array>
 							<!-- Prefix the Facebook App ID with 'fb' -->
-							<string>
-								fb337276043149789
-							</string>
+							<string>fb337276043149789</string>
 						</array>
 					</dict>
 				</array>
-				<key>
-					FacebookAppID
-				</key>
+				<key>FacebookAppID</key>
 				<!-- Facebook App ID -->
-				<string>
-					337276043149789
-				</string>
-				<key>
-					FacebookDisplayName
-				</key>
+				<string>337276043149789</string>
+				<key>FacebookDisplayName</key>
 				<!-- Facebook App Name from developer.facebook.com -->
-				<string>
-					Bunxious
-				</string>
-				<key>
-					UISupportedInterfaceOrientations~iphone
-				</key>
+				<string>Bunxious</string>
+				<key>UISupportedInterfaceOrientations~iphone</key>
 				<array>
-					<string>
-						UIInterfaceOrientationPortrait
-					</string>
+					<string>UIInterfaceOrientationPortrait</string>
 				</array>
-				<key>
-					UISupportedInterfaceOrientations~ipad
-				</key>
+				<key>UISupportedInterfaceOrientations~ipad</key>
 				<array>
-					<string>
-						UIInterfaceOrientationPortrait
-					</string>
-					<string>
-						UIInterfaceOrientationPortraitUpsideDown
-					</string>
-					<string>
-						UIInterfaceOrientationLandscapeLeft
-					</string>
-					<string>
-						UIInterfaceOrientationLandscapeRight
-					</string>
+					<string>UIInterfaceOrientationPortrait</string>
+					<string>UIInterfaceOrientationPortraitUpsideDown</string>
+					<string>UIInterfaceOrientationLandscapeLeft</string>
+					<string>UIInterfaceOrientationLandscapeRight</string>
 				</array>
-				<key>
-					UIRequiresPersistentWiFi
-				</key>
+				<key>UIRequiresPersistentWiFi</key>
 				<false/>
-				<key>
-					UIPrerenderedIcon
-				</key>
+				<key>UIPrerenderedIcon</key>
 				<false/>
-				<key>
-					UIStatusBarHidden
-				</key>
+				<key>UIStatusBarHidden</key>
 				<false/>
-				<key>
-					UIStatusBarStyle
-				</key>
-				<string>
-					UIStatusBarStyleDefault
-				</string>
+				<key>UIStatusBarStyle</key>
+				<string>UIStatusBarStyleDefault</string>
 			</dict>
 		</plist>
 	</ios>
@@ -139,58 +71,27 @@
 	<mobileweb>
 		<precache/>
 		<splash>
-			<enabled>
-				true
-			</enabled>
-			<inline-css-images>
-				true
-			</inline-css-images>
+			<enabled>true</enabled>
+			<inline-css-images>true</inline-css-images>
 		</splash>
-		<theme>
-			default
-		</theme>
+		<theme>default</theme>
 	</mobileweb>
 	<modules>
-		<module platform="android">
-			facebook
-		</module>
-		<module platform="iphone">
-			facebook
-		</module>
+		<module platform="android">facebook</module>
+		<module platform="iphone">facebook</module>
 	</modules>
 	<deployment-targets>
-		<target device="blackberry">
-			false
-		</target>
-		<target device="iphone">
-			true
-		</target>
-		<target device="ipad">
-			true
-		</target>
-		<target device="android">
-			true
-		</target>
-		<target device="mobileweb">
-			false
-		</target>
+		<target device="iphone">true</target>
+		<target device="ipad">true</target>
+		<target device="android">true</target>
+		<target device="mobileweb">false</target>
 	</deployment-targets>
-	<sdk-version>
-		3.5.1.GA
-	</sdk-version>
-	<plugin version="1.0">
-		ti.alloy
-	</plugin>
-	<property name="appc-app-id" type="string">
-		554a446d79ef596b0a6d424d
-	</property>
-	<property name="appc-security-jailbreak-detect">
-		false
-	</property>
-	<property name="appc-security-debugger-detect">
-		false
-	</property>
-	<property name="ti.facebook.appid">
-		337276043149789
-	</property>
+	<sdk-version>4.0.0.GA</sdk-version>
+	<plugins>
+		<plugin version="1.0">ti.alloy</plugin>
+	</plugins>
+	<property name="appc-app-id" type="string">554a446d79ef596b0a6d424d</property>
+	<property name="appc-security-jailbreak-detect">false</property>
+	<property name="appc-security-debugger-detect">false</property>
+	<property name="ti.facebook.appid">337276043149789</property>
 </ti:app>

@@ -40,7 +40,10 @@ $.login_logout.button.addEventListener('click', function() {
 		Alloy.Globals.API.logout(function() {
 
 			Alloy.Globals.currentUser = null;
+			Ti.App.Properties.setString('token', null);
 			updateMenu();
+			
+			// Redirecting to home
 			$.homeButton.button.fireEvent('click');
 		});
 	}

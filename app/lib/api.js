@@ -229,6 +229,33 @@ api.getPin = function(id, success, fail) {
 	httpRequest('pin/find', 'GET', data, success, fail);
 };
 
+api.togglePinLike = function(id, success, fail) {
+
+	var data = {
+		pin_id : id,
+		token : Alloy.Globals.currentUser.token
+	};
+
+	httpRequest('pin/like', 'POST', data, success, fail);
+};
+
+api.verifyToken = function(success, fail) {
+	
+	var token = Ti.App.Properties.getString('token', null);
+	
+	if (token == null) {
+		
+		fail();
+		return;
+	}
+
+	var data = {
+		token : token
+	};
+
+	httpRequest('user/verify', 'GET', data, success, fail);
+};
+
 api.getUser = function(user_id, success, fail) {
 
 	var data = {

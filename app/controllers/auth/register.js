@@ -32,6 +32,9 @@ $.register_button.addEventListener('click', function() {
 		
 		// saving the current user
 		Alloy.Globals.currentUser = currentUser;
+		
+		//Also saving the token, for autologin
+		Ti.App.Properties.setString('token', currentUser.token);
 
 		// Updating the main menu
 		Ti.App.fireEvent('loggedIn');

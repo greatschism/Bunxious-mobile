@@ -1,0 +1,99 @@
+
+".container": {
+	height: '480dp',
+	width: '300dp',
+	backgroundColor: 'transparent',
+	top: '5dp'
+}
+
+'.container[platform=android]' : {
+	width : '320dp'
+}
+
+".row": {
+	height: '480dp',
+	top:'10dp',
+	backgroundColor : 'transparent'
+}
+
+"#pinImage" : {
+	width : '100%',
+	height : '400dp',
+	top : 0,
+	left : 0,
+}
+
+"#avatar" : {
+	width : '70dp',
+	height : '70dp',
+	top : '10dp',
+	left : '10dp'
+}
+
+".buttonWrapper" : {
+	top : '5dp',
+	width : '30dp',
+	height : '30dp',
+	backgroundColor : '#f26b1d'
+}
+
+"#boxButton" : {
+	right : '40dp',
+}
+
+"#box" : {
+	image : '/images/boxwhite.png'
+}
+
+"#heartButton" : {
+	right : '5dp',
+}
+
+"#heart" : {
+	image : '/images/heartwhite.png'
+}
+
+".button" : {
+	width : '22dp',
+	height : '22dp',
+	center : {
+		x : '50%',
+		y : '50%'
+	}
+}
+
+"#title" : {
+	left : '10dp',
+	bottom : '50dp',
+	color : '#333333',
+	font : {
+		fontSize : '14dp'
+	}
+}
+
+"#description" : {
+	left : '10dp',
+	bottom : '30dp',
+	color : '#666666',
+	font : {
+		fontSize : '12dp'
+	}
+}
+
+"#price" : {
+	textAlign : Titanium.UI.TEXT_ALIGNMENT_RIGHT,
+	font : {
+		fontWeight : 'bold',
+		fontSize : '14dp'
+	},
+	right : '10dp',
+	bottom : '30dp',
+	color : '#666666',
+}
+
+"TableViewRow[platform=ios]" : {
+	selectedBackgroundColor : "transparent"
+},
+
+
+

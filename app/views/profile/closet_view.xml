@@ -3,7 +3,8 @@
 		<View id="favoriteSection">
 			<View class="labelWrapper">
 				<Label class="favLabel" text="Closet" />
-			</View> 
+			</View>
 		</View>
+		<TableView id="closetTable"/>
 	</View>
 </Alloy>

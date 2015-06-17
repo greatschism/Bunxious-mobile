@@ -1,11 +1,11 @@
 
 ".container": {
-	backgroundColor: '#f4f4f4',
+	backgroundColor: '#fff',
 	layout : 'vertical'
 }
 
 "#favoriteSection": {
-	height: '110dp',
+	height: '40dp',
 	top: '15dp',
 	width: '300dp'
 }
@@ -30,5 +30,12 @@
 		fontSize : '13dp',
 		fontWeight : 'bold'
 	}
+}
+
+"#closetTable" :{
+	top : 0,
+	height : Ti.UI.FILL,
+	backgroundColor : '#f4f4f4',
+	separatorColor : 'transparent'
 }
 

@@ -418,6 +418,11 @@ api.getCart = function(success, fail) {
 	httpRequest('store/cart', 'POST', data, success, fail);
 };
 
+api.getCloset = function(success, fail) {
+	
+	
+};
+
 api.getOrders = function(success, fail) {
 
 	var orders = [{
@@ -651,5 +656,7 @@ api.getMessages = function(success, fail) {
 		success(messages);
 	}
 };
+
+
 
 module.exports = api;

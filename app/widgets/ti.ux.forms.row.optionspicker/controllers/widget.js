@@ -115,6 +115,12 @@ $.getOptions = function(){
 };
 
 $.getValue = function(){
+	
+	if (TYPE_POPUP) {
+		
+		return $.subtitleLbl.text;
+	}
+	
 	return $.value;
 };
 

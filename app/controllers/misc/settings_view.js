@@ -1,4 +1,5 @@
 var args = arguments[0] || {};
+var c2c = require('c2c/c2c');
 
 if (Alloy.Globals.currentUser != null) {
 
@@ -17,7 +18,7 @@ if (Alloy.Globals.currentUser != null) {
 	$.notification_follow_user.setValue(Alloy.Globals.currentUser.user_info.notification_follow_user);
 
 	$.saveButton.addEventListener('click', function() {
-
+		
 		Alloy.Globals.loading.show();
 
 		Alloy.Globals.currentUser.user_info.firstname = $.firstname.getField().value;
@@ -33,7 +34,8 @@ if (Alloy.Globals.currentUser != null) {
 		Alloy.Globals.currentUser.user_info.notification_like_pin = $.notification_like_pin.getValue();
 		Alloy.Globals.currentUser.user_info.notification_repin_pin = $.notification_repin_pin.getValue();
 		Alloy.Globals.currentUser.user_info.notification_follow_user = $.notification_follow_user.getValue();
-
+		Alloy.Globals.currentUser.user_info.country_iso_code_3 = c2c.getCode($.country.getValue());
+		
 		Alloy.Globals.API.updateUser(Alloy.Globals.currentUser.user_info, function() {
 
 			Alloy.Globals.loading.hide();

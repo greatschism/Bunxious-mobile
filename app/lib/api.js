@@ -290,7 +290,6 @@ api.updateUser = function(userData, success, fail) {
 	delete userData.following;
 	delete userData.language_id;
 	delete userData.status;
-	delete userData.country_iso_code_3;
 	delete userData.activate_url;
 	delete userData.avatar_width;
 	delete userData.avatar_height;

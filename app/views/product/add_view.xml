@@ -42,8 +42,8 @@
 			</TableView>
 			<View class="border" />
 			<View class="priceWrapper">
-				<Widget id="title" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="165dp" top="0" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('price').toUpperCase()" tfTop="5dp" tfWidth="220dp" />
 				<Label text="$" class="dollarSign" />
+				<Widget id="title" src="com.harkdev.stylehinttextfield" left="10dp" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="165dp" top="0" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('price').toUpperCase()" tfTop="5dp" tfWidth="220dp" />
 			</View>
 		</View>
 		<View class="sectionWrapper">

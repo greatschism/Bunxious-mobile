@@ -38,15 +38,18 @@ if (!args.fromAnotherController) {
 
 		Alloy.Globals.API.verifyToken(function(currentUser) {
 
-			// saving the current user
-			Alloy.Globals.currentUser = {
-				token : Ti.App.Properties.getString('token', null),
-				user_info : currentUser
-			};
+			if (currentUser && !currentUser.error) {
+				
+				// saving the current user
+				Alloy.Globals.currentUser = {
+					token : Ti.App.Properties.getString('token', null),
+					user_info : currentUser
+				};
 
-			// Updating the main menu
-			Ti.App.fireEvent('loggedIn');
-			populateTable();
+				// Updating the main menu
+				Ti.App.fireEvent('loggedIn');
+				populateTable();
+			}
 		});
 	}
 }

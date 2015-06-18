@@ -1,8 +1,7 @@
-var args=arguments[0]|| {};
+var args = arguments[0] || {};
 
-$.pinImage.image="";
-$.avatar.image="";
-$.title.text="Dharmik";
-$.description.text="Testing";
-//stripping new lines
-$.price.text="10 USD";
+$.pinImage.image = "";
+$.avatar.image = "";
+$.title.text = args.name;
+$.description.text = args.description;
+$.price.text = args.cost;

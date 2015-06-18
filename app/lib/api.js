@@ -419,7 +419,11 @@ api.getCart = function(success, fail) {
 };
 
 api.getCloset = function(success, fail) {
-	
+	var data = {
+		token : Alloy.Globals.currentUser.token
+	};
+
+	httpRequest('storesettings/getcloset', 'POST', data, success, fail);
 	
 };
 

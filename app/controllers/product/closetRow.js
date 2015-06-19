@@ -1,7 +1,7 @@
 var args = arguments[0] || {};
 
-$.pinImage.image = "";
-$.avatar.image = "";
-$.title.text = args.name;
+$.pinImage.image = 'http://bunxious.com' + args.image;
+$.avatar.image = args.avatar;
+$.title.text = args.title;
 $.description.text = args.description;
-$.price.text = args.cost;
+$.price.text = args.price;

@@ -2,6 +2,7 @@ var args = arguments[0] || {};
 
 Alloy.Globals.API.findGroups(function(results) {
 	
+	
 	var tableData = [];
 	
 	for (var i in results.Group) {

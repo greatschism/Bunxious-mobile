@@ -240,11 +240,11 @@ api.togglePinLike = function(id, success, fail) {
 };
 
 api.verifyToken = function(success, fail) {
-	
+
 	var token = Ti.App.Properties.getString('token', null);
-	
+
 	if (token == null) {
-		
+
 		fail();
 		return;
 	}
@@ -423,8 +423,9 @@ api.getCloset = function(success, fail) {
 		token : Alloy.Globals.currentUser.token
 	};
 
-	httpRequest('storesettings/getcloset', 'POST', data, success, fail);
-	
+	//httpRequest('storesettings/getcloset', 'POST', data, success, fail);
+	httpRequest('StoreSettings/mycloset', 'POST', data, success, fail);
+
 };
 
 api.getOrders = function(success, fail) {
@@ -660,7 +661,5 @@ api.getMessages = function(success, fail) {
 		success(messages);
 	}
 };
-
-
 
 module.exports = api;

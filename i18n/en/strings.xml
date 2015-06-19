@@ -64,4 +64,5 @@
 	<string name="add_new_item">Add new item</string>
 	<string name="cart_empty">Cart is empty</string>
 	<string name="group">My Groups</string>
+	<string name="add_post">Add Post</string>
 </resources>

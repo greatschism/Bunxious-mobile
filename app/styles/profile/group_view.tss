@@ -12,50 +12,10 @@
 	width: '300dp'
 }
 
-".groupInfo": {
-	height: '106dp',
-	top: '20dp'
-}
-
-"#avatar": {
-	left: 0,
-	top: 0,
-	width: '70dp',
-	height: '70dp'
-}
-
-"#name": {
-	left: '80dp',
-	top: 0,
-	color: '#d74d0a',
-	font: {
-		fontSize: '15dp',
-		fontWeight: 'bold'
-	}
-}
-
-'#createdAt': {
-	left: '80dp',
-	top: '25dp',
-	color: '#666',
-	font: {
-		fontSize: '14dp'
-	}
-}
-
-".descriptionWrapper": {
-	width: '100%',
-	height: Ti.UI.SIZE,
-	top: '80dp'
-}
-
-"#description": {
-	left: 0,
-	center: {
-		y: '50%'
-	},
-	color: '#333333',
-	font: {
-		fontSize: '13dp'
-	}
+"#postsTable": {
+	width: Ti.UI.FILL,
+	top: '55dp',
+	rowHeight: Ti.UI.SIZE,
+	backgroundColor : 'transparent',
+	separatorStyle: Titanium.UI.iPhone.TableViewSeparatorStyle.NONE
 }

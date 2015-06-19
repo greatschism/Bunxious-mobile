@@ -1,0 +1,16 @@
+<Alloy>
+	<TableViewRow class="container">
+		<View class="padding" />
+		<View class="postWrapper">
+			<View class="info">
+				<ImageView id="avatar"/>
+				<Label id="user" />
+				<Label id="title" />
+			</View>
+			<TableView id="commentsTable" />
+			<Widget id="title" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="25dp" left="50dp" right="10dp" top="7dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('comment').toUpperCase()" tfTop="5dp" tfWidth="Ti.UI.FILL" />
+			<View class="padding" />
+		</View>
+		<View class="padding" />
+	</TableViewRow>
+</Alloy>

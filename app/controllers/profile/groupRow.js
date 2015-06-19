@@ -7,5 +7,13 @@ $.description.text = args.description;
 
 $.row.addEventListener('click', function() {
 	
-	Alloy.Globals.openWindow('profile/group_view', args, true);
+	Alloy.Globals.loading.show();
+	
+	Alloy.Globals.API.getGroup(args.id, function(result) {
+		
+		Alloy.Globals.openWindow('profile/group_view', result, true);
+		Alloy.Globals.loading.hide();
+	}, function(error) {
+		//TBD
+	});
 });

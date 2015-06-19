@@ -1,0 +1,53 @@
+
+".container": {
+	height: Ti.UI.SIZE,
+	layout: 'vertical',
+	backgroundColor: 'transparent',
+	selectionStyle: Titanium.UI.iPhone.TableViewCellSelectionStyle.NONE
+}
+
+".padding": {
+	height: '10dp',
+	width: Ti.UI.FILL
+}
+
+".postWrapper": {
+	backgroundColor: '#fff',
+	borderRadius: '3dp',
+	height: Ti.UI.SIZE,
+	layout: 'vertical'
+}
+
+"#avatar": {
+	left: '10dp',
+	top: '10dp',
+	width: '30dp',
+	height: '30dp',
+	borderRadius: '2dp'
+}
+
+"#user": {
+	color: "#f26b1d",
+	left: '50dp',
+	top: '10dp',
+	font: {
+		fontSize: '13dp'
+	}
+}
+
+".info": {
+	height: Ti.UI.SIZE
+}
+
+"#title": {
+	left: '50dp',
+	top: '25dp',
+	font: {
+		fontSize: '13dp'
+	}
+}
+
+"#commentsTable": {
+	height: Ti.UI.SIZE,
+	separatorStyle: Titanium.UI.iPhone.TableViewSeparatorStyle.NONE
+}

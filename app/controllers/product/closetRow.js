@@ -4,4 +4,4 @@ $.pinImage.image = args.img.image;
 $.avatar.image = args.pin.avatar;
 $.title.text = args.pin.title;
 $.description.text = args.pin.description;
-$.price.text = args.pin.price;
+$.price.text = String.formatCurrency(args.pin.price);

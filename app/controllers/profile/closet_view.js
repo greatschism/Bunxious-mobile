@@ -33,8 +33,8 @@ if (Alloy.Globals.currentUser.user_info.id) {
 		var tableData = [];
 
 		for (var i in result.MyPins.pin) {
-			console.log(JSON.stringify(result.MyPins.pin[i]));
-			tableData.push(Alloy.createController('product/closetRow', result.MyPins.pin[i]).getView());
+			console.log('PIN: '+JSON.stringify(result.MyPins.pin[i]));
+			tableData.push(Alloy.createController('product/closetRow', {pin:result.MyPins.pin[i],img:result.MyPins.pinImg[i]}).getView());
 		}
 		$.closetTable.setData(tableData);
 		Alloy.Globals.loading.hide();

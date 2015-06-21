@@ -36,18 +36,21 @@
 }
 
 ".info": {
-	height: Ti.UI.SIZE
+	height: Ti.UI.SIZE,
 }
 
-"#title": {
+"#post_title": {
 	left: '50dp',
 	top: '25dp',
 	font: {
-		fontSize: '13dp'
-	}
+		fontSize: '13dp',
+		fontWeight : 'bold'
+	},
 }
 
 "#commentsTable": {
 	height: Ti.UI.SIZE,
+	left : '15dp',
+	scrollable : false,
 	separatorStyle: Titanium.UI.iPhone.TableViewSeparatorStyle.NONE
 }

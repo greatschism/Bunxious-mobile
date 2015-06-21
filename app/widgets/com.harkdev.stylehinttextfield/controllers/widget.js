@@ -203,3 +203,8 @@ exports.focus = function() {
 initView();
 initTextField();
 initLabel();
+
+exports.addOnReturn = function(callback) {
+	
+	$.txtField.addEventListener('return', callback);
+};

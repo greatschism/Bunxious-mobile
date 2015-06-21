@@ -17,5 +17,6 @@
 	top: '55dp',
 	rowHeight: Ti.UI.SIZE,
 	backgroundColor : 'transparent',
+	showVerticalScrollIndicator : false,
 	separatorStyle: Titanium.UI.iPhone.TableViewSeparatorStyle.NONE
 }

@@ -7,7 +7,7 @@ Alloy.Globals.API.findGroups(function(results) {
 	
 	for (var i in results.Group) {
 		
-		tableData.push(Alloy.createController('profile/groupRow', results.Group[i]).getView());
+		tableData.push(Alloy.createController('profile/groupRow', {group:results.Group[i],img:results.GroupImgMedium[i]}).getView());
 	}
 	
 	$.groupTable.setData(tableData);

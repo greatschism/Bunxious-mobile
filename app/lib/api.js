@@ -405,6 +405,28 @@ api.getGroup = function(id, success, fail) {
 	httpRequest('post', 'POST', data, success, fail);
 };
 
+api.addPost = function(message, id, success, fail) {
+	
+	var data = {
+		group_id : id,
+		post_text : message,
+		token : Alloy.Globals.currentUser.token
+	};
+
+	httpRequest('feed/post', 'POST', data, success, fail);
+};
+
+api.addPostComment = function(message, postid, success, fail) {
+	
+	var data = {
+		post_id : postid,
+		comment_text : message,
+		token : Alloy.Globals.currentUser.token
+	};
+
+	httpRequest('feed/comment', 'POST', data, success, fail);
+};
+
 api.findFollowers = function(user_id, success, fail) {
 
 	var data = {

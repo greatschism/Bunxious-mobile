@@ -5,7 +5,9 @@ $.user.text = args.user_name;
 $.post_title.text = args.article;
 
 $.title.addOnReturn(function(event) {
-
+	
+	Ti.API.info(args);
+	
 	$.commentsTable.appendRow(createRow(Alloy.Globals.currentUser.user_info.avatar_medium.image, Alloy.Globals.currentUser.user_info.firstname + ' ' + Alloy.Globals.currentUser.user_info.lastname, event.value));
 	$.commentsTable.animate({
 		height : Ti.UI.SIZE

@@ -4,6 +4,7 @@ var moment = require('alloy/moment');
 $.name.text = args.name;
 $.created.text = "Created " + moment(args.created_at).fromNow();
 $.description.text = args.description;
+$.avatar.image = args.image;
 
 $.row.addEventListener('click', function() {
 	

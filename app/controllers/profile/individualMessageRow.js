@@ -1,8 +1,8 @@
 var args = arguments[0] || {};
 
-$.messageText.text = args.message;
+$.messageText.text = args.conversation;
 
-if (args.me.id == args.from.id) {
+if (Alloy.Globals.currentUser.user_info.id != args.to_user_id) {
 	
 	$.messageWrapper.right = '25dp';
 	$.messageWrapper.backgroundColor = '#fff';

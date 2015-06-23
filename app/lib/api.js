@@ -452,11 +452,11 @@ api.getCart = function(success, fail) {
 };
 
 api.getCloset = function(success, fail) {
+	
 	var data = {
 		token : Alloy.Globals.currentUser.token
 	};
 
-	//httpRequest('storesettings/getcloset', 'POST', data, success, fail);
 	httpRequest('StoreSettings/mycloset', 'POST', data, success, fail);
 
 };
@@ -521,7 +521,49 @@ api.getOrders = function(success, fail) {
 	success(orders);
 };
 
-api.getMessages = function(success, fail) {
+api.getMessageList = function(success, fail) {
+	
+	var data = {
+		token : Alloy.Globals.currentUser.token
+	};
+
+	httpRequest('conversation/getlist', 'POST', data, success, fail);
+};
+
+api.getMessages = function(conversation_id, success, fail) {
+	
+	var data = {
+		conversation_id : conversation_id,
+		getnew : 1,
+		token : Alloy.Globals.currentUser.token
+	};
+
+	httpRequest('conversation/getconversation', 'POST', data, success, fail);
+};
+
+api.sendMessage = function(conversation_id, to_user_id, message, success, fail) {
+	
+	var data = {
+		conversation_id : conversation_id,
+		to_user_id : to_user_id,
+		conversation : message,
+		token : Alloy.Globals.currentUser.token
+	};
+
+	httpRequest('conversation/send', 'POST', data, success, fail);
+};
+
+api.deleteConversation = function(conversation_id, success, fail) {
+	
+	var data = {
+		conversation_id : conversation_id,
+		token : Alloy.Globals.currentUser.token
+	};
+
+	httpRequest('conversation/delete', 'POST', data, success, fail);
+};
+
+api.getMessagesDummy = function(success, fail) {
 
 	var messages = {
 		data : [{

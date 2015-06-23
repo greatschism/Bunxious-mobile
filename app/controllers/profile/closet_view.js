@@ -37,6 +37,9 @@ if (Alloy.Globals.currentUser.user_info.id) {
 			tableData.push(Alloy.createController('product/closetRow', {pin:result.MyPins.pin[i],img:result.MyPins.pinImg[i]}).getView());
 		}
 		$.closetTable.setData(tableData);
+		$.cover.image = result.cover.image;
+		$.store_title.text = result.Shop.title;
+		
 		Alloy.Globals.loading.hide();
 	}, function(error) {
 

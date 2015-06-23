@@ -1,5 +1,7 @@
 <Alloy>
 	<View class="container">
+		<ImageView id="cover" width="100%" height="60"/>
+		<Label id="store_title"/>
 		<View id="favoriteSection">
 			<View class="labelWrapper">
 				<Label class="favLabel" text="Closet" />

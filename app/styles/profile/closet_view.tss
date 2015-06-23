@@ -39,3 +39,10 @@
 	separatorColor : 'transparent'
 }
 
+"#store_title" :{
+	font: {
+		fontSize: '20dp',
+		fontWeight: 'bold'
+	}
+}
+

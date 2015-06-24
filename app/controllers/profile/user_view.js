@@ -6,10 +6,24 @@ $.avatar.image = args.avatar_medium.image;
 $.userName.text = args.firstname + ' ' + args.lastname;
 $.gender.text = args.gender ? args.gender : '';
 if (args.following_user == "1") {
-	$.follow.text = "Following";
+	$.follow.text = L('unfollow');
 } else {
-	$.follow.text = "Follow";
+	$.follow.text = L('follow');
 }
+
+$.followButton.addEventListener('click', function(e) {
+	// console.debug("User view - args ", JSON.stringify(args));
+	
+	Alloy.Globals.API.follow(args.id, function(response) {
+		// console.debug("follow-unfollow response ", JSON.stringify(response));
+
+		if (response.isFollow) {
+			$.follow.setText(L('unfollow'));
+		} else {
+			$.follow.setText(L('follow'));
+		}
+	});
+});
 
 var date = moment(args.date_added);
 $.joined.text = 'Joined ' + date.format("MMMM D, YYYY");

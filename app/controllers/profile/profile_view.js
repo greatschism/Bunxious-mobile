@@ -36,6 +36,24 @@ if (args.user_id) {
 			
 			$.followButton.visible = true;
 			$.contactButton.visible = true;
+			
+			console.log("Profile View result ", JSON.stringify(result));
+			
+			if(result.following_user){
+				$.follow.setText(L('following'));
+			}
+			
+			$.followButton.addEventListener('click', function(e){
+				Alloy.Globals.API.follow(args.user_id, function(response) {
+					console.debug("follow-unfollow response ", JSON.stringify(response));
+					
+					if(response.isFollow){
+						$.follow.setText(L('following'));
+					} else {
+						$.follow.setText(L('follow'));
+					}
+				});
+			});
 		}
 
 		$.avatar.image = result.avatar_medium.image;

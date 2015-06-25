@@ -57,13 +57,19 @@
 			<Label class="sectionLabel" text="L('item_shipment').toUpperCase()"/>
 			<View class="border"/>
 			<Widget id="title" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="100%" top="10dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('processing_time').toUpperCase()" tfTop="5dp" tfWidth="220dp" />
-			<View id="shipsFrom" class="tabChange">
+			<!-- <View id="shipsFrom" class="tabChange">
 				<Label id="shipsFromTitle" class="tabTitle" text="L('ships_from').toUpperCase()"/>
 				<View class="separator"/>
 				<View class="dropdown">
 					<ImageView class="downArrow"/>
 				</View>
+			</View> -->
+			
+			<View id="shipsFrom">
+				<Label id="shipsFromTitle" text="L('ships_from').toUpperCase()" class="dollarSign" />
+				<Label id="shipsFromValue" text="L('united_states').toUpperCase()" class="dollarSign" />
 			</View>
+			
 			<View class="shippingOptions">
 				<View id="shipsTo" class="tabChange">
 					<Label id="shipsToTitle" class="tabTitle" text="L('ships_to').toUpperCase()"/>

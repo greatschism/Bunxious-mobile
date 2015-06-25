@@ -74,13 +74,13 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction) {
 
 				Ti.API.info(endpoint, JSON.stringify(responseJSON));
 
-				if (!responseJSON.error) {
+				if (responseJSON && !responseJSON.error) {
 
 					if (successFunction) {
 
 						successFunction(responseJSON);
 					}
-				} else if (errorFunction) {
+				} else if (errorFunction && responseJSON && responseJSON.error) {
 
 					errorFunction(responseJSON.error);
 				}
@@ -395,7 +395,7 @@ api.findGroups = function(success, fail) {
 };
 
 api.getGroup = function(id, success, fail) {
-	
+
 	var data = {
 		group_id : id,
 		user_id : Alloy.Globals.currentUser.user_info.id,
@@ -405,8 +405,19 @@ api.getGroup = function(id, success, fail) {
 	httpRequest('post', 'POST', data, success, fail);
 };
 
+api.inviteUserToGroup = function(group_id, name, success, fail) {
+
+	var data = {
+		group : group_id,
+		invitation : [name],
+		token : Alloy.Globals.currentUser.token
+	};
+
+	httpRequest('group/invite', 'POST', data, success, fail);
+};
+
 api.addPost = function(message, id, success, fail) {
-	
+
 	var data = {
 		group_id : id,
 		post_text : message,
@@ -417,7 +428,7 @@ api.addPost = function(message, id, success, fail) {
 };
 
 api.addPostComment = function(message, postid, success, fail) {
-	
+
 	var data = {
 		post_id : postid,
 		comment_text : message,
@@ -452,7 +463,7 @@ api.getCart = function(success, fail) {
 };
 
 api.getCloset = function(success, fail) {
-	
+
 	var data = {
 		token : Alloy.Globals.currentUser.token
 	};
@@ -522,7 +533,7 @@ api.getOrders = function(success, fail) {
 };
 
 api.getMessageList = function(success, fail) {
-	
+
 	var data = {
 		token : Alloy.Globals.currentUser.token
 	};
@@ -531,7 +542,7 @@ api.getMessageList = function(success, fail) {
 };
 
 api.getMessages = function(conversation_id, success, fail) {
-	
+
 	var data = {
 		conversation_id : conversation_id,
 		getnew : 1,
@@ -542,7 +553,7 @@ api.getMessages = function(conversation_id, success, fail) {
 };
 
 api.sendMessage = function(conversation_id, to_user_id, message, success, fail) {
-	
+
 	var data = {
 		conversation_id : conversation_id,
 		to_user_id : to_user_id,
@@ -554,7 +565,7 @@ api.sendMessage = function(conversation_id, to_user_id, message, success, fail) 
 };
 
 api.deleteConversation = function(conversation_id, success, fail) {
-	
+
 	var data = {
 		conversation_id : conversation_id,
 		token : Alloy.Globals.currentUser.token

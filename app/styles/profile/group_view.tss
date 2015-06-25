@@ -20,3 +20,12 @@
 	showVerticalScrollIndicator : false,
 	separatorStyle: Titanium.UI.iPhone.TableViewSeparatorStyle.NONE
 }
+
+"#invite" : {
+	color : 'white',
+	right : 5,
+	top : 5,
+	height : '34dp',
+	width : '60dp',
+	backgroundColor : '#f26b1d'
+}

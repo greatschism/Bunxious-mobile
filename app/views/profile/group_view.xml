@@ -1,5 +1,8 @@
 <Alloy>
 	<ScrollView class="container">
+		<View height="Ti.UI.SIZE">
+			<Button id="invite" title="Invite" />
+		</View>
 		<View class="groupWrapper">
 			<Widget id="title" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="300dp" top="20dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('add_post').toUpperCase()" tfTop="5dp" tfWidth="220dp" />
 			<TableView id="postsTable" />

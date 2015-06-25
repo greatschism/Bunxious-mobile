@@ -26,3 +26,29 @@ $.row.addEventListener('click', function() {
 	});
 });
 
+$.row.addEventListener('longpress', function() {
+
+	var dialog = Ti.UI.createOptionDialog({
+		cancel : 2,
+		options : ['Delete', 'Cancel'],
+		selectedIndex : 1,
+		destructive : 0,
+	});
+
+	dialog.addEventListener('click', function(event) {
+
+		if (event.index == 0) {
+
+			Alloy.Globals.API.deleteConversation(args.conversation, function(result) {
+
+				$.row.animate({
+					height : 0
+				});
+			}, function(error) {
+				//TBD
+			});
+		}
+	});
+
+	dialog.show();
+});

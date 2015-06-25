@@ -453,6 +453,20 @@ api.findFollowers = function(user_id, success, fail) {
 	httpRequest('user/get-followers', 'GET', data, success, fail);
 };
 
+api.follow = function(follow_id, success, fail) {
+
+	var data = {
+		follow_id : follow_id
+	};
+
+	if (Alloy.Globals.currentUser) {
+
+		data.token = Alloy.Globals.currentUser.token;
+	}
+
+	httpRequest('user/follow', 'POST', data, success, fail);
+};
+
 api.getCart = function(success, fail) {
 
 	var data = {

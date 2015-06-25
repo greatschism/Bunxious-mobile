@@ -12,13 +12,42 @@ $.category.addEventListener('click', function() {
 
 		popupDialog.getView('table').addEventListener('click', function(e) {
 
-			$.category_tabTitle.text = e.row.data.title;
+			$.categoryTitle.text = e.row.data.title;
 			popupDialog.hide();
 		});
 
 		popupDialog.getView().show();
 	}, function(error) {
 
+	});
+});
+
+$.groups.addEventListener('click', function() {
+	Alloy.Globals.API.findGroups(function(results) {
+		
+		// console.debug("results findGroups ", JSON.stringify(results));
+		
+		var items = [];
+
+		for (var i in results.Group) {
+			items.push(results.Group[i].name);
+		}
+		
+		// console.debug("items findGroups ", JSON.stringify(items));
+		
+		var popupDialog = Alloy.createWidget('ti.ux.popup.list', 'widget', {
+			closeButton : true,
+			selectable : true,
+			options : items,
+		});
+		
+		popupDialog.getView('table').addEventListener('click', function(e) {
+
+			$.groupsTitle.text = e.row.data.title;
+			popupDialog.hide();
+		});
+		
+		popupDialog.getView().show();
 	});
 });
 
@@ -71,4 +100,4 @@ $.shipsTo.addEventListener('click', function() {
 	});
 
 	popupDialog.getView().show();
-}); 
+});

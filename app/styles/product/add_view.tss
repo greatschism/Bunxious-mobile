@@ -185,6 +185,17 @@
 	top : 0
 }
 
+"#shipsFrom" :{
+	top: '10dp',
+	height: '26dp',
+	layout : 'horizontal',
+	width : '100%'
+}
+
+"#shipsFromValue" :{
+	left: '20dp'
+}
+
 ".shippingPrice" : {
 	left : '55%',
 	top : 0,

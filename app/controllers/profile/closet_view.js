@@ -29,7 +29,7 @@ if (Alloy.Globals.currentUser.user_info.id) {
 
 	Alloy.Globals.loading.show();
 	Alloy.Globals.API.getCloset(function(result) {
-
+		
 		var tableData = [];
 
 		for (var i in result.MyPins.pin) {
@@ -39,6 +39,10 @@ if (Alloy.Globals.currentUser.user_info.id) {
 		$.closetTable.setData(tableData);
 		$.cover.image = result.cover.image;
 		$.store_title.text = result.Shop.title;
+		
+		$.addNewItem.addEventListener('click', function(e){
+			Alloy.Globals.openWindow('product/add_view', args, true);
+		});
 		
 		Alloy.Globals.loading.hide();
 	}, function(error) {

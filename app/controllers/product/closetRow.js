@@ -14,4 +14,21 @@ $.pinImage.addEventListener('click', function(e) {
 	data.image_big = args.img;
 	
 	Alloy.Globals.openWindow('product/pin_view', data, true);
+});
+
+if (args.pin.liked) {
+	$.heartButton.backgroundColor = '#27ae60';
+}
+
+$.heartButton.addEventListener('click', function() {
+	// console.debug('closet row product/pin_view args.pin ', JSON.stringify(args.pin));
+
+	Alloy.Globals.API.togglePinLike(args.pin.id, function(result) {
+
+		if (result.status == 'success' && result.action == "like") {
+			$.heartButton.backgroundColor = '#27ae60';
+		} else if (result.status == 'success' && result.action == "unlike") {
+			$.heartButton.setBackgroundColor('#f26b1d');
+		}
+	});
 }); 

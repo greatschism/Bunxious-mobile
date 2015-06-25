@@ -2,6 +2,9 @@
 	<View class="container">
 		<ImageView id="cover" width="100%" height="60"/>
 		<Label id="store_title"/>
+		<View class="saveWrapper" id="addNewItem">
+			<Button class="saveButton" title="L('add_new_item')" />
+		</View>
 		<View id="favoriteSection">
 			<View class="labelWrapper">
 				<Label class="favLabel" text="Closet" />

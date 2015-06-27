@@ -57,3 +57,11 @@
 	}
 }
 
+"#closeButton" : {
+	top : '32dp',
+	right : '10dp',
+	width : '25dp',
+	height : '25dp',
+	image : '/images/xmarkwhite.png'
+}
+

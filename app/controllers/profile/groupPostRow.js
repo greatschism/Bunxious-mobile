@@ -5,14 +5,28 @@ $.user.text = args.user_name;
 $.post_title.text = args.article;
 
 $.title.addOnReturn(function(event) {
-	
-	Ti.API.info(args);
-	
-	$.commentsTable.appendRow(createRow(Alloy.Globals.currentUser.user_info.avatar_medium.image, Alloy.Globals.currentUser.user_info.firstname + ' ' + Alloy.Globals.currentUser.user_info.lastname, event.value));
-	$.commentsTable.animate({
-		height : Ti.UI.SIZE
+
+	Ti.API.info(args, event);
+
+	Alloy.Globals.API.addPostComment(event.value, args.id, function(result) {
+
+		if (result.result) {
+
+			$.commentsTable.appendRow(createRow(Alloy.Globals.currentUser.user_info.avatar_medium.image, Alloy.Globals.currentUser.user_info.firstname + ' ' + Alloy.Globals.currentUser.user_info.lastname, event.value));
+			$.commentsTable.animate({
+				height : Ti.UI.SIZE
+			});
+			$.title.setValue('');
+		} else {
+
+			if (result.message) {
+
+				alert(result.message);
+			}
+		}
+	}, function() {
+		//TBD
 	});
-	$.title.setValue('');
 });
 
 function createRow(avatar, name, text) {

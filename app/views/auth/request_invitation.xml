@@ -1,11 +1,12 @@
 <Alloy>
 	<Window id="requestWindow">
 		<View class="container">
+			<ImageView id="closeButton" />
 			<ImageView id="logo" />
 			<Label id="title" text="L('request_invitation')"/>
-			<Widget src="com.harkdev.stylehinttextfield" height="40dp" width="250dp" top="50dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('first_name')" tfTop="5dp" tfWidth="220dp" />
-			<Widget src="com.harkdev.stylehinttextfield" height="40dp" width="250dp" top="10dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('last_name')" tfTop="5dp" tfWidth="220dp" />
-			<Widget src="com.harkdev.stylehinttextfield" height="40dp" width="250dp" top="10dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('email_address')" tfTop="5dp" tfWidth="220dp" />
+			<Widget id="firstname" src="com.harkdev.stylehinttextfield" height="40dp" width="250dp" top="50dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('first_name')" tfTop="5dp" tfWidth="220dp" />
+			<Widget id="lastname" src="com.harkdev.stylehinttextfield" height="40dp" width="250dp" top="10dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('last_name')" tfTop="5dp" tfWidth="220dp" />
+			<Widget id="email" src="com.harkdev.stylehinttextfield" height="40dp" width="250dp" top="10dp" hintLeft="20dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('email_address')" tfTop="5dp" tfWidth="220dp" />
 			<Button id="request_button" class="button" title="L('send')" />
 		</View>
 		<View id="login_wrapper">

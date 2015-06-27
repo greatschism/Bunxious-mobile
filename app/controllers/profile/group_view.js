@@ -3,11 +3,25 @@ var moment = require('alloy/moment');
 
 $.title.addOnReturn(function(event) {
 
-	$.postsTable.insertRowBefore(0, Alloy.createController('profile/groupPostRow', {
-		article : event.value,
-		user_avatar : Alloy.Globals.currentUser.user_info.avatar_medium.image,
-		user_name : Alloy.Globals.currentUser.user_info.firstname + ' ' + Alloy.Globals.currentUser.user_info.lastname
-	}).getView());
+	Alloy.Globals.API.addPost(event.value, args.id, function(result) {
+		
+		if (result.result) {
+			$.postsTable.insertRowBefore(0, Alloy.createController('profile/groupPostRow', {
+				article : event.value,
+				user_avatar : Alloy.Globals.currentUser.user_info.avatar_medium.image,
+				user_name : Alloy.Globals.currentUser.user_info.firstname + ' ' + Alloy.Globals.currentUser.user_info.lastname
+			}).getView());
+			$.title.setValue('');
+		} else {
+
+			if (result.message) {
+
+				alert(result.message);
+			}
+		}
+	}, function(error) {
+		//TBD
+	});
 });
 
 var posts = [];
@@ -48,15 +62,15 @@ $.invite.addEventListener('click', function() {
 		buttonNames : ['Invite', 'Cancel'],
 		cancel : 1
 	});
-	
+
 	dialog.addEventListener('click', function(e) {
-		
+
 		if (e.index == 0) {
-			
+
 			Alloy.Globals.API.inviteUserToGroup(args.id, e.text, function(result) {
-				
-				if(result && result.message) {
-					
+
+				if (result && result.message) {
+
 					alert(result.message);
 				}
 			}, function(error) {

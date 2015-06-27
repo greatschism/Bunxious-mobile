@@ -270,6 +270,17 @@ api.getUser = function(user_id, success, fail) {
 	httpRequest('user/find', 'GET', data, success, fail);
 };
 
+api.requestInvite = function(firstname, lastname, email, success, fail) {
+
+	var data = {
+		firstname : firstname,
+		lastname : lastname,
+		email : email
+	};
+
+	httpRequest('request/invite', 'POST', data, success, fail);
+};
+
 api.updateUser = function(userData, success, fail) {
 
 	var data = {

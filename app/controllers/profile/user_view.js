@@ -5,9 +5,14 @@ var moment = require('alloy/moment');
 $.avatar.image = args.avatar_medium.image;
 $.userName.text = args.firstname + ' ' + args.lastname;
 $.gender.text = args.gender ? args.gender : '';
+
 if (args.following_user == "1") {
+	
 	$.follow.text = L('unfollow');
+	$.followButton.width = '90dp';
+	$.contactButton.left = '177dp';
 } else {
+	
 	$.follow.text = L('follow');
 }
 

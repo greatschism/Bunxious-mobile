@@ -3,7 +3,6 @@ var args = arguments[0] || {};
 $.category.addEventListener('click', function() {
 	
 	var addPopUp = function(results){
-		console.debug("Alloy.Globals.API.getAllCategories ", JSON.stringify(results));
 		
 		var items = [];
 		for(i in results){

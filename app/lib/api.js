@@ -72,7 +72,7 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction) {
 
 				var responseJSON = JSON.parse(this.responseText);
 
-				Ti.API.info(endpoint, JSON.stringify(responseJSON));
+				Ti.API.info(endpoint, this.responseText);
 
 				if (responseJSON && !responseJSON.error) {
 
@@ -190,21 +190,22 @@ api.getAllCategories = function(success, fail) {
 
 		for (var i in results) {
 
-			items.push(results[i].title);
-		}
-
-		if (success) {
-
-			items.sort(function(a, b) {
-				if (a < b)
-					return -1;
-				if (a > b)
-					return 1;
-				return 0;
+			// items.push(results[i].title);
+			items.push({
+				"title" : results[i].title,
+				"id" : results[i].id
 			});
-
-			success(items);
 		}
+
+		items.sort(function(a, b) {
+			if (a['title'] < b['title'])
+				return -1;
+			if (a['title'] > b['title'])
+				return 1;
+			return 0;
+		});
+
+		success(items);
 	}
 
 	httpRequest('category/find-all', 'GET', null, onSuccess, fail);
@@ -771,6 +772,94 @@ api.getMessagesDummy = function(success, fail) {
 
 		success(messages);
 	}
+};
+
+api.getBrands = function(success, fail) {
+	var data = {};
+
+	if (Alloy.Globals.currentUser) {
+		data = {
+			token : Alloy.Globals.currentUser.token
+		};
+	}
+
+	function onSuccess(results) {
+
+		// console.debug("Brands result ", JSON.parse(results));
+
+		var items = [];
+
+		for (var i in results.Brands) {
+			items.push({
+				"title" : results.Brands[i].name,
+				"id" : results.Brands[i].id
+			});
+		}
+		success(items);
+	}
+
+	httpRequest('option/brand', 'GET', data, onSuccess, fail);
+};
+
+api.getCondition = function(success, fail) {
+	var data = {};
+
+	if (Alloy.Globals.currentUser) {
+		data = {
+			token : Alloy.Globals.currentUser.token
+		};
+	}
+
+	function onSuccess(results) {
+		var items = [];
+
+		for (var i in results) {
+			items.push({
+				"title" : results[i].title,
+				"id" : results[i].id
+			});
+		}
+		success(items);
+	}
+
+	httpRequest('option/condition', 'GET', data, onSuccess, fail);
+};
+
+api.getGender = function(success, fail) {
+	var data = {};
+
+	if (Alloy.Globals.currentUser) {
+		data = {
+			token : Alloy.Globals.currentUser.token
+		};
+	}
+
+	httpRequest('option/gender', 'GET', data, success, fail);
+};
+
+api.getSize = function(success, fail) {
+
+	var data = {};
+
+	if (Alloy.Globals.currentUser) {
+		data = {
+			token : Alloy.Globals.currentUser.token
+		};
+	}
+
+	function onSuccess(results) {
+		var items = [];
+
+		for (var i in results.Size) {
+			items.push({
+				"title" : results.Size[i].name,
+				"id" : results.Size[i].id
+			});
+		}
+		success(items);
+	}
+
+	httpRequest('option/size', 'GET', data, onSuccess, fail);
 };
 
 module.exports = api;

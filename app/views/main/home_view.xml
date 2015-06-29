@@ -10,17 +10,17 @@
 							<ImageView class="filterIcon" />
 						</View>
 						<View id="brandFilter" class="filterWrapper topRow centerElement">
-							<Label class="filterLabel" text="L('brand')" />
+							<Label id="brandLabel" class="filterLabel" text="L('brand')" />
 							<View class="filterSeparator" />
 							<ImageView class="filterIcon" />
 						</View>
 						<View id="genderFilter" class="filterWrapper topRow lastElement">
-							<Label class="filterLabel" text="L('gender')" />
+							<Label id="genderLabel" class="filterLabel" text="L('gender')" />
 							<View class="filterSeparator" />
 							<ImageView class="filterIcon" />
 						</View>
 						<View id="sizeFilter" class="filterWrapper botRow firstElement">
-							<Label class="filterLabel" text="L('size')" />
+							<Label id="sizeLabel" class="filterLabel" text="L('size')" />
 							<View class="filterSeparator" />
 							<ImageView class="filterIcon" />
 						</View>
@@ -29,11 +29,11 @@
 							<View class="filterSeparator" />
 							<ImageView class="filterIcon" />
 						</View>
-						<View id="sortFilter" class="filterWrapper botRow lastElement">
+						<!-- <View id="sortFilter" class="filterWrapper botRow lastElement">
 							<Label class="filterLabel" text="L('sort_by')" />
 							<View class="filterSeparator" />
 							<ImageView class="filterIcon" />
-						</View>
+						</View> -->
 					</View>
 				</View>
 			</HeaderView>

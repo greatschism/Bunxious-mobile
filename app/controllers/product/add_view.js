@@ -1,8 +1,54 @@
 var args = arguments[0] || {};
 
 $.category.addEventListener('click', function() {
+	
+	var addPopUp = function(results){
+		console.debug("Alloy.Globals.API.getAllCategories ", JSON.stringify(results));
+		
+		var items = [];
+		for(i in results){
+			items.push(results[i].title);
+		}
+
+		var popupDialog = Alloy.createWidget('ti.ux.popup.list', 'widget', {
+			closeButton : true,
+			selectable : true,
+			options : items,
+		});
+
+		popupDialog.getView('table').addEventListener('click', function(e) {
+
+			$.categoryTitle.text = e.row.data.title;
+			popupDialog.hide();
+		});
+
+		popupDialog.getView().show();
+	};
+
+	if(Alloy.Globals.categoryFilters) {
+		
+		addPopUp(Alloy.Globals.categoryFilters);
+		
+	} else {
+		Alloy.Globals.API.getAllCategories(function(results) {
+
+			Alloy.Globals.categoryFilters = JSON.parse(JSON.stringify(results));
+			addPopUp(Alloy.Globals.categoryFilters);
+
+		}, function(error) {
+
+		});
+	}
+/*
 
 	Alloy.Globals.API.getAllCategories(function(results) {
+		
+		console.debug("Alloy.Globals.API.getAllCategories ", JSON.stringify(results));
+		
+		var item = [];
+		for(i in results){
+			item.push(results[i].title);
+		}
 
 		var popupDialog = Alloy.createWidget('ti.ux.popup.list', 'widget', {
 			closeButton : true,
@@ -20,20 +66,18 @@ $.category.addEventListener('click', function() {
 	}, function(error) {
 
 	});
+	*/
+
 });
 
 $.groups.addEventListener('click', function() {
 	Alloy.Globals.API.findGroups(function(results) {
-		
-		// console.debug("results findGroups ", JSON.stringify(results));
 		
 		var items = [];
 
 		for (var i in results.Group) {
 			items.push(results.Group[i].name);
 		}
-		
-		// console.debug("items findGroups ", JSON.stringify(items));
 		
 		var popupDialog = Alloy.createWidget('ti.ux.popup.list', 'widget', {
 			closeButton : true,

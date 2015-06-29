@@ -71,7 +71,7 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction) {
 			try {
 
 				var responseJSON = JSON.parse(this.responseText);
-				
+
 				Ti.API.info(endpoint, this.responseText);
 
 				if (responseJSON && !responseJSON.error) {
@@ -197,18 +197,15 @@ api.getAllCategories = function(success, fail) {
 			});
 		}
 
-		if (success) {
+		items.sort(function(a, b) {
+			if (a['title'] < b['title'])
+				return -1;
+			if (a['title'] > b['title'])
+				return 1;
+			return 0;
+		});
 
-			items.sort(function(a, b) {
-				if (a['title'] < b['title'])
-					return -1;
-				if (a['title'] > b['title'])
-					return 1;
-				return 0;
-			});
-
-			success(items);
-		}
+		success(items);
 	}
 
 	httpRequest('category/find-all', 'GET', null, onSuccess, fail);
@@ -777,7 +774,7 @@ api.getMessagesDummy = function(success, fail) {
 	}
 };
 
-api.getBrands = function(success, fail){
+api.getBrands = function(success, fail) {
 	var data = {};
 
 	if (Alloy.Globals.currentUser) {
@@ -785,11 +782,11 @@ api.getBrands = function(success, fail){
 			token : Alloy.Globals.currentUser.token
 		};
 	}
-	
+
 	function onSuccess(results) {
-		
+
 		// console.debug("Brands result ", JSON.parse(results));
-		
+
 		var items = [];
 
 		for (var i in results.Brands) {
@@ -800,11 +797,11 @@ api.getBrands = function(success, fail){
 		}
 		success(items);
 	}
-	
+
 	httpRequest('option/brand', 'GET', data, onSuccess, fail);
 };
 
-api.getCondition = function(success, fail){
+api.getCondition = function(success, fail) {
 	var data = {};
 
 	if (Alloy.Globals.currentUser) {
@@ -812,7 +809,7 @@ api.getCondition = function(success, fail){
 			token : Alloy.Globals.currentUser.token
 		};
 	}
-	
+
 	function onSuccess(results) {
 		var items = [];
 
@@ -828,7 +825,7 @@ api.getCondition = function(success, fail){
 	httpRequest('option/condition', 'GET', data, onSuccess, fail);
 };
 
-api.getGender = function(success, fail){
+api.getGender = function(success, fail) {
 	var data = {};
 
 	if (Alloy.Globals.currentUser) {
@@ -840,8 +837,8 @@ api.getGender = function(success, fail){
 	httpRequest('option/gender', 'GET', data, success, fail);
 };
 
-api.getSize = function(success, fail){
-	
+api.getSize = function(success, fail) {
+
 	var data = {};
 
 	if (Alloy.Globals.currentUser) {
@@ -849,7 +846,7 @@ api.getSize = function(success, fail){
 			token : Alloy.Globals.currentUser.token
 		};
 	}
-	
+
 	function onSuccess(results) {
 		var items = [];
 

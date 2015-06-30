@@ -1,5 +1,5 @@
 <Alloy>
-	<View class="container">
+	<View class="container" id="home_view">
 		<TableView id="homeTable" class="table" >
 			<HeaderView>
 				<View id="filterWrapper">

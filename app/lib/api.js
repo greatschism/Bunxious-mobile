@@ -181,6 +181,28 @@ api.getHomePins = function(success, fail, offset) {
 	httpRequest('pin/home', 'GET', data, success, fail);
 };
 
+api.getFilteredPins = function(filters, success, fail, offset){
+	var data = {
+		limit : 20
+	};
+	
+	for (var key in filters) {
+		data[key] = filters[key];
+	}
+
+	if (offset) {
+
+		data.offset = offset;
+	}
+
+	if (Alloy.Globals.currentUser) {
+
+		data.token = Alloy.Globals.currentUser.token;
+	}
+
+	httpRequest('pin/find-by', 'GET', data, success, fail);
+};
+
 api.getAllCategories = function(success, fail) {
 
 	// Cleaning the response and returning just an array of strings

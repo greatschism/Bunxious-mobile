@@ -2,7 +2,7 @@
 <ti:app xmlns:ti="http://ti.appcelerator.org">
     <id>com.bunxious.mobile</id>
     <name>Bunxious</name>
-    <version>0.1.6</version>
+    <version>1.0.0</version>
     <publisher>Bunxious</publisher>
     <url>http://bunxious.com/</url>
     <description>Bunxious app</description>
@@ -11,7 +11,6 @@
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
-    <guid>5e2a669b-3a26-41b3-9aaa-8fb94be839c6</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>
     <ios>
         <plist>
@@ -87,12 +86,11 @@
         <target device="android">true</target>
         <target device="mobileweb">false</target>
     </deployment-targets>
-    <sdk-version>4.0.0.RC4</sdk-version>
+    <sdk-version>4.0.0.RC2</sdk-version>
     <plugins>
         <plugin version="1.0">ti.alloy</plugin>
     </plugins>
-    <property name="appc-app-id" type="string">554a446d79ef596b0a6d424d</property>
-    <property name="appc-security-jailbreak-detect">false</property>
-    <property name="appc-security-debugger-detect">false</property>
     <property name="ti.facebook.appid">337276043149789</property>
+    <guid>89355ec6-b84c-4e84-9888-8d786e284522</guid>
+    <property name="appc-app-id" type="string">55928a5b93f6cbbd4ae1e6cf</property>
 </ti:app>

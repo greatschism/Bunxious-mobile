@@ -30,6 +30,29 @@ $.followButton.addEventListener('click', function(e) {
 	});
 });
 
+$.contactButton.addEventListener('click', function(e){
+	
+	Alloy.Globals.loading.show();
+	var data = {
+		to_user_id : args.id
+	};
+
+	Alloy.Globals.API.getMessages(data, function(result) {
+
+		// passing them along to know who we are talking to
+		result.with = {
+			name : args.firstname + " "+ args.lastname,
+			avatar : args.avatar_small.image
+		};
+
+		Alloy.Globals.openWindow('profile/message_view', result, true);
+		Alloy.Globals.loading.hide();
+	}, function(error) {
+
+		Alloy.Globals.loading.hide();
+	});
+});
+
 var date = moment(args.date_added);
 $.joined.text = 'Joined ' + date.format("MMMM D, YYYY");
 

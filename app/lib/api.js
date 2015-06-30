@@ -569,12 +569,6 @@ api.getMessageList = function(success, fail) {
 
 api.getMessages = function(data, success, fail) {
 
-	// var data = {
-		// conversation_id : conversation_id,
-		// getnew : 1,
-		// token : Alloy.Globals.currentUser.token
-	// };
-	
 	data.getnew = 1;
 	data.token = Alloy.Globals.currentUser.token;
 

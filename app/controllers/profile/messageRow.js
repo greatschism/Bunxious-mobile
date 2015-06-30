@@ -17,7 +17,8 @@ $.row.addEventListener('click', function() {
 	Alloy.Globals.API.getMessages(data, function(result) {
 
 		// passing them along to know who we are talking to
-		result.with = {
+		result = {
+			conversation_id : args.conversation,
 			name : args.fullName,
 			avatar : args.image
 		};

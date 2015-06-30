@@ -57,25 +57,13 @@ if (args.user_id) {
 			
 			$.contactButton.addEventListener('click', function(e){
 				
-				Alloy.Globals.loading.show();
 				var data = {
-					to_user_id : result.id
+					to_user_id : result.id,
+					name: result.firstname + " "+ result.lastname,
+					avatar: result.avatar_small.image
 				};
-			
-				Alloy.Globals.API.getMessages(data, function(result) {
-			
-					// passing them along to know who we are talking to
-					result.with = {
-						name : result.firstname + " "+ result.lastname,
-						avatar : result.avatar_small.image
-					};
-			
-					Alloy.Globals.openWindow('profile/message_view', result, true);
-					Alloy.Globals.loading.hide();
-				}, function(error) {
-			
-					Alloy.Globals.loading.hide();
-				});
+				
+				Alloy.Globals.openWindow('profile/message_view', data, true);
 			});
 		}
 

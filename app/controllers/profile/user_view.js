@@ -30,6 +30,18 @@ $.followButton.addEventListener('click', function(e) {
 	});
 });
 
+$.contactButton.addEventListener('click', function(e){
+	
+	Alloy.Globals.loading.show();
+	var data = {
+		to_user_id : args.id,
+		name: args.firstname + " "+ args.lastname,
+		avatar: args.avatar_small.image
+	};
+	
+	Alloy.Globals.openWindow('profile/message_view', data, true);
+});
+
 var date = moment(args.date_added);
 $.joined.text = 'Joined ' + date.format("MMMM D, YYYY");
 

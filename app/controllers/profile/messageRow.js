@@ -9,11 +9,16 @@ $.text.text = args.title;
 $.row.addEventListener('click', function() {
 
 	Alloy.Globals.loading.show();
+	
+	var data = {
+		conversation_id : args.conversation
+	};
 
-	Alloy.Globals.API.getMessages(args.conversation, function(result) {
+	Alloy.Globals.API.getMessages(data, function(result) {
 
 		// passing them along to know who we are talking to
-		result.with = {
+		result = {
+			conversation_id : args.conversation,
 			name : args.fullName,
 			avatar : args.image
 		};

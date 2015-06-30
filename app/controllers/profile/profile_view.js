@@ -54,6 +54,17 @@ if (args.user_id) {
 					}
 				});
 			});
+			
+			$.contactButton.addEventListener('click', function(e){
+				
+				var data = {
+					to_user_id : result.id,
+					name: result.firstname + " "+ result.lastname,
+					avatar: result.avatar_small.image
+				};
+				
+				Alloy.Globals.openWindow('profile/message_view', data, true);
+			});
 		}
 
 		$.avatar.image = result.avatar_medium.image;

@@ -586,16 +586,13 @@ api.getMessageList = function(success, fail) {
 		token : Alloy.Globals.currentUser.token
 	};
 
-	httpRequest('conversation/getlist', 'POST', data, success, fail);
+	httpRequest('conversation/getlist', 'GET', data, success, fail);
 };
 
-api.getMessages = function(conversation_id, success, fail) {
+api.getMessages = function(data, success, fail) {
 
-	var data = {
-		conversation_id : conversation_id,
-		getnew : 1,
-		token : Alloy.Globals.currentUser.token
-	};
+	data.getnew = 1;
+	data.token = Alloy.Globals.currentUser.token;
 
 	httpRequest('conversation/getconversation', 'POST', data, success, fail);
 };

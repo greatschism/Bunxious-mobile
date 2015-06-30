@@ -1,22 +1,50 @@
 var args = arguments[0] || {};
 
-$.avatar.image = args.with.avatar;
-$.username.text = args.with.name;
+$.avatar.image = args.avatar;
+$.username.text = args.name;
 
 var tableData = [];
 
-for (var i in args.data) {
+if(args.to_user_id || args.conversation_id){
+	console.debug("args - message_view ", JSON.stringify(args));
+	
+	var data = {};
+	
+	if(args.to_user_id){
+		data.to_user_id = args.to_user_id;
+	} else if(args.conversation_id){
+		data.conversation_id = args.conversation_id;
+	}
+	
+	Alloy.Globals.API.getMessages(data, function(result) {
+		
+		console.debug("results ", JSON.stringify(result));
+		
+		for (var i in result.data) {
+			console.debug(JSON.stringify(result.data[i]));
+			tableData.push(Alloy.createController('profile/individualMessageRow', result.data[i]).getView());
+		}
+		
+		$.messageTable.setData(tableData);
+			
+		Alloy.Globals.loading.hide();
+	}, function(error) {
 
-	tableData.push(Alloy.createController('profile/individualMessageRow', args.data[i]).getView());
+		Alloy.Globals.loading.hide();
+	});
 }
 
-$.messageTable.setData(tableData);
+// for (var i in args.data) {
+	// tableData.push(Alloy.createController('profile/individualMessageRow', args.data[i]).getView());
+// }
+
+// $.messageTable.setData(tableData);
 
 $.textSend.addEventListener('click', function() {
 	
 	Alloy.Globals.loading.show();
 	
-	Alloy.Globals.API.sendMessage(args.conversation_id, args.data[0].to_user_id, $.textInput.value, function(result) {
+	Alloy.Globals.API.sendMessage(args.conversation_id, args.to_user_id, $.textInput.value, function(result) {
 
 		if (result.result == true) {
 

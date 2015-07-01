@@ -520,6 +520,33 @@ api.getCloset = function(success, fail) {
 
 };
 
+api.getAllCountries = function(success, fail) {
+
+	var data = {};
+
+	if (Alloy.Globals.currentUser) {
+
+		data.token = Alloy.Globals.currentUser.token;
+	}
+
+	function onSuccess(results) {
+
+		var items = [];
+
+		if (success) {
+			for (var i in results) {
+				items.push({
+					"title" : results[i].name,
+					"id" : results[i].id
+				});
+			}
+			success(items);
+		}
+	}
+
+	httpRequest('country/find-all', 'GET', data, onSuccess, fail);
+};
+
 api.getOrders = function(success, fail) {
 
 	var orders = [{
@@ -832,10 +859,10 @@ api.getCondition = function(success, fail) {
 	function onSuccess(results) {
 		var items = [];
 
-		for (var i in results) {
+		for (var i in results.Condition) {
 			items.push({
-				"title" : results[i].title,
-				"id" : results[i].id
+				"title" : results.Condition[i].name,
+				"id" : results.Condition[i].id
 			});
 		}
 		success(items);
@@ -881,4 +908,4 @@ api.getSize = function(success, fail) {
 	httpRequest('option/size', 'GET', data, onSuccess, fail);
 };
 
-module.exports = api;
+module.exports = api;

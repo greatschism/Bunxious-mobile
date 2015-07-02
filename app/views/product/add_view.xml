@@ -6,7 +6,7 @@
 				<Label class="favLabel" text="Add New Item" />
 			</View>
 		</View>
-		<Widget id="tfTitle"  src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="300dp" top="20dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('title').toUpperCase()" tfTop="5dp" tfWidth="220dp" />
+		<Widget id="tfTitle" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="300dp" top="20dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('title').toUpperCase()" tfTop="5dp" tfWidth="220dp" />
 		<Widget id="tfDesc" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="300dp" top="10dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('description').toUpperCase()" tfTop="5dp" tfWidth="220dp" textarea="true" />
 		<View id="category" class="tabChange">
 			<Label id="categoryTitle" idValue="" class="tabTitle" text="L('category').toUpperCase()"/>
@@ -76,11 +76,11 @@
 				</FooterView>
 				<Require id="variationRow" src="product/variationRow"/>
 			</TableView>
-			<View class="border" />
+			<!-- <View class="border" />
 			<View class="priceWrapper">
 				<Label text="$" class="dollarSign" />
 				<Widget id="tfPrice" src="com.harkdev.stylehinttextfield" left="10dp" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="165dp" top="0" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('price').toUpperCase()" tfTop="5dp" tfWidth="220dp" />
-			</View>
+			</View> -->
 		</View>
 		<View class="sectionWrapper">
 			<Label class="sectionLabel" text="L('item_tags').toUpperCase()"/>
@@ -92,7 +92,7 @@
 		<View class="sectionWrapper">
 			<Label class="sectionLabel" text="L('item_shipment').toUpperCase()"/>
 			<View class="border"/>
-			<Widget id="title" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="100%" top="10dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('processing_time').toUpperCase()" tfTop="5dp" tfWidth="220dp" />
+			<Widget id="tfProcessingTime" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="100%" top="10dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('processing_time').toUpperCase()" tfTop="5dp" tfWidth="220dp" />
 			<!-- <View id="shipsFrom" class="tabChange">
 				<Label id="shipsFromTitle" class="tabTitle" text="L('ships_from').toUpperCase()"/>
 				<View class="separator"/>
@@ -112,7 +112,7 @@
 					<Label id="shipsToValue" text="L('united_states').toUpperCase()" class="dollarSign" />
 					<View class="shippingPrice">
 						<Label class="dollarSign" text="$"/>
-						<TextField class="priceTextfield"/>
+						<TextField id="shipToUS" class="priceTextfield"/>
 					</View>
 				</View>
 				
@@ -120,7 +120,7 @@
 					<Label class="elsewhere" text="L('everywhere_else').toUpperCase()"/>
 					<View class="shippingPrice">
 						<Label class="dollarSign" text="$"/>
-						<TextField class="priceTextfield"/>
+						<TextField id="shipToElsewhere" class="priceTextfield"/>
 					</View>
 				</View>
 				

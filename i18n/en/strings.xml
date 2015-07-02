@@ -70,4 +70,11 @@
 	<string name="group">My Groups</string>
 	<string name="add_post">Add Post</string>
 	<string name="united_states">United States</string>
+	<string name="missing_field_error">Required Fields are missing.</string>
+	<string name="add_image_error">Please upload Image first.</string>
+	<string name="condition">Condition</string>
+	<string name="style">Style</string>
+	<string name="tags">Tags</string>
+	<string name="materials">Materials</string>
+	<string name="enter_valid_details">Please enter valid details.</string>
 </resources>

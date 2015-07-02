@@ -1,5 +1,17 @@
 var args = arguments[0] || {};
 
+function getIDByItem(list, item) {
+	var id;
+	
+	for (i in list){
+		if(list[i].title === item){
+			id = list[i].id;
+			break;
+		}
+	}
+	return id;
+}
+
 function createFilter(list, label){
 	
 	var items = [];
@@ -18,6 +30,7 @@ function createFilter(list, label){
 
 			label.text = e.row.data.title;
 			popupDialog.hide();
+			label.idValue = getIDByItem(list, e.row.data.title);
 			
 		});
 

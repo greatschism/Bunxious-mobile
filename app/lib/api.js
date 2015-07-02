@@ -42,7 +42,7 @@ function queryString(data) {
 	return arr.join("&");
 };
 
-function httpRequest(endpoint, method, data, successFunction, errorFunction) {
+function httpRequest(endpoint, method, data, successFunction, errorFunction, fileType) {
 
 	if (!Ti.Network.online) {
 
@@ -120,10 +120,17 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction) {
 
 	xhr.open(method, url);
 
-	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	if(fileType !== "media"){
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	}
 	xhr.setRequestHeader('Authorization', 'Basic ' + Ti.Utils.base64encode(config.httpUser + ':' + config.httpPass));
 
-	if (data && method == 'POST') {
+	if(fileType === "media"){
+		xhr.setRequestHeader("enctype", "multipart/form-data");
+		Ti.API.info('gonna hit ' + url + ' and gonna send ' + JSON.stringify(data));
+		xhr.send(data);
+		
+	} else if (data && method == 'POST') {
 
 		Ti.API.info('gonna hit ' + url + ' and gonna send ' + JSON.stringify(queryString(data)));
 		xhr.send(queryString(data));
@@ -906,6 +913,21 @@ api.getSize = function(success, fail) {
 	}
 
 	httpRequest('option/size', 'GET', data, onSuccess, fail);
+};
+
+api.uploadImage = function(image, success, fail){
+	
+	data = {
+		token : Alloy.Globals.currentUser.token,
+		file: image
+	};
+	
+	httpRequest('upload', 'POST', data, success, fail, "media");
+	
+};
+
+api.addNewItem = function(data, success, fail){
+	httpRequest('uploadpin', 'POST', data, success, fail);
 };
 
 module.exports = api;

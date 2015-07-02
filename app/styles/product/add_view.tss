@@ -127,6 +127,13 @@
 	height: '1dp'
 }
 
+"#uploadImageLabel" :{
+	height: '50dp',
+	width: '100%',
+	top: 0,
+	backgroundColor : 'transparent',
+}
+
 "#uploadImageTable": {
 	height: '50dp',
 	width: '100%',

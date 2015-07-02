@@ -1,0 +1,10 @@
+".container" : {
+	height : '45dp',
+	backgroundColor : 'transparent'
+}
+
+"#uploadImage" :{
+	color : '#666',
+	left : 0,
+	height: '25dp'
+}

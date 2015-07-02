@@ -2,55 +2,17 @@ var args = arguments[0] || {};
 
 var gallery = [];
 
-function getIDByItem(list, item) {
-	var id;
-	
-	for (i in list){
-		if(list[i].title === item){
-			id = list[i].id;
-			break;
-		}
-	}
-	return id;
-}
-
-function createFilter(list, label){
-	
-	var items = [];
-	
-	for(i in list){
-		items.push(list[i].title);
-	}
-	
-	var popupDialog = Alloy.createWidget('ti.ux.popup.list', 'widget', {
-			closeButton : true,
-			selectable : true,
-			options : items,
-		});
-
-		popupDialog.getView('table').addEventListener('click', function(e) {
-
-			label.text = e.row.data.title;
-			popupDialog.hide();
-			
-			label.idValue = getIDByItem(list, e.row.data.title);
-			
-		});
-
-		popupDialog.getView().show();
-}
-
 $.category.addEventListener('click', function() {
 	
 	if(Alloy.Globals.categoryFilters) {
 		
-		createFilter(Alloy.Globals.categoryFilters, $.categoryTitle);
+		Alloy.Globals.createFilter(Alloy.Globals.categoryFilters, $.categoryTitle);
 		
 	} else {
 		Alloy.Globals.API.getAllCategories(function(results) {
 
 			Alloy.Globals.categoryFilters = JSON.parse(JSON.stringify(results));
-			createFilter(Alloy.Globals.categoryFilters, $.categoryTitle);
+			Alloy.Globals.createFilter(Alloy.Globals.categoryFilters, $.categoryTitle);
 
 		}, function(error) {
 
@@ -74,21 +36,8 @@ $.groups.addEventListener('click', function() {
 			items.push(results.Group[i].title);
 		}
 		
-		// var popupDialog = Alloy.createWidget('ti.ux.popup.list', 'widget', {
-			// closeButton : true,
-			// selectable : true,
-			// options : items,
-		// });
-// 		
-		// popupDialog.getView('table').addEventListener('click', function(e) {
-// 
-			// $.groupsTitle.text = e.row.data.title;
-			// popupDialog.hide();
-			
-			createFilter(items, $.groupsTitle);
-		// });
-// 		
-		// popupDialog.getView().show();
+		Alloy.Globals.createFilter(items, $.groupsTitle);
+
 	});
 });
 
@@ -96,14 +45,14 @@ $.brand.addEventListener('click', function() {
 	
 	if(Alloy.Globals.brandFilters) {
 
-		createFilter(Alloy.Globals.brandFilters, $.brandTitle);
+		Alloy.Globals.createFilter(Alloy.Globals.brandFilters, $.brandTitle);
 
 	} else {
 		Alloy.Globals.API.getBrands(function(results) {
 			
 			Alloy.Globals.brandFilters = JSON.parse(JSON.stringify(results));
 
-			createFilter(Alloy.Globals.brandFilters, $.brandTitle);
+			Alloy.Globals.createFilter(Alloy.Globals.brandFilters, $.brandTitle);
 	
 		}, function(error) {
 	
@@ -115,7 +64,7 @@ $.gender.addEventListener('click', function() {
 	
 	if(Alloy.Globals.genderFilters) {
 
-		createFilter(Alloy.Globals.genderFilters, $.genderTitle);
+		Alloy.Globals.createFilter(Alloy.Globals.genderFilters, $.genderTitle);
 
 	} else {
 		Alloy.Globals.API.getGender(function(results) {
@@ -128,7 +77,7 @@ $.gender.addEventListener('click', function() {
 				});
 			}
 			Alloy.Globals.genderFilters = JSON.parse(JSON.stringify(items));
-			createFilter(Alloy.Globals.genderFilters, $.genderTitle);
+			Alloy.Globals.createFilter(Alloy.Globals.genderFilters, $.genderTitle);
 	
 		}, function(error) {
 	
@@ -140,13 +89,13 @@ $.condition.addEventListener('click', function() {
 	
 	if(Alloy.Globals.conditionFilters) {
 
-		createFilter(Alloy.Globals.conditionFilters, $.conditionTitle);
+		Alloy.Globals.createFilter(Alloy.Globals.conditionFilters, $.conditionTitle);
 
 	} else {
 		Alloy.Globals.API.getCondition(function(results) {
 			
 			Alloy.Globals.conditionFilters = JSON.parse(JSON.stringify(results));
-			createFilter(Alloy.Globals.conditionFilters, $.conditionTitle);
+			Alloy.Globals.createFilter(Alloy.Globals.conditionFilters, $.conditionTitle);
 	
 		}, function(error) {
 	
@@ -292,13 +241,13 @@ $.shipsTo.addEventListener('click', function() {
 	
 	if(Alloy.Globals.countryFilters){
 		
-		createFilter(Alloy.Globals.countryFilters, $.shipsToTitle);
+		Alloy.Globals.createFilter(Alloy.Globals.countryFilters, $.shipsToTitle);
 		
 	} else {
 		Alloy.Globals.API.getAllCountries(function(results) {
 
 			Alloy.Globals.countryFilters = JSON.parse(JSON.stringify(results));
-			createFilter(Alloy.Globals.countryFilters, $.shipsToTitle);
+			Alloy.Globals.createFilter(Alloy.Globals.countryFilters, $.shipsToTitle);
 			
 		}, function(error) {
 	

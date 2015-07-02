@@ -1,32 +1,46 @@
 <Alloy>
 	<TableViewRow class="container">
-		<View id="brand" class="tabChange">
-			<Label id="brandTitle" class="tabTitle" text="L('brand').toUpperCase()"/>
+		<!-- <View id="brand" class="tabChange">
+			<Label id="brandTitle" idValue="" class="tabTitle" text="L('brand').toUpperCase()"/>
 			<View class="separator"/>
 			<View class="dropdown">
 				<ImageView class="downArrow"/>
 			</View>
 		</View>
 		<View id="gender" class="tabChange">
-			<Label id="genderTitle" class="tabTitle" text="L('gender').toUpperCase()"/>
+			<Label id="genderTitle" idValue="" class="tabTitle" text="L('gender').toUpperCase()"/>
 			<View class="separator"/>
 			<View class="dropdown">
 				<ImageView class="downArrow"/>
 			</View>
-		</View>
+		</View> -->
 		<View id="size" class="tabChange">
-			<Label id="sizeTitle" class="tabTitle" text="L('size').toUpperCase()"/>
+			<Label id="sizeTitle" idValue="" class="tabTitle" text="L('size').toUpperCase()"/>
 			<View class="separator"/>
 			<View class="dropdown">
 				<ImageView class="downArrow"/>
 			</View>
 		</View>
-		<View id="condition" class="tabChange">
-			<Label id="conditionTitle" class="tabTitle" text="L('condition').toUpperCase()"/>
+		
+		<View layout="horizontal" top='45dp'>
+			<Widget id="tfQuantity" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="145dp" top="0" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('quantity').toUpperCase()" tfTop="5dp" tfWidth="150dp" />
+			<Widget id="tfPriceValue" src="com.harkdev.stylehinttextfield" left="10dp" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="145dp" top="0" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('price').toUpperCase()" tfTop="5dp" tfWidth="150dp" />
+		</View>
+		<!-- <View class="priceWrapper">
+			<!-- <Label text="$" class="dollarSign" /> 
+			<Widget id="tfQuantity" src="com.harkdev.stylehinttextfield" left="10dp" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="165dp" top="0" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('quantity').toUpperCase()" tfTop="5dp" tfWidth="220dp" />
+		</View>
+		
+		<View class="priceWrapper">
+			<!-- <Label text="$" class="dollarSign" />
+			<Widget id="tfPriceValue" src="com.harkdev.stylehinttextfield" left="10dp" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="165dp" top="0" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('price').toUpperCase()" tfTop="5dp" tfWidth="220dp" />
+		</View> -->
+		<!-- <View id="condition" class="tabChange">
+			<Label id="conditionTitle" idValue="" class="tabTitle" text="L('condition').toUpperCase()"/>
 			<View class="separator"/>
 			<View class="dropdown">
 				<ImageView class="downArrow"/>
 			</View>
-		</View>
+		</View> -->
 	</TableViewRow>
 </Alloy>

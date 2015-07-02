@@ -5,11 +5,19 @@
 }
 
 ".tabChange": {
-	width: '45%',
+	top: 10,
+	width: '300dp', //'45%',
 	height: '30dp',
 	borderWidth: '1dp',
 	borderColor: '#d5dae2',
 	backgroundColor: '#fff'
+}
+
+".priceWrapper" : {
+	top : '40dp',
+	height : '40dp',
+	layout : 'horizontal',
+	width : '45%'
 }
 
 ".tabTitle": {

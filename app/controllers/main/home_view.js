@@ -295,6 +295,24 @@ function getFilters() {
 	}, function(error) {
 
 	});
+	
+	// Get Condition
+	Alloy.Globals.API.getCondition(function(results) {
+
+		Alloy.Globals.conditionFilters = JSON.parse(JSON.stringify(results));
+		
+	}, function(error) {
+
+	});
+	
+	// Get Countries
+	Alloy.Globals.API.getAllCountries(function(results) {
+
+		Alloy.Globals.countryFilters = JSON.parse(JSON.stringify(results));
+		
+	}, function(error) {
+
+	});
 }
 
 // Will be triggered from login, to update the data after a user logs in

@@ -1,5 +1,7 @@
 var args = arguments[0] || {};
 
+var genders = ['male','female','unsigned'];
+
 if (Alloy.Globals.currentUser != null) {
 
 	$.firstname.getField().value = Alloy.Globals.currentUser.user_info.firstname;
@@ -9,6 +11,7 @@ if (Alloy.Globals.currentUser != null) {
 	$.city.getField().value = Alloy.Globals.currentUser.user_info.city;
 	var index = Alloy.Globals.findIndexWithAttribute(Alloy.Globals.countryFilters,'iso_code_3',Alloy.Globals.currentUser.user_info.country_iso_code_3);
 	$.country.setSelectedIndex(index);
+	$.gender.setSelectedIndex(genders.indexOf(Alloy.Globals.currentUser.user_info.gender));
 	$.about.getField().value = Alloy.Globals.currentUser.user_info.about;
 	$.website.getField().value = Alloy.Globals.currentUser.user_info.website;
 	$.search_engines.setValue(Alloy.Globals.currentUser.user_info.search_engines);
@@ -36,8 +39,9 @@ if (Alloy.Globals.currentUser != null) {
 		Alloy.Globals.currentUser.user_info.notification_repin_pin = $.notification_repin_pin.getValue();
 		Alloy.Globals.currentUser.user_info.notification_follow_user = $.notification_follow_user.getValue();
 		var country = Alloy.Globals.getCountryByName($.country.getValue());
-		console.log('Index: '+country);
 		Alloy.Globals.currentUser.user_info.country_iso_code_3 = country[0].iso_code_3;
+		var gender = $.gender.getValue();
+		Alloy.Globals.currentUser.user_info.gender = genders[$.gender.getOptions().indexOf(gender)];
 		
 		Alloy.Globals.API.updateUser(Alloy.Globals.currentUser.user_info, function() {
 

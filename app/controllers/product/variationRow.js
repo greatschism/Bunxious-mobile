@@ -1,29 +1,5 @@
 var args = arguments[0] || {};
 
-function createFilter(list, label){
-	
-	var items = [];
-	
-	for(i in list){
-		items.push(list[i].title);
-	}
-	
-	var popupDialog = Alloy.createWidget('ti.ux.popup.list', 'widget', {
-			closeButton : true,
-			selectable : true,
-			options : items,
-		});
-
-		popupDialog.getView('table').addEventListener('click', function(e) {
-
-			label.text = e.row.data.title;
-			popupDialog.hide();
-			
-		});
-
-		popupDialog.getView().show();
-}
-
 /*
 $.gender.addEventListener('click', function() {
 
@@ -64,13 +40,13 @@ $.size.addEventListener('click', function() {
 	
 	if(Alloy.Globals.sizeFilters) {
 
-		createFilter(Alloy.Globals.sizeFilters, $.sizeTitle);
+		Alloy.Globals.createFilter(Alloy.Globals.sizeFilters, $.sizeTitle);
 
 	} else {
 		Alloy.Globals.API.getSize(function(results) {
 			
 			Alloy.Globals.sizeFilters = JSON.parse(JSON.stringify(results));
-			createFilter(Alloy.Globals.sizeFilters, $.sizeTitle);
+			Alloy.Globals.createFilter(Alloy.Globals.sizeFilters, $.sizeTitle);
 	
 		}, function(error) {
 	

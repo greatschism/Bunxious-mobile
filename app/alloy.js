@@ -161,4 +161,41 @@ Alloy.Globals.findIndexWithAttribute = function(array, attr, value) {
     }
 };
 
+Alloy.Globals.getIDByItem = function(list, item) {
+	var id;
+	
+	for (i in list){
+		if(list[i].title === item){
+			id = list[i].id;
+			break;
+		}
+	}
+	return id;
+};
+
+Alloy.Globals.createFilter = function(list, label){
+	
+	var items = [];
+	
+	for(i in list){
+		items.push(list[i].title);
+	}
+	
+	var popupDialog = Alloy.createWidget('ti.ux.popup.list', 'widget', {
+			closeButton : true,
+			selectable : true,
+			options : items,
+		});
+
+		popupDialog.getView('table').addEventListener('click', function(e) {
+
+			label.text = e.row.data.title;
+			popupDialog.hide();
+			label.idValue = Alloy.Globals.getIDByItem(list, e.row.data.title);
+			
+		});
+
+		popupDialog.getView().show();
+};
+
 Alloy.Globals.loading = Alloy.createWidget("nl.fokkezb.loading");

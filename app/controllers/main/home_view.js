@@ -56,20 +56,6 @@ if (!args.fromAnotherController) {
 	}
 }
 
-function getIDByItem(list, item) {
-	var id;
-	
-	for (i in list){
-		if(list[i].title === item){
-			console.debug("list[i] ", JSON.stringify(list[i]));
-			id = list[i].id;
-			break;
-		}
-	}
-	
-	return id;
-}
-
 function createFilter(list, label, filterType){
 	
 	var items = [];
@@ -101,19 +87,19 @@ function createFilter(list, label, filterType){
 			// Checking the filter type
 			if(filterType === "category"){
 				
-				filters['filters[category_id]'] = getIDByItem(list, e.row.data.title);
+				filters['filters[category_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
 				
 			} else if(filterType === "brand"){
 
-				filters['filters[brand_id]'] = getIDByItem(list, e.row.data.title);
+				filters['filters[brand_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
 				
 			} else if(filterType === "gender"){
 				
-				filters['filters[gender_id]'] = getIDByItem(list, e.row.data.title);
+				filters['filters[gender_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
 				
 			} else if(filterType === "size"){
 				
-				filters['filters[size_id]'] = getIDByItem(list, e.row.data.title);
+				filters['filters[size_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
 				
 			}
 			

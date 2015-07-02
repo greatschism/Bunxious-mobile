@@ -34,7 +34,6 @@ function populateTable() {
 if (!args.fromAnotherController) {
 
 	populateTable();
-	getFilters();
 
 	if (Ti.App.Properties.getString('token', null) != null && !Alloy.Globals.currentUser) {
 
@@ -235,71 +234,6 @@ $.sizeFilter.addEventListener('click', function() {
 		});
 	}
 });
-
-function getFilters() {
-	
-	// Get Categories
-	Alloy.Globals.API.getAllCategories(function(results) {
-
-		Alloy.Globals.categoryFilters = JSON.parse(JSON.stringify(results));
-				
-	}, function(error) {
-
-	});
-	
-	// Get Brands
-	Alloy.Globals.API.getBrands(function(results) {
-		
-		Alloy.Globals.brandFilters = JSON.parse(JSON.stringify(results));
-		
-	}, function(error) {
-
-	});
-	
-	// Get Gender
-	Alloy.Globals.API.getGender(function(results) {
-		
-		var items = [];
-		for (var i in results.Gender) {
-			items.push({
-				"title" : results.Gender[i].name,
-				"id" : results.Gender[i].id
-			});
-		}
-
-		Alloy.Globals.genderFilters = JSON.parse(JSON.stringify(items));
-		
-	}, function(error) {
-
-	});
-	
-	// Get Size
-	Alloy.Globals.API.getSize(function(results) {
-
-		Alloy.Globals.sizeFilters = JSON.parse(JSON.stringify(results));
-		
-	}, function(error) {
-
-	});
-	
-	// Get Condition
-	Alloy.Globals.API.getCondition(function(results) {
-
-		Alloy.Globals.conditionFilters = JSON.parse(JSON.stringify(results));
-		
-	}, function(error) {
-
-	});
-	
-	// Get Countries
-	Alloy.Globals.API.getAllCountries(function(results) {
-
-		Alloy.Globals.countryFilters = JSON.parse(JSON.stringify(results));
-		
-	}, function(error) {
-
-	});
-}
 
 // Will be triggered from login, to update the data after a user logs in
 exports.populateTable = populateTable;

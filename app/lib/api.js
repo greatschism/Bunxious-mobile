@@ -69,7 +69,7 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction, fil
 		if (this.status == '200') {
 
 			try {
-
+console.log(this.responseText);
 				var responseJSON = JSON.parse(this.responseText);
 
 				Ti.API.info(endpoint, this.responseText);
@@ -359,7 +359,7 @@ api.updateUser = function(userData, success, fail) {
 	delete userData.avatar_small;
 	delete userData.avatar_medium;
 	delete userData.cover_image;
-
+console.log('USERDATA: '+JSON.stringify(userData));
 	httpRequest('user/update', 'POST', data, success, fail);
 };
 
@@ -432,7 +432,7 @@ api.findGroups = function(success, fail) {
 		token : Alloy.Globals.currentUser.token
 	};
 
-	httpRequest('group', 'POST', data, success, fail);
+	httpRequest('group/grouplist', 'POST', data, success, fail);
 };
 
 api.getGroup = function(id, success, fail) {
@@ -544,7 +544,8 @@ api.getAllCountries = function(success, fail) {
 			for (var i in results) {
 				items.push({
 					"title" : results[i].name,
-					"id" : results[i].id
+					"id" : results[i].id,
+					"iso_code_3" : results[i].iso_code_3
 				});
 			}
 			success(items);

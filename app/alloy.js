@@ -83,6 +83,84 @@ Alloy.Globals.openWindow = function(controller, arguments, newOne) {
 	}
 };
 
+// Get Categories
+Alloy.Globals.API.getAllCategories(function(results) {
+
+	Alloy.Globals.categoryFilters = JSON.parse(JSON.stringify(results));
+
+}, function(error) {
+
+});
+
+// Get Brands
+Alloy.Globals.API.getBrands(function(results) {
+
+	Alloy.Globals.brandFilters = JSON.parse(JSON.stringify(results));
+
+}, function(error) {
+
+});
+
+// Get Gender
+Alloy.Globals.API.getGender(function(results) {
+
+	var items = [];
+	for (var i in results.Gender) {
+		items.push({
+			"title" : results.Gender[i].name,
+			"id" : results.Gender[i].id
+		});
+	}
+
+	Alloy.Globals.genderFilters = JSON.parse(JSON.stringify(items));
+
+}, function(error) {
+
+});
+
+// Get Size
+Alloy.Globals.API.getSize(function(results) {
+
+	Alloy.Globals.sizeFilters = JSON.parse(JSON.stringify(results));
+
+}, function(error) {
+
+});
+
+// Get Condition
+Alloy.Globals.API.getCondition(function(results) {
+
+	Alloy.Globals.conditionFilters = JSON.parse(JSON.stringify(results));
+
+}, function(error) {
+
+});
+
+// Get Countries
+Alloy.Globals.API.getAllCountries(function(results) {
+
+	Alloy.Globals.countryFilters = JSON.parse(JSON.stringify(results));
+
+}, function(error) {
+
+});
+
+Alloy.Globals.getCountryByCode = function(code) {
+	return Alloy.Globals.countryFilters.filter(function(obj){return obj.iso_code_3 == code;});
+};
+
+Alloy.Globals.getCountryByName = function(country) {
+	return Alloy.Globals.countryFilters.filter(function(obj){return obj.title == country;});
+};
+
+Alloy.Globals.findIndexWithAttribute = function(array, attr, value) {
+    for(var i = 0; i < array.length; i += 1) {
+        if(array[i][attr] === value) {
+            return i;
+        }
+    }
+};
+
 Alloy.Globals.getIDByItem = function(list, item) {
 	var id;
 	

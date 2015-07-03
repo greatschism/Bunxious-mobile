@@ -40,6 +40,12 @@ if(args.to_user_id || args.conversation_id){
 
 // $.messageTable.setData(tableData);
 
+$.textInput.addEventListener('return', function(e){
+	$.textInput.blur();
+	$.messageView.scrollTo(0, 0);
+	$.messageView.setBottom(20);
+});
+
 $.textSend.addEventListener('click', function() {
 	
 	Alloy.Globals.loading.show();

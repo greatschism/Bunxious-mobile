@@ -31,39 +31,55 @@ function openTab(tab, data) {
 if (args.user_id) {
 
 	Alloy.Globals.API.getUser(args.user_id, function(result) {
-		
+
 		if (!Alloy.Globals.currentUser || Alloy.Globals.currentUser.user_info.id != args.user_id) {
-			
+
 			$.followButton.visible = true;
 			$.contactButton.visible = true;
-			
+
 			// console.log("Profile View result ", JSON.stringify(result));
-			
-			if(result.following_user){
+
+			if (result.following_user) {
 				$.follow.setText(L('unfollow'));
 			}
-			
-			$.followButton.addEventListener('click', function(e){
-				Alloy.Globals.API.follow(args.user_id, function(response) {
-					// console.debug("follow-unfollow response ", JSON.stringify(response));
-					
-					if(response.isFollow){
-						$.follow.setText(L('unfollow'));
-					} else {
-						$.follow.setText(L('follow'));
-					}
-				});
+
+			$.followButton.addEventListener('click', function(e) {
+
+				if (!Alloy.Globals.currentUser || Alloy.Globals.currentUser.token == null) {
+
+					alert('Please login first.');
+				} else {
+
+					Alloy.Globals.API.follow(args.user_id, function(response) {
+						// console.debug("follow-unfollow response ", JSON.stringify(response));
+
+						if (response.isFollow) {
+							$.follow.setText(L('unfollow'));
+						} else {
+							$.follow.setText(L('follow'));
+						}
+					}, function(error) {
+
+						alert('Please login first.');
+					});
+				}
 			});
-			
-			$.contactButton.addEventListener('click', function(e){
-				
-				var data = {
-					to_user_id : result.id,
-					name: result.firstname + " "+ result.lastname,
-					avatar: result.avatar_small.image
-				};
-				
-				Alloy.Globals.openWindow('profile/message_view', data, true);
+
+			$.contactButton.addEventListener('click', function(e) {
+
+				if (!Alloy.Globals.currentUser || Alloy.Globals.currentUser.token == null) {
+
+					alert('Please login first.');
+				} else {
+
+					var data = {
+						to_user_id : result.id,
+						name : result.firstname + " " + result.lastname,
+						avatar : result.avatar_small.image
+					};
+
+					Alloy.Globals.openWindow('profile/message_view', data, true);
+				}
 			});
 		}
 
@@ -102,21 +118,21 @@ if (args.user_id) {
 
 			popupDialog.getView('table').addEventListener('click', function(e) {
 				var tabId;
-				switch(e.row.data.title){
-					case L("profile") : 
-						tabId = "about";
-						break;
-					case L("favorite_items") :
-						tabId = "favorite";
-						break;
-					case L("favorite_shops") :
-						tabId = "shops";
-						break;
-					case L("feedback") :
-						tabId = "feedback";
-						break;
+				switch(e.row.data.title) {
+				case L("profile") :
+					tabId = "about";
+					break;
+				case L("favorite_items") :
+					tabId = "favorite";
+					break;
+				case L("favorite_shops") :
+					tabId = "shops";
+					break;
+				case L("feedback") :
+					tabId = "feedback";
+					break;
 				}
-				
+
 				openTab(tabId, result);
 				popupDialog.hide();
 			});

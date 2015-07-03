@@ -625,7 +625,14 @@ api.getMessageList = function(success, fail) {
 };
 
 api.getMessages = function(data, success, fail) {
-
+	
+	if (!Alloy.Globals.currentUser || Alloy.Globals.currentUser.token == null) {
+		
+		alert('Please login first.');
+		fail();
+		return;
+	}
+	
 	data.getnew = 1;
 	data.token = Alloy.Globals.currentUser.token;
 

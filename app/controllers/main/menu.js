@@ -76,7 +76,9 @@ $.closetButton.button.addEventListener('click', function() {
 
 	Ti.App.fireEvent('toggleMenu');
 
-	Alloy.Globals.openWindow('profile/closet_view');
+	Alloy.Globals.openWindow('profile/closet_view', {
+		user_id : Alloy.Globals.currentUser.user_info.id
+	});
 });
 
 $.conversationButton.button.addEventListener('click', function() {

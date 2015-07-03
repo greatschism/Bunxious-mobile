@@ -10,6 +10,43 @@
 				<Label class="favLabel" text="Closet" />
 			</View>
 		</View>
-		<TableView id="closetTable"/>
+		<TableView id="closetTable">
+			<HeaderView>
+				<View id="filterWrapper">
+					<View id="filterSection">
+						<View id="categoryFilter" class="filterWrapper topRow firstElement">
+							<Label id="categoryLabel" class="filterLabel" text="L('all_items')" />
+							<View class="filterSeparator" />
+							<ImageView class="filterIcon" />
+						</View>
+						<View id="brandFilter" class="filterWrapper topRow centerElement">
+							<Label id="brandLabel" class="filterLabel" text="L('brand')" />
+							<View class="filterSeparator" />
+							<ImageView class="filterIcon" />
+						</View>
+						<View id="genderFilter" class="filterWrapper topRow lastElement">
+							<Label id="genderLabel" class="filterLabel" text="L('gender')" />
+							<View class="filterSeparator" />
+							<ImageView class="filterIcon" />
+						</View>
+						<View id="sizeFilter" class="filterWrapper botRow firstElement">
+							<Label id="sizeLabel" class="filterLabel" text="L('size')" />
+							<View class="filterSeparator" />
+							<ImageView class="filterIcon" />
+						</View>
+						<View id="priceFilter" class="filterWrapper botRow centerElement">
+							<Label class="filterLabel" text="L('price')" />
+							<View class="filterSeparator" />
+							<ImageView class="filterIcon" />
+						</View>
+						<!-- <View id="sortFilter" class="filterWrapper botRow lastElement">
+							<Label class="filterLabel" text="L('sort_by')" />
+							<View class="filterSeparator" />
+							<ImageView class="filterIcon" />
+						</View> -->
+					</View>
+				</View>
+			</HeaderView>
+		</TableView>
 	</View>
 </Alloy>

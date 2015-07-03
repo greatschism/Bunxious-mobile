@@ -81,5 +81,7 @@ $.invite.addEventListener('click', function() {
 	dialog.show();
 });
 
+$.description.text = args.description;
+
 $.postsTable.setData(tableData);
 

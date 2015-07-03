@@ -13,6 +13,7 @@ $.row.addEventListener('click', function() {
 	Alloy.Globals.API.getGroup(args.id, function(result) {
 		
 		result.id = args.id;
+		result.description = args.description;
 		Alloy.Globals.openWindow('profile/group_view', result, true);
 		Alloy.Globals.loading.hide();
 	}, function(error) {

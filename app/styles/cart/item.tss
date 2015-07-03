@@ -18,7 +18,6 @@
 	top: 0,
 	left: 0,
 	height: '60dp',
-	image: 'http://i.imgur.com/AUIomGV.jpg'
 }
 
 "#orderDetails": {
@@ -30,7 +29,6 @@
 "#orderTitle": {
 	top: 0,
 	left: 0,
-	text: 'Lorem Ipsum',
 	font: {
 		fontWeight: 'bold',
 		fontSize: '14dp'
@@ -41,7 +39,6 @@
 "#orderQuantity": {
 	top: 0,
 	left: 0,
-	text: 'Quantity: 1',
 	font: {
 		fontWeight: 'bold',
 		fontSize: '12dp'
@@ -52,7 +49,6 @@
 "#orderSubPrice": {
 	top: 0,
 	left: 0,
-	text: 'Price: $2 542.45',
 	font: {
 		fontWeight: 'bold',
 		fontSize: '12dp'
@@ -63,7 +59,6 @@
 "#orderBrand": {
 	top: 0,
 	left: 0,
-	text: 'Brand: Lorem Ipsum',
 	font: {
 		fontWeight: 'bold',
 		fontSize: '12dp'
@@ -74,7 +69,6 @@
 "#orderSize": {
 	top: 0,
 	left: 0,
-	text: 'Size: Small',
 	font: {
 		fontWeight: 'bold',
 		fontSize: '12dp'

@@ -51,3 +51,10 @@ $.avatar.addEventListener('click', function() {
 		user_id : args.id
 	}, true);
 });
+
+$.userName.addEventListener('click', function() {
+
+	Alloy.Globals.openWindow('profile/profile_view', {
+		user_id : args.id
+	}, true);
+});

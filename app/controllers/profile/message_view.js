@@ -6,7 +6,6 @@ $.username.text = args.name;
 var tableData = [];
 
 if(args.to_user_id || args.conversation_id){
-	console.debug("args - message_view ", JSON.stringify(args));
 	
 	var data = {};
 	
@@ -18,10 +17,7 @@ if(args.to_user_id || args.conversation_id){
 	
 	Alloy.Globals.API.getMessages(data, function(result) {
 		
-		console.debug("results ", JSON.stringify(result));
-		
 		for (var i in result.data) {
-			console.debug(JSON.stringify(result.data[i]));
 			tableData.push(Alloy.createController('profile/individualMessageRow', result.data[i]).getView());
 		}
 		

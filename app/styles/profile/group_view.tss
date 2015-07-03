@@ -1,7 +1,9 @@
 
 ".container": {
 	backgroundColor: '#f4f4f4',
-	layout: 'vertical'
+	layout: 'vertical',
+	top : 0,
+	bottom : '20dp'
 }
 
 ".groupWrapper": {
@@ -15,7 +17,9 @@
 "#postsTable": {
 	width: Ti.UI.FILL,
 	top: '55dp',
+	scrollable : false,
 	rowHeight: Ti.UI.SIZE,
+	bottom : '10dp',
 	backgroundColor : 'transparent',
 	showVerticalScrollIndicator : false,
 	separatorStyle: Titanium.UI.iPhone.TableViewSeparatorStyle.NONE

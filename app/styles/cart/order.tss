@@ -149,19 +149,6 @@
 	backgroundColor: 'white'
 }
 
-"#checkout": {
-	top: '10dp',
-	width: '150dp',
-	height: '40dp',
-	font: {
-		fontWeight: 'bold',
-		fontSize: '14dp'
-	},
-	right: 0,
-	color: '#fff',
-	backgroundColor: '#13B5D6'
-}
-
 ".lineBreak": {
 	top: '10dp',
 	height: '1dp',
@@ -171,6 +158,10 @@
 
 ".top": {
 	top: '10dp'
+}
+
+"#checkoutWrapper" : {
+	height : '60dp'
 }
 
 ".padding" : {

@@ -1,6 +1,6 @@
 <Alloy>
 	<Window id="loginWindow">
-		<View class="container">
+		<ScrollView class="container">
 			<ImageView id="closeButton" />
 			<ImageView id="logo" />
 			<LoginButton id="fbLogin" module="facebook" />
@@ -9,7 +9,7 @@
 			<Button id="login_button" class="button" title="L('login')" />
 			<Label id="forgot_pass" text="L('forgot_password')" />
 			<Button id="request_invite" class="button" title="L('request_invite')" />
-		</View>
+		</ScrollView>
 		<View id="create_account_wrapper">
 			<View id="border"/>
 			<Label id="create_account" text="L('create_account')" />

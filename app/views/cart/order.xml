@@ -32,7 +32,7 @@
 		</View>
 		<View class="lineBreak"></View>
 		<TextField id="orderOptional" class="top"></TextField>
-		<Button id="checkout">Check Out</Button>
+		<View id="checkoutWrapper"></View>
 		<View class="padding"/>
 	</View>
 </Alloy>

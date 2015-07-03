@@ -79,8 +79,6 @@ function createFilter(list, label, filterType) {
 		var productArray = [];
 		Alloy.Globals.API.getFilteredPins(filters, function(results) {
 
-			console.debug("Alloy.Globals.API.getFilteredPins", JSON.stringify(results));
-
 			for (var i in results) {
 				productArray.push(Alloy.createController('product/productRow', results[i]).getView());
 			}
@@ -104,8 +102,6 @@ function createFilter(list, label, filterType) {
 }
 
 if (Alloy.Globals.currentUser.user_info.id) {
-
-	console.debug('closet-view args ', JSON.stringify(args));
 
 	Alloy.Globals.loading.show();
 	Alloy.Globals.API.getCloset(args.user_id, function(result) {

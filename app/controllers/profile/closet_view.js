@@ -4,6 +4,8 @@ var filters = {};
 Alloy.Globals.loading.show();
 var tableData = [];
 
+var user_id = args.user_id || Alloy.Globals.currentUser.user_info.id;
+
 /*var orders = [{
  id : '451d823',
  name : 'Matt Doe',
@@ -53,7 +55,7 @@ function createFilter(list, label, filterType) {
 			keyArray.push(key);
 		}
 
-		filters['filters[user_id]'] = args.user_id;
+		filters['filters[user_id]'] = user_id;
 
 		// Checking the filter type
 		if (filterType === "category") {
@@ -104,7 +106,7 @@ function createFilter(list, label, filterType) {
 if (Alloy.Globals.currentUser.user_info.id) {
 
 	Alloy.Globals.loading.show();
-	Alloy.Globals.API.getCloset(args.user_id, function(result) {
+	Alloy.Globals.API.getCloset(user_id, function(result) {
 
 		var tableData = [];
 

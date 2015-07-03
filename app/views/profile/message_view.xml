@@ -1,13 +1,13 @@
 <Alloy>
-	<View class="container">
+	<ScrollView class="container" id="messageView">
 		<View class="userInfo">
 			<ImageView id="avatar" />
 			<Label id="username" />
 		</View>
 		<TableView id="messageTable"/>
-		<View class="messageInputWrapper">
+		<View class="messageInputWrapper" id="textView">
 			<TextArea id="textInput"/>
 			<Button id="textSend"/>
 		</View>
-	</View>
+	</ScrollView>
 </Alloy>

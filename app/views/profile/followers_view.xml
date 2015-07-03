@@ -5,6 +5,7 @@
 				<Label class="favLabel" text="Followers" />
 			</View> 
 		</View>
+		<Label id="noFollowers" text="L('no_followers').toUpperCase()" ></Label>
 		<TableView id="followersTable"/>
 	</View>
 </Alloy>

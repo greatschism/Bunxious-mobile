@@ -34,7 +34,6 @@ function populateTable() {
 if (!args.fromAnotherController) {
 
 	populateTable();
-	getFilters();
 
 	if (Ti.App.Properties.getString('token', null) != null && !Alloy.Globals.currentUser) {
 
@@ -55,20 +54,6 @@ if (!args.fromAnotherController) {
 			}
 		});
 	}
-}
-
-function getIDByItem(list, item) {
-	var id;
-	
-	for (i in list){
-		if(list[i].title === item){
-			console.debug("list[i] ", JSON.stringify(list[i]));
-			id = list[i].id;
-			break;
-		}
-	}
-	
-	return id;
 }
 
 function createFilter(list, label, filterType){
@@ -102,19 +87,19 @@ function createFilter(list, label, filterType){
 			// Checking the filter type
 			if(filterType === "category"){
 				
-				filters['filters[category_id]'] = getIDByItem(list, e.row.data.title);
+				filters['filters[category_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
 				
 			} else if(filterType === "brand"){
 
-				filters['filters[brand_id]'] = getIDByItem(list, e.row.data.title);
+				filters['filters[brand_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
 				
 			} else if(filterType === "gender"){
 				
-				filters['filters[gender_id]'] = getIDByItem(list, e.row.data.title);
+				filters['filters[gender_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
 				
 			} else if(filterType === "size"){
 				
-				filters['filters[size_id]'] = getIDByItem(list, e.row.data.title);
+				filters['filters[size_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
 				
 			}
 			
@@ -249,53 +234,6 @@ $.sizeFilter.addEventListener('click', function() {
 		});
 	}
 });
-
-function getFilters() {
-	
-	// Get Categories
-	Alloy.Globals.API.getAllCategories(function(results) {
-
-		Alloy.Globals.categoryFilters = JSON.parse(JSON.stringify(results));
-				
-	}, function(error) {
-
-	});
-	
-	// Get Brands
-	Alloy.Globals.API.getBrands(function(results) {
-		
-		Alloy.Globals.brandFilters = JSON.parse(JSON.stringify(results));
-		
-	}, function(error) {
-
-	});
-	
-	// Get Gender
-	Alloy.Globals.API.getGender(function(results) {
-		
-		var items = [];
-		for (var i in results.Gender) {
-			items.push({
-				"title" : results.Gender[i].name,
-				"id" : results.Gender[i].id
-			});
-		}
-
-		Alloy.Globals.genderFilters = JSON.parse(JSON.stringify(items));
-		
-	}, function(error) {
-
-	});
-	
-	// Get Size
-	Alloy.Globals.API.getSize(function(results) {
-
-		Alloy.Globals.sizeFilters = JSON.parse(JSON.stringify(results));
-		
-	}, function(error) {
-
-	});
-}
 
 // Will be triggered from login, to update the data after a user logs in
 exports.populateTable = populateTable;

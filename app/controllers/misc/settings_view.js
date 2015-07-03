@@ -1,5 +1,6 @@
 var args = arguments[0] || {};
-var c2c = require('c2c/c2c');
+
+var genders = ['male','female','unsigned'];
 
 if (Alloy.Globals.currentUser != null) {
 
@@ -8,6 +9,9 @@ if (Alloy.Globals.currentUser != null) {
 	$.username.getField().value = Alloy.Globals.currentUser.user_info.username;
 	$.email.getField().value = Alloy.Globals.currentUser.user_info.email;
 	$.city.getField().value = Alloy.Globals.currentUser.user_info.city;
+	var index = Alloy.Globals.findIndexWithAttribute(Alloy.Globals.countryFilters,'iso_code_3',Alloy.Globals.currentUser.user_info.country_iso_code_3);
+	$.country.setSelectedIndex(index);
+	$.gender.setSelectedIndex(genders.indexOf(Alloy.Globals.currentUser.user_info.gender));
 	$.about.getField().value = Alloy.Globals.currentUser.user_info.about;
 	$.website.getField().value = Alloy.Globals.currentUser.user_info.website;
 	$.search_engines.setValue(Alloy.Globals.currentUser.user_info.search_engines);
@@ -34,15 +38,19 @@ if (Alloy.Globals.currentUser != null) {
 		Alloy.Globals.currentUser.user_info.notification_like_pin = $.notification_like_pin.getValue();
 		Alloy.Globals.currentUser.user_info.notification_repin_pin = $.notification_repin_pin.getValue();
 		Alloy.Globals.currentUser.user_info.notification_follow_user = $.notification_follow_user.getValue();
-		Alloy.Globals.currentUser.user_info.country_iso_code_3 = c2c.getCode($.country.getValue());
+		var country = Alloy.Globals.getCountryByName($.country.getValue());
+		Alloy.Globals.currentUser.user_info.country_iso_code_3 = country[0].iso_code_3;
+		var gender = $.gender.getValue();
+		Alloy.Globals.currentUser.user_info.gender = genders[$.gender.getOptions().indexOf(gender)];
 		
 		Alloy.Globals.API.updateUser(Alloy.Globals.currentUser.user_info, function() {
 
 			Alloy.Globals.loading.hide();
+			alert('Settings saved');
 		}, function() {
 
 			Alloy.Globals.loading.hide();
-			alert('Data save failed.');
+			alert('There was a problem saving your settings, please check and try again.');
 		});
 	});
 }

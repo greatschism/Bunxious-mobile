@@ -27,9 +27,9 @@
 
 "#invite" : {
 	color : 'white',
-	right : 5,
+	right : 40,
+	left:40,
 	top : 5,
 	height : '34dp',
-	width : '60dp',
 	backgroundColor : '#f26b1d'
 }

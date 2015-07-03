@@ -20,6 +20,11 @@
 	top : 0
 }
 
+"#noFollowers" : {
+	height : '0dp',
+	visible: false
+}
+
 ".favLabel" : {
 	left : '7dp',
 	center : {

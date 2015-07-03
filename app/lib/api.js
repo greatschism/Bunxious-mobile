@@ -42,7 +42,7 @@ function queryString(data) {
 	return arr.join("&");
 };
 
-function httpRequest(endpoint, method, data, successFunction, errorFunction) {
+function httpRequest(endpoint, method, data, successFunction, errorFunction, fileType) {
 
 	if (!Ti.Network.online) {
 
@@ -69,7 +69,7 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction) {
 		if (this.status == '200') {
 
 			try {
-
+console.log(this.responseText);
 				var responseJSON = JSON.parse(this.responseText);
 
 				Ti.API.info(endpoint, this.responseText);
@@ -120,10 +120,17 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction) {
 
 	xhr.open(method, url);
 
-	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	if(fileType !== "media"){
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	}
 	xhr.setRequestHeader('Authorization', 'Basic ' + Ti.Utils.base64encode(config.httpUser + ':' + config.httpPass));
 
-	if (data && method == 'POST') {
+	if(fileType === "media"){
+		xhr.setRequestHeader("enctype", "multipart/form-data");
+		Ti.API.info('gonna hit ' + url + ' and gonna send ' + JSON.stringify(data));
+		xhr.send(data);
+		
+	} else if (data && method == 'POST') {
 
 		Ti.API.info('gonna hit ' + url + ' and gonna send ' + JSON.stringify(queryString(data)));
 		xhr.send(queryString(data));
@@ -352,7 +359,7 @@ api.updateUser = function(userData, success, fail) {
 	delete userData.avatar_small;
 	delete userData.avatar_medium;
 	delete userData.cover_image;
-
+console.log('USERDATA: '+JSON.stringify(userData));
 	httpRequest('user/update', 'POST', data, success, fail);
 };
 
@@ -425,7 +432,7 @@ api.findGroups = function(success, fail) {
 		token : Alloy.Globals.currentUser.token
 	};
 
-	httpRequest('group', 'POST', data, success, fail);
+	httpRequest('group/grouplist', 'POST', data, success, fail);
 };
 
 api.getGroup = function(id, success, fail) {
@@ -518,6 +525,34 @@ api.getCloset = function(success, fail) {
 
 	httpRequest('StoreSettings/mycloset', 'POST', data, success, fail);
 
+};
+
+api.getAllCountries = function(success, fail) {
+
+	var data = {};
+
+	if (Alloy.Globals.currentUser) {
+
+		data.token = Alloy.Globals.currentUser.token;
+	}
+
+	function onSuccess(results) {
+
+		var items = [];
+
+		if (success) {
+			for (var i in results) {
+				items.push({
+					"title" : results[i].name,
+					"id" : results[i].id,
+					"iso_code_3" : results[i].iso_code_3
+				});
+			}
+			success(items);
+		}
+	}
+
+	httpRequest('country/find-all', 'GET', data, onSuccess, fail);
 };
 
 api.getOrders = function(success, fail) {
@@ -832,10 +867,10 @@ api.getCondition = function(success, fail) {
 	function onSuccess(results) {
 		var items = [];
 
-		for (var i in results) {
+		for (var i in results.Condition) {
 			items.push({
-				"title" : results[i].title,
-				"id" : results[i].id
+				"title" : results.Condition[i].name,
+				"id" : results.Condition[i].id
 			});
 		}
 		success(items);
@@ -881,4 +916,19 @@ api.getSize = function(success, fail) {
 	httpRequest('option/size', 'GET', data, onSuccess, fail);
 };
 
-module.exports = api;
+api.uploadImage = function(image, success, fail){
+	
+	data = {
+		token : Alloy.Globals.currentUser.token,
+		file: image
+	};
+	
+	httpRequest('upload', 'POST', data, success, fail, "media");
+	
+};
+
+api.addNewItem = function(data, success, fail){
+	httpRequest('uploadpin', 'POST', data, success, fail);
+};
+
+module.exports = api;

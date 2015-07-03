@@ -28,7 +28,38 @@ Alloy.Globals.API.getUser(args.user_id, function(result) {
 
 		$.userLocation.text = result.city || result.country_iso_code_3;
 	}
-
+	
+	if (!Alloy.Globals.currentUser || Alloy.Globals.currentUser.user_info.id != result.id){
+		$.followButton.visible = true;
+		$.contactButton.visible = true;
+		
+		if(result.following_user){
+			$.follow.setText(L('unfollow'));
+		}
+		
+		$.followButton.addEventListener('click', function(e){
+			Alloy.Globals.API.follow(result.id, function(response) {
+				// console.debug("follow-unfollow response ", JSON.stringify(response));
+				
+				if(response.isFollow){
+					$.follow.setText(L('unfollow'));
+				} else {
+					$.follow.setText(L('follow'));
+				}
+			});
+		});
+		
+		$.contactButton.addEventListener('click', function(e){
+				
+			var data = {
+				to_user_id : result.id,
+				name: result.firstname + " "+ result.lastname,
+				avatar: result.avatar_small.image
+			};
+			
+			Alloy.Globals.openWindow('profile/message_view', data, true);
+		});
+	}
 });
 
 if (args.liked) {
@@ -49,4 +80,3 @@ $.heartButton.addEventListener('click', function() {
 		}
 	});
 });
-

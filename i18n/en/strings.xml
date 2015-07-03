@@ -37,6 +37,7 @@
 	<string name="brand">Brand</string>
 	<string name="gender">Gender</string>
 	<string name="size">Size</string>
+	<string name="quantity">Quantity</string>
 	<string name="price">Price</string>
 	<string name="sort_by">Sort By</string>
 	<string name="fav_text">NEW ITEMS FOR YOUR FAVORITE CLOSETS</string>
@@ -54,6 +55,8 @@
 	<string name="category">Category</string>
 	<string name="closet_selection">Closet section</string>
 	<string name="post_in_groups">Post in groups</string>
+	<string name="upload_image">Upload Image</string>
+	<string name="no_image">No Image</string>
 	<string name="item_variations">Item Variations</string>
 	<string name="add_new_variation">Add new variation</string>
 	<string name="item_tags">Item Tags</string>
@@ -67,4 +70,12 @@
 	<string name="group">My Groups</string>
 	<string name="add_post">Add Post</string>
 	<string name="united_states">United States</string>
+	<string name="missing_field_error">Required Fields are missing.</string>
+	<string name="add_image_error">Please upload Image first.</string>
+	<string name="condition">Condition</string>
+	<string name="style">Style</string>
+	<string name="tags">Tags</string>
+	<string name="materials">Materials</string>
+	<string name="enter_valid_details">Please enter valid details.</string>
+	<string name="no_followers">You have no followers yet.</string>
 </resources>

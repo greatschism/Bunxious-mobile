@@ -84,7 +84,7 @@ $.invite.addEventListener('click', function() {
 });
 
 $.members.addEventListener('click', function() {
-	Alloy.Globals.openWindow('profile/group_members_list', {group_id:group_id}, true);
+	Alloy.Globals.openWindow('groups/group_members_list', {group_id:group_id}, true);
 });
 
 $.postsTable.setData(tableData);

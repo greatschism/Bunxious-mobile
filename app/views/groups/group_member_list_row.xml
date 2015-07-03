@@ -1,4 +1,10 @@
 <Alloy>
-	<View class="container">
-	</View>
+	<TableViewRow class="container">
+		<View id="row">
+			<ImageView id="avatar"/>
+			<Label id="fullname" />
+			<Button id="accept"/>
+			<Button id="decline"/>
+		</View>
+	</TableViewRow>
 </Alloy>

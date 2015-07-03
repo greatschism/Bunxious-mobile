@@ -1,4 +1,30 @@
 
 ".container" : {
-  
+  height:'44dp'
+}
+
+"#avatar" : {
+	height:'40dp',
+	width:'40dp',
+	left:5
+}
+
+"#fullname": {
+	left: 55,
+	width:'80%',
+	textAlign : Ti.UI.TEXT_ALIGNMENT_LEFT
+}
+
+"#accept":{
+	right:55,
+	width: '40dp',
+	height: '40dp',
+	backgroundColor:'#22FF22'
+}
+
+"#decline":{
+	right:5,
+	width: '40dp',
+	height: '40dp',
+	backgroundColor:'#DD2222'
 }

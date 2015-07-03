@@ -81,5 +81,9 @@ $.invite.addEventListener('click', function() {
 	dialog.show();
 });
 
+$.members.addEventListener('click', function(){
+	Alloy.Globals.openWindow('profile/group_members_list',null, true);
+});
+
 $.postsTable.setData(tableData);
 

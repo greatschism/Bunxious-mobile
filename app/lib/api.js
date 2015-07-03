@@ -69,7 +69,7 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction, fil
 		if (this.status == '200') {
 
 			try {
-console.log(this.responseText);
+				console.log(this.responseText);
 				var responseJSON = JSON.parse(this.responseText);
 
 				Ti.API.info(endpoint, this.responseText);
@@ -106,6 +106,8 @@ console.log(this.responseText);
 
 		Ti.API.info('Transmission error: ' + endpoint + ' ' + JSON.stringify(this) + this.responseText);
 
+		alert('There was a communication error. Please chcek your internet connection and try again.');
+
 		if (errorFunction && this.responseText) {
 
 			errorFunction(this.responseText);
@@ -120,16 +122,16 @@ console.log(this.responseText);
 
 	xhr.open(method, url);
 
-	if(fileType !== "media"){
+	if (fileType !== "media") {
 		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	}
 	xhr.setRequestHeader('Authorization', 'Basic ' + Ti.Utils.base64encode(config.httpUser + ':' + config.httpPass));
 
-	if(fileType === "media"){
+	if (fileType === "media") {
 		xhr.setRequestHeader("enctype", "multipart/form-data");
 		Ti.API.info('gonna hit ' + url + ' and gonna send ' + JSON.stringify(data));
 		xhr.send(data);
-		
+
 	} else if (data && method == 'POST') {
 
 		Ti.API.info('gonna hit ' + url + ' and gonna send ' + JSON.stringify(queryString(data)));
@@ -188,11 +190,11 @@ api.getHomePins = function(success, fail, offset) {
 	httpRequest('pin/home', 'GET', data, success, fail);
 };
 
-api.getFilteredPins = function(filters, success, fail, offset){
+api.getFilteredPins = function(filters, success, fail, offset) {
 	var data = {
 		limit : 20
 	};
-	
+
 	for (var key in filters) {
 		data[key] = filters[key];
 	}
@@ -359,7 +361,7 @@ api.updateUser = function(userData, success, fail) {
 	delete userData.avatar_small;
 	delete userData.avatar_medium;
 	delete userData.cover_image;
-console.log('USERDATA: '+JSON.stringify(userData));
+	console.log('USERDATA: ' + JSON.stringify(userData));
 	httpRequest('user/update', 'POST', data, success, fail);
 };
 
@@ -444,6 +446,14 @@ api.getGroup = function(id, success, fail) {
 	};
 
 	httpRequest('post', 'POST', data, success, fail);
+};
+
+api.getGroupMembers = function(id, success, fail) {
+	var data = {
+		group_id : id,
+		token : Alloy.Globals.currentUser.token
+	};
+	httpRequest('group/members', 'POST', data, success, fail);
 };
 
 api.inviteUserToGroup = function(group_id, name, success, fail) {
@@ -916,18 +926,18 @@ api.getSize = function(success, fail) {
 	httpRequest('option/size', 'GET', data, onSuccess, fail);
 };
 
-api.uploadImage = function(image, success, fail){
-	
+api.uploadImage = function(image, success, fail) {
+
 	data = {
 		token : Alloy.Globals.currentUser.token,
-		file: image
+		file : image
 	};
-	
+
 	httpRequest('upload', 'POST', data, success, fail, "media");
-	
+
 };
 
-api.addNewItem = function(data, success, fail){
+api.addNewItem = function(data, success, fail) {
 	httpRequest('uploadpin', 'POST', data, success, fail);
 };
 

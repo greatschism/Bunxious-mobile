@@ -1,2 +1,12 @@
 var args = arguments[0] || {};
 
+var group_id = args.group_id;
+
+Alloy.Globals.API.getGroupMembers(group_id,function(result){
+	var tableData = [];
+	for(i in result.members) {
+		tableData.push(Alloy.createController('groups/group_member_list_row', result.members[i]).getView());
+	}
+},function(error){
+	
+});

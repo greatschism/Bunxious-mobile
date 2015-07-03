@@ -77,4 +77,5 @@
 	<string name="tags">Tags</string>
 	<string name="materials">Materials</string>
 	<string name="enter_valid_details">Please enter valid details.</string>
+	<string name="no_followers">You have no followers yet.</string>
 </resources>

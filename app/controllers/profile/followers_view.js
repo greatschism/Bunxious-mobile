@@ -7,7 +7,15 @@ if (Alloy.Globals.currentUser.user_info.id) {
 	/*For Testing purpose if you want to check that statically please use this number 2190 */
 	
 	Alloy.Globals.API.findFollowers(Alloy.Globals.currentUser.user_info.id, function(result) {
-
+		
+		console.debug("My-Followers-result ", JSON.stringify(result));
+		
+		if(result.length === 0){
+			// No followers
+			$.noFollowers.setHeight('30dp');
+			$.noFollowers.setVisible(true);
+		}
+		
 		var tableData = [];
 
 		for (var i in result) {

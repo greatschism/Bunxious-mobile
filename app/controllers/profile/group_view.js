@@ -1,10 +1,11 @@
 var args = arguments[0] || {};
 var moment = require('alloy/moment');
+var group_id = args.id;
 
 $.title.addOnReturn(function(event) {
 
-	Alloy.Globals.API.addPost(event.value, args.id, function(result) {
-		
+	Alloy.Globals.API.addPost(event.value, group_id, function(result) {
+
 		if (result.result) {
 			$.postsTable.insertRowBefore(0, Alloy.createController('profile/groupPostRow', {
 				article : event.value,
@@ -21,6 +22,7 @@ $.title.addOnReturn(function(event) {
 		}
 	}, function(error) {
 		//TBD
+		alert('There was a communication problem, please check your intenet connection and try again.');
 	});
 });
 
@@ -67,7 +69,7 @@ $.invite.addEventListener('click', function() {
 
 		if (e.index == 0) {
 
-			Alloy.Globals.API.inviteUserToGroup(args.id, e.text, function(result) {
+			Alloy.Globals.API.inviteUserToGroup(group_id, e.text, function(result) {
 
 				if (result && result.message) {
 
@@ -82,6 +84,13 @@ $.invite.addEventListener('click', function() {
 });
 
 $.description.text = args.description;
+
+$.members.addEventListener('click', function() {
+
+	Alloy.Globals.openWindow('groups/group_members_list', {
+		group_id : group_id
+	}, true);
+});
 
 $.postsTable.setData(tableData);
 

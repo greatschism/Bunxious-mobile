@@ -1,6 +1,9 @@
 var args = arguments[0] || {};
 
 var group_id = args.group_id;
+var group_name = args.group_name;
+
+$.header_title.text = group_name + ' Members';
 
 Alloy.Globals.API.getGroupMembers(group_id, function(result) {
 	var tableData = [];

@@ -33,3 +33,12 @@
 	height : '34dp',
 	backgroundColor : '#f26b1d'
 }
+
+"#members" : {
+	color : 'white',
+	right : 40,
+	left: 40,
+	top:10,
+	height: '34dp',
+	backgroundColor: '#62949b'
+}

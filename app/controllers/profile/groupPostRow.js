@@ -2,7 +2,8 @@ var args = arguments[0] || {};
 
 $.avatar.image = args.user_avatar;
 $.user.text = args.user_name;
-$.post_title.text = args.article;
+// setting the fontFamily in html 
+$.post_title.html = '<style>a, span {font-family : HelveticaNeue; word-wrap : break-word;}</style><span>' + args.article + '</span>';
 
 $.title.addOnReturn(function(event) {
 

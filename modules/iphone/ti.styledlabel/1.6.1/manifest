@@ -1,0 +1,18 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.6.1
+architectures: armv7 i386 x86_64 arm64
+description: Gives you the power of HTML and CSS without the full weight of a WebView.
+author: Dawson Toth
+license: Appcelerator Commercial License
+copyright: Copyright (c) 2010-2013 by Appcelerator, Inc.
+
+
+# these should not be edited
+name: styledlabel
+moduleid: ti.styledlabel
+guid: e0405808-ee07-4d00-8207-19b211dadceb
+platform: iphone
+minsdk: 3.4.1.GA

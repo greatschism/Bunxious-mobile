@@ -80,6 +80,8 @@
     <module platform="iphone">facebook</module>
     <module platform="android" version="2.2.3">ti.paypal</module>
     <module platform="iphone" version="1.9.0">ti.paypal</module>
+    <module platform="android" version="2.0.2">ti.styledlabel</module>
+    <module platform="iphone" version="1.6.1">ti.styledlabel</module>
   </modules>
     <deployment-targets>
         <target device="blackberry">false</target>

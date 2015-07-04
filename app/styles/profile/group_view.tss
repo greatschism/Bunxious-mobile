@@ -42,3 +42,12 @@
 	height: '34dp',
 	backgroundColor: '#62949b'
 }
+
+"#description": {
+	width: '320dp',
+	height : Ti.UI.SIZE
+}
+
+'#description[platform=ios]': {
+	width: '300dp',
+}

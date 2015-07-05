@@ -17,3 +17,12 @@ if (user) {
 $.row.addEventListener('click', function() {
 
 });
+
+$.accept.addEventListener('click', function() {
+	console.log('Accept click: ' + user.firstname);
+});
+
+$.decline.addEventListener('click', function() {
+	console.log('Decline click: ' + user.firstname);
+	;
+});

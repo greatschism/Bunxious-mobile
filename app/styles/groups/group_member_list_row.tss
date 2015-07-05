@@ -16,15 +16,25 @@
 }
 
 "#accept":{
+	color:'white',
 	right:55,
-	width: '40dp',
+	width: '49dp',
 	height: '40dp',
-	backgroundColor:'#22FF22'
+	backgroundColor:'#22FF22',
+	font: {
+		fontSize:'10dp',
+		fontWeight:'bold'
+	}
 }
 
 "#decline":{
+	color:'white',
 	right:5,
-	width: '40dp',
+	width: '49dp',
 	height: '40dp',
-	backgroundColor:'#DD2222'
+	backgroundColor:'#DD2222',
+	font: {
+		fontSize:'10dp',
+		fontWeight:'bold'
+	}
 }

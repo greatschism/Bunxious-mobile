@@ -3,8 +3,8 @@
 		<View id="row">
 			<ImageView id="avatar"/>
 			<Label id="fullname" />
-			<Button id="accept"/>
-			<Button id="decline"/>
+			<Button id="accept" title="Accept"/>
+			<Button id="decline" title="Decline"/>
 		</View>
 	</TableViewRow>
 </Alloy>

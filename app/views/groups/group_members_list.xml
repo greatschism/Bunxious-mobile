@@ -1,5 +1,11 @@
 <Alloy>
 	<View class="container">
-		<TableView id="groupMemberListTable" />
+		<TableView id="groupMemberListTable">
+			<HeaderView>
+				<View id="title_wrapper">
+					<Label id="header_title"/>
+				</View>
+			</HeaderView>
+		</TableView>
 	</View>
 </Alloy>

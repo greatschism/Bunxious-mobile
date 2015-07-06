@@ -2,3 +2,16 @@
 ".container" : {
   
 }
+
+"HeaderView" : {
+	height: "34dp"
+}
+
+"#title_wrapper" : {
+	height:"34dp",
+	backgroundColor:"#CCCCCC"
+}
+
+"#header_title" : {
+	
+}

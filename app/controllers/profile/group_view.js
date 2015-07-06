@@ -1,6 +1,7 @@
 var args = arguments[0] || {};
 var moment = require('alloy/moment');
-var group_id = args.id;
+var group_id = args.group.id;
+var group_name = args.group.name;
 
 $.title.addOnReturn(function(event) {
 
@@ -29,31 +30,31 @@ $.title.addOnReturn(function(event) {
 var posts = [];
 
 // adding names and avatars to comments
-for (var i in args.Comments) {
+for (var i in args.posts.Comments) {
 
-	for (var j in args.Comments[i]) {
+	for (var j in args.posts.Comments[i]) {
 
-		args.Comments[i][j].user_avatar = args.CommentAvatarImg[i][j];
-		args.Comments[i][j].user_name = args.CommentAvatarName[i][j];
+		args.posts.Comments[i][j].user_avatar = args.posts.CommentAvatarImg[i][j];
+		args.posts.Comments[i][j].user_name = args.posts.CommentAvatarName[i][j];
 	}
 }
 
 // adding avatars, comments and names to posts
 
-for (var i in args.Post) {
+for (var i in args.posts.Post) {
 
-	args.Post[i].user_name = args.PostAvatarName[i];
-	args.Post[i].user_avatar = args.PostAvtrImg[i];
-	args.Post[i].comments = args.Comments[i];
+	args.posts.Post[i].user_name = args.posts.PostAvatarName[i];
+	args.posts.Post[i].user_avatar = args.posts.PostAvtrImg[i];
+	args.posts.Post[i].comments = args.posts.Comments[i];
 
 }
 
-Ti.API.info(args);
+Ti.API.info(args.posts);
 var tableData = [];
 
-for (var i in args.Post) {
+for (var i in args.posts.Post) {
 
-	tableData.push(Alloy.createController('profile/groupPostRow', args.Post[i]).getView());
+	tableData.push(Alloy.createController('profile/groupPostRow', args.posts.Post[i]).getView());
 }
 
 $.invite.addEventListener('click', function() {
@@ -83,13 +84,10 @@ $.invite.addEventListener('click', function() {
 	dialog.show();
 });
 
-$.description.text = args.description;
+$.description.text = args.group.description;
 
 $.members.addEventListener('click', function() {
-
-	Alloy.Globals.openWindow('groups/group_members_list', {
-		group_id : group_id
-	}, true);
+	Alloy.Globals.openWindow('groups/group_members_list', {group_id:group_id, group_name:group_name}, true);
 });
 
 $.postsTable.setData(tableData);

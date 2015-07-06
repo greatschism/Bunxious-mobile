@@ -45,6 +45,15 @@ $.login_logout.button.addEventListener('click', function() {
 			
 			// Redirecting to home
 			$.homeButton.button.fireEvent('click');
+		}, function(error) {
+			
+			// do the same if we encounter an error(ex. token invalid)
+			Alloy.Globals.currentUser = null;
+			Ti.App.Properties.setString('token', null);
+			updateMenu();
+			
+			// Redirecting to home
+			$.homeButton.button.fireEvent('click');
 		});
 	}
 });

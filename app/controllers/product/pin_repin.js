@@ -31,9 +31,17 @@ $.repin.addEventListener('click', function() {
 	
 	if ($.description.getField().value.length != 0 && $.boardsTitle.selectedID) {
 		
-		Alloy.Globals.API.pinToBoard(args.id, $.boardsTitle.selectedID, $.description.getField().value, function() {
+		Alloy.Globals.API.pinToBoard(args.id, $.boardsTitle.selectedID, $.description.getField().value, function(result) {
 			
-		}, function() {
+			if (result.affected_row_id) {
+				
+				alert('Pin reposted successfully.');
+			}
+			else if (result.error) {
+				
+				alert(result.error[0] || result.error);
+			}
+		}, function(error) {
 			
 		});
 	}

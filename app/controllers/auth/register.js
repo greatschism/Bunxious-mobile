@@ -29,19 +29,30 @@ $.register_button.addEventListener('click', function() {
 	Alloy.Globals.API.createAccount($.username.getValue(), $.pass.getValue(), $.email.getValue(), $.firstname.getValue(), $.lastname.getValue(), function(currentUser) {
 
 		$.registerWindow.close();
-		
+
 		// saving the current user
 		Alloy.Globals.currentUser = currentUser;
-		
+
 		//Also saving the token, for autologin
 		Ti.App.Properties.setString('token', currentUser.token);
+
+		Alloy.Globals.API.getBoards(null, function(result) {
+
+			if (!result.error) {
+
+				//storing the user's boards
+				Alloy.Globals.currentUser.boards = result;
+			}
+		}, function(error) {
+
+		});
 
 		// Updating the main menu
 		Ti.App.fireEvent('loggedIn');
 		Alloy.createController('main/home_view', {
 			fromAnotherController : true
 		}).populateTable();
-		
+
 		args.loginWindow.close();
 
 	}, function(error) {

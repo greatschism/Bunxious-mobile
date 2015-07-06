@@ -111,7 +111,7 @@ if (Alloy.Globals.currentUser.user_info.id) {
 		var tableData = [];
 
 		for (var i in result.MyPins.pin) {
-			console.log('PIN: ' + JSON.stringify(result.MyPins.pin[i]));
+			Ti.API.info('PIN: ' + JSON.stringify(result.MyPins.pin[i]));
 			tableData.push(Alloy.createController('product/closetRow', {
 				pin : result.MyPins.pin[i],
 				img : result.MyPins.pinImg[i]

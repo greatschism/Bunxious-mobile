@@ -1,5 +1,5 @@
 var args = arguments[0] || {};
-console.log('ARGS:'+JSON.stringify(args));
+Ti.API.info('ARGS:'+JSON.stringify(args));
 $.pinImage.image = args.img.image;
 $.avatar.image = args.pin.avatar;
 $.title.text = args.pin.title;

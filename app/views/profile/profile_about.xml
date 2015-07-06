@@ -2,7 +2,7 @@
 	<View class="container">
 		<Label text="L('about')" class="about"/>
 		<Label id="aboutText"/>
-		<View class="labelWrapper">
+		<View class="labelWrapper" id="favWrapper">
 			<Label id="favLabel" />
 		</View>
 	</View>

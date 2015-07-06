@@ -530,8 +530,7 @@ api.getCart = function(success, fail) {
 api.getCloset = function(user_id, success, fail) {
 
 	var data = {
-		user_id: user_id,
-		token : Alloy.Globals.currentUser.token
+		user_id: user_id
 	};
 
 	httpRequest('StoreSettings/mycloset', 'POST', data, success, fail);

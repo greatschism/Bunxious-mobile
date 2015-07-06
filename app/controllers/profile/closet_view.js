@@ -103,7 +103,7 @@ function createFilter(list, label, filterType) {
 	popupDialog.getView().show();
 }
 
-if (Alloy.Globals.currentUser.user_info.id) {
+// if (Alloy.Globals.currentUser.user_info.id) {
 
 	Alloy.Globals.loading.show();
 	Alloy.Globals.API.getCloset(user_id, function(result) {
@@ -121,9 +121,15 @@ if (Alloy.Globals.currentUser.user_info.id) {
 		$.cover.image = result.cover.image;
 		$.store_title.text = result.Shop.title;
 
-		$.addNewItem.addEventListener('click', function(e) {
-			Alloy.Globals.openWindow('product/add_view', args, true);
-		});
+		if (Alloy.Globals.currentUser) {
+			if (Alloy.Globals.currentUser.user_info.id === user_id){ 
+				$.addNewItem.setHeight('60dp');
+				$.addNewItem.setVisible(true);
+			}
+			$.addNewItem.addEventListener('click', function(e) {
+				Alloy.Globals.openWindow('product/add_view', args, true);
+			});
+		}
 
 		Alloy.Globals.loading.hide();
 	}, function(error) {
@@ -211,7 +217,7 @@ if (Alloy.Globals.currentUser.user_info.id) {
 			});
 		}
 	});
-}
+// }
 
 //Alloy.Globals.loading.hide();
 

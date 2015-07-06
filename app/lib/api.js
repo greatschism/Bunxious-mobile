@@ -467,6 +467,17 @@ api.inviteUserToGroup = function(group_id, name, success, fail) {
 	httpRequest('group/invite', 'POST', data, success, fail);
 };
 
+api.addUserToGroup = function(group_id, user_id, decision, success, fail){
+	var data = {
+		group_id: group_id,
+		user_id: user_id,
+		decision: decision,
+		token: Alloy.Globals.currentUser.token
+	};
+	
+	httpRequest('group/request', 'POST', data, success, fail);
+};
+
 api.addPost = function(message, id, success, fail) {
 
 	var data = {

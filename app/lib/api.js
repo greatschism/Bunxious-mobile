@@ -784,4 +784,13 @@ api.pinToBoard = function(pinID, boardID, description, success, fail) {
 	httpRequest('pin/repin', 'POST', data, success, fail);
 };
 
+api.getPurchases = function(success, fail) {
+	
+	data = {
+		token : Alloy.Globals.currentUser.token,
+	};
+	
+	httpRequest('storesettings/mypurchase', 'POST', data, success, fail);
+};
+
 module.exports = api;

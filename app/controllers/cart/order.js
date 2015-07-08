@@ -1,57 +1,51 @@
 var args = arguments[0] || {};
 var Paypal = require('ti.paypal');
 
-$.addressFilter.addEventListener('click', function() {
+var shippingValue = 0.00;
+var totalValue = 0.00;
 
-	var addressesArray = [];
-
-	for (var i in args.addresses) {
-
-		addressesArray.push(args.addresses[i].alias);
-	}
-
-	var popupDialog = Alloy.createWidget('ti.ux.popup.list', 'widget', {
-		closeButton : true,
-		selectable : true,
-		options : addressesArray,
-	});
-
-	popupDialog.getView('table').addEventListener('click', function(e) {
-
-		$.addressLabel.text = e.row.data.title;
-		popupDialog.hide();
-	});
-
-	popupDialog.getView().show();
-});
-
-for (var i in args.maindata) {
-
-	$.container.add(Alloy.createController('cart/item', args.maindata[i]).getView());
+// preparing the paypal items list
+for (var i in args.paypal.items) {
+	//name : 'Shoes',
+	//			totalPrice : 8,
+	//			itemPrice : 2,
+	//			itemCount : 4
+	args.paypal.items[i].name = args.paypal.items[i].item_name;
+	args.paypal.items[i].totalPrice = args.paypal.items[i].amount * args.paypal.items[i].quantity;
+	args.paypal.items[i].itemPrice = args.paypal.items[i].amount;
+	args.paypal.items[i].itemCount = args.paypal.items[i].quantity;
+	
+	delete args.paypal.items[i].item_name;
+	delete args.paypal.items[i].amount;
+	delete args.paypal.items[i].quantity;
 }
 
-Ti.API.error(args);
+// used for checkout prevent if there is no address selected
 
-$.orderFromName.text = args.maindata[0].orderFrom;
-
-$.orderItemTotal.text = "Item total";
-$.orderItemTotalPrice.text = "$" + parseFloat(args.sub_total).toFixed(2);
-
-$.orderShipping.text = "Shipping";
-$.orderShippingPrice.text = "$" + parseFloat(args.shipping).toFixed(2);
-
-$.orderTax.text = "Tax";
-$.orderTaxPrice.text = "$0.00";
-
-$.orderTotal.text = "Order Total";
-$.orderTotalPrice.text = "$" + parseFloat(args.total).toFixed(2);
+function updatePriceValues(dontAddButton) {
+	
+	totalValue = (parseFloat(args.sub_total) + parseFloat(shippingValue)).toFixed(2);
+	Ti.API.info(totalValue);
+	$.orderShippingPrice.text = "$" + parseFloat(shippingValue).toFixed(2);
+	$.orderTotalPrice.text = "$" + parseFloat(totalValue).toFixed(2);
+	
+	// reinitialize paypal button because we changed the values
+	// also, since there is no option to disable the button if we don't select an address we'll just add it after the user selects one
+	
+	if (!dontAddButton) {
+		
+		addButtonToWindow();
+	}
+}
 
 var checkoutButton;
 
+Ti.API.info(args);
+
 function addButtonToWindow() {
-	
+
 	if (checkoutButton) {
-		
+
 		$.checkoutWrapper.remove(checkoutButton);
 		checkoutButton = null;
 	}
@@ -60,45 +54,35 @@ function addButtonToWindow() {
 		// NOTE: height/width only determine the size of the view that the button is embedded in - the actual button size
 		// is determined by the buttonStyle property!
 		buttonStyle : Paypal.BUTTON_152x33, // The style & size of the button
-		top: '10dp',
-	width: '150dp',
-	height: '40dp',
-	font: {
-		fontWeight: 'bold',
-		fontSize: '14dp'
-	},
-	right: '10dp',
+		top : '10dp',
+		width : '150dp',
+		height : '40dp',
+		font : {
+			fontWeight : 'bold',
+			fontSize : '14dp'
+		},
+		right : '10dp',
 
 		language : 'en_US',
 		textStyle : Paypal.PAYPAL_TEXT_PAY, // Causes the button's text to change from "Pay" to "Donate"
 
 		//appID : '<<<YOUR APP ID HERE>>>', // The appID issued by Paypal for your application; for testing, feel free to delete this property entirely.
-		paypalEnvironment : Paypal.PAYPAL_ENV_SANDBOX, // Sandbox, None or Live
+		paypalEnvironment : Paypal.PAYPAL_ENV_NONE, // Sandbox, None or Live
 
 		feePaidByReceiver : false,
 		enableShipping : false, // Whether or not to select/send shipping information
 
 		payment : {// The payment itself
 			paymentType : Paypal.PAYMENT_TYPE_HARD_GOODS, // The type of payment
-			subtotal : 10, // The total cost of the order, excluding tax and shipping
+			subtotal : args.sub_total, // The total cost of the order, excluding tax and shipping
 			tax : 0,
-			shipping : 0,
-			currency : 'USD',
-			recipient : 'legolas8911@gmail.com',
+			shipping : shippingValue,
+			currency : args.paypal.currency,
+			recipient : args.paypal.email,
 			customID : 'anythingYouWant',
-			invoiceItems : [{
-				name : 'Shoes',
-				totalPrice : 8,
-				itemPrice : 2,
-				itemCount : 4
-			}, {
-				name : 'Hats',
-				totalPrice : 2,
-				itemPrice : 0.5,
-				itemCount : 4
-			}],
+			invoiceItems : args.paypal.items,
 			ipnUrl : 'http://www.appcelerator.com/',
-			merchantName : 'Dev Tools',
+			merchantName : 'Bunxious Mobile',
 			memo : 'For the orphans and widows in the world!'
 		}
 	});
@@ -123,4 +107,59 @@ function addButtonToWindow() {
 	$.checkoutWrapper.add(checkoutButton);
 }
 
-addButtonToWindow();
+$.addressFilter.addEventListener('click', function() {
+
+	var addressesArray = [];
+	var addressesIds = [];
+
+	for (var i in args.addresses) {
+
+		addressesArray.push(args.addresses[i].alias);
+		addressesIds.push(args.addresses[i].address_id);
+	}
+
+	var popupDialog = Alloy.createWidget('ti.ux.popup.list', 'widget', {
+		closeButton : true,
+		selectable : true,
+		options : addressesArray,
+	});
+
+	popupDialog.getView('table').addEventListener('click', function(e) {
+
+		$.addressLabel.text = e.row.data.title;
+
+		// change the shipping value
+		
+		for (var i in args.item_shipping) {
+			
+			if (args.item_shipping[i].addressId == addressesIds[e.index]) {
+				
+				shippingValue = args.item_shipping[i].ShippingAmt;
+				updatePriceValues();
+			}
+		}
+
+		popupDialog.hide();
+	});
+
+	popupDialog.getView().show();
+});
+
+for (var i in args.maindata) {
+
+	$.container.add(Alloy.createController('cart/item', args.maindata[i]).getView());
+}
+
+$.orderFromName.text = args.maindata[0].orderFrom;
+
+$.orderItemTotal.text = "Item total";
+$.orderItemTotalPrice.text = "$" + parseFloat(args.sub_total).toFixed(2);
+
+$.orderShipping.text = "Shipping";
+
+$.orderTax.text = "Tax";
+$.orderTaxPrice.text = "$0.00";
+
+$.orderTotal.text = "Order Total";
+
+updatePriceValues(true);

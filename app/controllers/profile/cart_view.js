@@ -18,16 +18,9 @@ Alloy.Globals.API.getCart(function(result) {
 	 	
 	 	if (result.data.length > 0) {
 	 		
-	 		// Alloy.Globals.API.getPin(result.data[0].maindata[0].contentId, function(pinData) {
-// 	 			
-	 			// Ti.API.info(pinData);
-	 		// }, function(error) {
-// 	 			
-	 		// });
-	 		
 	 		for (var i in result.data) {
 	 			
-	 			result.data[i].addresses = result.address;
+	 			//result.data[i].addresses = result.addresses;
 	 			
 		 		$.container.add(Alloy.createController('cart/order', result.data[i]).getView());
 	 		}

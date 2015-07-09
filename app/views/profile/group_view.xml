@@ -1,5 +1,6 @@
 <Alloy>
 	<ScrollView class="container">
+		<SearchBar id="search" barColor="#f4f4f4" showCancel="false" height="43" top="0" />
 		<View height="Ti.UI.SIZE">
 			<Button id="invite" title="Invite" />
 		</View>

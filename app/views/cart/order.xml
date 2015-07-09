@@ -9,7 +9,7 @@
 		</View>
 		<View id="container" />
 		<View id="addressFilter" class="filterWrapper topRow firstElement">
-			<Label id="addressLabel" class="filterLabel" text="SHIP TO ADDRESS 1" />
+			<Label id="addressLabel" class="filterLabel" text="SELECT AN ADDRESS" />
 			<View class="filterSeparator" />
 			<ImageView class="filterIcon" />
 		</View>

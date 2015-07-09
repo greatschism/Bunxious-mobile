@@ -47,7 +47,8 @@
 }
 
 ".saveWrapper" : {
-	height : '60dp'
+	height : '0dp',
+	visible: false
 }
 
 ".saveButton" : {

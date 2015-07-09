@@ -1,0 +1,17 @@
+<Alloy>
+	<View class="container">
+		<TableView backgroundColor="#eee" class="tableview-form">
+			<Widget src="ti.ux.forms.row.text" inputType="textarea" title="Description" id="description" />
+			<TableViewRow>
+				<View id="boards" class="tabChange">
+					<Label id="boardsTitle" idValue="" class="tabTitle" text="L('post_in_groups').toUpperCase()"/>
+					<View class="separator"/>
+					<View class="dropdown">
+						<ImageView class="downArrow"/>
+					</View>
+				</View>
+			</TableViewRow>
+		</TableView>
+		<Button id="repin" title="Repin" />
+	</View>
+</Alloy>

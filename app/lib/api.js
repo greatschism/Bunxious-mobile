@@ -69,7 +69,7 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction, fil
 		if (this.status == '200') {
 
 			try {
-				console.log(this.responseText);
+				
 				var responseJSON = JSON.parse(this.responseText);
 
 				Ti.API.info(endpoint, this.responseText);
@@ -361,24 +361,8 @@ api.updateUser = function(userData, success, fail) {
 	delete userData.avatar_small;
 	delete userData.avatar_medium;
 	delete userData.cover_image;
-	console.log('USERDATA: ' + JSON.stringify(userData));
+	Ti.API.info('USERDATA: ' + JSON.stringify(userData));
 	httpRequest('user/update', 'POST', data, success, fail);
-};
-
-api.findBoard = function(user_id, success, fail) {
-
-	var data = {
-		filters : {
-			user_id : user_id
-		}
-	};
-
-	if (Alloy.Globals.currentUser) {
-
-		data.token = Alloy.Globals.currentUser.token;
-	}
-
-	httpRequest('board/find-by', 'GET', data, success, fail);
 };
 
 api.findLikes = function(user_id, success, fail) {
@@ -541,8 +525,7 @@ api.getCart = function(success, fail) {
 api.getCloset = function(user_id, success, fail) {
 
 	var data = {
-		user_id: user_id,
-		token : Alloy.Globals.currentUser.token
+		user_id: user_id
 	};
 
 	httpRequest('StoreSettings/mycloset', 'POST', data, success, fail);
@@ -683,180 +666,6 @@ api.deleteConversation = function(conversation_id, success, fail) {
 	httpRequest('conversation/delete', 'POST', data, success, fail);
 };
 
-api.getMessagesDummy = function(success, fail) {
-
-	var messages = {
-		data : [{
-			"id" : "1603087616636925",
-			"with" : {
-				"id" : "782189245156829",
-				"name" : "Jane Doe",
-				"avatar" : "https://s3.amazonaws.com/uifaces/faces/twitter/geeftvorm/128.jpg"
-			},
-			"to" : {
-				"id" : "853292998021770",
-				"name" : "John Doe",
-				"avatar" : "https://s3.amazonaws.com/uifaces/faces/twitter/gerrenlamson/128.jpg"
-			},
-			"updated_time" : "2015-06-04T10:07:16+0000",
-			"unread" : 3,
-			"unseen" : 0,
-			"comments" : {
-				"data" : [{
-					"id" : "1603087616636925_1433398960",
-					"from" : {
-						"id" : "853292998021770",
-						"name" : "John Doe"
-					},
-					"message" : "Maecenas finibus tellus non dictum mollis. Pellentesque non rhoncus neque. Maecenas dignissim tellus tellus, eu bibendum nunc laoreet eu",
-					"created_time" : "2015-06-04T06:22:40+0000"
-				}, {
-					"id" : "1603087616636925_1433405148",
-					"from" : {
-						"id" : "782189245156829",
-						"name" : "Jane Doe"
-					},
-					"message" : "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-					"created_time" : "2015-06-04T08:05:48+0000"
-				}, {
-					"id" : "1603087616636925_1433373739",
-					"from" : {
-						"id" : "853292998021770",
-						"name" : "John Doe"
-					},
-					"message" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-					"created_time" : "2015-06-03T23:22:19+0000"
-				}, {
-					"id" : "1603087616636925_1433405170",
-					"from" : {
-						"id" : "782189245156829",
-						"name" : "Jane Doe"
-					},
-					"message" : "Vivamus porta quam id metus faucibus, eu pellentesque libero iaculis. Integer molestie dictum placerat",
-					"created_time" : "2015-06-04T08:06:10+0000"
-				}, {
-					"id" : "1603087616636925_1433405194",
-					"from" : {
-						"id" : "853292998021770",
-						"name" : "John Doe"
-					},
-					"message" : "Mauris efficitur imperdiet elit et molestie",
-					"created_time" : "2015-06-04T08:06:34+0000"
-				}, {
-					"id" : "1603087616636925_1433405220",
-					"from" : {
-						"id" : "853292998021770",
-						"name" : "John Doe"
-					},
-					"message" : "Donec vitae maximus quam",
-					"created_time" : "2015-06-04T08:07:00+0000"
-				}, {
-					"id" : "1603087616636925_1433405234",
-					"from" : {
-						"id" : "782189245156829",
-						"name" : "Jane Doe"
-					},
-					"message" : "Vivamus nec auctor augue, eget finibus urna. In et lacinia diam.",
-					"created_time" : "2015-06-04T08:07:14+0000"
-				}, {
-					"id" : "1603087616636925_1433405236",
-					"from" : {
-						"id" : "782189245156829",
-						"name" : "Jane Doe"
-					},
-					"message" : "Nulla ut ipsum sit amet tellus vulputate dignissim semper vitae augue",
-					"created_time" : "2015-06-04T08:07:16+0000"
-				}]
-			}
-		}, {
-			"id" : "1663692503087616",
-			"with" : {
-				"id" : "782189245156829",
-				"name" : "Mary Doe",
-				"avatar" : "https://s3.amazonaws.com/uifaces/faces/twitter/pixeliris/128.jpg"
-			},
-			"to" : {
-				"id" : "853292998021770",
-				"name" : "John Doe",
-				"avatar" : "https://s3.amazonaws.com/uifaces/faces/twitter/gerrenlamson/128.jpg"
-			},
-			"updated_time" : "2015-06-04T08:07:16+0000",
-			"unread" : 3,
-			"unseen" : 0,
-			"comments" : {
-				"data" : [{
-					"id" : "1663692503087616_1433405148",
-					"from" : {
-						"id" : "782189245156829",
-						"name" : "Jane Doe"
-					},
-					"message" : "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-					"created_time" : "2015-06-04T08:05:48+0000"
-				}, {
-					"id" : "1663692503087616_1433398960",
-					"from" : {
-						"id" : "853292998021770",
-						"name" : "John Doe"
-					},
-					"message" : "Maecenas finibus tellus non dictum mollis. Pellentesque non rhoncus neque. Maecenas dignissim tellus tellus, eu bibendum nunc laoreet eu",
-					"created_time" : "2015-06-04T06:22:40+0000"
-				}, {
-					"id" : "1663692503087616_1433405170",
-					"from" : {
-						"id" : "782189245156829",
-						"name" : "Jane Doe"
-					},
-					"message" : "Vivamus porta quam id metus faucibus, eu pellentesque libero iaculis. Integer molestie dictum placerat",
-					"created_time" : "2015-06-04T08:06:10+0000"
-				}, {
-					"id" : "1663692503087616_1433405194",
-					"from" : {
-						"id" : "853292998021770",
-						"name" : "John Doe"
-					},
-					"message" : "Mauris efficitur imperdiet elit et molestie",
-					"created_time" : "2015-06-04T08:06:34+0000"
-				}, {
-					"id" : "1663692503087616_1433405220",
-					"from" : {
-						"id" : "853292998021770",
-						"name" : "John Doe"
-					},
-					"message" : "Donec vitae maximus quam",
-					"created_time" : "2015-06-04T08:07:00+0000"
-				}, {
-					"id" : "1663692503087616_1433405234",
-					"from" : {
-						"id" : "782189245156829",
-						"name" : "Jane Doe"
-					},
-					"message" : "Vivamus nec auctor augue, eget finibus urna. In et lacinia diam.",
-					"created_time" : "2015-06-04T08:07:14+0000"
-				}, {
-					"id" : "1663692503087616_1433405236",
-					"from" : {
-						"id" : "782189245156829",
-						"name" : "Jane Doe"
-					},
-					"message" : "Nulla ut ipsum sit amet tellus vulputate dignissim semper vitae augue",
-					"created_time" : "2015-06-04T08:07:16+0000"
-				}]
-			}
-		}],
-		"summary" : {
-			"unseen_count" : 0,
-			"unread_count" : 6,
-			"updated_time" : "2015-06-04T08:22:53+0000"
-		}
-
-	};
-
-	if (success) {
-
-		success(messages);
-	}
-};
-
 api.getBrands = function(success, fail) {
 	var data = {};
 
@@ -957,7 +766,41 @@ api.uploadImage = function(image, success, fail) {
 };
 
 api.addNewItem = function(data, success, fail) {
+	
 	httpRequest('uploadpin', 'POST', data, success, fail);
+};
+
+api.getBoards = function(userID, success, fail) {
+	
+	data = {
+		token : Alloy.Globals.currentUser.token,
+		filters : {
+			user_id : userID || Alloy.Globals.currentUser.user_info.id,
+		}
+	};
+	
+	httpRequest('board/find-by', 'GET', data, success, fail);
+};
+
+api.pinToBoard = function(pinID, boardID, description, success, fail) {
+	
+	data = {
+		token : Alloy.Globals.currentUser.token,
+		parent_id : pinID,
+		description : description,
+		board_id : boardID
+	};
+	
+	httpRequest('pin/repin', 'POST', data, success, fail);
+};
+
+api.getPurchases = function(success, fail) {
+	
+	data = {
+		token : Alloy.Globals.currentUser.token,
+	};
+	
+	httpRequest('storesettings/mypurchase', 'POST', data, success, fail);
 };
 
 module.exports = api;

@@ -182,10 +182,10 @@ api.getHomePins = function(success, fail, offset) {
 		data.offset = offset;
 	}
 
-	if (Alloy.Globals.currentUser) {
+	/*if (Alloy.Globals.currentUser) {
 
 		data.token = Alloy.Globals.currentUser.token;
-	}
+	}*/
 
 	httpRequest('pin/home', 'GET', data, success, fail);
 };

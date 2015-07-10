@@ -57,6 +57,10 @@ for (var i in args.posts.Post) {
 	tableData.push(Alloy.createController('profile/groupPostRow', args.posts.Post[i]).getView());
 }
 
+$.search.addEventListener('return', function(term){
+	// Perform group view search
+});
+
 $.invite.addEventListener('click', function() {
 
 	var dialog = Ti.UI.createAlertDialog({

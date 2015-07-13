@@ -52,11 +52,12 @@
 			</View>
 				
 			<View id="imageSlideshow">
+				<!-- <ImageView class="placeholderImage small"></ImageView>
 				<ImageView class="placeholderImage small"></ImageView>
 				<ImageView class="placeholderImage small"></ImageView>
-				<ImageView class="placeholderImage small"></ImageView>					<ImageView class="placeholderImageSmall"></ImageView>
+				<ImageView class="placeholderImageSmall"></ImageView>
 				<ImageView class="placeholderImage small"></ImageView>
-				<ImageView class="placeholderImage small"></ImageView>
+				<ImageView class="placeholderImage small"></ImageView> -->
 			</View>
 				
 				

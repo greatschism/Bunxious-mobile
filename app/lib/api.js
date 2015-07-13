@@ -254,9 +254,12 @@ api.getActivity = function(success, fail) {
 api.getPin = function(id, success, fail) {
 
 	var data = {
-		id : id,
-		token : Alloy.Globals.currentUser.token
+		id : id
 	};
+	
+	if(Alloy.Globals.currentUser){
+		data.token = Alloy.Globals.currentUser.token;
+	}
 
 	httpRequest('pin/find', 'GET', data, success, fail);
 };

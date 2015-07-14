@@ -6,6 +6,7 @@ $.username.text = args.fullName;
 $.ago.text = moment(args.date).fromNow();
 $.text.text = args.title;
 
+Ti.API.error(args);
 $.row.addEventListener('click', function() {
 
 	Alloy.Globals.loading.show();
@@ -20,7 +21,8 @@ $.row.addEventListener('click', function() {
 		result = {
 			conversation_id : args.conversation,
 			name : args.fullName,
-			avatar : args.image
+			avatar : args.image,
+			to_user_id : args.user_id
 		};
 
 		Alloy.Globals.openWindow('profile/message_view', result, true);

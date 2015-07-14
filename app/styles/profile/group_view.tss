@@ -1,12 +1,14 @@
 
 ".container": {
-	backgroundColor: '#f4f4f4',
+	backgroundColor: 'blue',
 	layout: 'vertical',
 	top : 0,
-	bottom : '20dp'
+	bottom : '20dp',
+	contentHeight : Ti.UI.SIZE
 }
 
 ".groupWrapper": {
+	height : Ti.UI.SIZE,
 	width: '320dp'
 }
 
@@ -16,11 +18,11 @@
 
 "#postsTable": {
 	width: Ti.UI.FILL,
-	top: '55dp',
-	scrollable : false,
-	rowHeight: Ti.UI.SIZE,
+	top: 0,
 	bottom : '10dp',
-	backgroundColor : 'transparent',
+	//scrollable : false,
+	rowHeight: Ti.UI.SIZE,
+	backgroundColor : 'white',
 	showVerticalScrollIndicator : false,
 	separatorStyle: Titanium.UI.iPhone.TableViewSeparatorStyle.NONE
 }

@@ -7,8 +7,16 @@ Alloy.Globals.API.getMessageList(function(results) {
 	var tableData = [];
 
 	for (var i in results) {
-	
+
 		tableData.push(Alloy.createController('profile/messageRow', results[i]).getView());
+	}
+
+	if (results.length == 0) {
+
+		tableData.push(Ti.UI.createTableViewRow({
+			title : 'No conversations yet.',
+			
+		}));
 	}
 
 	$.conversationTable.setData(tableData);

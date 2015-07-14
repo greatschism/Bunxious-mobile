@@ -653,7 +653,8 @@ api.sendMessage = function(conversation_id, to_user_id, message, success, fail) 
 		conversation_id : conversation_id,
 		to_user_id : to_user_id,
 		conversation : message,
-		token : Alloy.Globals.currentUser.token
+		token : Alloy.Globals.currentUser.token,
+		title : message
 	};
 
 	httpRequest('conversation/send', 'POST', data, success, fail);

@@ -1,7 +1,7 @@
 var args = arguments[0] || {};
 
 if (args) {
-	
+
 	$.pinImage.image = args.image_big.image;
 	$.avatar.image = args.user.avatar_medium.image;
 	$.title.text = args.title;
@@ -18,37 +18,38 @@ if (args) {
 
 	$.pinImage.addEventListener('click', function() {
 
-		Alloy.Globals.openWindow('product/pin_view', args, true);
+		Alloy.Globals.openWindow('product/pin_view', {
+			pin_id : args.id,
+			user_id : args.user_id
+		}, true);
 	});
-	
+
 	if (args.liked) {
-		
+
 		$.heartButton.backgroundColor = '#27ae60';
 	}
-	
+
 	$.heartButton.addEventListener('click', function() {
-		
+
 		Alloy.Globals.API.togglePinLike(args.id, function(result) {
-			
+
 			if (result.status == 'success' && result.action == "like") {
-				
+
 				$.heartButton.backgroundColor = '#27ae60';
-			}
-			else if (result.status == 'success' && result.action == "unlike") {
-				
+			} else if (result.status == 'success' && result.action == "unlike") {
+
 				$.heartButton.backgroundColor = '#f26b1d';
 			}
 		});
 	});
-	
+
 	$.boxButton.addEventListener('click', function() {
-		
-		if (Alloy.Globals.currentUser.boards ||Alloy.Globals.currentUser.boards.length > 0) {
-			
+
+		if (Alloy.Globals.currentUser.boards || Alloy.Globals.currentUser.boards.length > 0) {
+
 			Alloy.Globals.openWindow('product/pin_repin', args, true);
-		}
-		else {
-			
+		} else {
+
 			alert('You don\'t have any boards');
 		}
 	});

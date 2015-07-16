@@ -1,0 +1,39 @@
+
+".container": {
+	backgroundColor: '#fff',
+	layout : 'vertical'
+}
+
+"#favoriteSection": {
+	height: '30dp',
+	top: '15dp',
+	width: '300dp'
+}
+
+'#favoriteSection[platform=android]': {
+	width: '320dp'
+}
+
+".labelWrapper" : {
+	height : '30dp',
+	top : 0
+}
+
+".favLabel" : {
+	left : '7dp',
+	center : {
+		y : '50%'
+	},
+	color : '#2e2e2f',
+	font : {
+		fontSize : '13dp',
+		fontWeight : 'bold'
+	}
+}
+
+".table" : {
+	backgroundColor : 'transparent',
+	separatorColor : 'transparent',
+	rowHeight : '480dp',
+	bottom : 0
+}

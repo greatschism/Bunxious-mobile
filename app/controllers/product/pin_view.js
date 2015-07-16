@@ -81,7 +81,8 @@ displayPin();
 $.boxButton.addEventListener('click', function() {
 
 	if (Alloy.Globals.currentUser) {
-		if (pinObj && Alloy.Globals.currentUser.boards || Alloy.Globals.currentUser.boards.length > 0) {
+		
+		if (pinObj && Alloy.Globals.currentUser.boards && Alloy.Globals.currentUser.boards.length > 0) {
 
 			Alloy.Globals.openWindow('product/pin_repin', pinObj, true);
 		} else {

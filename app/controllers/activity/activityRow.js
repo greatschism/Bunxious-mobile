@@ -12,6 +12,9 @@ if (args) {
 	case 'FOLLOW':
 		text = args.firstname + ' ' + args.lastname + ' follows you';
 		break;
+	case 'REPIN':
+		text = args.firstname + ' ' + args.lastname + ' repinned ' + args.pin;
+		break;
 	}
 		
 	var ago = moment(args.date_added).fromNow();

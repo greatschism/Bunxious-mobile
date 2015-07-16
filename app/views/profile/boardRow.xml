@@ -1,0 +1,10 @@
+<Alloy>
+	<TableViewRow>
+		<View id="row">
+			<ImageView id="avatar" />
+			<Label id="title" />
+			<Label id="ago" />
+			<Label id="text" />
+		</View>
+	</TableViewRow>
+</Alloy>

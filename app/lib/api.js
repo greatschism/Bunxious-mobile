@@ -820,4 +820,16 @@ api.getPurchases = function(success, fail) {
 	httpRequest('storesettings/mypurchase', 'POST', data, success, fail);
 };
 
+api.getBoardPins = function(board_id, success, fail) {
+
+	data = {
+		filters : {
+			board_id : board_id
+		},
+		token : Alloy.Globals.currentUser.token,
+	};
+
+	httpRequest('pin/find-by', 'GET', data, success, fail);
+};
+
 module.exports = api;

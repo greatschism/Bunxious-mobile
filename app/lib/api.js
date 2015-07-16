@@ -69,7 +69,7 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction, fil
 		if (this.status == '200') {
 
 			try {
-				
+
 				var responseJSON = JSON.parse(this.responseText);
 
 				Ti.API.info(endpoint, this.responseText);
@@ -184,8 +184,8 @@ api.getHomePins = function(success, fail, offset) {
 
 	/*if (Alloy.Globals.currentUser) {
 
-		data.token = Alloy.Globals.currentUser.token;
-	}*/
+	 data.token = Alloy.Globals.currentUser.token;
+	 }*/
 
 	httpRequest('pin/home', 'GET', data, success, fail);
 };
@@ -256,8 +256,8 @@ api.getPin = function(id, success, fail) {
 	var data = {
 		id : id
 	};
-	
-	if(Alloy.Globals.currentUser){
+
+	if (Alloy.Globals.currentUser) {
 		data.token = Alloy.Globals.currentUser.token;
 	}
 
@@ -435,6 +435,19 @@ api.getGroup = function(id, success, fail) {
 	httpRequest('post', 'POST', data, success, fail);
 };
 
+api.createGroup = function(data, success, fail) {
+	var group = {
+		token : Alloy.Globals.currentUser.token,
+		name : data.name,
+		description : data.description
+	};
+	// Private flag is optional.
+	if (data.private === true) {
+		group.private = 'on';
+	}
+	httpRequest('group/create', 'POST', group, success, fail);
+};
+
 api.getGroupMembers = function(id, success, fail) {
 	var data = {
 		group_id : id,
@@ -454,14 +467,14 @@ api.inviteUserToGroup = function(group_id, name, success, fail) {
 	httpRequest('group/invite', 'POST', data, success, fail);
 };
 
-api.addUserToGroup = function(group_id, user_id, decision, success, fail){
+api.addUserToGroup = function(group_id, user_id, decision, success, fail) {
 	var data = {
-		group_id: group_id,
-		user_id: user_id,
-		decision: decision,
-		token: Alloy.Globals.currentUser.token
+		group_id : group_id,
+		user_id : user_id,
+		decision : decision,
+		token : Alloy.Globals.currentUser.token
 	};
-	
+
 	httpRequest('group/request', 'POST', data, success, fail);
 };
 
@@ -528,7 +541,7 @@ api.getCart = function(success, fail) {
 api.getCloset = function(user_id, success, fail) {
 
 	var data = {
-		user_id: user_id
+		user_id : user_id
 	};
 
 	httpRequest('StoreSettings/mycloset', 'POST', data, success, fail);
@@ -633,14 +646,14 @@ api.getMessageList = function(success, fail) {
 };
 
 api.getMessages = function(data, success, fail) {
-	
+
 	if (!Alloy.Globals.currentUser || Alloy.Globals.currentUser.token == null) {
-		
+
 		alert('Please login first.');
 		fail();
 		return;
 	}
-	
+
 	data.getnew = 1;
 	data.token = Alloy.Globals.currentUser.token;
 
@@ -769,40 +782,40 @@ api.uploadImage = function(image, success, fail) {
 };
 
 api.addNewItem = function(data, success, fail) {
-	
+
 	httpRequest('uploadpin', 'POST', data, success, fail);
 };
 
 api.getBoards = function(userID, success, fail) {
-	
+
 	data = {
 		token : Alloy.Globals.currentUser.token,
 		filters : {
 			user_id : userID || Alloy.Globals.currentUser.user_info.id,
 		}
 	};
-	
+
 	httpRequest('board/find-by', 'GET', data, success, fail);
 };
 
 api.pinToBoard = function(pinID, boardID, description, success, fail) {
-	
+
 	data = {
 		token : Alloy.Globals.currentUser.token,
 		parent_id : pinID,
 		description : description,
 		board_id : boardID
 	};
-	
+
 	httpRequest('pin/repin', 'POST', data, success, fail);
 };
 
 api.getPurchases = function(success, fail) {
-	
+
 	data = {
 		token : Alloy.Globals.currentUser.token,
 	};
-	
+
 	httpRequest('storesettings/mypurchase', 'POST', data, success, fail);
 };
 

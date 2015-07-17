@@ -13,7 +13,7 @@
 					<ImageView id="lockIcon" />
 					<Label id="groupTypeTxt" />
 				</View>
-				<Label text="Group Description" height="16dp" top="10dp" left="10dp" color="#00000"/>
+				<Label id="groupTitle" color="#00000"/>
 				<Label id="description" />
 				<View height="0.5dp"  top="10dp" width="Ti.UI.FILL" backgroundColor="#D0D4D9"/>
 				<View class="groupWrapper">

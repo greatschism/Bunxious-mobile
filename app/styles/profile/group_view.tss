@@ -30,16 +30,26 @@
 
 "#lockIcon":{
 	left:"10dp",
-	width : '20dp',
-	height : '20dp'
+	width : '26dp',
+	height : '26dp'
 }
 
-"#groupTypeTxt":{
+"#groupTitle":{
+	top : "5dp",
 	left: "10dp",
 	color : "#000000",
 	width : Ti.UI.SIZE,
 	height : Ti.UI.SIZE,
-	text : "Private Group",
+	font : {
+		fontSize : '16dp',	
+	}	
+}
+
+"#groupTypeTxt":{
+	left: "5dp",
+	color : "#000000",
+	width : Ti.UI.SIZE,
+	height : Ti.UI.SIZE,
 	font : {
 		fontSize : '16dp',	
 	}	

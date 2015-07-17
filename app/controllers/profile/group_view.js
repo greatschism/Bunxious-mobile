@@ -90,12 +90,13 @@ $.invite.addEventListener('click', function() {
 
 if(args.group.private != 1 ){
 	$.groupTypeTxt.text = "Public";
-	$.lockIcon.image ="/images/gear.png";
+	$.lockIcon.image ="/images/public.png";
 }else{
 	$.groupTypeTxt.text = "Private";
-	$.lockIcon.image ="/images/bag.png";
+	$.lockIcon.image ="/images/private.png";
 }
 
+$.groupTitle.text = args.group.name;
 $.description.text = args.group.description;
 
 

@@ -88,7 +88,16 @@ $.invite.addEventListener('click', function() {
 	dialog.show();
 });
 
+if(args.group.private != 1 ){
+	$.groupTypeTxt.text = "Public";
+	$.lockIcon.image ="/images/gear.png";
+}else{
+	$.groupTypeTxt.text = "Private";
+	$.lockIcon.image ="/images/bag.png";
+}
+
 $.description.text = args.group.description;
+
 
 $.members.addEventListener('click', function() {
 	Alloy.Globals.openWindow('groups/group_members_list', {group_id:group_id, group_name:group_name}, true);

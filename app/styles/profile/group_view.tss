@@ -16,6 +16,7 @@
 	width: '300dp'
 }
 
+
 "#postsTable": {
 	width: Ti.UI.FILL,
 	top: 0,
@@ -25,6 +26,23 @@
 	backgroundColor : 'white',
 	showVerticalScrollIndicator : false,
 	separatorStyle: Titanium.UI.iPhone.TableViewSeparatorStyle.NONE
+}
+
+"#lockIcon":{
+	left:"10dp",
+	width : '20dp',
+	height : '20dp'
+}
+
+"#groupTypeTxt":{
+	left: "10dp",
+	color : "#000000",
+	width : Ti.UI.SIZE,
+	height : Ti.UI.SIZE,
+	text : "Private Group",
+	font : {
+		fontSize : '16dp',	
+	}	
 }
 
 "#invite" : {
@@ -46,8 +64,13 @@
 }
 
 "#description": {
+	top:"10dp",
+	left:"10dp",
 	width: '320dp',
-	height : Ti.UI.SIZE
+	height : Ti.UI.SIZE,
+	font : {
+		fontSize : '14dp',	
+	}	
 }
 
 '#description[platform=ios]': {

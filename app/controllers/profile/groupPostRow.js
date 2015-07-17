@@ -2,8 +2,19 @@ var args = arguments[0] || {};
 
 $.avatar.image = args.user_avatar;
 $.user.text = args.user_name;
-// setting the fontFamily in html 
-$.post_title.html = '<style>a, span {font-family : HelveticaNeue; word-wrap : break-word;}</style><span>' + args.article + '</span>';
+
+if(args.pin_image.length>0) {
+	// Has a Pin image
+	$.post_title.hide();
+	$.pin_img.show();
+	$.pin_img.image = args.pin_image;
+} else {
+	// No Pin image
+	$.post_title.show();
+	$.pin_img.hide();
+	// setting the fontFamily in html 
+	$.post_title.html = '<style>a, span {font-family : HelveticaNeue; word-wrap : break-word;}</style><span>' + args.article + '</span>';
+}
 
 $.title.addOnReturn(function(event) {
 

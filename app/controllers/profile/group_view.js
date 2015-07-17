@@ -46,6 +46,7 @@ for (var i in args.posts.Post) {
 	args.posts.Post[i].user_name = args.posts.PostAvatarName[i];
 	args.posts.Post[i].user_avatar = args.posts.PostAvtrImg[i];
 	args.posts.Post[i].comments = args.posts.Comments[i];
+	args.posts.Post[i].pin_image = args.posts.myPinImg[i];
 
 }
 

@@ -46,6 +46,11 @@
 	top: '25dp',
 }
 
+"#pin_img": {
+	width:"70%",
+	top: '30dp'
+}
+
 "#commentsTable": {
 	height: Ti.UI.SIZE,
 	left: '15dp',

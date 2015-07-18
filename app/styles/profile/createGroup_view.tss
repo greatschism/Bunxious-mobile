@@ -1,0 +1,32 @@
+".container": {
+	layout: 'vertical',
+	height : Ti.UI.FILL,
+	backgroundColor: '#fff'
+}
+
+".groupWrapper": {
+	height : Ti.UI.SIZE,
+	width: '320dp'
+}
+
+'.groupWrapper[platform=ios]': {
+	width: '300dp'
+}
+".btn":{
+	height : '34dp',
+	color : 'white',
+	width : "145dp",
+	backgroundColor: '#62949b'
+}
+"#saveBtn":{
+	left : 10
+}
+
+"#cancelBtn":{
+	left : 10,
+	layout: "vertical"
+}
+
+"#groupDescTxtField" : {
+	verticalAlign : Ti.UI.TEXT_VERTICAL_ALIGNMENT_TOP
+}

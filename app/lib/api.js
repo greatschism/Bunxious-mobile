@@ -448,6 +448,8 @@ api.createGroup = function(data, success, fail) {
 	httpRequest('group/create', 'POST', group, success, fail);
 };
 
+
+
 api.getGroupMembers = function(id, success, fail) {
 	var data = {
 		group_id : id,
@@ -831,5 +833,9 @@ api.getBoardPins = function(board_id, success, fail) {
 
 	httpRequest('pin/find-by', 'GET', data, success, fail);
 };
+
+
+
+
 
 module.exports = api;

@@ -16,3 +16,13 @@
 		right: 0
 	},
 }
+
+"#createGroupBtn" : {
+	top : 5,
+	left : 20,
+	right : 20,
+	height : '34dp',
+	color : 'white',
+	title :"Create Group",
+	backgroundColor : '#f26b1d'
+}

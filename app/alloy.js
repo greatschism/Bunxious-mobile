@@ -78,7 +78,6 @@ Alloy.Globals.openWindow = function(controller, arguments, newOne) {
 				left : 1
 			}
 		});
-
 		currentPage = controller;
 	}
 };

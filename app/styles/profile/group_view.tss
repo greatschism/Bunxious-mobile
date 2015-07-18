@@ -55,6 +55,15 @@
 	}	
 }
 
+"#editGroup" : {
+	top : 5,
+	left : 40,
+	right : 40,
+	height : '34dp',
+	color : 'white',
+	backgroundColor : '#f26b1d'
+}
+
 "#invite" : {
 	color : 'white',
 	right : 40,

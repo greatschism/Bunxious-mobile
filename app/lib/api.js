@@ -448,6 +448,21 @@ api.createGroup = function(data, success, fail) {
 	httpRequest('group/create', 'POST', group, success, fail);
 };
 
+api.editGroup = function(data, success, fail) {
+	var group = {
+		token : Alloy.Globals.currentUser.token,
+		id :  data.id,
+		name : data.name,
+		description : data.description
+	};
+	
+	// Private flag is optional.
+	if (data.private === true) {
+		group.private = 'on';
+	}
+	
+	httpRequest('group/update', 'POST', group, success, fail);
+};
 
 
 api.getGroupMembers = function(id, success, fail) {

@@ -62,6 +62,10 @@ $.search.addEventListener('return', function(term){
 	// Perform group view search
 });
 
+$.editGroup.addEventListener('click', function() {
+	Alloy.Globals.openWindow('profile/createGroup_view', { update : true, id : args.group.id, name : args.group.name, description : args.group.description}, true);
+});
+
 $.invite.addEventListener('click', function() {
 
 	var dialog = Ti.UI.createAlertDialog({
@@ -100,9 +104,13 @@ if(args.group.private != 1 ){
 $.groupTitle.text = args.group.name;
 $.description.text = args.group.description;
 
-
 $.members.addEventListener('click', function() {
 	Alloy.Globals.openWindow('groups/group_members_list', {group_id:group_id, group_name:group_name}, true);
+});
+
+Ti.App.addEventListener("updateGroup_groupView",function(data){
+	$.groupTitle.text = data.name;
+	$.description.text = data.description;
 });
 
 $.postsTable.setData(tableData);

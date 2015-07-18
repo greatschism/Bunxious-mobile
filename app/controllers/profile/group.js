@@ -14,7 +14,7 @@ Alloy.Globals.API.findGroups(function(results) {
 
 
 $.createGroupBtn.addEventListener("click", function(e) {
-	Alloy.Globals.openWindow('profile/createGroup_view', args, true);
+	Alloy.Globals.openWindow('profile/createGroup_view', {update : false }, true);
 });
 
 Ti.App.addEventListener("updateGroup", function(e){

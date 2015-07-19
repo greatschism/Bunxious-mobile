@@ -1,5 +1,5 @@
 ".container": {
-	layout: 'vertical',
+	
 	height : Ti.UI.FILL,
 	backgroundColor: '#fff'
 }
@@ -15,16 +15,16 @@
 ".btn":{
 	height : '34dp',
 	color : 'white',
-	width : "145dp",
+	width : "75%",
+	top: '10dp',
 	backgroundColor: '#62949b'
 }
 "#saveBtn":{
-	left : 10
+	
 }
 
 "#cancelBtn":{
-	left : 10,
-	layout: "vertical"
+	
 }
 
 "#groupDescTxtField" : {

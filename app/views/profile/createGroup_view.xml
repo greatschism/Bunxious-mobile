@@ -6,8 +6,10 @@
 		<View class="groupWrapper">
 			<Widget id="groupDescTxtField" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="80dp" width="300dp" top="10dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="Group Description" tfTop="5dp" tfWidth="220dp" />
 		</View>
-		<View height="Ti.UI.SIZE"  layout="horizontal" top="10dp">
+		<View height="Ti.UI.SIZE">
 			<Button class="btn" id="saveBtn" title="Save" />
+		</View>
+		<View height="Ti.UI.SIZE">
 			<Button class="btn" id="cancelBtn" title="Cancel" />
 		</View>
 	</View>

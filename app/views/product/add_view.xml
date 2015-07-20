@@ -117,7 +117,7 @@
 				</View>
 				
 				<View id="shipsToElsewhere">
-					<Label class="elsewhere" text="L('everywhere_else').toUpperCase()"/>
+					<Label class="dollarSign" text="L('everywhere_else').toUpperCase()"/>
 					<View class="shippingPrice">
 						<Label class="dollarSign" text="$"/>
 						<TextField id="shipToElsewhere" class="priceTextfield"/>

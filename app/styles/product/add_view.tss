@@ -247,14 +247,6 @@
 	backgroundColor: '#fff'
 }
 
-".elsewhere" : {
-	// left : 0,
-	// bottom : '7dp',
-	font : {
-		fontSize : '13dp'
-	}
-}
-
 ".shippingElsewherePrice" : {
 	left : '55%',
 	bottom : 0,

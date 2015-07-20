@@ -1,90 +1,93 @@
 
-".container" : {
-	backgroundColor : '#f4f4f4'
+".container": {
+	backgroundColor: '#f4f4f4'
 }
 
-".table" : {
-	separatorColor : 'transparent',
-	rowHeight : '480dp',
+".table": {
+	separatorInsets: {
+		left: 0,
+		right: 0
+	},
+	rowHeight: '480dp'
 }
 
-"#filterWrapper" : {
-	height : '85dp'
+"#filterWrapper": {
+	height: '85dp'
 }
 
-"#filterSection" : {
-	height : '60dp',
-	bottom : 0,
-	width : '300dp'
+"#filterSection": {
+	height: '60dp',
+	bottom: 0,
+	width: '300dp'
 }
 
-'#filterSection[platform=android]' : {
-	width : '320dp'
+'#filterSection[platform=android]': {
+	width: '320dp'
 }
 
 "TableViewRow[platform=ios]":{
-	selectionStyle: Titanium.UI.iPhone.TableViewCellSelectionStyle.NONE,
+	selectionStyle: Titanium.UI.iPhone.TableViewCellSelectionStyle.NONE
 }
 
-".filterWrapper" : {
-	width : '93dp',
-	borderRadius : '3dp',
-	height : '24dp',
-	backgroundColor : '#d1d7dc',
+".filterWrapper": {
+	width: '93dp',
+	borderRadius: '3dp',
+	height: '24dp',
+	backgroundColor: '#d1d7dc'
 }
 
-".filterWrapper[platform=ios]" : {
-	width : '86dp',
+".filterWrapper[platform=ios]": {
+	width: '86dp'
 }
 
-".topRow" : {
-	top : 0
+".topRow": {
+	top: 0
 }
 
-".botRow" : {
-	bottom : 0
+".botRow": {
+	bottom: 0
 }
 
-".firstElement" : {
-	left : 0
+".firstElement": {
+	left: 0
 }
 
-".centerElement" : {
-	center : {
-		x : '50%'
+".centerElement": {
+	center: {
+		x: '50%'
 	}
 }
 
-".lastElement" : {
-	right : 0
+".lastElement": {
+	right: 0
 }
 
-".filterLabel" : {
-	center : {
-		y : '50%'
+".filterLabel": {
+	center: {
+		y: '50%'
 	},
-	left : '7dp',
-	font : {
-		fontSize : '12dp'
+	left: '7dp',
+	font: {
+		fontSize: '12dp'
 	},
-	color : '#596b7c'
+	color: '#596b7c'
 }
 
-".filterSeparator" : {
-	right : '25dp',
-	height : '100%',
-	width : '1dp',
-	backgroundColor : 'white'	
+".filterSeparator": {
+	right: '25dp',
+	height: '100%',
+	width: '1dp',
+	backgroundColor: 'white'
 }
 
-".filterIcon" : {
-	image : '/images/arrow_down.png',
-	width : '10dp',
-	height : '10dp',
-	center : {
-		y : '50%'
+".filterIcon": {
+	image: '/images/arrow_down.png',
+	width: '10dp',
+	height: '10dp',
+	center: {
+		y: '50%'
 	},
-	right : "7dp"
+	right: "7dp"
 }
 
 

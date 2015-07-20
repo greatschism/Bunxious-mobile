@@ -27,12 +27,12 @@ height: Ti.UI.SIZE //
 
 'Window[platform=android]': {
 	windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_STATE_HIDDEN,
-	orientationModes: []
+	orientationModes: [Ti.UI.PORTRAIT]
 }
 
 'Window[platform=ios]': {
 	statusBarStyle: Titanium.UI.iPhone.StatusBar.LIGHT_CONTENT,
-	orientationModes: []
+	orientationModes: [Ti.UI.PORTRAIT]
 }
 
 ".com.jolicode.pageflow.navBar.center": {

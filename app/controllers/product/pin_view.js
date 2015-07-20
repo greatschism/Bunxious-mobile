@@ -21,6 +21,12 @@ function displayPin() {
 		} else {
 			$.price.text = '$' + pinObj.price + ' ' + 'USD';
 		}
+		
+		Alloy.Globals.API.getSizesForPin(pinObj.id, function(result){
+			
+		}, function(error) {
+			
+		});
 
 		var brand = Alloy.Globals.findBrandById(pinObj.brand_id);
 		//var size = Alloy.Globals.findSizeById(pinObj.size_id);

@@ -788,6 +788,17 @@ api.getSize = function(success, fail) {
 	httpRequest('option/size', 'GET', data, onSuccess, fail);
 };
 
+api.getSizesForPin = function(pin_id,success,fail) {
+	var data = {
+		'id': pin_id
+	};
+
+	if (Alloy.Globals.currentUser) {
+		data.token = Alloy.Globals.currentUser.token;
+	}
+	httpRequest('pin/find-pin-sizes', 'GET', data, success, fail);
+};
+
 api.uploadImage = function(image, success, fail) {
 
 	data = {

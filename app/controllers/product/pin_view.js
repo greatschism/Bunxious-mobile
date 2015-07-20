@@ -22,9 +22,13 @@ function displayPin() {
 			$.price.text = '$' + pinObj.price + ' ' + 'USD';
 		}
 
-		$.brand.text = 'BRAND: ' + pinObj.brand_id;
-		$.size.text = 'SIZE: Not yet defined';
-		$.condition.text = 'CONDITION: ' + pinObj.condition_id;
+		var brand = Alloy.Globals.findBrandById(pinObj.brand_id);
+		//var size = Alloy.Globals.findSizeById(pinObj.size_id);
+		var condition = Alloy.Globals.findConditionById(pinObj.condition_id);
+		
+		$.brand.text = 'BRAND: ' + brand.title; 
+		//$.size.text = 'SIZE: ' + size.title;
+		$.condition.text = 'CONDITION: ' + condition.title;
 		$.description.value = 'Description: ' + pinObj.description;
 		$.shipping.text = '    SHIPPING FROM ' + pinObj.from;
 

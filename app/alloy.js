@@ -100,6 +100,11 @@ Alloy.Globals.API.getBrands(function(results) {
 
 });
 
+Alloy.Globals.findBrandById = function(id) {
+	var index = Alloy.Globals.findIndexWithAttribute(Alloy.Globals.brandFilters,'id',id.toString());
+	return Alloy.Globals.brandFilters[index];
+};
+
 // Get Gender
 Alloy.Globals.API.getGender(function(results) {
 
@@ -126,6 +131,11 @@ Alloy.Globals.API.getSize(function(results) {
 
 });
 
+Alloy.Globals.findSizeById = function(id) {
+	var index = Alloy.Globals.findIndexWithAttribute(Alloy.Globals.sizeFilters,'id',id.toString());
+	return Alloy.Globals.sizeFilters[index];
+};
+
 // Get Condition
 Alloy.Globals.API.getCondition(function(results) {
 
@@ -134,6 +144,11 @@ Alloy.Globals.API.getCondition(function(results) {
 }, function(error) {
 
 });
+
+Alloy.Globals.findConditionById = function(id) {
+	var index = Alloy.Globals.findIndexWithAttribute(Alloy.Globals.conditionFilters,'id',id.toString());
+	return Alloy.Globals.conditionFilters[index];
+};
 
 // Get Countries
 Alloy.Globals.API.getAllCountries(function(results) {

@@ -1,14 +1,27 @@
 var args = arguments[0] || {};
 var moment = require('alloy/moment');
-
+var uploadedImage = null;
 
 if(args.update){
 	$.groupNameTxtField.value = args.name;
 	$.groupDescTxtField.value = args.description;
 }
 
+$.uploadImage.addEventListener('click', function(e){
+	var image = Alloy.Globals.uploadImage(function(image){
+		Alloy.Globals.API.uploadGroupImage(image, function(result){
+			console.debug(result.file);
+			uploadedImage = result.file;
+			$.uploadImage.title = "Image uploaded";
+			Alloy.Globals.loading.hide();
+		},function(error){
+			Alloy.Globals.loading.hide();
+		});
+	});
+});
+
 $.saveBtn.addEventListener("click", function(e) {
-	if($.groupNameTxtField.value != null && $.groupDescTxtField.value != null){
+	if($.groupNameTxtField.value != null && $.groupDescTxtField.value != null && $.groupNameTxtField.value.trim() !== "" && $.groupDescTxtField.value.trim() !== ""){
 		if(!args.update){
 			createNewGroup();
 		}else{
@@ -21,10 +34,17 @@ $.saveBtn.addEventListener("click", function(e) {
 });
 
 function createNewGroup(){
+	
+	if(uploadedImage === null){
+		alert(L('add_image_error'));
+		return;
+	}
+	
 	Alloy.Globals.loading.show();
 	var data = {
 		name : $.groupNameTxtField.value,
-		description : $.groupDescTxtField.value
+		description : $.groupDescTxtField.value,
+		image: uploadedImage
 	};
 	
 	Alloy.Globals.API.createGroup(data,  function(result){
@@ -32,9 +52,10 @@ function createNewGroup(){
 		
 		$.groupNameTxtField.value ="";
 		$.groupDescTxtField.value = "";
+		uploadedImage = null;
 
 		Ti.App.fireEvent("updateGroup");
-		
+		$.uploadImage.title = "Upload Image";
 		alert("Group succesfully created.");
 		
 	},function(result){

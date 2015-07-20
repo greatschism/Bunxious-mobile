@@ -212,4 +212,58 @@ Alloy.Globals.createFilter = function(list, label){
 		popupDialog.getView().show();
 };
 
+Alloy.Globals.uploadImage = function(callback){
+	var dialog = Ti.UI.createOptionDialog({
+		options: ['Camera', 'Gallery', 'Cancel'],
+		title: 'Upload image using?'
+	});
+	
+	dialog.show();
+	
+	dialog.addEventListener('click', function(e){
+		
+		if(e.index === 0){
+			//Open Camera
+			Titanium.Media.showCamera({
+				saveToPhotoGallery : true,
+
+				success : function(event) {
+					var image = event.media;
+					Alloy.Globals.loading.show();
+					callback(image);
+				},
+
+				cancel : function(e) {
+				},
+
+				error : function(e) {
+				},
+
+				showControls : true,
+				mediaTypes : Ti.Media.MEDIA_TYPE_PHOTO,
+				autohide : false
+			});
+		} else if(e.index === 1){
+			//Open gallery
+			Titanium.Media.openPhotoGallery({
+				success : function(event) {
+					var image = event.media;
+					Alloy.Globals.loading.show();
+					callback(image);
+				},
+
+				cancel : function(e) {
+				},
+
+				error : function(e) {
+				},
+			}); 
+		} else {
+			// Do nothing
+		}
+		dialog.hide();
+	});
+	
+};
+
 Alloy.Globals.loading = Alloy.createWidget("nl.fokkezb.loading");

@@ -66,10 +66,6 @@ function createNewGroup(){
 }
 
 function updateGroup(){
-	if(uploadedImage === null){
-		alert(L('add_image_error'));
-		return;
-	}
 	
 	Alloy.Globals.loading.show();
 	var data = {
@@ -83,9 +79,12 @@ function updateGroup(){
 		Ti.API.info("success result-->"+ JSON.stringify(result));
 		var data = {
 			name : $.groupNameTxtField.value,
-			description : $.groupDescTxtField.value,
-			image: uploadedImage
+			description : $.groupDescTxtField.value
 		};
+		
+		if(uploadedImage !== null){
+			data.image = uploadedImage;
+		}
 		
 		Ti.App.fireEvent("updateGroup_groupView",data);
 		Ti.App.fireEvent("updateGroup");

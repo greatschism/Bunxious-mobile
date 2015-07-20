@@ -435,11 +435,21 @@ api.getGroup = function(id, success, fail) {
 	httpRequest('post', 'POST', data, success, fail);
 };
 
+api.uploadGroupImage = function(image, success, fail){
+	var data = {
+		token: Alloy.Globals.currentUser.token,
+		file: image
+	};
+	
+	httpRequest('group/upload', 'POST', data, success, fail, "media");
+};
+
 api.createGroup = function(data, success, fail) {
 	var group = {
 		token : Alloy.Globals.currentUser.token,
 		name : data.name,
-		description : data.description
+		description : data.description,
+		image: data.image
 	};
 	// Private flag is optional.
 	if (data.private === true) {

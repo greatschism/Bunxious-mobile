@@ -19,5 +19,6 @@ $.row.addEventListener('click', function() {
 		Alloy.Globals.loading.hide();
 	}, function(error) {
 		//TBD
+		Alloy.Globals.loading.hide();
 	});
 });

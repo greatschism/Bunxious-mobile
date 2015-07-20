@@ -56,26 +56,26 @@
 
 "#editGroup" : {
 	top : 5,
-	left : 40,
-	right : 40,
+	left : 10,
+	right : 10,
 	height : '34dp',
 	color : 'white',
-	backgroundColor : '#f26b1d'
+	backgroundColor : '#62949b'
 }
 
 "#invite" : {
 	color : 'white',
-	right : 40,
-	left:40,
+	right : 10,
+	left : 10,
 	top : 5,
 	height : '34dp',
-	backgroundColor : '#f26b1d'
+	backgroundColor : '#62949b'
 }
 
 "#members" : {
 	color : 'white',
-	right : 40,
-	left: 40,
+	right : 10,
+	left: 10,
 	top:5,
 	height: '34dp',
 	backgroundColor: '#62949b'

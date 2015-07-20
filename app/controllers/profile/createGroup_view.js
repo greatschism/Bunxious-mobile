@@ -66,18 +66,25 @@ function createNewGroup(){
 }
 
 function updateGroup(){
+	if(uploadedImage === null){
+		alert(L('add_image_error'));
+		return;
+	}
+	
 	Alloy.Globals.loading.show();
 	var data = {
 		id : args.id,
 		name : $.groupNameTxtField.value,
-		description : $.groupDescTxtField.value
+		description : $.groupDescTxtField.value,
+		image: uploadedImage
 	};
 	
 	Alloy.Globals.API.editGroup(data,  function(result){
 		Ti.API.info("success result-->"+ JSON.stringify(result));
 		var data = {
 			name : $.groupNameTxtField.value,
-			description : $.groupDescTxtField.value
+			description : $.groupDescTxtField.value,
+			image: uploadedImage
 		};
 		
 		Ti.App.fireEvent("updateGroup_groupView",data);
@@ -85,7 +92,8 @@ function updateGroup(){
 
 		$.groupNameTxtField.value ="";
 		$.groupDescTxtField.value = "";
-		
+		uploadedImage = null;
+		$.uploadImage.title = "Upload Image";
 		alert("Update succesfully.");
 		
 	},function(result){

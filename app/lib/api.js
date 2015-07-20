@@ -463,7 +463,8 @@ api.editGroup = function(data, success, fail) {
 		token : Alloy.Globals.currentUser.token,
 		id :  data.id,
 		name : data.name,
-		description : data.description
+		description : data.description,
+		image: data.image
 	};
 	
 	// Private flag is optional.

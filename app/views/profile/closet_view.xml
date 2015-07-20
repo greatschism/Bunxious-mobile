@@ -35,7 +35,7 @@
 							<ImageView class="filterIcon" />
 						</View>
 						<View id="priceFilter" class="filterWrapper botRow centerElement">
-							<Label class="filterLabel" text="L('price')" />
+							<Label id="priceLabel" class="filterLabel" text="L('price')" />
 							<View class="filterSeparator" />
 							<ImageView class="filterIcon" />
 						</View>

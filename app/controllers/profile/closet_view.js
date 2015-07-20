@@ -75,6 +75,11 @@ function createFilter(list, label, filterType) {
 			filters['filters[size_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
 
 		}
+		else if (filterType === "price") {
+
+			filters['filters[price_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
+
+		}
 
 		// Call the service
 		Alloy.Globals.loading.show();
@@ -216,6 +221,13 @@ function createFilter(list, label, filterType) {
 
 			});
 		}
+	});
+	
+	$.priceFilter.addEventListener('click', function() {
+
+		
+				Alloy.Globals.priceFilters = JSON.parse(JSON.stringify(Alloy.Globals.priceList));
+				createFilter(Alloy.Globals.priceFilters, $.priceLabel, "price");
 	});
 // }
 

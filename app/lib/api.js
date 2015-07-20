@@ -466,6 +466,10 @@ api.editGroup = function(data, success, fail) {
 		description : data.description
 	};
 	
+	if(data.image){
+		group.image = data.image;
+	}
+	
 	// Private flag is optional.
 	if (data.private === true) {
 		group.private = 'on';

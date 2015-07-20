@@ -66,11 +66,13 @@ function createNewGroup(){
 }
 
 function updateGroup(){
+	
 	Alloy.Globals.loading.show();
 	var data = {
 		id : args.id,
 		name : $.groupNameTxtField.value,
-		description : $.groupDescTxtField.value
+		description : $.groupDescTxtField.value,
+		image: uploadedImage
 	};
 	
 	Alloy.Globals.API.editGroup(data,  function(result){
@@ -80,12 +82,17 @@ function updateGroup(){
 			description : $.groupDescTxtField.value
 		};
 		
+		if(uploadedImage !== null){
+			data.image = uploadedImage;
+		}
+		
 		Ti.App.fireEvent("updateGroup_groupView",data);
 		Ti.App.fireEvent("updateGroup");
 
 		$.groupNameTxtField.value ="";
 		$.groupDescTxtField.value = "";
-		
+		uploadedImage = null;
+		$.uploadImage.title = "Upload Image";
 		alert("Update succesfully.");
 		
 	},function(result){

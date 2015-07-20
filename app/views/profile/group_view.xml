@@ -2,7 +2,6 @@
 	<TableView id="postsTable" >
 		<HeaderView height="Ti.UI.SIZE">
 			<View layout="vertical" height="Ti.UI.SIZE">
-				<SearchBar id="search" barColor="#f4f4f4" showCancel="false" height="43" top="0" />
 				<View height="Ti.UI.SIZE">
 					<Button id="invite" title="Invite" />
 				</View>
@@ -12,6 +11,36 @@
 				<View height="Ti.UI.SIZE">
 					<Button id="editGroup" title="Edit" />
 				</View>
+				<View id="filterWrapper">
+					<View id="filterSection">
+						<View id="categoryFilter" class="filterWrapper topRow firstElement">
+							<Label id="categoryLabel" class="filterLabel" text="L('all_items')" />
+							<View class="filterSeparator" />
+							<ImageView class="filterIcon" />
+						</View>
+						<View id="brandFilter" class="filterWrapper topRow centerElement">
+							<Label id="brandLabel" class="filterLabel" text="L('brand')" />
+							<View class="filterSeparator" />
+							<ImageView class="filterIcon" />
+						</View>
+						<View id="genderFilter" class="filterWrapper topRow lastElement">
+							<Label id="genderLabel" class="filterLabel" text="L('gender')" />
+							<View class="filterSeparator" />
+							<ImageView class="filterIcon" />
+						</View>
+						<View id="sizeFilter" class="filterWrapper botRow firstElement">
+							<Label id="sizeLabel" class="filterLabel" text="L('size')" />
+							<View class="filterSeparator" />
+							<ImageView class="filterIcon" />
+						</View>
+						<View id="priceFilter" class="filterWrapper botRow centerElement">
+							<Label class="filterLabel" text="L('price')" />
+							<View class="filterSeparator" />
+							<ImageView class="filterIcon" />
+						</View>
+					</View>
+				</View>
+				
 				<View layout="horizontal"  height="Ti.UI.SIZE" top="10dp" width="80%">
 					<ImageView id="lockIcon" />
 					<Label id="groupTypeTxt" />

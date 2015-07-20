@@ -6,5 +6,9 @@
 "#uploadImage" :{
 	color : '#666',
 	left : 0,
-	height: '25dp'
+	top: '5dp',
+	height: '25dp',
+	font: {
+		fontSize: '15dp'
+	}
 }

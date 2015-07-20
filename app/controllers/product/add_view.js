@@ -25,18 +25,14 @@ $.groups.addEventListener('click', function() {
 		
 		var groups = [], items = [];
 		
-		for (var i in results.Condition) {
+		for (var i in results.Group) {
 			groups.push({
-				"title" : results.Condition[i].name,
-				"id" : results.Condition[i].id
+				"title" : results.Group[i].name,
+				"id" : results.Group[i].id
 			});
 		}
 
-		for (var i in results.Group) {
-			items.push(results.Group[i].title);
-		}
-		
-		Alloy.Globals.createFilter(items, $.groupsTitle);
+		Alloy.Globals.createFilter(groups, $.groupsTitle);
 
 	});
 });
@@ -107,93 +103,27 @@ var uploadedImages = 1;
 
 $.uploadImage.addEventListener('click', function(e){
 	
-	// Ask for camera or gallery
-	var dialog = Ti.UI.createOptionDialog({
-		options: ['Camera', 'Gallery', 'Cancel'],
-		title: 'Upload image using?'
-	});
-	
-	dialog.show();
-	
-	dialog.addEventListener('click', function(e){
+	var image = Alloy.Globals.uploadImage(function(image){
 		
-		if(e.index === 0){
-			//Open Camera
-			Titanium.Media.showCamera({
-				saveToPhotoGallery : true,
+		Alloy.Globals.API.uploadImage(image, function(result) {
 
-				success : function(event) {
-					var image = event.media;
-					Alloy.Globals.loading.show();
+			var height = 45 * uploadedImages + 45 + 'dp';
 
-					Alloy.Globals.API.uploadImage(image, function(result) {
-
-						var height = 45 * uploadedImages + 45 + 'dp';
-
-						$.uploadImageTable.appendRow(Alloy.createController('product/upload_image', result).getView());
-					
-						$.uploadImageTable.animate({
-							height : height
-						});
-						
-						gallery.push(result.file);
-						
-						uploadedImages++;
-						Alloy.Globals.loading.hide();
-
-					}, function(error) {
-						Alloy.Globals.loading.hide();
-					});
-
-				},
-				cancel : function(e) {
-
-				},
-				error : function(e) {
-
-				},
-				showControls : true,
-				mediaTypes : Ti.Media.MEDIA_TYPE_PHOTO,
-				autohide : false
+			$.uploadImageTable.appendRow(Alloy.createController('product/upload_image', result).getView());
+		
+			$.uploadImageTable.animate({
+				height : height
 			});
-		} else if(e.index === 1){
-			//Open gallery
-			Titanium.Media.openPhotoGallery({
-				success : function(event) {
-					var image = event.media;
-					Alloy.Globals.loading.show();
-					
-					Alloy.Globals.API.uploadImage(image, function(result) {
-						
-						var height = 45 * uploadedImages + 45 + 'dp';
+			
+			gallery.push(result.file);
+			
+			uploadedImages++;
+			Alloy.Globals.loading.hide();
 
-						$.uploadImageTable.appendRow(Alloy.createController('product/upload_image', result).getView());
-					
-						$.uploadImageTable.animate({
-							height : height
-						});
-						
-						gallery.push(result.file);
-						
-						uploadedImages++;
-						Alloy.Globals.loading.hide();
-
-					}, function(error) {
-						Alloy.Globals.loading.hide();
-					});
-
-				},
-				cancel : function(e) {
-
-				},
-				error : function(e) {
-
-				},
-			}); 
-		} else {
-			// Do nothing
-		}
-		dialog.hide();
+		}, function(error) {
+			Alloy.Globals.loading.hide();
+		});
+		
 	});
 });
 
@@ -326,14 +256,19 @@ $.addItem.addEventListener('click', function() {
 			$.tfTitle.setValue("");
 			$.tfDesc.setValue("");
 			$.categoryTitle.idValue = "";
+			$.categoryTitle.setText("");
 			$.groupsTitle.idValue = "";
+			$.groupsTitle.setText("");
 			$.brandTitle.idValue = "";
+			$.brandTitle.setText("");
 			$.genderTitle.idValue = "";
+			$.genderTitle.setText("");
 			$.conditionTitle.idValue = "";
+			$.conditionTitle.setText("");
 			$.tfStyle.setValue("");
 			$.tfTags.setValue("");
 			$.tfMaterials.setValue("");
-			$.tfProcessingTime.setValue();
+			$.tfProcessingTime.setValue("");
 			$.shipToUS.setValue("");
 			$.shipToElsewhere.setValue("");
 		}

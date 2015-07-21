@@ -292,3 +292,20 @@ Alloy.Globals.uploadImage = function(callback){
 };
 
 Alloy.Globals.loading = Alloy.createWidget("nl.fokkezb.loading");
+
+Alloy.Globals.priceList = [{
+ title : '$0 - $10',
+ cost : '10 $'
+ }, {
+ title : '$10 - $20',
+ cost : '20 $'
+ }, {
+ title : '$20 - $50',
+ cost : '50 $'
+ }, {
+ title : '$50 - $100',
+ cost : '50 $'
+ },{
+ title : '$100 or more',
+ cost : '50 $'
+ }];

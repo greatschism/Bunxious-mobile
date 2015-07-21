@@ -79,7 +79,7 @@ function displayPin() {
 		//$.size.text = 'SIZE: ' + size.title;
 		$.condition.text = 'CONDITION: ' + condition.title;
 		$.description.value = 'Description: ' + pinObj.description;
-		$.shipping.text = '    SHIPPING FROM United States';
+		$.shipping.text = 'SHIPPING FROM United States';
 		// + pinObj.from;
 
 		// When shipping info isn't available
@@ -98,8 +98,8 @@ function displayPin() {
 		if (pinObj.comments.Comments) {
 			var userComments = pinObj.comments.Comments;
 			for (var i = 0,
-			    commentLen = userComments.length; i < commentLen; i++) {
-				$.commentsTable.add(createRow(pinObj.user.avatar_medium.image, userComments[i].firstname + ' ' + userComments[i].lastname, userComments[i].comment));
+				commentLen = userComments.length; i < commentLen; i++) {
+				$.commentsView.add(createRow(pinObj.user.avatar_medium.image, userComments[i].firstname + ' ' + userComments[i].lastname, userComments[i].comment));
 			}
 		}
 
@@ -224,7 +224,7 @@ Alloy.Globals.API.getCloset(args.user_id, function(result) {
 			user_id : args.user_id,
 			callback : function(callbackPin) {
 				args = JSON.parse(JSON.stringify(callbackPin));
-				$.commentsTable.removeAllChildren();
+				$.commentsView.removeAllChildren();
 				displayPin();
 			}
 		}).getView());

@@ -1,83 +1,88 @@
 <Alloy>
-	<ScrollView class="wrapper">
-		<View class="container">
-			<Label id="title" />
-			<View id="imageElements">
-				<ImageView id="pinImage"/>
-				<View id="boxButton" class="buttonWrapper">
-					<ImageView id="box" class="button" />
-				</View>
-				<View id="heartButton" class="buttonWrapper">
-					<ImageView id="heart" class="button" />
-				</View>
-			</View>
-			<Label id="price" />
-			<View id="lineOne"></View>
-			<View id="itemValues">
-				<Label id="brand" />
-				<Label id="size" />
-				<Label id="condition" />
-			</View>
-			<Button id="cart">Add to Cart</Button>
-			<View id="lineTwo"></View>
-			<TextArea id="description" />
-			<Label id="shipping" />
-			<View id="shippingDetails">
-				<Label id="shipTo" />
-				<Label id="shipCost" />
-				<Label id="shipWith" />
-				<View id="lineThree"></View>
-				<Label id="shipToOut" />
-				<Label id="shipCostOut" />
-				<Label id="shipWithOut" />
-				<View id="lineFour"></View>
-
-			</View>
-			
-			<Label id="comments" />
-			<View id="commentsTable" />
-			
-			<Label id="payment" />
-			<ImageView id="paypal"></ImageView>
-			<Label id="closet" />
-			
-			<View id="closetView">
-				<ImageView id="closetAvatar" class="placeholderImage"></ImageView>
-				
-				<View id="closetText">
-					<Label id="closetTitle" />
-					<TextArea id="closetDescription"> </TextArea>
-					
-					<View id="closetFav">
-						<Label id="closetAdd" class="closetFavourite" />
-						<Label id="closetSee" class="closetFavourite" />
+	<View>
+		<TableView id="tableView">
+			<HeaderView>
+				<View id="tableHeader">
+					<Label id="title" />
+					<View id="imageElements">
+						<ImageView id="pinImage"/>
+						<View id="boxButton" class="buttonWrapper">
+							<ImageView id="box" class="button" />
+						</View>
+						<View id="heartButton" class="buttonWrapper">
+							<ImageView id="heart" class="button" />
+						</View>
 					</View>
 				</View>
-			</View>
-				
-			<View id="imageSlideshow">
-				<!-- <ImageView class="placeholderImage small"></ImageView>
-				<ImageView class="placeholderImage small"></ImageView>
-				<ImageView class="placeholderImage small"></ImageView>
-				<ImageView class="placeholderImageSmall"></ImageView>
-				<ImageView class="placeholderImage small"></ImageView>
-				<ImageView class="placeholderImage small"></ImageView> -->
-			</View>
-				
-			<Label id="owner" />
-			<View id="ownerProfile">
-				<ImageView id="avatar" />
-				<Label id="userName"/>
-				<Label id="userLocation"/>
-				<View id="followButton" class="buttonUser">
-					<ImageView class="plus"/>
-					<Label id="follow" class="buttonLabel followLabel" text="L('follow')"/>
-				</View>
-				<View id="contactButton" class="buttonUser">
-					<Label class="buttonLabel" text="L('contact')"/>
-				</View>
-			</View>
+			</HeaderView>
+	
+			<TableViewRow>
+				<View class="container">
+					<Label id="price" />
+					<View id="lineOne"></View>
+					<View id="itemValues">
+						<Label id="brand" />
+						<Label id="size" />
+						<Label id="condition" />
+					</View>
+					<Button id="cart">Add to Cart</Button>
+					<View id="lineTwo"></View>
+					<TextArea id="description" />
+					<View class="lblClass">
+						<Label id="shipping" />
+					</View>
+					<View id="shippingDetails">
+						<Label id="shipTo" />
+						<Label id="shipCost" />
+						<Label id="shipWith" />
+						<View id="lineThree"></View>
+						<Label id="shipToOut" />
+						<Label id="shipCostOut" />
+						<Label id="shipWithOut" />
+						<View id="lineFour"></View>
 
-		</View>
-	</ScrollView>
+					</View>
+					<View class="lblClass">
+						<Label id="payment" />
+					</View>
+					<ImageView id="paypal"></ImageView>
+					<View class="lblClass">
+						<Label id="comments" />
+					</View>
+					<View id="commentsView" />
+					<View class="lblClass">
+						<Label id="closet" />
+					</View>
+					<View id="closetView">
+						<ImageView id="closetAvatar" class="placeholderImage"></ImageView>
+						<View id="closetText">
+							<Label id="closetTitle" />
+							<TextArea id="closetDescription"></TextArea>
+							<View id="closetFav">
+								<Label id="closetAdd" class="closetFavourite" />
+								<Label id="closetSee" class="closetFavourite" />
+							</View>
+						</View>
+					</View>
+					<View id="imageSlideshow"></View>
+					<View class="lblClass">
+						<Label id="owner" />
+					</View>
+					<View id="ownerProfile">
+						<ImageView id="avatar" />
+						<Label id="userName"/>
+						<Label id="userLocation"/>
+						<View id="followButton" class="buttonUser">
+							<ImageView class="plus"/>
+							<Label id="follow" class="buttonLabel followLabel" text="L('follow')"/>
+						</View>
+						<View id="contactButton" class="buttonUser">
+							<Label class="buttonLabel" text="L('contact')"/>
+						</View>
+					</View>
+
+				</View>
+			</TableViewRow>
+		</TableView>
+	</View>
 </Alloy>

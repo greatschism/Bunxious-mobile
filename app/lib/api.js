@@ -607,6 +607,16 @@ api.getAllCountries = function(success, fail) {
 	httpRequest('country/find-all', 'GET', data, onSuccess, fail);
 };
 
+api.getStates = function(success, fail) {
+	var data = {};
+	
+	if (Alloy.Globals.currentUser) {
+		data.token = Alloy.Globals.currentUser.token;
+	}
+	httpRequest('State/get-states', 'GET', data, success, fail);
+};
+
+
 api.getOrders = function(success, fail) {
 
 	var orders = [{

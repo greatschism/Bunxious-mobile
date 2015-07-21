@@ -2,6 +2,7 @@ var args = arguments[0] || {};
 
 var genders = ['male','female','unsigned'];
 
+
 if (Alloy.Globals.currentUser != null) {
 
 	$.firstname.getField().value = Alloy.Globals.currentUser.user_info.firstname;
@@ -11,6 +12,10 @@ if (Alloy.Globals.currentUser != null) {
 	$.city.getField().value = Alloy.Globals.currentUser.user_info.city;
 	var index = Alloy.Globals.findIndexWithAttribute(Alloy.Globals.countryFilters,'iso_code_3',Alloy.Globals.currentUser.user_info.country_iso_code_3);
 	$.country.setSelectedIndex(index);
+	
+	 var stateIndex = Alloy.Globals.findIndexWithAttribute(Alloy.Globals.StateFilters,'iso_code_3',Alloy.Globals.currentUser.user_info.country_iso_code_3);
+	 $.state.setSelectedIndex(stateIndex);
+ 		
 	$.gender.setSelectedIndex(genders.indexOf(Alloy.Globals.currentUser.user_info.gender));
 	$.about.getField().value = Alloy.Globals.currentUser.user_info.about;
 	$.website.getField().value = Alloy.Globals.currentUser.user_info.website;

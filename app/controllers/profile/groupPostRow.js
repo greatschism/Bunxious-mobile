@@ -45,7 +45,7 @@ function createRow(avatar, name, text) {
 
 	var row = Ti.UI.createTableViewRow({
 		height : Ti.UI.SIZE,
-		selectionStyle : Titanium.UI.iPhone.TableViewCellSelectionStyle.NONE,
+		selectionStyle : Ti.UI.iPhone.TableViewCellSelectionStyle.NONE,
 		backgroundColor : 'transparent',
 	});
 

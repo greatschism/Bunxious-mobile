@@ -136,6 +136,31 @@ Alloy.Globals.findSizeById = function(id) {
 	return Alloy.Globals.sizeFilters[index];
 };
 
+// Get States
+Alloy.Globals.API.getStates(function(results) {
+	
+	Ti.API.info("States Result-------->"+results.Result);
+	Ti.API.info("States Result.Data--->"+JSON.stringify(results.Data));
+	Ti.API.info("states results------->"+ results.length);
+	
+	var items = [];
+	if(results.length){
+		for(var i in results.Data){
+			items.push({
+				"title" : results.Data[i].name,
+				"id" : results.Data[i].id,
+				"iso_code_3" : results.Data[i].iso_code_3
+			});
+		}
+	}
+
+	Alloy.Globals.StateFilters = JSON.parse(JSON.stringify(items));
+
+}, function(error) {
+
+});
+
+
 // Get Condition
 Alloy.Globals.API.getCondition(function(results) {
 
@@ -224,7 +249,7 @@ Alloy.Globals.uploadImage = function(callback){
 		
 		if(e.index === 0){
 			//Open Camera
-			Titanium.Media.showCamera({
+			Ti.Media.showCamera({
 				saveToPhotoGallery : true,
 
 				success : function(event) {
@@ -245,7 +270,7 @@ Alloy.Globals.uploadImage = function(callback){
 			});
 		} else if(e.index === 1){
 			//Open gallery
-			Titanium.Media.openPhotoGallery({
+			Ti.Media.openPhotoGallery({
 				success : function(event) {
 					var image = event.media;
 					Alloy.Globals.loading.show();

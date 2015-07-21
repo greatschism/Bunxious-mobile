@@ -35,7 +35,7 @@
 			</View>
 			
 			<Label id="comments" />
-			<TableView id="commentsTable" />
+			<View id="commentsTable" />
 			
 			<Label id="payment" />
 			<ImageView id="paypal"></ImageView>

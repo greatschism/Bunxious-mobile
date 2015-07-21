@@ -2,15 +2,13 @@ var args = arguments[0] || {};
 
 var pinObj = null,
     username = '',
-    avatarImage = '',
-    tableData = [];
+    avatarImage = '';
 
 function createRow(avatar, name, text) {
 
-	var row = Ti.UI.createTableViewRow({
+	var view = Ti.UI.createView({
 		height : Ti.UI.SIZE,
-		selectionStyle : Titanium.UI.iPhone.TableViewCellSelectionStyle.NONE,
-		backgroundColor : 'transparent',
+		backgroundColor : 'transparent'
 	});
 
 	var avatar = Ti.UI.createImageView({
@@ -22,7 +20,7 @@ function createRow(avatar, name, text) {
 		image : avatar
 	});
 
-	row.add(avatar);
+	view.add(avatar);
 
 	var name = Ti.UI.createLabel({
 		color : "#f26b1d",
@@ -34,7 +32,7 @@ function createRow(avatar, name, text) {
 		text : name
 	});
 
-	row.add(name);
+	view.add(name);
 
 	var text = Ti.UI.createLabel({
 		left : '50dp',
@@ -46,8 +44,8 @@ function createRow(avatar, name, text) {
 		color : '#34495e'
 	});
 
-	row.add(text);
-	return row;
+	view.add(text);
+	return view;
 }
 
 function displayPin() {
@@ -101,10 +99,8 @@ function displayPin() {
 			var userComments = pinObj.comments.Comments;
 			for (var i = 0,
 			    commentLen = userComments.length; i < commentLen; i++) {
-				tableData.push(createRow(userComments[i].avatar, userComments[i].firstname + ' ' + userComments[i].lastname, userComments[i].comment));
+				$.commentsTable.add(createRow(pinObj.user.avatar_medium.image, userComments[i].firstname + ' ' + userComments[i].lastname, userComments[i].comment));
 			}
-
-			$.commentsTable.setData(tableData);
 		}
 
 		Alloy.Globals.API.getUser(pinObj.user.id, function(result) {
@@ -228,8 +224,7 @@ Alloy.Globals.API.getCloset(args.user_id, function(result) {
 			user_id : args.user_id,
 			callback : function(callbackPin) {
 				args = JSON.parse(JSON.stringify(callbackPin));
-				tableData = [];
-				$.commentsTable.setData(tableData);
+				$.commentsTable.removeAllChildren();
 				displayPin();
 			}
 		}).getView());

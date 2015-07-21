@@ -268,9 +268,7 @@
 
 "#commentsTable": {
 	height: Titanium.UI.SIZE,
-	left: '15dp',
-	scrollable: false,
-	separatorStyle: Titanium.UI.iPhone.TableViewSeparatorStyle.NONE
+	left: 0
 }
 
 

@@ -282,5 +282,5 @@ Alloy.Globals.priceList = [{
  cost : '$50'
  },{
  title : '$100 or more',
- cost : ' $50'
+ cost : '$50'
  }];

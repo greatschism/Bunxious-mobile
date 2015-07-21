@@ -9,6 +9,9 @@
 			<View id="heartButton" class="buttonWrapper">
 				<ImageView id="heart" class="button" />
 			</View>
+			<View id="editButton" class="buttonWrapper">
+				<ImageView id="edit" class="button" />
+			</View>
 			<Label id="title" />
 			<Label id="description" />
 			<Label id="price" />

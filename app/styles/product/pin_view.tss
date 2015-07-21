@@ -4,7 +4,7 @@
 	// height: Ti.UI.SIZE,
 	// height : '900dp',
 	height: 'auto',
-	contentHeight: '3800px',
+	//contentHeight: '3800px',
 	backgroundColor: '#fff',
 	layout: 'vertical'
 }

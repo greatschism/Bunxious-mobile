@@ -16,8 +16,10 @@ for (var i in args.paypal.items) {
 	args.paypal.items[i].itemCount = args.paypal.items[i].quantity;
 	
 	delete args.paypal.items[i].item_name;
+	delete args.paypal.items[i].item_number;
 	delete args.paypal.items[i].amount;
 	delete args.paypal.items[i].quantity;
+	delete args.paypal.items[i].shipping;
 }
 
 // used for checkout prevent if there is no address selected
@@ -49,7 +51,7 @@ function addButtonToWindow() {
 		$.checkoutWrapper.remove(checkoutButton);
 		checkoutButton = null;
 	}
-
+	
 	checkoutButton = Paypal.createPaypalButton({
 		// NOTE: height/width only determine the size of the view that the button is embedded in - the actual button size
 		// is determined by the buttonStyle property!
@@ -67,13 +69,13 @@ function addButtonToWindow() {
 		textStyle : Paypal.PAYPAL_TEXT_PAY, // Causes the button's text to change from "Pay" to "Donate"
 
 		//appID : '<<<YOUR APP ID HERE>>>', // The appID issued by Paypal for your application; for testing, feel free to delete this property entirely.
-		paypalEnvironment : Paypal.PAYPAL_ENV_NONE, // Sandbox, None or Live
+		paypalEnvironment : Paypal.PAYPAL_ENV_NONE, // Sandbox, None or Live 
 
 		feePaidByReceiver : false,
 		enableShipping : false, // Whether or not to select/send shipping information
 
 		payment : {// The payment itself
-			paymentType : Paypal.PAYMENT_TYPE_HARD_GOODS, // The type of payment
+			paymentType : Paypal.PAYMENT_TYPE_GOODS, // The type of payment
 			subtotal : args.sub_total, // The total cost of the order, excluding tax and shipping
 			tax : 0,
 			shipping : shippingValue,

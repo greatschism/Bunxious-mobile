@@ -33,6 +33,10 @@
 				<View id="lineFour"></View>
 
 			</View>
+			
+			<Label id="comments" />
+			<TableView id="commentsTable" />
+			
 			<Label id="payment" />
 			<ImageView id="paypal"></ImageView>
 			<Label id="closet" />
@@ -60,11 +64,6 @@
 				<ImageView class="placeholderImage small"></ImageView> -->
 			</View>
 				
-				
-			
-			
-			
-			
 			<Label id="owner" />
 			<View id="ownerProfile">
 				<ImageView id="avatar" />

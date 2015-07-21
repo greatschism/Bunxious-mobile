@@ -252,6 +252,27 @@
 	backgroundColor: "#DADADA"
 }
 
+"#comments": {
+	top: '20dp',
+	text: '    COMMENTS',
+	width: '300dp',
+	height: '40dp',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '14dp'
+	},
+	left: 0,
+	backgroundColor: '#E4E7EA',
+	color: '#2E2E2F'
+}
+
+"#commentsTable": {
+	height: Titanium.UI.SIZE,
+	left: '15dp',
+	scrollable: false,
+	separatorStyle: Titanium.UI.iPhone.TableViewSeparatorStyle.NONE
+}
+
 
 "#payment": {
 	top: '20dp',

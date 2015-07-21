@@ -87,9 +87,8 @@
 
 "#itemValues": {
 	top: '10dp',
-	height: '80dp',
+	height: '120dp',
 	// backgroundColor: 'red',
-	layout: ''
 }
 
 "#brand": {
@@ -103,17 +102,17 @@
 }
 
 "#size": {
-	top: 0,
+	top: '40dp',
 	font: {
 		fontWeight: 'bold',
 		fontSize: '14dp'
 	},
-	left: '150dp',
+	left: 0,
 	color: '#666666'
 }
 
 "#condition": {
-	top: '40dp',
+	top: '80dp',
 	font: {
 		fontWeight: 'bold',
 		fontSize: '14dp'

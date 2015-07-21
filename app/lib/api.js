@@ -90,7 +90,7 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction, fil
 
 					errorFunction(e);
 				}
-				Ti.API.error(e);
+				Ti.API.error(endpoint, e);
 			}
 		} else {
 

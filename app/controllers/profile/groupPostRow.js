@@ -3,7 +3,7 @@ var args = arguments[0] || {};
 $.avatar.image = args.user_avatar;
 $.user.text = args.user_name;
 
-if(args.pin_image.length>0) {
+if(args.pin_image) {
 	// Has a Pin image
 	$.post_title.hide();
 	$.pin_img.show();
@@ -12,8 +12,6 @@ if(args.pin_image.length>0) {
 	// No Pin image
 	$.post_title.show();
 	$.pin_img.hide();
-	// setting the fontFamily in html 
-	$.post_title.html = '<style>a, span {font-family : HelveticaNeue; word-wrap : break-word;}</style><span>' + args.article + '</span>';
 }
 
 $.title.addOnReturn(function(event) {
@@ -45,7 +43,7 @@ function createRow(avatar, name, text) {
 
 	var row = Ti.UI.createTableViewRow({
 		height : Ti.UI.SIZE,
-		selectionStyle : Titanium.UI.iPhone.TableViewCellSelectionStyle.NONE,
+		selectionStyle : Ti.UI.iPhone.TableViewCellSelectionStyle.NONE,
 		backgroundColor : 'transparent',
 	});
 

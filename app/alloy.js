@@ -136,6 +136,31 @@ Alloy.Globals.findSizeById = function(id) {
 	return Alloy.Globals.sizeFilters[index];
 };
 
+// Get States
+Alloy.Globals.API.getStates(function(results) {
+	
+	Ti.API.info("States Result-------->"+results.Result);
+	Ti.API.info("States Result.Data--->"+JSON.stringify(results.Data));
+	Ti.API.info("states results------->"+ results.length);
+	
+	var items = [];
+	if(results.length){
+		for(var i in results.Data){
+			items.push({
+				"title" : results.Data[i].name,
+				"id" : results.Data[i].id,
+				"iso_code_3" : results.Data[i].iso_code_3
+			});
+		}
+	}
+
+	Alloy.Globals.StateFilters = JSON.parse(JSON.stringify(items));
+
+}, function(error) {
+
+});
+
+
 // Get Condition
 Alloy.Globals.API.getCondition(function(results) {
 
@@ -224,7 +249,7 @@ Alloy.Globals.uploadImage = function(callback){
 		
 		if(e.index === 0){
 			//Open Camera
-			Titanium.Media.showCamera({
+			Ti.Media.showCamera({
 				saveToPhotoGallery : true,
 
 				success : function(event) {
@@ -245,7 +270,7 @@ Alloy.Globals.uploadImage = function(callback){
 			});
 		} else if(e.index === 1){
 			//Open gallery
-			Titanium.Media.openPhotoGallery({
+			Ti.Media.openPhotoGallery({
 				success : function(event) {
 					var image = event.media;
 					Alloy.Globals.loading.show();
@@ -268,19 +293,24 @@ Alloy.Globals.uploadImage = function(callback){
 
 Alloy.Globals.loading = Alloy.createWidget("nl.fokkezb.loading");
 
-Alloy.Globals.priceList = [{
+Alloy.Globals.priceListOptions = [{
  title : '$0 - $10',
- cost : '10 $'
+ min : '0',
+ max: '10'
  }, {
  title : '$10 - $20',
- cost : '20 $'
+ min : '10',
+ max: '20'
  }, {
  title : '$20 - $50',
- cost : '50 $'
+ min : '20',
+ max: '50'
  }, {
  title : '$50 - $100',
- cost : '50 $'
+ min : '50',
+ max: '100'
  },{
  title : '$100 or more',
- cost : '50 $'
+ min : '100',
+ max: '9999'
  }];

@@ -36,3 +36,7 @@ $.heartButton.addEventListener('click', function() {
 		}
 	});
 }); 
+
+$.editButton.addEventListener('click', function() {
+	Alloy.Globals.openWindow('product/add_view', args, true);
+});

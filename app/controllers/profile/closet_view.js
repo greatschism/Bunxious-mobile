@@ -30,21 +30,28 @@ var user_id = args.user_id || Alloy.Globals.currentUser.user_info.id;
 
 function createFilter(list, label, filterType) {
 
-	var items = [];
+	var items = [],min = [],max =[];
 
 	for (i in list) {
 		items.push(list[i].title);
+		min.push(list[i].min);
+		max.push(list[i].max);
 	}
 
 	var popupDialog = Alloy.createWidget('ti.ux.popup.list', 'widget', {
 		closeButton : true,
 		selectable : true,
 		options : items,
+		min : min,
+		max : max
 	});
 
 	popupDialog.getView('table').addEventListener('click', function(e) {
 
 		label.text = e.row.data.title;
+		var min = e.row.data.min;
+		var max = e.row.data.max;
+		Ti.API.info('e.row.data-------> ' + JSON.stringify(e.row.data));
 		popupDialog.hide();
 
 		// Update filters []
@@ -76,9 +83,8 @@ function createFilter(list, label, filterType) {
 
 		}
 		else if (filterType === "price") {
-
-			filters['filters[price_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
-
+			
+			filters['filters[price]'] = min + '&filters[price]='+max;
 		}
 
 		// Call the service
@@ -99,7 +105,9 @@ function createFilter(list, label, filterType) {
 			Alloy.Globals.loading.hide();
 
 		}, function(error) {
-
+			alert('No Data Found');
+			var productArray = [];
+			$.closetTable.setData(productArray);
 			Alloy.Globals.loading.hide();
 		});
 
@@ -226,8 +234,10 @@ function createFilter(list, label, filterType) {
 	$.priceFilter.addEventListener('click', function() {
 
 		
-				Alloy.Globals.priceFilters = JSON.parse(JSON.stringify(Alloy.Globals.priceList));
-				createFilter(Alloy.Globals.priceFilters, $.priceLabel, "price");
+				Alloy.Globals.priceFilters = JSON.parse(JSON.stringify(Alloy.Globals.priceListOptions));
+				//createFilter(Alloy.Globals.priceFilters, $.priceLabel, "price");
+				createFilter(Alloy.Globals.priceListOptions, $.priceLabel, "price");
+				
 	});
 // }
 

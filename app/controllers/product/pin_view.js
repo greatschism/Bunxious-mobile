@@ -64,9 +64,10 @@ function displayPin() {
 		} else {
 			$.price.text = '$' + pinObj.price + ' ' + 'USD';
 		}
-
-		Alloy.Globals.API.getSizesForPin(pinObj.id, function(result) {
-
+		
+		Alloy.Globals.API.getSizesForPin(pinObj.id, function(result){
+			
+			$.size.text = 'SIZE: ' + result.SizeIfo[0].name;
 		}, function(error) {
 
 		});

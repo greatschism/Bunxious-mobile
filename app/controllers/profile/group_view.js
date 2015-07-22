@@ -2,30 +2,79 @@ var args = arguments[0] || {};
 var moment = require('alloy/moment');
 var group_id = args.group.id;
 var group_name = args.group.name;
-var filters = {};
+var filters = {},
+    uploadedImage = null;
 
-$.title.addOnReturn(function(event) {
-
-	Alloy.Globals.API.addPost(event.value, group_id, function(result) {
-
+function postInGroup(){
+	Alloy.Globals.loading.show();
+	Alloy.Globals.API.addPost($.title.getValue().trim(), group_id, uploadedImage, function(result) {
+		
 		if (result.result) {
-			$.postsTable.insertRowBefore(0, Alloy.createController('profile/groupPostRow', {
-				article : event.value,
+			
+			var data = {
+				article : $.title.getValue().trim(),
 				user_avatar : Alloy.Globals.currentUser.user_info.avatar_medium.image,
 				user_name : Alloy.Globals.currentUser.user_info.firstname + ' ' + Alloy.Globals.currentUser.user_info.lastname
-			}).getView());
+			};
+			
+			if(uploadedImage !== null){
+				data.pin_image = $.postImage.image;
+			}
+			
+			$.postsTable.insertRowBefore(0, Alloy.createController('profile/groupPostRow', data).getView());
 			$.title.setValue('');
+			uploadedImage = null;
+			$.postImage.image = null;
+			$.postImage.visible = false;
+			Alloy.Globals.loading.hide();
+			
 		} else {
 
 			if (result.message) {
 
 				alert(result.message);
+				Alloy.Globals.loading.hide();
 			}
 		}
 	}, function(error) {
 		//TBD
 		alert('There was a communication problem, please check your intenet connection and try again.');
 	});
+}
+
+$.cameraIcon.addEventListener('click', function() {
+	
+	var image = Alloy.Globals.uploadImage(function(image) {
+		Alloy.Globals.loading.show();
+		
+		Alloy.Globals.API.feedUploadImage(image, function(result) {
+			uploadedImage = result.file;
+			$.postImage.image = image;
+			$.postImage.visible = true;
+
+			Alloy.Globals.loading.hide();
+		}, function(error) {
+			Alloy.Globals.loading.hide();
+		});
+	});
+});
+
+$.postInGroup.addEventListener('click', function(){
+	
+	if($.title.getValue().trim() === ""){
+		return;
+	}
+	
+	postInGroup();
+});
+
+$.title.addOnReturn(function() {
+	
+	if($.title.getValue().trim() === ""){
+		return;
+	}
+	
+	postInGroup();
 });
 
 var posts = [];

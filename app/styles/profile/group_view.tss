@@ -16,6 +16,27 @@
 	width: '300dp'
 }
 
+"#cameraIcon": {
+	left: 0,
+	height: '35dp',
+	widht: '35dp'
+}
+
+"#postImage": {
+	left: '45dp',
+	height: '60dp',
+	width: '60dp',
+	visible: false
+}
+
+"#postInGroup": {
+	color : 'white',
+	right : 10,
+	left : 10,
+	top : 5,
+	height : '34dp',
+	backgroundColor : '#62949b'
+}
 
 "#postsTable": {
 	width: Ti.UI.FILL,

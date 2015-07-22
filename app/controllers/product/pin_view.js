@@ -23,6 +23,7 @@ function displayPin() {
 		
 		Alloy.Globals.API.getSizesForPin(pinObj.id, function(result){
 			
+			$.size.text = 'SIZE: ' + result.SizeIfo[0].name;
 		}, function(error) {
 			
 		});

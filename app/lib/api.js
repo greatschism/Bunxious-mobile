@@ -90,7 +90,7 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction, fil
 
 					errorFunction(e);
 				}
-				Ti.API.error(e);
+				Ti.API.error(endpoint, e);
 			}
 		} else {
 
@@ -509,13 +509,28 @@ api.addUserToGroup = function(group_id, user_id, decision, success, fail) {
 	httpRequest('group/request', 'POST', data, success, fail);
 };
 
-api.addPost = function(message, id, success, fail) {
+api.feedUploadImage = function(image, success, fail) {
+
+	data = {
+		token : Alloy.Globals.currentUser.token,
+		file : image
+	};
+
+	httpRequest('upload-img/upload', 'POST', data, success, fail, "media");
+
+};
+
+api.addPost = function(message, id, image, success, fail) {
 
 	var data = {
 		group_id : id,
 		post_text : message,
 		token : Alloy.Globals.currentUser.token
 	};
+	
+	if(image){
+		data.attachment = image;
+	}
 
 	httpRequest('feed/post', 'POST', data, success, fail);
 };

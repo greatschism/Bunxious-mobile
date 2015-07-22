@@ -2,18 +2,19 @@ var args = arguments[0] || {};
 
 $.avatar.image = args.user_avatar;
 $.user.text = args.user_name;
-$.post_title.show();
-// setting the fontFamily in html
-$.post_title.html = '<style>a, span {font-family : HelveticaNeue; word-wrap : break-word;}</style><span>' + args.article + '</span>';
 
-if (args.pin_image) {
+if(args.pin_image) {
 	// Has a Pin image
+	$.post_title.hide();
 	$.pin_img.show();
 	$.pin_img.image = args.pin_image;
 } else {
 	// No Pin image
+	$.post_title.show();
 	$.pin_img.hide();
 	$.pin_img.setHeight(0);
+	// setting the fontFamily in html 
+	$.post_title.html = '<style>a, span {font-family : HelveticaNeue; word-wrap : break-word;}</style><span>' + args.article + '</span>';
 }
 
 $.title.addOnReturn(function(event) {

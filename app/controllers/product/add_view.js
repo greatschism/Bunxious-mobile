@@ -1,8 +1,8 @@
 var args = arguments[0] || {};
 
 var gallery = [];
-$.tfTitle.value = args.title;
-$.tfDesc.value = args.description;
+$.tfTitle.value = args.pin.title;
+$.tfDesc.value = args.pin.description;
 
 $.category.addEventListener('click', function() {
 	

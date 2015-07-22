@@ -295,22 +295,22 @@ Alloy.Globals.loading = Alloy.createWidget("nl.fokkezb.loading");
 
 Alloy.Globals.priceListOptions = [{
  title : '$0 - $10',
- min : 0,
- max: 10
+ min : '0',
+ max: '10'
  }, {
  title : '$10 - $20',
- min : 10,
- max: 20
+ min : '10',
+ max: '20'
  }, {
  title : '$20 - $50',
- min : 20,
- max: 50
+ min : '20',
+ max: '50'
  }, {
  title : '$50 - $100',
- min : 50,
- max: 100
+ min : '50',
+ max: '100'
  },{
  title : '$100 or more',
- min : 100,
- max: 9999
+ min : '100',
+ max: '9999'
  }];

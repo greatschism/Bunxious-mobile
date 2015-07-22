@@ -4,6 +4,50 @@ var pinObj = null,
     username = '',
     avatarImage = '';
 
+function createRow(avatar, name, text) {
+
+	var view = Ti.UI.createView({
+		height : Ti.UI.SIZE,
+		backgroundColor : 'transparent'
+	});
+
+	var avatar = Ti.UI.createImageView({
+		left : '10dp',
+		top : '10dp',
+		width : '30dp',
+		height : '30dp',
+		borderRadius : '2dp',
+		image : avatar
+	});
+
+	view.add(avatar);
+
+	var name = Ti.UI.createLabel({
+		color : "#f26b1d",
+		left : '50dp',
+		top : '10dp',
+		font : {
+			fontSize : '13dp'
+		},
+		text : name
+	});
+
+	view.add(name);
+
+	var text = Ti.UI.createLabel({
+		left : '50dp',
+		top : '25dp',
+		font : {
+			fontSize : '13dp'
+		},
+		text : text,
+		color : '#34495e'
+	});
+
+	view.add(text);
+	return view;
+}
+
 function displayPin() {
 
 	Ti.API.info('args: ' + JSON.stringify(args));
@@ -25,18 +69,19 @@ function displayPin() {
 			
 			$.size.text = 'SIZE: ' + result.SizeIfo[0].name;
 		}, function(error) {
-			
+
 		});
 
 		var brand = Alloy.Globals.findBrandById(pinObj.brand_id);
 		//var size = Alloy.Globals.findSizeById(pinObj.size_id);
 		var condition = Alloy.Globals.findConditionById(pinObj.condition_id);
-		
-		$.brand.text = 'BRAND: ' + brand.title; 
+
+		$.brand.text = 'BRAND: ' + brand.title;
 		//$.size.text = 'SIZE: ' + size.title;
 		$.condition.text = 'CONDITION: ' + condition.title;
 		$.description.value = 'Description: ' + pinObj.description;
-		$.shipping.text = '    SHIPPING FROM United States';// + pinObj.from;
+		$.shipping.text = 'SHIPPING FROM United States';
+		// + pinObj.from;
 
 		// When shipping info isn't available
 		$.shipToOut.text = '';
@@ -48,6 +93,14 @@ function displayPin() {
 				$.shipToOut.text = 'United States';
 				$.shipCostOut.text = '$' + pinObj.shipping[i].price + ' USD';
 				$.shipWithOut.text = '$' + pinObj.shipping[i].multiple_price + ' USD';
+			}
+		}
+
+		if (pinObj.comments.Comments) {
+			var userComments = pinObj.comments.Comments;
+			for (var i = 0,
+				commentLen = userComments.length; i < commentLen; i++) {
+				$.commentsView.add(createRow(pinObj.user.avatar_medium.image, userComments[i].firstname + ' ' + userComments[i].lastname, userComments[i].comment));
 			}
 		}
 
@@ -89,7 +142,7 @@ displayPin();
 $.boxButton.addEventListener('click', function() {
 
 	if (Alloy.Globals.currentUser) {
-		
+
 		if (pinObj && Alloy.Globals.currentUser.boards && Alloy.Globals.currentUser.boards.length > 0) {
 
 			Alloy.Globals.openWindow('product/pin_repin', pinObj, true);
@@ -172,6 +225,7 @@ Alloy.Globals.API.getCloset(args.user_id, function(result) {
 			user_id : args.user_id,
 			callback : function(callbackPin) {
 				args = JSON.parse(JSON.stringify(callbackPin));
+				$.commentsView.removeAllChildren();
 				displayPin();
 			}
 		}).getView());

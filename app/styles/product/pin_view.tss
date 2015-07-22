@@ -9,13 +9,25 @@
 	layout: 'vertical'
 }
 
+"HeaderView": {
+	height: Titanium.UI.SIZE
+}
+
+"#tableHeader": {
+	left: '10dp',
+	right: '10dp',
+	width: '300dp',
+	height: Titanium.UI.SIZE,
+	layout: 'vertical'
+}
+
 "#title": {
 	color: '#2e2e2f',
 	font: {
 		fontSize: '14dp',
 		fontWeight: 'bold'
 	},
-	left: 0,
+	left: '10dp',
 	top: '10dp'
 }
 
@@ -30,14 +42,15 @@
 }
 
 "#imageElements":{
-	width: '100%',
+	width: Titanium.UI.FILL,
 	height: '400dp',
 	top: '25dp',
-	left: 0
+	left: '10dp',
+	right: '10dp'
 }
 
 "#pinImage": {
-	width: '100%',
+	width: Titanium.UI.FILL,
 	height: '400dp',
 	left: 0
 }
@@ -86,6 +99,7 @@
 
 
 "#itemValues": {
+	left: 0,
 	top: '10dp',
 	height: '120dp',
 	// backgroundColor: 'red',
@@ -135,6 +149,7 @@
 }
 
 "#description": {
+	left: 0,
 	top: '20dp',
 	width: '300dp',
 	height: Ti.UI.SIZE,
@@ -142,25 +157,32 @@
 		fontWeight: 'bold',
 		fontSize: '14dp'
 	},
-	left: 0,
 	color: '#666666',
 	touchEnabled: false
 }
 
+
+".lblClass": {
+	top: '20dp',
+	backgroundColor: '#E4E7EA',
+	height: '40dp'
+}
+
+
 "#shipping": {
-	left : 0,
-	top : '20dp',
-	width : '300dp',
-	height : '40dp',
-	color : '#2E2E2F',
-	backgroundColor : '#E4E7EA',
-	font : {
-		fontSize : '14dp',
-		fontWeight : 'bold'
-	}
+	width: Titanium.UI.FILL,
+	height: '40dp',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '14dp'
+	},
+	left: '15dp',
+	backgroundColor: '#E4E7EA',
+	color: '#2E2E2F'
 }
 
 "#shippingDetails": {
+	left: 0,
 	top: '20dp',
 	height: '65dp'
 }
@@ -218,8 +240,6 @@
 }
 
 
-
-
 "#shipCostOut": {
 	top: '40dp',
 	left: '100dp',
@@ -229,7 +249,6 @@
 	},
 	color: '#636363'
 }
-
 
 
 "#shipWithOut": {
@@ -243,7 +262,6 @@
 }
 
 
-
 "#lineFour": {
 	top: '60dp',
 	height: '2px',
@@ -251,17 +269,36 @@
 	backgroundColor: "#DADADA"
 }
 
-
-"#payment": {
-	top: '20dp',
-	text: '    PAYMENT METHODS',
-	width: '300dp',
+"#comments": {
+	top: 0,
+	text: 'COMMENTS',
+	width: Titanium.UI.FILL,
 	height: '40dp',
 	font: {
 		fontWeight: 'bold',
 		fontSize: '14dp'
 	},
-	left: 0,
+	left: '15dp',
+	backgroundColor: '#E4E7EA',
+	color: '#2E2E2F'
+}
+
+"#commentsView": {
+	height: Titanium.UI.SIZE,
+	left: 0
+}
+
+
+"#payment": {
+	top: 0,
+	text: 'PAYMENT METHODS',
+	width: Titanium.UI.FILL,
+	height: '40dp',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '14dp'
+	},
+	left: '15dp',
 	backgroundColor: '#E4E7EA',
 	color: '#2E2E2F'
 }
@@ -275,33 +312,32 @@
 }
 
 "#closet": {
-	top: '20dp',
-	text: '    CLOSET',
-	width: '300dp',
+	top: 0,
+	text: 'CLOSET',
+	width: Titanium.UI.FILL,
 	height: '40dp',
 	font: {
 		fontWeight: 'bold',
 		fontSize: '14dp'
 	},
-	left: 0,
+	left: '15dp',
 	backgroundColor: '#E4E7EA',
 	color: '#2E2E2F'
 }
 
 "#owner": {
-	top: '20dp',
-	text: '    OWNER',
-	width: '300dp',
+	top: 0,
+	text: 'OWNER',
+	width: Titanium.UI.FILL,
 	height: '40dp',
 	font: {
 		fontWeight: 'bold',
 		fontSize: '14dp'
 	},
-	left: 0,
+	left: '15dp',
 	backgroundColor: '#E4E7EA',
 	color: '#2E2E2F'
 }
-
 
 
 "#lineOne": {
@@ -322,45 +358,44 @@
 //	CLOSET TSS
 //
 
-"#closetView" : {
-	top : '20dp',
-	layout : 'vertical',
+"#closetView": {
+	top: '20dp',
+	layout: 'vertical',
 	// height : '160dp',
-	height : Ti.UI.SIZE,
-	width : '300dp'
+	height: Ti.UI.SIZE,
+	width: '300dp'
 	// backgroundColor : 'red'
 }
 
-"#closetAvatar" : {
-	top : 0,
-	left : 0,
-	height : '60dp'
+"#closetAvatar": {
+	top: 0,
+	left: 0,
+	height: '60dp'
 }
 
-"#closetText" : {
+"#closetText": {
 	top: '10dp',
 	// left : '70dp',
-	layout : 'vertical',
-	height: Titanium.UI.SIZE,
-	// borderColor: 'yellow'
+	layout: 'vertical',
+	height: Titanium.UI.SIZE
 }
 
-"#closetTitle" : {
-	top : 0,
-	left : 0,
+"#closetTitle": {
+	top: 0,
+	left: 0,
 	// text : 'Closet Boutique Closet',
 	font: {
 		fontWeight: 'bold',
 		fontSize: '14dp'
 	},
-	color : '#F26B1D',
+	color: '#F26B1D'
 }
 
-"#closetDescription" : {
+"#closetDescription": {
 	// value : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non mattis lectus. Nunc et mattis sapien. Praesent ac metus ac dolor laoreet vulputate ac eu lacus.',
-	top : '5dp',
-	left : 0,
-	height : Ti.UI.SIZE,
+	top: '5dp',
+	left: 0,
+	height: Ti.UI.SIZE,
 	// width : '230dp',
 	width: Ti.UI.SIZE,
 	font: {
@@ -371,47 +406,47 @@
 	touchEnabled: false
 }
 
-"#closetFav" : {
-	top : '10dp',
-	left : 0,
-	layout : 'horizontal',
-	height : Ti.UI.SIZE
+"#closetFav": {
+	top: '10dp',
+	left: 0,
+	layout: 'horizontal',
+	height: Ti.UI.SIZE
 }
 
-".closetFavourite" : {
+".closetFavourite": {
 	font: {
 		fontWeight: 'bold',
 		fontSize: '10dp'
 	},
-	width : '100dp',
-	color : '#F26B1D',
+	width: '100dp',
+	color: '#F26B1D',
 	// left : '15dp',
-	height : Ti.UI.SIZE
+	height: Ti.UI.SIZE
 }
 
-"#closetAdd" : {
-	text : 'Add closet to favorites'
+"#closetAdd": {
+	text: 'Add closet to favorites'
 }
 
-"#closetSee" : {
-	text : 'See who favorites this item'
+"#closetSee": {
+	text: 'See who favorites this item'
 }
 
 
-"#imageSlideshow" :{
-	top : '5dp',
-	layout : 'horizontal',
+"#imageSlideshow":{
+	top: '5dp',
+	layout: 'horizontal',
 	// backgroundColor : 'yellow',
-	height : Titanium.UI.SIZE
+	height: Titanium.UI.SIZE
 }
 
-".placeholderImage" : {
-	image : 'http://i.imgur.com/AUIomGV.jpg'
+".placeholderImage": {
+	image: 'http://i.imgur.com/AUIomGV.jpg'
 }
 
-".small" : {
-	left : '10dp',
-	height : '50dp',
+".small": {
+	left: '10dp',
+	height: '50dp',
 	width: '50dp'
 }
 

@@ -60,6 +60,7 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction, fil
 	if (data && method == 'GET') {
 
 		url = url + '?' + queryString(data);
+
 	}
 
 	var xhr = Ti.Network.createHTTPClient();

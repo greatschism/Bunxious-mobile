@@ -5,10 +5,6 @@ $.avatar.image = args.pin.avatar;
 $.title.text = args.pin.title;
 $.description.text = args.pin.description;
 $.price.text = String.formatCurrency(args.pin.price);
-var data = {
-	"title": $.title.text,
-	"description" :$.description.text
-};
 
 
 $.pinImage.addEventListener('click', function(e) {
@@ -42,5 +38,5 @@ $.heartButton.addEventListener('click', function() {
 }); 
 
 $.editButton.addEventListener('click', function() {
-	Alloy.Globals.openWindow('product/add_view', data, true);
+	Alloy.Globals.openWindow('product/add_view', args, true);
 });

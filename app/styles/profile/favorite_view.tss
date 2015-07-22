@@ -33,7 +33,10 @@
 
 ".table" : {
 	backgroundColor : 'transparent',
-	separatorColor : 'transparent',
 	rowHeight : '480dp',
-	bottom : 0
+	bottom : 0,
+	separatorInsets: {
+		left: 0,
+		right: 0
+	}
 }

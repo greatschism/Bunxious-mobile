@@ -1,7 +1,6 @@
 var args = arguments[0] || {};
 
 var pinObj = null,
-    pinUserId = '',
     username = '',
     avatarImage = '';
 
@@ -24,6 +23,7 @@ function displayPin() {
 		
 		Alloy.Globals.API.getSizesForPin(pinObj.id, function(result){
 			
+			$.size.text = 'SIZE: ' + result.SizeIfo[0].name;
 		}, function(error) {
 			
 		});
@@ -36,7 +36,7 @@ function displayPin() {
 		//$.size.text = 'SIZE: ' + size.title;
 		$.condition.text = 'CONDITION: ' + condition.title;
 		$.description.value = 'Description: ' + pinObj.description;
-		$.shipping.text = '    SHIPPING FROM ' + pinObj.from;
+		$.shipping.text = '    SHIPPING FROM United States';// + pinObj.from;
 
 		// When shipping info isn't available
 		$.shipToOut.text = '';
@@ -66,8 +66,6 @@ function displayPin() {
 
 				$.userLocation.text = result.city || result.country_iso_code_3;
 			}
-
-			// pinUserId = result.id;
 
 			if (!Alloy.Globals.currentUser || Alloy.Globals.currentUser.user_info.id != result.id) {
 				$.followButton.visible = true;

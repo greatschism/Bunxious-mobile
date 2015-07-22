@@ -12,9 +12,6 @@ if(args.pin_image) {
 	// No Pin image
 	$.post_title.show();
 	$.pin_img.hide();
-	$.pin_img.setHeight(0);
-	// setting the fontFamily in html 
-	$.post_title.html = '<style>a, span {font-family : HelveticaNeue; word-wrap : break-word;}</style><span>' + args.article + '</span>';
 }
 
 $.title.addOnReturn(function(event) {

@@ -83,13 +83,8 @@ function createFilter(list, label, filterType) {
 
 		}
 		else if (filterType === "price") {
-
-			filters['filters[price]'] = min;
-			filters['filters[price]'] = max;
-			//url = "http://bunxious.com/rest/pin/find-by?limit=20&filters[user_id]=2190&filters[price]=20&filters[price]=50&token=133acadea60e2d0f3707f3620a1d8aac";
-
-
-
+			
+			filters['filters[price]'] = min + '&filters[price]='+max;
 		}
 
 		// Call the service

@@ -20,15 +20,15 @@ function initUI(){
 	}else if(args.options){
 		var selectedValue = args.value || null;
 		var options = args.options;
-		var min = args.min;
-		var max = args.max;
+		var min = args.min || null;
+		var max = args.max || null;
 		var selectable = args.selectable || false;
 		var value = $.value;
 		var icon;
 		
 		for(var i = 0, j = options.length; i < j; i++){
-			icon = selectable && value == i ? 'fa-check-circle':undefined;
-			rows.push(Alloy.createWidget('ti.ux.rowitem', 'widget', {title:options[i],min:min[i],max:max[i], hasChildren:args.selectable, icon:icon}).getView()); 
+			icon = selectable && value == i ? 'fa-check-circle' : undefined;
+			rows.push(Alloy.createWidget('ti.ux.rowitem', 'widget', {title:options[i], min : min && min[i] ? min[i] : null, max : max && max[i] ? max[i] : null, hasChildren:args.selectable, icon:icon}).getView()); 
 		}
 		
 	}

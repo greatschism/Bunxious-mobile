@@ -54,7 +54,7 @@
 	<string name="description">Description</string>
 	<string name="category">Category</string>
 	<string name="closet_selection">Closet section</string>
-	<string name="post_in_groups">Post in groups</string>
+	<string name="add_to_chest">Add to Treasure Chest</string>
 	<string name="upload_image">Upload Image</string>
 	<string name="no_image">No Image</string>
 	<string name="item_variations">Item Variations</string>

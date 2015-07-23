@@ -1,10 +1,10 @@
 <Alloy>
 	<View class="container">
 		<TableView backgroundColor="#eee" class="tableview-form">
-			<Widget src="ti.ux.forms.row.text" inputType="textarea" title="Description" id="description" />
+			<Widget src="ti.ux.forms.row.text" inputType="text" title="Title" id="description" />
 			<TableViewRow>
 				<View id="boards" class="tabChange">
-					<Label id="boardsTitle" idValue="" class="tabTitle" text="L('post_in_groups').toUpperCase()"/>
+					<Label id="boardsTitle" idValue="" class="tabTitle" text="L('add_to_chest').toUpperCase()"/>
 					<View class="separator"/>
 					<View class="dropdown">
 						<ImageView class="downArrow"/>

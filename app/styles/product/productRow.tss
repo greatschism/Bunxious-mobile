@@ -37,7 +37,7 @@
 }
 
 "#boxButton" : {
-	right : '75dp',
+	right : '40dp',
 }
 
 "#box" : {
@@ -45,7 +45,7 @@
 }
 
 "#heartButton" : {
-	right : '40dp',
+	right : '5dp',
 }
 
 "#heart" : {

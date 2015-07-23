@@ -3,7 +3,7 @@ var moment = require('alloy/moment');
 
 $.avatar.image = args.image;
 $.username.text = args.fullName;
-$.ago.text = moment(args.date).fromNow();
+$.ago.text = moment(args.date, 'DD.MM.YYYY HH:mm:ss').fromNow();
 $.text.text = args.title;
 
 Ti.API.error(args);

@@ -1,6 +1,3 @@
-//
-//
-//
 
 "#orderItems": {
 	top: 0,
@@ -172,5 +169,17 @@
 	width : Ti.UI.FILL,
 	height : Ti.UI.SIZE,
 	layout : 'vertical'
+}
+
+"#contactButton" : {
+	left: 0,
+	width: '80dp',
+	height: '25dp',
+	font: {
+		fontWeight: 'bold',
+		fontSize: '14dp'
+	},
+	color: '#fff',
+	backgroundColor: '#f26b1d'
 }
 

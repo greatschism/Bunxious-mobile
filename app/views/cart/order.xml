@@ -8,6 +8,7 @@
 			<ImageView id="close"></ImageView>
 		</View>
 		<View id="container" />
+		<Button id="contactButton" title="Contact" />
 		<View id="addressFilter" class="filterWrapper topRow firstElement">
 			<Label id="addressLabel" class="filterLabel" text="SELECT AN ADDRESS" />
 			<View class="filterSeparator" />

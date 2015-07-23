@@ -152,6 +152,25 @@ for (var i in args.maindata) {
 	$.container.add(Alloy.createController('cart/item', args.maindata[i]).getView());
 }
 
+$.contactButton.addEventListener('click', function(e){
+	
+	Alloy.Globals.loading.show();
+
+	Alloy.Globals.API.getUser(args.maindata[0].user.user_id, function(user) {
+
+		var data = {
+			to_user_id : user.id,
+			name : user.firstname + " " + user.lastname,
+			avatar : user.avatar_small.image
+		};
+
+		Alloy.Globals.openWindow('profile/message_view', data, true);
+	}, function() {
+		
+		Alloy.Globals.loading.hide();
+	});
+});
+
 $.orderFromName.text = args.maindata[0].orderFrom;
 
 $.orderItemTotal.text = "Item total";

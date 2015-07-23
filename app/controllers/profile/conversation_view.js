@@ -15,7 +15,6 @@ Alloy.Globals.API.getMessageList(function(results) {
 
 		tableData.push(Ti.UI.createTableViewRow({
 			title : 'No conversations yet.',
-			
 		}));
 	}
 

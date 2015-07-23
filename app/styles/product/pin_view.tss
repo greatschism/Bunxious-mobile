@@ -285,9 +285,13 @@
 
 "#commentsView": {
 	height: Titanium.UI.SIZE,
-	left: 0
+	left: 0,
+	layout: 'vertical'
 }
 
+"#commentTxt": {
+	top: '10dp'
+}
 
 "#payment": {
 	top: 0,

@@ -64,9 +64,9 @@ function displayPin() {
 		} else {
 			$.price.text = '$' + pinObj.price + ' ' + 'USD';
 		}
-		
-		Alloy.Globals.API.getSizesForPin(pinObj.id, function(result){
-			
+
+		Alloy.Globals.API.getSizesForPin(pinObj.id, function(result) {
+
 			$.size.text = 'SIZE: ' + result.SizeIfo[0].name;
 		}, function(error) {
 
@@ -99,7 +99,7 @@ function displayPin() {
 		if (pinObj.comments.Comments) {
 			var userComments = pinObj.comments.Comments;
 			for (var i = 0,
-				commentLen = userComments.length; i < commentLen; i++) {
+			    commentLen = userComments.length; i < commentLen; i++) {
 				$.commentsView.add(createRow(pinObj.user.avatar_medium.image, userComments[i].firstname + ' ' + userComments[i].lastname, userComments[i].comment));
 			}
 		}
@@ -172,6 +172,32 @@ $.heartButton.addEventListener('click', function() {
 		}
 	} else {
 		alert('Please login first.');
+	}
+});
+
+$.commentTxt.addOnReturn(function(event) {
+
+	if ($.commentTxt.getValue().trim() !== "") {
+
+		Alloy.Globals.API.addPinComment(event.value, pinObj.id, function(result) {
+
+			if (result.result) {
+
+				$.commentsView.add(createRow(Alloy.Globals.currentUser.user_info.avatar_medium.image, Alloy.Globals.currentUser.user_info.firstname + ' ' + Alloy.Globals.currentUser.user_info.lastname, event.value));
+				$.commentsView.animate({
+					height : Ti.UI.SIZE
+				});
+				$.commentTxt.setValue('');
+			} else {
+
+				if (result.message) {
+
+					alert(result.message);
+				}
+			}
+		}, function() {
+			//TBD
+		});
 	}
 });
 

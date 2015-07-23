@@ -595,6 +595,16 @@ api.getCloset = function(user_id, success, fail) {
 
 };
 
+api.addPinComment = function(message, pinId, success, fail){
+	var data = {
+		pin_id : pinId,
+		comment : message,
+		token : Alloy.Globals.currentUser.token
+	};
+
+	httpRequest('storesettings/addcomment', 'POST', data, success, fail);
+};
+
 api.getAllCountries = function(success, fail) {
 
 	var data = {};

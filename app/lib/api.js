@@ -75,13 +75,6 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction, fil
 
 				Ti.API.info(endpoint, this.responseText);
 				
-				// ## bypass the error parameter with success message from this endpoint. Needs to be removed after the api is fixed
-				if (endpoint == "store/add") {
-					
-					successFunction(responseJSON);
-					return;
-				}
-
 				if (responseJSON && !responseJSON.error) {
 
 					if (successFunction) {

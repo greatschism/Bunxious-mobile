@@ -243,14 +243,7 @@ $.cart.addEventListener('click', function() {
 	
 	Alloy.Globals.API.addToCart(args.pin_id, function(result) {
 		
-		if (result.error != "Product addeed in cart") {
-			
-			alert('There was an error while adding the product to your cart.');
-		}
-		else {
-			
-			alert('Product successfully added to your cart.');
-		}
+		alert('Product successfully added to your cart.');
 		Alloy.Globals.loading.hide();
 	}, function(error) {
 		

@@ -24,7 +24,7 @@ if (Alloy.Globals.currentUser != null) {
 	var index = Alloy.Globals.findIndexWithAttribute(Alloy.Globals.countryFilters,'iso_code_3',Alloy.Globals.currentUser.user_info.country_iso_code_3);
 	$.country.setSelectedIndex(index);
 	
-	 var stateIndex = Alloy.Globals.findIndexWithAttribute(Alloy.Globals.StateFilters,'iso_code_3',Alloy.Globals.currentUser.user_info.country_iso_code_3);
+	 var stateIndex = Alloy.Globals.findIndexWithAttribute(Alloy.Globals.StateFilters,'code',Alloy.Globals.currentUser.user_info.state);
 	 $.state.setSelectedIndex(stateIndex);
  		
 	$.gender.setSelectedIndex(genders.indexOf(Alloy.Globals.currentUser.user_info.gender));

@@ -3,20 +3,23 @@ var args = arguments[0] || {};
 $.avatar.image = args.user_avatar;
 $.user.text = args.user_name;
 
-if(args.pin_image) {
+if(args.article.Image) {
 	// Has a Pin image
 	$.post_title.hide();
 	$.pin_img.show();
-	$.pin_img.image = args.pin_image;
+	$.pin_img.image = args.article.Image;
 } else {
 	// No Pin image
 	$.post_title.show();
 	$.pin_img.hide();
+	$.pin_img.setHeight(0);
+	// Adding html style as it is a styled label, unable to set text
+	$.post_title.html = '<style>a, span {font-family : HelveticaNeue; word-wrap : break-word;}</style><span>' + args.article.title + '</span>';
 }
 
 $.title.addOnReturn(function(event) {
 
-	Ti.API.info(args, event);
+	// Ti.API.info(args, event);
 
 	Alloy.Globals.API.addPostComment(event.value, args.id, function(result) {
 

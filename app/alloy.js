@@ -141,10 +141,10 @@ Alloy.Globals.API.getStates(function(results) {
 	
 	Ti.API.info("States Result-------->"+results.Result);
 	Ti.API.info("States Result.Data--->"+JSON.stringify(results.Data));
-	Ti.API.info("states results------->"+ results.length);
+	Ti.API.info("states results------->"+ results.Data.length);
 	
 	var items = [];
-	if(results.length){
+	if(results.Data.length){
 		for(var i in results.Data){
 			items.push({
 				"title" : results.Data[i].name,

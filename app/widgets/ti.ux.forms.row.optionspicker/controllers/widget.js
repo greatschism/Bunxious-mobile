@@ -127,8 +127,12 @@ $.getValue = function(){
 $.setSelectedIndex = function(value) {
 	if(value < $.OPTIONS.length) {
 			$.subtitleLbl.text = $.OPTIONS[value];
+			$.value = value;
 	}
-	$.value = value;
+};
+
+$.setOptions = function(options) {
+	$.OPTIONS = options;
 };
 
 require('WidgetTools').cleanArgs(args);

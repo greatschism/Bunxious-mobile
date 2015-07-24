@@ -2,6 +2,17 @@ var args = arguments[0] || {};
 
 var genders = ['male','female','unsigned'];
 
+var countryList = [];
+for(var c in Alloy.Globals.countryFilters) {
+	countryList.push(Alloy.Globals.countryFilters[c].title);
+}
+$.country.setOptions(countryList);
+
+var stateList = [];
+for(var s in Alloy.Globals.StateFilters) {
+	stateList.push(Alloy.Globals.StateFilters[s].title);
+}
+$.state.setOptions(stateList);
 
 if (Alloy.Globals.currentUser != null) {
 

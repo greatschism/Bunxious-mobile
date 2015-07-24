@@ -56,6 +56,9 @@ if (Alloy.Globals.currentUser != null) {
 		Alloy.Globals.currentUser.user_info.notification_follow_user = $.notification_follow_user.getValue();
 		var country = Alloy.Globals.getCountryByName($.country.getValue());
 		Alloy.Globals.currentUser.user_info.country_iso_code_3 = country[0].iso_code_3;
+		var state = Alloy.Globals.getStateByTitle($.state.getValue());
+		Alloy.Globals.currentUser.user_info.state = state[0].code;
+		
 		var gender = $.gender.getValue();
 		Alloy.Globals.currentUser.user_info.gender = genders[$.gender.getOptions().indexOf(gender)];
 		

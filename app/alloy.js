@@ -137,19 +137,14 @@ Alloy.Globals.findSizeById = function(id) {
 };
 
 // Get States
-Alloy.Globals.API.getStates(function(results) {
-	
-	Ti.API.info("States Result-------->"+results.Result);
-	Ti.API.info("States Result.Data--->"+JSON.stringify(results.Data));
-	Ti.API.info("states results------->"+ results.Data.length);
-	
+Alloy.Globals.API.getStates(function(results) {	
 	var items = [];
 	if(results.Data.length){
 		for(var i in results.Data){
 			items.push({
 				"title" : results.Data[i].name,
 				"id" : results.Data[i].id,
-				"iso_code_3" : results.Data[i].iso_code_3
+				"code" : results.Data[i].code
 			});
 		}
 	}
@@ -159,6 +154,10 @@ Alloy.Globals.API.getStates(function(results) {
 }, function(error) {
 
 });
+
+Alloy.Globals.getStateByTitle = function(title) {
+	return Alloy.Globals.StateFilters.filter(function(obj){return obj.title == title;});
+};
 
 
 // Get Condition

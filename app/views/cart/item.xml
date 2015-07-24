@@ -13,13 +13,8 @@
 					<Button id="orderEdit">Edit</Button>
 					<Label id="orderPrice" />
 				</View>
-				
-				
 			</View>
-			
 			<View class="lineBreak"></View>
-			
 		</View>
-		
 	</View>
 </Alloy>

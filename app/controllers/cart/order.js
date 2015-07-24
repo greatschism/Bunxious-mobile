@@ -14,7 +14,6 @@ for (var i in args.paypal.items) {
 	args.paypal.items[i].totalPrice = args.paypal.items[i].amount * args.paypal.items[i].quantity;
 	args.paypal.items[i].itemPrice = args.paypal.items[i].amount;
 	args.paypal.items[i].itemCount = args.paypal.items[i].quantity;
-	
 	delete args.paypal.items[i].item_name;
 	delete args.paypal.items[i].item_number;
 	delete args.paypal.items[i].amount;
@@ -25,24 +24,22 @@ for (var i in args.paypal.items) {
 // used for checkout prevent if there is no address selected
 
 function updatePriceValues(dontAddButton) {
-	
+
 	totalValue = (parseFloat(args.sub_total) + parseFloat(shippingValue)).toFixed(2);
 	Ti.API.info(totalValue);
 	$.orderShippingPrice.text = "$" + parseFloat(shippingValue).toFixed(2);
 	$.orderTotalPrice.text = "$" + parseFloat(totalValue).toFixed(2);
-	
+
 	// reinitialize paypal button because we changed the values
 	// also, since there is no option to disable the button if we don't select an address we'll just add it after the user selects one
-	
+
 	if (!dontAddButton) {
-		
+
 		addButtonToWindow();
 	}
 }
 
 var checkoutButton;
-
-Ti.API.info(args);
 
 function addButtonToWindow() {
 
@@ -51,7 +48,7 @@ function addButtonToWindow() {
 		$.checkoutWrapper.remove(checkoutButton);
 		checkoutButton = null;
 	}
-	
+
 	checkoutButton = Paypal.createPaypalButton({
 		// NOTE: height/width only determine the size of the view that the button is embedded in - the actual button size
 		// is determined by the buttonStyle property!
@@ -69,7 +66,7 @@ function addButtonToWindow() {
 		textStyle : Paypal.PAYPAL_TEXT_PAY, // Causes the button's text to change from "Pay" to "Donate"
 
 		//appID : '<<<YOUR APP ID HERE>>>', // The appID issued by Paypal for your application; for testing, feel free to delete this property entirely.
-		paypalEnvironment : Paypal.PAYPAL_ENV_NONE, // Sandbox, None or Live 
+		paypalEnvironment : Paypal.PAYPAL_ENV_NONE, // Sandbox, None or Live
 
 		feePaidByReceiver : false,
 		enableShipping : false, // Whether or not to select/send shipping information
@@ -131,11 +128,11 @@ $.addressFilter.addEventListener('click', function() {
 		$.addressLabel.text = e.row.data.title;
 
 		// change the shipping value
-		
+
 		for (var i in args.item_shipping) {
-			
+
 			if (args.item_shipping[i].addressId == addressesIds[e.index]) {
-				
+
 				shippingValue = args.item_shipping[i].ShippingAmt;
 				updatePriceValues();
 			}
@@ -149,11 +146,16 @@ $.addressFilter.addEventListener('click', function() {
 
 for (var i in args.maindata) {
 
+	args.maindata[i].cartId = args.cartId;
+
+	// passing along the loadData function to avoid events
+	args.maindata[i].parentUpdate = args.parentUpdate;
+
 	$.container.add(Alloy.createController('cart/item', args.maindata[i]).getView());
 }
 
-$.contactButton.addEventListener('click', function(e){
-	
+$.contactButton.addEventListener('click', function(e) {
+
 	Alloy.Globals.loading.show();
 
 	Alloy.Globals.API.getUser(args.maindata[0].user.user_id, function(user) {
@@ -166,7 +168,7 @@ $.contactButton.addEventListener('click', function(e){
 
 		Alloy.Globals.openWindow('profile/message_view', data, true);
 	}, function() {
-		
+
 		Alloy.Globals.loading.hide();
 	});
 });

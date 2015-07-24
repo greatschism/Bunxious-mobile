@@ -103,7 +103,7 @@
 		fontSize: '14dp'
 	},
 	color: '#fff',
-	backgroundColor: '#E4E7EA'
+	backgroundColor: '#B8BBBE'
 }
 
 "#orderPrice": {

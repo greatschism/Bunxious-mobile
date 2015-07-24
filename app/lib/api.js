@@ -595,6 +595,17 @@ api.addToCart = function(pinID, success, fail) {
 	httpRequest('store/add', 'POST', data, success, fail);
 };
 
+api.deleteFromCart = function(pinID, cartID, success, fail) {
+
+	var data = {
+		id : pinID,
+		cartId : cartID,
+		token : Alloy.Globals.currentUser.token
+	};
+
+	httpRequest('store/delete', 'POST', data, success, fail);
+};
+
 api.getCloset = function(user_id, success, fail) {
 
 	var data = {

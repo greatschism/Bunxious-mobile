@@ -237,6 +237,28 @@ if (!Alloy.Globals.currentUser || Alloy.Globals.currentUser.user_info.id != args
 	});
 }
 
+$.cart.addEventListener('click', function() {
+	
+	Alloy.Globals.loading.show();
+	
+	Alloy.Globals.API.addToCart(args.pin_id, function(result) {
+		
+		if (result.error != "Product addeed in cart") {
+			
+			alert('There was an error while adding the product to your cart.');
+		}
+		else {
+			
+			alert('Product successfully added to your cart.');
+		}
+		Alloy.Globals.loading.hide();
+	}, function(error) {
+		
+		alert('There was an error while adding the product to your cart.');
+		Alloy.Globals.loading.hide();
+	});
+});
+
 Alloy.Globals.API.getCloset(args.user_id, function(result) {
 
 	$.closetAvatar.setImage(result.cover.image);

@@ -74,6 +74,13 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction, fil
 				var responseJSON = JSON.parse(this.responseText);
 
 				Ti.API.info(endpoint, this.responseText);
+				
+				// ## bypass the error parameter with success message from this endpoint. Needs to be removed after the api is fixed
+				if (endpoint == "store/add") {
+					
+					successFunction(responseJSON);
+					return;
+				}
 
 				if (responseJSON && !responseJSON.error) {
 
@@ -107,7 +114,7 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction, fil
 
 		Ti.API.info('Transmission error: ' + endpoint + ' ' + JSON.stringify(this) + this.responseText);
 
-		alert('There was a communication error. Please chcek your internet connection and try again.');
+		alert('There was a communication error. Please check your internet connection and try again.');
 
 		if (errorFunction && this.responseText) {
 
@@ -583,6 +590,16 @@ api.getCart = function(success, fail) {
 	};
 
 	httpRequest('store/cart', 'POST', data, success, fail);
+};
+
+api.addToCart = function(pinID, success, fail) {
+
+	var data = {
+		pinId : pinID,
+		token : Alloy.Globals.currentUser.token
+	};
+
+	httpRequest('store/add', 'POST', data, success, fail);
 };
 
 api.getCloset = function(user_id, success, fail) {

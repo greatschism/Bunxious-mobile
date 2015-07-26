@@ -1,7 +1,7 @@
 <Alloy>
 	<View id="orderView">
 		<View id="orderItem">
-			<ImageView id="orderPhoto"></ImageView>
+			<ImageView id="orderPhoto" />
 			<View id="orderDetails">
 				<Label id="orderTitle" />
 				<Label id="orderQuantity" />
@@ -14,7 +14,7 @@
 					<Label id="orderPrice" />
 				</View>
 			</View>
-			<View class="lineBreak"></View>
 		</View>
+		<View class="lineBreak"></View>
 	</View>
 </Alloy>

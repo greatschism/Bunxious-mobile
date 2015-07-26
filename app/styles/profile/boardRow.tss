@@ -19,6 +19,7 @@
 "#title" : {
 	left : '65dp',
 	top : '10dp',
+	color : 'black',
 	font : {
 		fontWeight : 'bold',
 		fontSize : '13dp'

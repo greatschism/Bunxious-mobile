@@ -116,7 +116,7 @@ $.invite.addEventListener('click', function() {
 
 	var dialog = Ti.UI.createAlertDialog({
 		title : 'Enter the name of the user',
-		style : Ti.UI.iPhone.AlertDialogStyle.PLAIN_TEXT_INPUT,
+		style : OS_IOS ? Ti.UI.iPhone.AlertDialogStyle.PLAIN_TEXT_INPUT : null,
 		buttonNames : ['Invite', 'Cancel'],
 		cancel : 1
 	});

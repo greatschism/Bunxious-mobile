@@ -1,7 +1,7 @@
 ".wrapper": {
 	width: Ti.UI.FILL,
 	height: '100%',
-	contentHeight: '2800px',
+	contentHeight: Ti.UI.SIZE,
 	backgroundColor: '#f4f4f4',
 	layout: 'vertical'
 }

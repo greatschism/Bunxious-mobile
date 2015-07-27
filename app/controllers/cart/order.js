@@ -65,7 +65,7 @@ function addButtonToWindow() {
 		language : 'en_US',
 		textStyle : Paypal.PAYPAL_TEXT_PAY, // Causes the button's text to change from "Pay" to "Donate"
 
-		//appID : '<<<YOUR APP ID HERE>>>', // The appID issued by Paypal for your application; for testing, feel free to delete this property entirely.
+		appID : 'APP-1JJ82255SH3889306', // The appID issued by Paypal for your application; for testing, feel free to delete this property entirely.
 		paypalEnvironment : Paypal.PAYPAL_ENV_NONE, // Sandbox, None or Live
 
 		feePaidByReceiver : false,

@@ -134,12 +134,15 @@
 	backgroundColor : 'transparent',
 }
 
-"#uploadImageTable": {
+"#uploadImageTable" : {
 	height: '50dp',
 	width: '100%',
 	top: 0,
 	backgroundColor : 'transparent',
 	scrollable: false,
+}
+
+"#uploadImageTable[platform=ios]": {
 	separatorInsets: {
 		left: 0,
 		right: 0
@@ -217,6 +220,18 @@
 	width : '100%'
 }
 
+".shipsToLabel" : {
+	width : Ti.UI.SIZE,
+	color : '#666',
+	left : 0
+}
+
+".center" : {
+	center : {
+		y : '50%'
+	}
+}
+
 "#shipsFrom" :{
 	top: '10dp',
 	height: '26dp',
@@ -232,7 +247,8 @@
 	left : '10dp',
 	// top : 0,
 	right : 0,
-	height : '35dp',
+	height : '40dp',
+	width : Ti.UI.FILL,
 	layout : 'horizontal'
 }
 
@@ -241,6 +257,7 @@
 	backgroundColor : '#fff',
 	right : 0,
 	height : '30dp',
+	width : Ti.UI.FILL,
 	borderWidth: '1dp',
 	borderRadius : 0,
 	borderColor: '#d5dae2',

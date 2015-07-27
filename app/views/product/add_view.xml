@@ -109,18 +109,18 @@
 			<View class="shippingOptions">
 				<Label id="shipsToTitle" text="L('ships_to').toUpperCase()" class="dollarSign" />
 				<View id="shipsTo">
-					<Label id="shipsToValue" text="L('united_states').toUpperCase()" class="dollarSign" />
-					<View class="shippingPrice">
-						<Label class="dollarSign" text="$"/>
-						<TextField id="shipToUS" class="priceTextfield"/>
+					<Label id="shipsToValue" text="L('united_states').toUpperCase()" class="shipsToLabel center" />
+					<View class="shippingPrice center">
+						<Label class="dollarSign center" text="$"/>
+						<TextField id="shipToUS" class="priceTextfield center"/>
 					</View>
 				</View>
 				
 				<View id="shipsToElsewhere">
-					<Label class="dollarSign" text="L('everywhere_else').toUpperCase()"/>
-					<View class="shippingPrice">
-						<Label class="dollarSign" text="$"/>
-						<TextField id="shipToElsewhere" class="priceTextfield"/>
+					<Label class="shipsToLabel center" text="L('everywhere_else').toUpperCase()"/>
+					<View class="shippingPrice center">
+						<Label class="dollarSign center" text="$"/>
+						<TextField id="shipToElsewhere" class="priceTextfield center"/>
 					</View>
 				</View>
 				

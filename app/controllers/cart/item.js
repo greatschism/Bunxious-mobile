@@ -10,33 +10,16 @@ $.orderSize.text = "Size: " + args.size;
 
 $.orderEdit.addEventListener('click', function() {
 
-	var opts = {
-		cancel : 1,
-		options : ['Delete', 'Cancel'],
-		selectedIndex : 2,
-		destructive : 0,
-	};
+	Alloy.Globals.loading.show();
 
-	var dialog = Ti.UI.createOptionDialog(opts);
-	
-	dialog.addEventListener('click', function(e) {
-		
-		if (e.index == 0) {
-			
-			Alloy.Globals.loading.show();
-			
-			Alloy.Globals.API.deleteFromCart(args.contentId, args.cartId, function(result) {
-				
-				args.parentUpdate();
-				
-				Alloy.Globals.loading.hide();
-			}, function(error) {
-				
-				Alloy.Globals.loading.hide();
-				alert('There was an error removing the item from your cart.');
-			});
-		}
+	Alloy.Globals.API.deleteFromCart(args.contentId, args.cartId, function(result) {
+
+		args.parentUpdate();
+
+		Alloy.Globals.loading.hide();
+	}, function(error) {
+
+		Alloy.Globals.loading.hide();
+		alert('There was an error removing the item from your cart.');
 	});
-	
-	dialog.show();
 });

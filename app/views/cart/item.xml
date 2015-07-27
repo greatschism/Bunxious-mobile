@@ -10,7 +10,7 @@
 				<Label id="orderSize" />
 				<Label id="orderCondition" />
 				<View id="orderTotal">
-					<Button id="orderEdit">Edit</Button>
+					<Button id="orderEdit">Remove</Button>
 					<Label id="orderPrice" />
 				</View>
 			</View>

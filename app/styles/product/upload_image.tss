@@ -1,6 +1,7 @@
 ".container" : {
 	height : '45dp',
-	backgroundColor : 'transparent'
+	width : Ti.UI.FILL,
+	backgroundColor : 'transparent',
 }
 
 "#uploadImage" :{
@@ -11,4 +12,10 @@
 	font: {
 		fontSize: '15dp'
 	}
+}
+
+"#image" : {
+	height : '45dp',
+	top : 0,
+	right : 0
 }

@@ -1,5 +1,6 @@
 <Alloy>
 	<TableViewRow class="container">
 		<Label id="uploadImage" text="L('no_image').toUpperCase()"></Label>
+		<ImageView id="image" />
 	</TableViewRow>
 </Alloy>

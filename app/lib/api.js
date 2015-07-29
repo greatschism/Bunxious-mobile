@@ -65,6 +65,8 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction, fil
 
 	var xhr = Ti.Network.createHTTPClient();
 
+	var retries = 0;
+
 	xhr.onload = function() {
 
 		if (this.status == '200') {
@@ -74,7 +76,7 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction, fil
 				var responseJSON = JSON.parse(this.responseText);
 
 				Ti.API.info(endpoint, this.responseText);
-				
+
 				if (responseJSON && !responseJSON.error) {
 
 					if (successFunction) {
@@ -105,43 +107,56 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction, fil
 
 	xhr.onerror = function(e) {
 
-		Ti.API.info('Transmission error: ' + endpoint + ' ' + JSON.stringify(this) + this.responseText);
+		if (retries < 3) {
+			
+			retries++;
+			doRequest();
+		} else {
 
-		alert('There was a communication error. Please check your internet connection and try again.');
+			Ti.API.info('Transmission error: ' + endpoint + ' ' + JSON.stringify(this) + this.responseText);
 
-		if (errorFunction && this.responseText) {
+			alert('There was a communication error. Please check your internet connection and try again.');
 
-			errorFunction(this.responseText);
+			if (errorFunction && this.responseText) {
 
-		} else if (errorFunction) {
+				errorFunction(this.responseText);
 
-			errorFunction(e);
+			} else if (errorFunction) {
+
+				errorFunction(e);
+			}
 		}
 	};
 
 	xhr.timeout = 20000;
 
-	xhr.open(method, url);
+	function doRequest() {
 
-	if (fileType !== "media") {
-		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		xhr.open(method, url);
+
+		if (fileType !== "media") {
+			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		}
+		xhr.setRequestHeader('Authorization', 'Basic ' + Ti.Utils.base64encode(config.httpUser + ':' + config.httpPass));
+
+		if (fileType === "media") {
+			xhr.setRequestHeader("enctype", "multipart/form-data");
+			Ti.API.info('gonna hit ' + url + ' and gonna send ' + JSON.stringify(data));
+			xhr.send(data);
+
+		} else if (data && method == 'POST') {
+
+			Ti.API.info('gonna hit ' + url + ' and gonna send ' + JSON.stringify(queryString(data)));
+			xhr.send(queryString(data));
+		} else {
+
+			Ti.API.info('gonna hit ' + url);
+			xhr.send();
+		}
 	}
-	xhr.setRequestHeader('Authorization', 'Basic ' + Ti.Utils.base64encode(config.httpUser + ':' + config.httpPass));
+	
+	doRequest();
 
-	if (fileType === "media") {
-		xhr.setRequestHeader("enctype", "multipart/form-data");
-		Ti.API.info('gonna hit ' + url + ' and gonna send ' + JSON.stringify(data));
-		xhr.send(data);
-
-	} else if (data && method == 'POST') {
-
-		Ti.API.info('gonna hit ' + url + ' and gonna send ' + JSON.stringify(queryString(data)));
-		xhr.send(queryString(data));
-	} else {
-
-		Ti.API.info('gonna hit ' + url);
-		xhr.send();
-	}
 }
 
 api.createAccount = function(user, pass, email, firstname, lastname, success, fail) {
@@ -436,12 +451,12 @@ api.getGroup = function(id, success, fail) {
 	httpRequest('post', 'POST', data, success, fail);
 };
 
-api.uploadGroupImage = function(image, success, fail){
+api.uploadGroupImage = function(image, success, fail) {
 	var data = {
-		token: Alloy.Globals.currentUser.token,
-		file: image
+		token : Alloy.Globals.currentUser.token,
+		file : image
 	};
-	
+
 	httpRequest('group/upload', 'POST', data, success, fail, "media");
 };
 
@@ -450,7 +465,7 @@ api.createGroup = function(data, success, fail) {
 		token : Alloy.Globals.currentUser.token,
 		name : data.name,
 		description : data.description,
-		image: data.image
+		image : data.image
 	};
 	// Private flag is optional.
 	if (data.private === true) {
@@ -462,23 +477,22 @@ api.createGroup = function(data, success, fail) {
 api.editGroup = function(data, success, fail) {
 	var group = {
 		token : Alloy.Globals.currentUser.token,
-		id :  data.id,
+		id : data.id,
 		name : data.name,
 		description : data.description
 	};
-	
-	if(data.image){
+
+	if (data.image) {
 		group.image = data.image;
 	}
-	
+
 	// Private flag is optional.
 	if (data.private === true) {
 		group.private = 'on';
 	}
-	
+
 	httpRequest('group/update', 'POST', group, success, fail);
 };
-
 
 api.getGroupMembers = function(id, success, fail) {
 	var data = {
@@ -528,8 +542,8 @@ api.addPost = function(message, id, image, success, fail) {
 		post_text : message,
 		token : Alloy.Globals.currentUser.token
 	};
-	
-	if(image){
+
+	if (image) {
 		data.attachment = image;
 	}
 
@@ -616,7 +630,7 @@ api.getCloset = function(user_id, success, fail) {
 
 };
 
-api.addPinComment = function(message, pinId, success, fail){
+api.addPinComment = function(message, pinId, success, fail) {
 	var data = {
 		pin_id : pinId,
 		comment : message,
@@ -656,13 +670,12 @@ api.getAllCountries = function(success, fail) {
 
 api.getStates = function(success, fail) {
 	var data = {};
-	
+
 	if (Alloy.Globals.currentUser) {
 		data.token = Alloy.Globals.currentUser.token;
 	}
 	httpRequest('State/get-states', 'GET', data, success, fail);
 };
-
 
 api.getOrders = function(success, fail) {
 
@@ -859,9 +872,9 @@ api.getSize = function(success, fail) {
 	httpRequest('option/size', 'GET', data, onSuccess, fail);
 };
 
-api.getSizesForPin = function(pin_id,success,fail) {
+api.getSizesForPin = function(pin_id, success, fail) {
 	var data = {
-		'id': pin_id
+		'id' : pin_id
 	};
 
 	if (Alloy.Globals.currentUser) {
@@ -930,9 +943,5 @@ api.getBoardPins = function(board_id, success, fail) {
 
 	httpRequest('pin/find-by', 'GET', data, success, fail);
 };
-
-
-
-
 
 module.exports = api;

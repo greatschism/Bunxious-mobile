@@ -5,11 +5,11 @@ var gallery = [];
 //$.tfDesc.value = args.pin.description;
 
 $.category.addEventListener('click', function() {
-	
-	if(Alloy.Globals.categoryFilters) {
-		
+
+	if (Alloy.Globals.categoryFilters) {
+
 		Alloy.Globals.createFilter(Alloy.Globals.categoryFilters, $.categoryTitle);
-		
+
 	} else {
 		Alloy.Globals.API.getAllCategories(function(results) {
 
@@ -24,9 +24,10 @@ $.category.addEventListener('click', function() {
 
 $.groups.addEventListener('click', function() {
 	Alloy.Globals.API.findGroups(function(results) {
-		
-		var groups = [], items = [];
-		
+
+		var groups = [],
+		    items = [];
+
 		for (var i in results.Group) {
 			groups.push({
 				"title" : results.Group[i].name,
@@ -40,33 +41,33 @@ $.groups.addEventListener('click', function() {
 });
 
 $.brand.addEventListener('click', function() {
-	
-	if(Alloy.Globals.brandFilters) {
+
+	if (Alloy.Globals.brandFilters) {
 
 		Alloy.Globals.createFilter(Alloy.Globals.brandFilters, $.brandTitle);
 
 	} else {
 		Alloy.Globals.API.getBrands(function(results) {
-			
+
 			Alloy.Globals.brandFilters = JSON.parse(JSON.stringify(results));
 
 			Alloy.Globals.createFilter(Alloy.Globals.brandFilters, $.brandTitle);
-	
+
 		}, function(error) {
-	
+
 		});
 	}
 });
 
 $.gender.addEventListener('click', function() {
-	
-	if(Alloy.Globals.genderFilters) {
+
+	if (Alloy.Globals.genderFilters) {
 
 		Alloy.Globals.createFilter(Alloy.Globals.genderFilters, $.genderTitle);
 
 	} else {
 		Alloy.Globals.API.getGender(function(results) {
-			
+
 			var items = [];
 			for (var i in results.Gender) {
 				items.push({
@@ -76,56 +77,65 @@ $.gender.addEventListener('click', function() {
 			}
 			Alloy.Globals.genderFilters = JSON.parse(JSON.stringify(items));
 			Alloy.Globals.createFilter(Alloy.Globals.genderFilters, $.genderTitle);
-	
+
 		}, function(error) {
-	
+
 		});
 	}
 });
 
 $.condition.addEventListener('click', function() {
-	
-	if(Alloy.Globals.conditionFilters) {
+
+	if (Alloy.Globals.conditionFilters) {
 
 		Alloy.Globals.createFilter(Alloy.Globals.conditionFilters, $.conditionTitle);
 
 	} else {
 		Alloy.Globals.API.getCondition(function(results) {
-			
+
 			Alloy.Globals.conditionFilters = JSON.parse(JSON.stringify(results));
 			Alloy.Globals.createFilter(Alloy.Globals.conditionFilters, $.conditionTitle);
-	
+
 		}, function(error) {
-	
+
 		});
 	}
 });
 
 var uploadedImages = 1;
 
-$.uploadImage.addEventListener('click', function(e){
-	
-	var image = Alloy.Globals.uploadImage(function(image){
-		
+$.uploadImage.addEventListener('click', function(e) {
+
+	var image = Alloy.Globals.uploadImage(function(image) {
+
 		Alloy.Globals.API.uploadImage(image, function(result) {
 
-			var height = 45 * uploadedImages + 45 + 'dp';
+			if (result.success) {
 
-			$.uploadImageTable.appendRow(Alloy.createController('product/upload_image', result).getView());
-		
-			$.uploadImageTable.animate({
-				height : height
-			});
-			
-			gallery.push(result.file);
-			
-			uploadedImages++;
-			Alloy.Globals.loading.hide();
+				var height = 45 * uploadedImages + 45 + 'dp';
+
+				$.uploadImageTable.appendRow(Alloy.createController('product/upload_image', {image : image}).getView());
+
+				$.uploadImageTable.animate({
+					height : height
+				});
+
+				gallery.push(result.file);
+
+				uploadedImages++;
+				$.noImage.text = '';
+				Alloy.Globals.loading.hide();
+			}
+			else {
+				
+				Alloy.Globals.loading.hide();
+				alert('Upload failed. Please try again');
+			}
 
 		}, function(error) {
 			Alloy.Globals.loading.hide();
 		});
-		
+
 	});
 });
 
@@ -133,7 +143,7 @@ $.uploadImage.addEventListener('click', function(e){
 var rows = 1;
 
 $.addVariation.addEventListener('click', function() {
-	
+
 	rows++;
 	var height = 90 * rows + 45 + 'dp';
 
@@ -145,61 +155,61 @@ $.addVariation.addEventListener('click', function() {
 });
 
 // $.itemVariationTable.addEventListener('click', function(e){
-// 	
-	// console.debug('itemVariationTable row ', JSON.stringify(e));
-// 	
+//
+// console.debug('itemVariationTable row ', JSON.stringify(e));
+//
 // });
 
 // var country_list = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Anguilla", "Antigua & Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia & Herzegovina", "Botswana", "Brazil", "British Virgin Islands", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Cape Verde", "Cayman Islands", "Chad", "Chile", "China", "Colombia", "Congo", "Cook Islands", "Costa Rica", "Cote D Ivoire", "Croatia", "Cruise Ship", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Estonia", "Ethiopia", "Falkland Islands", "Faroe Islands", "Fiji", "Finland", "France", "French Polynesia", "French West Indies", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guam", "Guatemala", "Guernsey", "Guinea", "Guinea Bissau", "Guyana", "Haiti", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Isle of Man", "Israel", "Italy", "Jamaica", "Japan", "Jersey", "Jordan", "Kazakhstan", "Kenya", "Kuwait", "Kyrgyz Republic", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Mauritania", "Mauritius", "Mexico", "Moldova", "Monaco", "Mongolia", "Montenegro", "Montserrat", "Morocco", "Mozambique", "Namibia", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Norway", "Oman", "Pakistan", "Palestine", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russia", "Rwanda", "Saint Pierre & Miquelon", "Samoa", "San Marino", "Satellite", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "South Africa", "South Korea", "Spain", "Sri Lanka", "St Kitts & Nevis", "St Lucia", "St Vincent", "St. Lucia", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor L'Este", "Togo", "Tonga", "Trinidad & Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks &amp; Caicos", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "Uruguay", "Uzbekistan", "Venezuela", "Vietnam", "Virgin Islands (US)", "Yemen", "Zambia", "Zimbabwe"];
 /*
-$.shipsFrom.addEventListener('click', function() {
+ $.shipsFrom.addEventListener('click', function() {
 
-	var popupDialog = Alloy.createWidget('ti.ux.popup.list', 'widget', {
-		closeButton : true,
-		selectable : true,
-		options : country_list,
-	});
+ var popupDialog = Alloy.createWidget('ti.ux.popup.list', 'widget', {
+ closeButton : true,
+ selectable : true,
+ options : country_list,
+ });
 
-	popupDialog.getView('table').addEventListener('click', function(e) {
+ popupDialog.getView('table').addEventListener('click', function(e) {
 
-		$.shipsFromTitle.text = e.row.data.title;
-		popupDialog.hide();
-	});
+ $.shipsFromTitle.text = e.row.data.title;
+ popupDialog.hide();
+ });
 
-	popupDialog.getView().show();
-});
+ popupDialog.getView().show();
+ });
 
-$.shipsTo.addEventListener('click', function() {
-	
-	if(Alloy.Globals.countryFilters){
-		
-		Alloy.Globals.createFilter(Alloy.Globals.countryFilters, $.shipsToTitle);
-		
-	} else {
-		Alloy.Globals.API.getAllCountries(function(results) {
+ $.shipsTo.addEventListener('click', function() {
 
-			Alloy.Globals.countryFilters = JSON.parse(JSON.stringify(results));
-			Alloy.Globals.createFilter(Alloy.Globals.countryFilters, $.shipsToTitle);
-			
-		}, function(error) {
-	
-		});
-	}
-});
-*/
+ if(Alloy.Globals.countryFilters){
+
+ Alloy.Globals.createFilter(Alloy.Globals.countryFilters, $.shipsToTitle);
+
+ } else {
+ Alloy.Globals.API.getAllCountries(function(results) {
+
+ Alloy.Globals.countryFilters = JSON.parse(JSON.stringify(results));
+ Alloy.Globals.createFilter(Alloy.Globals.countryFilters, $.shipsToTitle);
+
+ }, function(error) {
+
+ });
+ }
+ });
+ */
 $.addItem.addEventListener('click', function() {
 	// Checking if image is uploaded
-	if(gallery.length === 0){
+	if (gallery.length === 0) {
 		alert(L("add_image_error"));
 		return;
 	}
-	
+
 	// Checking if all fields are filled
-	if($.tfTitle.getValue().trim() === "" || $.tfDesc.getValue().trim() === "" || $.categoryTitle.idValue === "" || $.brandTitle.idValue === "" || $.genderTitle.idValue === "" || $.conditionTitle.idValue === "" || $.tfStyle.getValue().trim() === "" || $.tfTags.getValue().trim() === "" || $.tfMaterials.getValue() === "" || $.tfProcessingTime.getValue().trim() === "" || $.shipToUS.getValue().trim() === "" || $.shipToElsewhere.getValue().trim() === ""){
+	if ($.tfTitle.getValue().trim() === "" || $.tfDesc.getValue().trim() === "" || $.categoryTitle.idValue === "" || $.brandTitle.idValue === "" || $.genderTitle.idValue === "" || $.conditionTitle.idValue === "" || $.tfStyle.getValue().trim() === "" || $.tfTags.getValue().trim() === "" || $.tfMaterials.getValue() === "" || $.tfProcessingTime.getValue().trim() === "" || $.shipToUS.getValue().trim() === "" || $.shipToElsewhere.getValue().trim() === "") {
 		alert(L("missing_field_error"));
 		return;
 	}
-	
+
 	// Collecting the variation row data and checking if it is empty
 	var itemVariationTableRows = $.itemVariationTable.data[0].rows;
 	var pinQuantity = {
@@ -207,19 +217,19 @@ $.addItem.addEventListener('click', function() {
 		"quantity" : [],
 		"price" : []
 	};
-	
-	for(i in itemVariationTableRows){
-		
+
+	for (i in itemVariationTableRows) {
+
 		pinQuantity.size_id.push(itemVariationTableRows[i].children[0].children[0].idValue);
 		pinQuantity.quantity.push(itemVariationTableRows[i].children[1].children[0].children[0].getValue());
 		pinQuantity.price.push(itemVariationTableRows[i].children[1].children[1].children[0].getValue());
 	}
-	
-	if(pinQuantity.size_id.length === 0 || pinQuantity.quantity.length === 0 || pinQuantity.price.length === 0){
+
+	if (pinQuantity.size_id.length === 0 || pinQuantity.quantity.length === 0 || pinQuantity.price.length === 0) {
 		alert(L("missing_field_error"));
 		return;
 	}
-	
+
 	// Service call uploadpin
 	Alloy.Globals.loading.show();
 	var data = {
@@ -247,10 +257,10 @@ $.addItem.addEventListener('click', function() {
 		"gender_id" : $.genderTitle.idValue,
 		"group" : $.groupsTitle.idValue
 	};
-	
-	Alloy.Globals.API.addNewItem(data, function(result){
-		
-		if(result.Error || result.errors){
+
+	Alloy.Globals.API.addNewItem(data, function(result) {
+
+		if (result.Error || result.errors) {
 			alert('enter_valid_details');
 		} else {
 			// clear all fields
@@ -274,11 +284,11 @@ $.addItem.addEventListener('click', function() {
 			$.shipToUS.setValue("");
 			$.shipToElsewhere.setValue("");
 		}
-		
+
 		Alloy.Globals.loading.hide();
-	},function(error){
-		
+	}, function(error) {
+
 		alert(L('pin_upload_error'));
 		Alloy.Globals.loading.hide();
 	});
-});
+}); 

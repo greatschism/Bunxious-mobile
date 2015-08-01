@@ -42,6 +42,8 @@ function updatePriceValues(dontAddButton) {
 var checkoutButton;
 
 function addButtonToWindow() {
+	
+	Ti.API.info("shipping :" + shippingValue, "invoiceItems :" + JSON.stringify(args.paypal.items), "subtotal :" + parseFloat(args.sub_total).toFixed(2), typeof args.sub_total);
 
 	if (checkoutButton) {
 
@@ -65,15 +67,15 @@ function addButtonToWindow() {
 		language : 'en_US',
 		textStyle : Paypal.PAYPAL_TEXT_PAY, // Causes the button's text to change from "Pay" to "Donate"
 
-		appID : 'APP-1JJ82255SH3889306', // The appID issued by Paypal for your application; for testing, feel free to delete this property entirely.
-		paypalEnvironment : Paypal.PAYPAL_ENV_NONE, // Sandbox, None or Live
+		appID : 'APP-80W284485P519543T', // The appID issued by Paypal for your application; for testing, feel free to delete this property entirely.
+		paypalEnvironment : Paypal.PAYPAL_ENV_SANDBOX, // Sandbox, None or Live
 
 		feePaidByReceiver : false,
-		enableShipping : false, // Whether or not to select/send shipping information
+		//enableShipping : false, // Whether or not to select/send shipping information
 
 		payment : {// The payment itself
 			paymentType : Paypal.PAYMENT_TYPE_GOODS, // The type of payment
-			subtotal : args.sub_total, // The total cost of the order, excluding tax and shipping
+			subtotal : Number(parseFloat(args.sub_total).toFixed(2)), // The total cost of the order, excluding tax and shipping
 			tax : 0,
 			shipping : shippingValue,
 			currency : args.paypal.currency,
@@ -106,6 +108,8 @@ function addButtonToWindow() {
 	$.checkoutWrapper.add(checkoutButton);
 }
 
+Ti.API.info(args);
+
 $.addressFilter.addEventListener('click', function() {
 
 	var addressesArray = [];
@@ -134,10 +138,10 @@ $.addressFilter.addEventListener('click', function() {
 			if (args.item_shipping[i].addressId == addressesIds[e.index]) {
 
 				shippingValue = args.item_shipping[i].ShippingAmt;
-				updatePriceValues();
 			}
 		}
 
+		updatePriceValues();
 		popupDialog.hide();
 	});
 

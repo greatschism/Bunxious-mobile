@@ -83,17 +83,68 @@ function displayPin() {
 		$.shipping.text = 'SHIPPING FROM United States';
 		// + pinObj.from;
 
-		// When shipping info isn't available
-		$.shipToOut.text = '';
-		$.shipCostOut.text = '';
-		$.shipWithOut.text = '';
-
 		for (i in pinObj.shipping) {// When shipping info is available
+
+			var item = Ti.UI.createView({
+				width : '100%',
+				height : '30dp'
+			});
+
+			var shipToLabel = Ti.UI.createLabel({
+				left : 0,
+				font : {
+					fontWeight : 'bold',
+					fontSize : '12dp'
+				},
+				color : '#636363'
+			});
+
+			item.add(shipToLabel);
+
+			var shipCostLabel = Ti.UI.createLabel({
+				left : '100dp',
+				font : {
+					fontWeight : 'bold',
+					fontSize : '12dp'
+				},
+				color : '#636363'
+			});
+
+			item.add(shipCostLabel);
+
+			var shipCombinedLabel = Ti.UI.createLabel({
+				left : '200dp',
+				font : {
+					fontWeight : 'bold',
+					fontSize : '12dp'
+				},
+				color : '#636363'
+			});
+
+			item.add(shipCombinedLabel);
+
+			var separator = Ti.UI.createView({
+				height : '2px',
+				width : '300dp',
+				backgroundColor : "#DADADA",
+				bottom : 0
+			});
+
+			item.add(separator);
+			
+			shipCostLabel.text = '$' + parseFloat(pinObj.shipping[i].price).toFixed(2) + ' USD';
+			shipCombinedLabel.text = '$' + parseFloat(pinObj.shipping[i].multiple_price).toFixed(2) + ' USD';
+
 			if (pinObj.shipping[i].country_id === 223) {// For United States
-				$.shipToOut.text = 'United States';
-				$.shipCostOut.text = '$' + pinObj.shipping[i].price + ' USD';
-				$.shipWithOut.text = '$' + pinObj.shipping[i].multiple_price + ' USD';
+				
+				shipToLabel.text = 'United States';
 			}
+			else if (pinObj.shipping[i].country_id == null) {
+				
+				shipToLabel.text = 'Everywhere else';
+			}
+			
+			$.shippingValues.add(item);
 		}
 
 		if (pinObj.comments.Comments) {
@@ -238,15 +289,15 @@ if (!Alloy.Globals.currentUser || Alloy.Globals.currentUser.user_info.id != args
 }
 
 $.cart.addEventListener('click', function() {
-	
+
 	Alloy.Globals.loading.show();
-	
+
 	Alloy.Globals.API.addToCart(args.pin_id, function(result) {
-		
+
 		alert('Product successfully added to your cart.');
 		Alloy.Globals.loading.hide();
 	}, function(error) {
-		
+
 		alert('There was an error while adding the product to your cart.');
 		Alloy.Globals.loading.hide();
 	});

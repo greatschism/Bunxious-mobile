@@ -265,7 +265,7 @@ Alloy.Globals.uploadImage = function(callback){
 
 				showControls : true,
 				mediaTypes : Ti.Media.MEDIA_TYPE_PHOTO,
-				autohide : false
+				autohide : true
 			});
 		} else if(e.index === 1){
 			//Open gallery

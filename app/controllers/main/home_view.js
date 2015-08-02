@@ -1,6 +1,15 @@
 var args = arguments[0] || {};
 var filters = {};
 
+function resetFilterSelection() {
+	filters = {};
+	$.categoryLabel.text = L('all_items');
+	$.brandLabel.text = L('brand');
+	$.genderLabel.text = L('gender');
+	$.sizeLabel.text = L('size');
+	$.priceLabel.text = L('price');
+}
+
 function populateTable() {
 
 	Alloy.Globals.loading.show();
@@ -50,7 +59,7 @@ if (!args.fromAnotherController) {
 				Alloy.Globals.API.getBoards(null, function(result) {
 
 					if (!result.error) {
-						
+
 						//storing the user's boards
 						Alloy.Globals.currentUser.boards = result;
 					}
@@ -69,7 +78,10 @@ if (!args.fromAnotherController) {
 
 function createFilter(list, label, filterType) {
 
-	var items = [],min = [],max =[];;
+	var items = [],
+	    min = [],
+	    max = [];
+	;
 
 	for (i in list) {
 		items.push(list[i].title);
@@ -118,9 +130,9 @@ function createFilter(list, label, filterType) {
 
 			filters['filters[size_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
 
-		}else if (filterType === "price") {
-			
-			filters['filters[price]'] = min + '&filters[price]='+max;
+		} else if (filterType === "price") {
+
+			filters['filters[price]'] = min + '&filters[price]=' + max;
 		}
 
 		// Call the service
@@ -260,11 +272,15 @@ $.sizeFilter.addEventListener('click', function() {
 
 $.priceFilter.addEventListener('click', function() {
 
-		
-		Alloy.Globals.priceFilters = JSON.parse(JSON.stringify(Alloy.Globals.priceListOptions));
-		//createFilter(Alloy.Globals.priceFilters, $.priceLabel, "price");
-		createFilter(Alloy.Globals.priceListOptions, $.priceLabel, "price");		
-	});
+	Alloy.Globals.priceFilters = JSON.parse(JSON.stringify(Alloy.Globals.priceListOptions));
+	//createFilter(Alloy.Globals.priceFilters, $.priceLabel, "price");
+	createFilter(Alloy.Globals.priceListOptions, $.priceLabel, "price");
+});
+
+$.resetButton.addEventListener('click', function() {
+	resetFilterSelection();
+	populateTable();
+});
 
 // Will be triggered from login, to update the data after a user logs in
 exports.populateTable = populateTable;

@@ -29,6 +29,9 @@
 							<View class="filterSeparator" />
 							<ImageView class="filterIcon" />
 						</View>
+						<View id="resetFilter" class="filterWrapper botRow lastElement">
+							<Button id="resetButton" title="Reset"/>
+						</View>
 						<!-- <View id="sortFilter" class="filterWrapper botRow lastElement">
 							<Label class="filterLabel" text="L('sort_by')" />
 							<View class="filterSeparator" />

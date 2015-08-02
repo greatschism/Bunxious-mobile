@@ -12,8 +12,5 @@
 		<View height="Ti.UI.SIZE">
 			<Button class="btn" id="saveBtn" title="Save" />
 		</View>
-		<View height="Ti.UI.SIZE">
-			<Button class="btn" id="cancelBtn" title="Cancel" />
-		</View>
 	</View>
 </Alloy>

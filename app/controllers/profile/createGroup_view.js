@@ -102,9 +102,3 @@ function updateGroup(){
 	Alloy.Globals.loading.hide();
 }
 
-
-
-$.cancelBtn.addEventListener("click",function(){
-	$.groupNameTxtField.value = "";
-	$.groupDescTxtField.value = "";
-});

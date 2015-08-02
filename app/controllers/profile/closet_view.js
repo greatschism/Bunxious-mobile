@@ -30,7 +30,9 @@ var user_id = args.user_id || Alloy.Globals.currentUser.user_info.id;
 
 function createFilter(list, label, filterType) {
 
-	var items = [],min = [],max =[];
+	var items = [],
+	    min = [],
+	    max = [];
 
 	for (i in list) {
 		items.push(list[i].title);
@@ -81,10 +83,9 @@ function createFilter(list, label, filterType) {
 
 			filters['filters[size_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
 
-		}
-		else if (filterType === "price") {
-			
-			filters['filters[price]'] = min + '&filters[price]='+max;
+		} else if (filterType === "price") {
+
+			filters['filters[price]'] = min + '&filters[price]=' + max;
 		}
 
 		// Call the service
@@ -118,6 +119,7 @@ function createFilter(list, label, filterType) {
 
 // if (Alloy.Globals.currentUser.user_info.id) {
 
+function loadClosetData() {
 	Alloy.Globals.loading.show();
 	Alloy.Globals.API.getCloset(user_id, function(result) {
 
@@ -135,7 +137,7 @@ function createFilter(list, label, filterType) {
 		$.store_title.text = result.Shop.title;
 
 		if (Alloy.Globals.currentUser) {
-			if (Alloy.Globals.currentUser.user_info.id === user_id){ 
+			if (Alloy.Globals.currentUser.user_info.id === user_id) {
 				$.addNewItem.setHeight('60dp');
 				$.addNewItem.setVisible(true);
 			}
@@ -149,96 +151,102 @@ function createFilter(list, label, filterType) {
 
 		Alloy.Globals.loading.hide();
 	});
+}
 
-	$.categoryFilter.addEventListener('click', function() {
+$.categoryFilter.addEventListener('click', function() {
 
-		if (Alloy.Globals.categoryFilters) {
+	if (Alloy.Globals.categoryFilters) {
 
+		createFilter(Alloy.Globals.categoryFilters, $.categoryLabel, "category");
+
+	} else {
+
+		Alloy.Globals.API.getAllCategories(function(results) {
+
+			Alloy.Globals.categoryFilters = JSON.parse(JSON.stringify(results));
 			createFilter(Alloy.Globals.categoryFilters, $.categoryLabel, "category");
 
-		} else {
+		}, function(error) {
 
-			Alloy.Globals.API.getAllCategories(function(results) {
+		});
+	}
+});
 
-				Alloy.Globals.categoryFilters = JSON.parse(JSON.stringify(results));
-				createFilter(Alloy.Globals.categoryFilters, $.categoryLabel, "category");
+$.brandFilter.addEventListener('click', function() {
 
-			}, function(error) {
+	if (Alloy.Globals.brandFilters) {
 
-			});
-		}
-	});
+		createFilter(Alloy.Globals.brandFilters, $.brandLabel, "brand");
 
-	$.brandFilter.addEventListener('click', function() {
+	} else {
+		Alloy.Globals.API.getBrands(function(results) {
 
-		if (Alloy.Globals.brandFilters) {
+			Alloy.Globals.brandFilters = JSON.parse(JSON.stringify(results));
 
 			createFilter(Alloy.Globals.brandFilters, $.brandLabel, "brand");
 
-		} else {
-			Alloy.Globals.API.getBrands(function(results) {
+		}, function(error) {
 
-				Alloy.Globals.brandFilters = JSON.parse(JSON.stringify(results));
+		});
+	}
+});
 
-				createFilter(Alloy.Globals.brandFilters, $.brandLabel, "brand");
+$.genderFilter.addEventListener('click', function() {
 
-			}, function(error) {
+	if (Alloy.Globals.genderFilters) {
 
-			});
-		}
-	});
+		createFilter(Alloy.Globals.genderFilters, $.genderLabel, "gender");
 
-	$.genderFilter.addEventListener('click', function() {
+	} else {
+		Alloy.Globals.API.getGender(function(results) {
 
-		if (Alloy.Globals.genderFilters) {
-
+			var items = [];
+			for (var i in results.Gender) {
+				items.push({
+					"title" : results.Gender[i].name,
+					"id" : results.Gender[i].id
+				});
+			}
+			Alloy.Globals.genderFilters = JSON.parse(JSON.stringify(items));
 			createFilter(Alloy.Globals.genderFilters, $.genderLabel, "gender");
 
-		} else {
-			Alloy.Globals.API.getGender(function(results) {
+		}, function(error) {
 
-				var items = [];
-				for (var i in results.Gender) {
-					items.push({
-						"title" : results.Gender[i].name,
-						"id" : results.Gender[i].id
-					});
-				}
-				Alloy.Globals.genderFilters = JSON.parse(JSON.stringify(items));
-				createFilter(Alloy.Globals.genderFilters, $.genderLabel, "gender");
+		});
+	}
+});
 
-			}, function(error) {
+$.sizeFilter.addEventListener('click', function() {
 
-			});
-		}
-	});
+	if (Alloy.Globals.sizeFilters) {
 
-	$.sizeFilter.addEventListener('click', function() {
+		createFilter(Alloy.Globals.sizeFilters, $.sizeLabel, "size");
 
-		if (Alloy.Globals.sizeFilters) {
+	} else {
+		Alloy.Globals.API.getSize(function(results) {
 
+			Alloy.Globals.sizeFilters = JSON.parse(JSON.stringify(results));
 			createFilter(Alloy.Globals.sizeFilters, $.sizeLabel, "size");
 
-		} else {
-			Alloy.Globals.API.getSize(function(results) {
+		}, function(error) {
 
-				Alloy.Globals.sizeFilters = JSON.parse(JSON.stringify(results));
-				createFilter(Alloy.Globals.sizeFilters, $.sizeLabel, "size");
+		});
+	}
+});
 
-			}, function(error) {
+$.priceFilter.addEventListener('click', function() {
 
-			});
-		}
-	});
-	
-	$.priceFilter.addEventListener('click', function() {
+	Alloy.Globals.priceFilters = JSON.parse(JSON.stringify(Alloy.Globals.priceListOptions));
+	//createFilter(Alloy.Globals.priceFilters, $.priceLabel, "price");
+	createFilter(Alloy.Globals.priceListOptions, $.priceLabel, "price");
+});
 
-		
-				Alloy.Globals.priceFilters = JSON.parse(JSON.stringify(Alloy.Globals.priceListOptions));
-				//createFilter(Alloy.Globals.priceFilters, $.priceLabel, "price");
-				createFilter(Alloy.Globals.priceListOptions, $.priceLabel, "price");
-				
-	});
+$.resetButton.addEventListener('click', function() {
+	loadClosetData();
+});
+
+loadClosetData();
+
 // }
 
 //Alloy.Globals.loading.hide();

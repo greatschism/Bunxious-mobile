@@ -5,11 +5,6 @@
 		<View class="saveWrapper" id="addNewItem">
 			<Button class="saveButton" title="L('add_new_item')" />
 		</View>
-		<View id="favoriteSection">
-			<View class="labelWrapper">
-				<Label class="favLabel" text="Closet" />
-			</View>
-		</View>
 		<TableView id="closetTable">
 			<HeaderView>
 				<View id="filterWrapper">

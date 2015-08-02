@@ -56,7 +56,7 @@
 }
 
 "#edit" : {
-	image : '/images/heartwhite.png'
+	image : '/images/edit.png'
 }
 ".button" : {
 	width : '22dp',

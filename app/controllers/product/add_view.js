@@ -1,20 +1,31 @@
 var args = arguments[0] || {};
 
 var gallery = [];
-//$.tfTitle.value = args.pin.title;
-//$.tfDesc.value = args.pin.description;
+
+if (args.pin) {
+	$.tfTitle.setValue(args.pin.title);
+	$.tfDesc.setValue(args.pin.description);
+}
 
 $.category.addEventListener('click', function() {
 
 	if (Alloy.Globals.categoryFilters) {
 
 		Alloy.Globals.createFilter(Alloy.Globals.categoryFilters, $.categoryTitle);
+		if (args.pin) {
+			var index = Alloy.Globals.findIndexWithAttribute(Alloy.Globals.categoryFilters, 'id', args.pin.category_id);
+			$.categoryTitle.setSelectedIndex(index);
+		}
 
 	} else {
 		Alloy.Globals.API.getAllCategories(function(results) {
 
 			Alloy.Globals.categoryFilters = JSON.parse(JSON.stringify(results));
 			Alloy.Globals.createFilter(Alloy.Globals.categoryFilters, $.categoryTitle);
+			if (args.pin) {
+				var index = Alloy.Globals.findIndexWithAttribute(Alloy.Globals.categoryFilters, 'id', args.pin.category_id);
+				$.categoryTitle.setSelectedIndex(index);
+			}
 
 		}, function(error) {
 
@@ -114,7 +125,9 @@ $.uploadImage.addEventListener('click', function(e) {
 
 				var height = 45 * uploadedImages + 45 + 'dp';
 
-				$.uploadImageTable.appendRow(Alloy.createController('product/upload_image', {image : image}).getView());
+				$.uploadImageTable.appendRow(Alloy.createController('product/upload_image', {
+					image : image
+				}).getView());
 
 				$.uploadImageTable.animate({
 					height : height
@@ -125,9 +138,8 @@ $.uploadImage.addEventListener('click', function(e) {
 				uploadedImages++;
 				$.noImage.text = '';
 				Alloy.Globals.loading.hide();
-			}
-			else {
-				
+			} else {
+
 				Alloy.Globals.loading.hide();
 				alert('Upload failed. Please try again');
 			}
@@ -291,4 +303,4 @@ $.addItem.addEventListener('click', function() {
 		alert(L('pin_upload_error'));
 		Alloy.Globals.loading.hide();
 	});
-}); 
+});

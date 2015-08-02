@@ -36,11 +36,7 @@
 						<Label id="shipCost" />
 						<Label id="shipWith" />
 						<View id="lineThree"></View>
-						<Label id="shipToOut" />
-						<Label id="shipCostOut" />
-						<Label id="shipWithOut" />
-						<View id="lineFour"></View>
-
+						<View id="shippingValues" />
 					</View>
 					<View class="lblClass">
 						<Label id="payment" />

@@ -184,7 +184,7 @@
 "#shippingDetails": {
 	left: 0,
 	top: '20dp',
-	height: '65dp'
+	height: Ti.UI.SIZE
 }
 
 "#shipTo": {
@@ -267,6 +267,12 @@
 	height: '2px',
 	width: '300dp',
 	backgroundColor: "#DADADA"
+}
+
+"#shippingValues" : {
+	layout : 'vertical',
+	height : Ti.UI.SIZE,
+	top : '35dp'
 }
 
 "#comments": {

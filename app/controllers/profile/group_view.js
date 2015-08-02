@@ -5,33 +5,62 @@ var group_name = args.group.name;
 var filters = {},
     uploadedImage = null;
 
-function postInGroup(){
+function processPosts(data) {
+	// adding names and avatars to comments
+	console.log('DATA:'+ JSON.stringify(data));
+	for (var i in data.posts.Comments) {
+
+		for (var j in data.posts.Comments[i]) {
+
+			data.posts.Comments[i][j].user_avatar = data.posts.CommentAvatarImg[i][j];
+			data.posts.Comments[i][j].user_name = data.posts.CommentAvatarName[i][j];
+		}
+	}
+
+	// adding avatars, comments and names to posts
+
+	for (var i in data.posts.Post) {
+
+		data.posts.Post[i].user_name = data.posts.PostAvatarName[i];
+		data.posts.Post[i].user_avatar = data.posts.PostAvtrImg[i];
+		data.posts.Post[i].comments = data.posts.Comments[i];
+		data.posts.Post[i].pin_image = data.posts.myPinImg[i];
+
+	}
+
+	Ti.API.info(data.posts);
+	var tableData = [];
+
+	for (var i in data.posts.Post) {
+
+		tableData.push(Alloy.createController('profile/groupPostRow', data.posts.Post[i]).getView());
+	}
+
+	$.postsTable.setData(tableData);
+}
+
+function loadGroupPosts() {
+	Alloy.Globals.loading.show();
+	Alloy.Globals.API.getGroup(group_id, function(result) {
+		processPosts({posts:result});
+		Alloy.Globals.loading.hide();
+	}, function(error) {
+		//TBD
+		Alloy.Globals.loading.hide();
+	});
+}
+
+function postInGroup() {
 	Alloy.Globals.loading.show();
 	Alloy.Globals.API.addPost($.title.getValue().trim(), group_id, uploadedImage, function(result) {
-		
 		if (result.result) {
-			
-			var data = {
-				article : $.title.getValue().trim(),
-				user_avatar : Alloy.Globals.currentUser.user_info.avatar_medium.image,
-				user_name : Alloy.Globals.currentUser.user_info.firstname + ' ' + Alloy.Globals.currentUser.user_info.lastname
-			};
-			
-			if(uploadedImage !== null){
-				data.pin_image = $.postImage.image;
-			}
-			
-			$.postsTable.insertRowBefore(0, Alloy.createController('profile/groupPostRow', data).getView());
+			loadGroupPosts();
 			$.title.setValue('');
 			uploadedImage = null;
 			$.postImage.image = null;
 			$.postImage.visible = false;
-			Alloy.Globals.loading.hide();
-			
 		} else {
-
 			if (result.message) {
-
 				alert(result.message);
 				Alloy.Globals.loading.hide();
 			}
@@ -39,14 +68,91 @@ function postInGroup(){
 	}, function(error) {
 		//TBD
 		alert('There was a communication problem, please check your intenet connection and try again.');
+		Alloy.Globals.loading.hide();
 	});
 }
 
+function createFilter(list, label, filterType) {
+
+	var items = [];
+
+	for (i in list) {
+		items.push(list[i].title);
+	}
+
+	var popupDialog = Alloy.createWidget('ti.ux.popup.list', 'widget', {
+		closeButton : true,
+		selectable : true,
+		options : items,
+	});
+
+	popupDialog.getView('table').addEventListener('click', function(e) {
+
+		label.text = e.row.data.title;
+		popupDialog.hide();
+
+		// Update filters []
+		var keyArray = [];
+
+		// Getting array of keys
+		for (var key in filters) {
+			// console.log("key ", key); // shows key
+			keyArray.push(key);
+		}
+
+		// Checking the filter type
+		if (filterType === "category") {
+
+			filters['filters[category_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
+
+		} else if (filterType === "brand") {
+
+			filters['filters[brand_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
+
+		} else if (filterType === "gender") {
+
+			filters['filters[gender_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
+
+		} else if (filterType === "size") {
+
+			filters['filters[size_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
+
+		}
+
+		// Call the service
+		Alloy.Globals.loading.show();
+		var productArray = [];
+		Alloy.Globals.API.getFilteredPins(filters, function(results) {
+
+			console.debug("Alloy.Globals.API.getFilteredPins", JSON.stringify(results));
+
+			for (var i in results) {
+				productArray.push(Alloy.createController('product/productRow', results[i]).getView());
+			}
+
+			if (results.length == 0) {
+				productArray.push(Ti.UI.createTableViewRow({
+					title : 'No results.'
+				}));
+			}
+			$.homeTable.setData(productArray);
+			Alloy.Globals.loading.hide();
+
+		}, function(error) {
+
+			Alloy.Globals.loading.hide();
+		});
+
+	});
+
+	popupDialog.getView().show();
+}
+
 $.cameraIcon.addEventListener('click', function() {
-	
+
 	var image = Alloy.Globals.uploadImage(function(image) {
 		Alloy.Globals.loading.show();
-		
+
 		Alloy.Globals.API.feedUploadImage(image, function(result) {
 			uploadedImage = result.file;
 			$.postImage.image = image;
@@ -59,57 +165,31 @@ $.cameraIcon.addEventListener('click', function() {
 	});
 });
 
-$.postInGroup.addEventListener('click', function(){
-	
-	if($.title.getValue().trim() === ""){
+$.postInGroup.addEventListener('click', function() {
+
+	if ($.title.getValue().trim() === "") {
 		return;
 	}
-	
+
 	postInGroup();
 });
 
 $.title.addOnReturn(function() {
-	
-	if($.title.getValue().trim() === ""){
+
+	if ($.title.getValue().trim() === "") {
 		return;
 	}
-	
+
 	postInGroup();
 });
 
-var posts = [];
-
-// adding names and avatars to comments
-for (var i in args.posts.Comments) {
-
-	for (var j in args.posts.Comments[i]) {
-
-		args.posts.Comments[i][j].user_avatar = args.posts.CommentAvatarImg[i][j];
-		args.posts.Comments[i][j].user_name = args.posts.CommentAvatarName[i][j];
-	}
-}
-
-// adding avatars, comments and names to posts
-
-for (var i in args.posts.Post) {
-
-	args.posts.Post[i].user_name = args.posts.PostAvatarName[i];
-	args.posts.Post[i].user_avatar = args.posts.PostAvtrImg[i];
-	args.posts.Post[i].comments = args.posts.Comments[i];
-	args.posts.Post[i].pin_image = args.posts.myPinImg[i];
-
-}
-
-Ti.API.info(args.posts);
-var tableData = [];
-
-for (var i in args.posts.Post) {
-
-	tableData.push(Alloy.createController('profile/groupPostRow', args.posts.Post[i]).getView());
-}
-
 $.editGroup.addEventListener('click', function() {
-	Alloy.Globals.openWindow('profile/createGroup_view', { update : true, id : args.group.id, name : args.group.name, description : args.group.description}, true);
+	Alloy.Globals.openWindow('profile/createGroup_view', {
+		update : true,
+		id : args.group.id,
+		name : args.group.name,
+		description : args.group.description
+	}, true);
 });
 
 $.invite.addEventListener('click', function() {
@@ -139,27 +219,28 @@ $.invite.addEventListener('click', function() {
 	dialog.show();
 });
 
-if(args.group.private != 1 ){
+if (args.group.private != 1) {
 	$.groupTypeTxt.text = "Public";
-	$.lockIcon.image ="/images/public.png";
-}else{
+	$.lockIcon.image = "/images/public.png";
+} else {
 	$.groupTypeTxt.text = "Private";
-	$.lockIcon.image ="/images/private.png";
+	$.lockIcon.image = "/images/private.png";
 }
 
 $.groupTitle.text = args.group.name;
 $.description.text = args.group.description;
 
 $.members.addEventListener('click', function() {
-	Alloy.Globals.openWindow('groups/group_members_list', {group_id:group_id, group_name:group_name}, true);
+	Alloy.Globals.openWindow('groups/group_members_list', {
+		group_id : group_id,
+		group_name : group_name
+	}, true);
 });
 
-Ti.App.addEventListener("updateGroup_groupView",function(data){
+Ti.App.addEventListener("updateGroup_groupView", function(data) {
 	$.groupTitle.text = data.name;
 	$.description.text = data.description;
 });
-
-$.postsTable.setData(tableData);
 
 //================== Group items Filter==============
 
@@ -244,78 +325,4 @@ $.sizeFilter.addEventListener('click', function() {
 	}
 });
 
-function createFilter(list, label, filterType) {
-
-	var items = [];
-
-	for (i in list) {
-		items.push(list[i].title);
-	}
-
-	var popupDialog = Alloy.createWidget('ti.ux.popup.list', 'widget', {
-		closeButton : true,
-		selectable : true,
-		options : items,
-	});
-
-	popupDialog.getView('table').addEventListener('click', function(e) {
-
-		label.text = e.row.data.title;
-		popupDialog.hide();
-
-		// Update filters []
-		var keyArray = [];
-
-		// Getting array of keys
-		for (var key in filters) {
-			// console.log("key ", key); // shows key
-			keyArray.push(key);
-		}
-
-		// Checking the filter type
-		if (filterType === "category") {
-
-			filters['filters[category_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
-
-		} else if (filterType === "brand") {
-
-			filters['filters[brand_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
-
-		} else if (filterType === "gender") {
-
-			filters['filters[gender_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
-
-		} else if (filterType === "size") {
-
-			filters['filters[size_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
-
-		}
-
-		// Call the service
-		Alloy.Globals.loading.show();
-		var productArray = [];
-		Alloy.Globals.API.getFilteredPins(filters, function(results) {
-
-			console.debug("Alloy.Globals.API.getFilteredPins", JSON.stringify(results));
-
-			for (var i in results) {
-				productArray.push(Alloy.createController('product/productRow', results[i]).getView());
-			}
-
-			if (results.length == 0) {
-				productArray.push(Ti.UI.createTableViewRow({
-					title : 'No results.'
-				}));
-			}
-			$.homeTable.setData(productArray);
-			Alloy.Globals.loading.hide();
-
-		}, function(error) {
-
-			Alloy.Globals.loading.hide();
-		});
-
-	});
-
-	popupDialog.getView().show();
-}
+processPosts(args);

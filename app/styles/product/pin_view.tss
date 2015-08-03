@@ -524,4 +524,12 @@
 	left: '167dp'
 }
 
+"#editButton" : {
+	visible : false,
+	right : '5dp',
+}
+
+"#edit" : {
+	image : '/images/edit.png'
+}
 

@@ -53,7 +53,9 @@ function displayPin() {
 	Ti.API.info('args: ' + JSON.stringify(args));
 
 	Alloy.Globals.API.getPin(args.pin_id, function(result) {
-
+		
+		
+		Ti.API.info(result);
 		$.editButton.addEventListener('click', function() {
 			Alloy.Globals.openWindow('product/add_view', args, true);
 		});

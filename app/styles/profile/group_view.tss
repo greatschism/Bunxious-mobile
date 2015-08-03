@@ -46,7 +46,10 @@
 	rowHeight: Ti.UI.SIZE,
 	backgroundColor : 'white',
 	showVerticalScrollIndicator : false,
-	separatorStyle: Titanium.UI.iPhone.TableViewSeparatorStyle.NONE
+	separatorInsets: {
+		left: 0,
+		right: 0
+	},
 }
 
 "#lockIcon":{

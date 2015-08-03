@@ -35,7 +35,7 @@
 "#closetTable" :{
 	top : 0,
 	height : Ti.UI.FILL,
-	backgroundColor : '#f4f4f4',
+	backgroundColor : '#fff',
 	separatorInsets: {
 		left: 0,
 		right: 0

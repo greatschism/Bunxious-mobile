@@ -34,9 +34,12 @@
 							<ImageView class="filterIcon" />
 						</View>
 						<View id="priceFilter" class="filterWrapper botRow centerElement">
-							<Label class="filterLabel" text="L('price')" />
+							<Label id="priceLabel" class="filterLabel" text="L('price')" />
 							<View class="filterSeparator" />
 							<ImageView class="filterIcon" />
+						</View>
+						<View id="resetFilter" class="filterWrapper botRow lastElement">
+							<Button id="resetButton" title="Reset"/>
 						</View>
 					</View>
 				</View>

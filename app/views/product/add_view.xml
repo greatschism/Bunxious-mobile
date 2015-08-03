@@ -3,7 +3,7 @@
 
 		<View id="favoriteSection">
 			<View class="labelWrapper">
-				<Label class="favLabel" text="Add New Item" />
+				<Label id="favLbl" class="favLabel" text="Add New Item" />
 			</View>
 		</View>
 		<Widget id="tfTitle" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="300dp" top="20dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('title').toUpperCase()" tfTop="5dp" tfWidth="220dp" />
@@ -143,7 +143,7 @@
 			</View>
 			<View class="border paddingTop" />
 			<View id="addItem" class="saveWrapper">
-				<Button class="saveButton" title="L('add_new_item')" />
+				<Button id="saveBtn" class="saveButton" title="L('add_new_item')" />
 			</View>
 		</View>
 	</ScrollView>

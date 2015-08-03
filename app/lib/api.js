@@ -280,6 +280,20 @@ api.getPin = function(id, success, fail) {
 	httpRequest('pin/find', 'GET', data, success, fail);
 };
 
+api.getEditPin = function(id, success, fail){
+		var data = {
+		id : id,
+		token : Alloy.Globals.currentUser.token
+	};
+
+	httpRequest('editpin/getEditPin', 'POST', data, success, fail);
+};
+
+api.editPinUpdate = function(data, success, fail){
+
+	httpRequest('editpin/update', 'POST', data, success, fail);
+};
+
 api.togglePinLike = function(id, success, fail) {
 
 	var data = {

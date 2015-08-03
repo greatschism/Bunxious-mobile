@@ -28,6 +28,7 @@
 	<string name="cart">My Cart</string>
 	<string name="my_orders">My Purchases</string>
 	<string name="add_item">Add New Item</string>
+	<string name="edit_item">Edit Item</string>
 	<string name="settings">My Settings</string>
 	<string name="sign_out">Sign Out</string>
 	<string name="selector_close">Close X</string>

@@ -1,10 +1,120 @@
 var args = arguments[0] || {};
 
-var gallery = [];
+var gallery = [],
+    uploadedImages = 1,
+    rows = 1,
+    x_form = '';
 
 if (args.pin) {
-	$.tfTitle.setValue(args.pin.title);
-	$.tfDesc.setValue(args.pin.description);
+	$.favLbl.text = L('edit_item');
+	$.saveBtn.title = L('edit_item');
+	Alloy.Globals.loading.show();
+	Alloy.Globals.API.getEditPin(args.pin.id, function(result) {
+
+		x_form = result['X-form-cmd'];
+
+		$.tfTitle.setValue(result.Pin.title);
+		$.tfDesc.setValue(result.Pin.description);
+
+		if (result.Pin.category_id) {
+			$.categoryTitle.text = Alloy.Globals.findCategoryById(args.pin.category_id).title;
+			$.categoryTitle.idValue = args.pin.category_id;
+		}
+
+		if (result.Pin.brand_id) {
+			$.brandTitle.text = Alloy.Globals.findBrandById(args.pin.brand_id).title;
+			$.brandTitle.idValue = args.pin.brand_id;
+		}
+
+		if (result.Pin.condition_id) {
+			$.conditionTitle.text = Alloy.Globals.findConditionById(args.pin.condition_id).title;
+			$.conditionTitle.idValue = args.pin.condition_id;
+		}
+
+		if (result.Pin.gender_id) {
+			$.genderTitle.text = Alloy.Globals.findGenderById(args.pin.gender_id).title;
+			$.genderTitle.idValue = args.pin.gender_id;
+		}
+
+		if (result.Gallery) {
+
+			gallery = JSON.parse(JSON.stringify(result.Gallery));
+
+			for (var i = 0; i < gallery.length; i++) {
+				var height = 45 * uploadedImages + 45 + 'dp';
+
+				$.uploadImageTable.appendRow(Alloy.createController('product/upload_image', {
+					image : gallery[i]
+				}).getView());
+
+				$.uploadImageTable.animate({
+					height : height
+				});
+
+				uploadedImages++;
+			}
+		}
+
+		if (result.LocationInfo.options) {
+
+			for (var i = 0; i < result.LocationInfo.options.length; i++) {
+				if (result.LocationInfo.options[i].country_id === null) {
+					$.shipToElsewhere.value = result.LocationInfo.options[i].price;
+				} else if (result.LocationInfo.options[i].country_id === 223) {
+					$.shipToUS.value = result.LocationInfo.options[i].price;
+				}
+			}
+		}
+
+		if (result.SizeIfo) {
+
+			for (var i = 0; i < result.SizeIfo.length; i++) {
+
+				if (i === 0) {// Adding values to already created row for the first set
+					var firstVariationRow = $.itemVariationTable.data[0].rows;
+
+					firstVariationRow[i].children[0].children[0].field_id = result.SizeIfo[i].id;
+					firstVariationRow[i].children[0].children[0].idValue = result.SizeIfo[i].size_id;
+					firstVariationRow[i].children[0].children[0].text = Alloy.Globals.findSizeById(result.SizeIfo[i].size_id).title;
+					firstVariationRow[i].children[1].children[0].children[0].value = result.SizeIfo[i].quantity;
+					firstVariationRow[i].children[1].children[1].children[0].value = result.SizeIfo[i].price;
+
+				} else {// creating rows for the rest of the set
+
+					rows++;
+					var height = 90 * rows + 45 + 'dp';
+
+					// Collecting the variation row data and checking if it is empty
+					var itemVariationTableRows = $.itemVariationTable.data[0].rows;
+
+					$.itemVariationTable.appendRow(Alloy.createController('product/variationRow').getView());
+
+					itemVariationTableRows[i].children[0].children[0].field_id = result.SizeIfo[i].id;
+					itemVariationTableRows[i].children[0].children[0].idValue = result.SizeIfo[i].size_id;
+					itemVariationTableRows[i].children[0].children[0].text = Alloy.Globals.findSizeById(result.SizeIfo[i].size_id).title;
+					itemVariationTableRows[i].children[1].children[0].children[0].value = result.SizeIfo[i].quantity;
+					itemVariationTableRows[i].children[1].children[1].children[0].value = result.SizeIfo[i].price;
+
+					$.itemVariationTable.animate({
+						height : height
+					});
+				}
+			}
+
+		}
+
+		if (result.Tags.tagsString) {
+			var tagsArray = result.Tags.tagsString.split(',');
+			$.tfStyle.value = tagsArray[0];
+			$.tfTags.value = tagsArray[1];
+			$.tfMaterials.value = tagsArray[2];
+		}
+
+		Alloy.Globals.loading.hide();
+
+	}, function(error) {
+		console.debug(JSON.stringify(error));
+	});
 }
 
 $.category.addEventListener('click', function() {
@@ -112,8 +222,6 @@ $.condition.addEventListener('click', function() {
 		});
 	}
 });
-
-var uploadedImages = 1;
 
 $.uploadImage.addEventListener('click', function(e) {
 
@@ -270,37 +378,80 @@ $.addItem.addEventListener('click', function() {
 		"group" : $.groupsTitle.idValue
 	};
 
-	Alloy.Globals.API.addNewItem(data, function(result) {
+	// Edit pin post request
+	if (args.pin) {
+		data.id = args.pin.id;
+		data['X-form-cmd'] = x_form;
+		
+		console.debug('Edit item mode');
 
-		if (result.Error || result.errors) {
-			alert('enter_valid_details');
-		} else {
-			// clear all fields
-			gallery.length = 0;
-			$.tfTitle.setValue("");
-			$.tfDesc.setValue("");
-			$.categoryTitle.idValue = "";
-			$.categoryTitle.setText("");
-			$.groupsTitle.idValue = "";
-			$.groupsTitle.setText("");
-			$.brandTitle.idValue = "";
-			$.brandTitle.setText("");
-			$.genderTitle.idValue = "";
-			$.genderTitle.setText("");
-			$.conditionTitle.idValue = "";
-			$.conditionTitle.setText("");
-			$.tfStyle.setValue("");
-			$.tfTags.setValue("");
-			$.tfMaterials.setValue("");
-			$.tfProcessingTime.setValue("");
-			$.shipToUS.setValue("");
-			$.shipToElsewhere.setValue("");
-		}
+		Alloy.Globals.API.editPinUpdate(data, function(result) {
 
-		Alloy.Globals.loading.hide();
-	}, function(error) {
+			if (result.Error || result.errors) {
+				alert('enter_valid_details');
+			} else {
+				// clear all fields
+				gallery.length = 0;
+				$.tfTitle.setValue("");
+				$.tfDesc.setValue("");
+				$.categoryTitle.idValue = "";
+				$.categoryTitle.setText("");
+				$.groupsTitle.idValue = "";
+				$.groupsTitle.setText("");
+				$.brandTitle.idValue = "";
+				$.brandTitle.setText("");
+				$.genderTitle.idValue = "";
+				$.genderTitle.setText("");
+				$.conditionTitle.idValue = "";
+				$.conditionTitle.setText("");
+				$.tfStyle.setValue("");
+				$.tfTags.setValue("");
+				$.tfMaterials.setValue("");
+				$.tfProcessingTime.setValue("");
+				$.shipToUS.setValue("");
+				$.shipToElsewhere.setValue("");
+			}
 
-		alert(L('pin_upload_error'));
-		Alloy.Globals.loading.hide();
-	});
+			Alloy.Globals.loading.hide();
+		}, function(error) {
+
+			alert(L('pin_upload_error'));
+			Alloy.Globals.loading.hide();
+		});
+	} else {
+		// Upload pin post request
+		Alloy.Globals.API.addNewItem(data, function(result) {
+
+			if (result.Error || result.errors) {
+				alert('enter_valid_details');
+			} else {
+				// clear all fields
+				gallery.length = 0;
+				$.tfTitle.setValue("");
+				$.tfDesc.setValue("");
+				$.categoryTitle.idValue = "";
+				$.categoryTitle.setText("");
+				$.groupsTitle.idValue = "";
+				$.groupsTitle.setText("");
+				$.brandTitle.idValue = "";
+				$.brandTitle.setText("");
+				$.genderTitle.idValue = "";
+				$.genderTitle.setText("");
+				$.conditionTitle.idValue = "";
+				$.conditionTitle.setText("");
+				$.tfStyle.setValue("");
+				$.tfTags.setValue("");
+				$.tfMaterials.setValue("");
+				$.tfProcessingTime.setValue("");
+				$.shipToUS.setValue("");
+				$.shipToElsewhere.setValue("");
+			}
+
+			Alloy.Globals.loading.hide();
+		}, function(error) {
+
+			alert(L('pin_upload_error'));
+			Alloy.Globals.loading.hide();
+		});
+	}
 });

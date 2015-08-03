@@ -91,6 +91,11 @@ Alloy.Globals.API.getAllCategories(function(results) {
 
 });
 
+Alloy.Globals.findCategoryById = function(id) {
+	var index = Alloy.Globals.findIndexWithAttribute(Alloy.Globals.categoryFilters,'id',id);
+	return Alloy.Globals.categoryFilters[index];
+};
+
 // Get Brands
 Alloy.Globals.API.getBrands(function(results) {
 
@@ -121,6 +126,11 @@ Alloy.Globals.API.getGender(function(results) {
 }, function(error) {
 
 });
+
+Alloy.Globals.findGenderById = function(id) {
+	var index = Alloy.Globals.findIndexWithAttribute(Alloy.Globals.genderFilters,'id',id.toString());
+	return Alloy.Globals.genderFilters[index];
+};
 
 // Get Size
 Alloy.Globals.API.getSize(function(results) {

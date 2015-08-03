@@ -14,3 +14,8 @@ function cancel(){
 	$.win.close();
 	$.win.fireEvent('cancel', {value: $.textarea.value});
 }
+
+$.textarea.addEventListener('postlayout', function() {
+	
+	$.textarea.focus();
+});

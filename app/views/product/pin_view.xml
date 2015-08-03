@@ -12,10 +12,12 @@
 						<View id="heartButton" class="buttonWrapper">
 							<ImageView id="heart" class="button" />
 						</View>
+						<View id="editButton" class="buttonWrapper">
+							<ImageView id="edit" class="button" />
+						</View>
 					</View>
 				</View>
 			</HeaderView>
-	
 			<TableViewRow>
 				<View class="container">
 					<Label id="price" />
@@ -47,7 +49,6 @@
 					</View>
 					<View id="commentsView" />
 					<Widget id="commentTxt" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="25dp" left="50dp" right="10dp" top="7dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('comment').toUpperCase()" tfTop="5dp" tfWidth="Ti.UI.FILL" />
-					
 					<View class="lblClass">
 						<Label id="closet" />
 					</View>

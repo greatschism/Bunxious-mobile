@@ -1,6 +1,6 @@
 <Alloy>
 	<NavigationWindow platform="ios"  id="win">
-		<Window onOpen="init" backgroundColor="#fff">
+		<Window onOpen="init" backgroundColor="#fff" id="window">
 			<LeftNavButton>
 				<Button title="Save" onClick="save" />
 			</LeftNavButton>

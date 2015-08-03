@@ -54,6 +54,10 @@ function displayPin() {
 
 	Alloy.Globals.API.getPin(args.pin_id, function(result) {
 
+		$.editButton.addEventListener('click', function() {
+			Alloy.Globals.openWindow('product/add_view', args, true);
+		});
+
 		pinObj = JSON.parse(JSON.stringify(result));
 
 		$.pinImage.image = pinObj.image_big.image;
@@ -131,19 +135,18 @@ function displayPin() {
 			});
 
 			item.add(separator);
-			
+
 			shipCostLabel.text = '$' + parseFloat(pinObj.shipping[i].price).toFixed(2) + ' USD';
 			shipCombinedLabel.text = '$' + parseFloat(pinObj.shipping[i].multiple_price).toFixed(2) + ' USD';
 
 			if (pinObj.shipping[i].country_id === 223) {// For United States
-				
+
 				shipToLabel.text = 'United States';
-			}
-			else if (pinObj.shipping[i].country_id == null) {
-				
+			} else if (pinObj.shipping[i].country_id == null) {
+
 				shipToLabel.text = 'Everywhere else';
 			}
-			
+
 			$.shippingValues.add(item);
 		}
 

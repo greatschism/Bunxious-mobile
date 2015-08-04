@@ -44,11 +44,15 @@
 	left: '50dp',
 	height : Ti.UI.SIZE,
 	top: '25dp',
+	wordWrap: true,
+	font: {
+		fontStyle : "Helvetica Neue"
+	}
 }
 
 "#pin_img": {
 	width:"70%",
-	top: '30dp'
+	top: '50dp'
 }
 
 "#commentsTable": {

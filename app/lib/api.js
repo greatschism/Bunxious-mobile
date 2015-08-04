@@ -516,6 +516,19 @@ api.getGroupMembers = function(id, success, fail) {
 	httpRequest('group/members', 'POST', data, success, fail);
 };
 
+api.banGroupMember = function(group_id, user_id, decision, success, fail) {
+	
+	var data = {
+		group_id: group_id,
+		user_id: user_id,
+		decision: decision,
+		token: Alloy.Globals.currentUser.token
+	};
+
+	httpRequest('group/ban', 'POST', data, success, fail);
+
+};
+
 api.inviteUserToGroup = function(group_id, name, success, fail) {
 
 	var data = {
@@ -537,6 +550,8 @@ api.addUserToGroup = function(group_id, user_id, decision, success, fail) {
 
 	httpRequest('group/request', 'POST', data, success, fail);
 };
+
+
 
 api.feedUploadImage = function(image, success, fail) {
 

@@ -5,6 +5,9 @@
 			<Label id="fullname" />
 			<Button id="accept" title="Accept"/>
 			<Button id="decline" title="Decline"/>
+			<Button id="promote" title="Promote" />
+			<Button id="ban" title="Ban" />
+			<Button id="unban" title="Unban" />
 		</View>
 	</TableViewRow>
 </Alloy>

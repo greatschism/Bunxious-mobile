@@ -27,7 +27,43 @@
 	}
 }
 
+"#promote":{
+	color:'white',
+	right:55,
+	width: '49dp',
+	height: '40dp',
+	backgroundColor:'#22FF22',
+	font: {
+		fontSize:'10dp',
+		fontWeight:'bold'
+	}
+}
+
 "#decline":{
+	color:'white',
+	right:5,
+	width: '49dp',
+	height: '40dp',
+	backgroundColor:'#DD2222',
+	font: {
+		fontSize:'10dp',
+		fontWeight:'bold'
+	}
+}
+
+"#ban":{
+	color:'white',
+	right:5,
+	width: '49dp',
+	height: '40dp',
+	backgroundColor:'#DD2222',
+	font: {
+		fontSize:'10dp',
+		fontWeight:'bold'
+	}
+}
+
+"#unban":{
 	color:'white',
 	right:5,
 	width: '49dp',

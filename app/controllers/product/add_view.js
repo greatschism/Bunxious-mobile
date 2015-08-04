@@ -411,8 +411,10 @@ $.addItem.addEventListener('click', function() {
 				$.shipToUS.setValue("");
 				$.shipToElsewhere.setValue("");
 			}
-
+			
+			alert("Product Successfully Updated");
 			Alloy.Globals.loading.hide();
+			Alloy.Globals.pageflow.back();
 		}, function(error) {
 
 			alert(L('pin_upload_error'));
@@ -446,8 +448,11 @@ $.addItem.addEventListener('click', function() {
 				$.shipToUS.setValue("");
 				$.shipToElsewhere.setValue("");
 			}
+			
+			alert("Product Successfully Added");
 
 			Alloy.Globals.loading.hide();
+			Alloy.Globals.pageflow.back();
 		}, function(error) {
 
 			alert(L('pin_upload_error'));

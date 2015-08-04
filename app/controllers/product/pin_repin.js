@@ -29,9 +29,12 @@ $.boards.addEventListener('click', function() {
 
 $.repin.addEventListener('click', function() {
 
+	console.log("-------");
+	console.log(args.id);
+
 	if ($.boardsTitle.selectedID) {
 
-		Alloy.Globals.API.pinToBoard(args.id, $.boardsTitle.selectedID, function(result) {
+		Alloy.Globals.API.pinToBoard(args.id, $.boardsTitle.selectedID, $.boardsTitle.text, function(result) {
 
 			if (result.affected_row_id) {
 

@@ -42,7 +42,7 @@ function updatePriceValues(dontAddButton) {
 var checkoutButton;
 
 function addButtonToWindow() {
-	
+
 	Ti.API.info("shipping :" + shippingValue, "invoiceItems :" + JSON.stringify(args.paypal.items), "subtotal :" + parseFloat(args.sub_total).toFixed(2), typeof args.sub_total);
 
 	if (checkoutButton) {
@@ -109,6 +109,16 @@ function addButtonToWindow() {
 }
 
 Ti.API.info(args);
+
+$.add_address.addEventListener('click', function() {
+	alert('This is WIP');
+	var addAddressWin = Alloy.createController('profile/add_address').getView();
+	addAddressWin.addEventListener('close', function(){
+		// Refresh the address list when the add address view closes.
+		console.log('Closed add address win');
+	});
+	addAddressWin.open({modal:true});
+});
 
 $.addressFilter.addEventListener('click', function() {
 

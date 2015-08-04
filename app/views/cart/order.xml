@@ -14,6 +14,9 @@
 			<View class="filterSeparator" />
 			<ImageView class="filterIcon" />
 		</View>
+		<View class="filterWrapper topRow lastElement">
+			<Button id="add_address" title="Add A New Address"/>
+		</View>
 		<View class="lineBreak"></View>
 		<View class="orderDetails top">
 			<Label id="orderItemTotal" class="orderLeft"></Label>

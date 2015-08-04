@@ -1,0 +1,13 @@
+<Alloy>
+	<Window id="add_address_win">
+		<Button id="close" title="Close"/>
+		<Label id="header_label" text="Add Address Form"/>
+		<TextField id="address"/>
+		<TextField id="recipient_name"/>
+		<TextField id="country"/>
+		<TextField id="state"/>
+		<TextField id="city"/>
+		<TextField id="zip"/>
+		<Button id="save_address" title="Save"/>
+	</Window>
+</Alloy>

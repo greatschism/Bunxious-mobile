@@ -8,13 +8,50 @@ if (user) {
 	if (user.enabled === true) {
 		$.accept.hide();
 		$.decline.hide();
+		$.unban.hide();
+		$.promote.show();
+		$.ban.show();
 	} else {
 		$.accept.show();
 		$.decline.show();
+		$.promote.hide();
+		$.ban.hide();
+		$.unban.hide();
 	}
 }
 
 $.row.addEventListener('click', function() {
+
+});
+
+$.promote.addEventListener('click', function() {
+	alert("promote");
+});
+
+$.ban.addEventListener('click', function() {
+
+	Alloy.Globals.API.banGroupMember(args.group_id, args.user.id, true, function(result){
+
+		$.ban.hide();
+		$.unban.show();
+
+
+	}, function(error){
+
+	});
+
+});
+
+$.unban.addEventListener('click', function() {
+
+	Alloy.Globals.API.banGroupMember(args.group_id, args.user.id, false, function(result){
+
+		$.ban.show();
+		$.unban.hide();
+
+	}, function(error){
+
+	});
 
 });
 

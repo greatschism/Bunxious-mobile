@@ -3,18 +3,23 @@ var args = arguments[0] || {};
 $.avatar.image = args.user_avatar;
 $.user.text = args.user_name;
 
-if(args.article.Image) {
+if(args.pin_id) {
 	// Has a Pin image
 	$.post_title.hide();
 	$.pin_img.show();
-	$.pin_img.image = args.article.Image;
+	$.pin_img.image = args.pin_image;
 } else {
 	// No Pin image
 	$.post_title.show();
-	$.pin_img.hide();
-	$.pin_img.setHeight(0);
+	if(args.article.Image){
+		$.pin_img.image = args.article.Image;
+	} else {
+		$.pin_img.hide();
+		$.pin_img.setHeight(0);
+	}
 	// Adding html style as it is a styled label, unable to set text
-	$.post_title.html = '<style>a, span {font-family : HelveticaNeue; word-wrap : break-word;}</style><span>' + args.article.title + '</span>';
+	// $.post_title.html = '<style>a, span {font-family : HelveticaNeue; word-wrap : break-word;}</style><span>' + args.article.title + '</span>';
+	$.post_title.text = args.article.title.trim();
 }
 
 $.title.addOnReturn(function(event) {

@@ -2,10 +2,36 @@ var args = arguments[0] || {};
 var moment = require('alloy/moment');
 var uploadedImage = null;
 
+$.checkbox.on = function() {
+	this.title = '\u2713';
+	this.value = true;
+	
+	$.checkbox.backgroundColor = '#3497FF';
+};
+
+$.checkbox.off = function() {
+	this.title = '';
+	this.value = false;
+	
+	$.checkbox.backgroundColor = '#ffffff';
+};
+
 if(args.update){
 	$.groupNameTxtField.value = args.name;
 	$.groupDescTxtField.value = args.description;
+	
+	if (args.private == 1) {
+		$.checkbox.on();
+	}
 }
+
+$.checkbox.addEventListener('click', function(e) {
+	if (false == e.source.value) {
+		e.source.on();
+	} else {
+		e.source.off();
+	}
+});
 
 $.uploadImage.addEventListener('click', function(e){
 	var image = Alloy.Globals.uploadImage(function(image){
@@ -47,12 +73,17 @@ function createNewGroup(){
 		image: uploadedImage
 	};
 	
+	if($.checkbox.value){
+		data.private = true;
+	}
+	
 	Alloy.Globals.API.createGroup(data,  function(result){
 		Ti.API.info("success result-->"+ JSON.stringify(result));
 		
 		$.groupNameTxtField.value ="";
 		$.groupDescTxtField.value = "";
 		uploadedImage = null;
+		$.checkbox.off();
 
 		Ti.App.fireEvent("updateGroup");
 		$.uploadImage.title = "Upload Image";
@@ -75,11 +106,16 @@ function updateGroup(){
 		image: uploadedImage
 	};
 	
+	if($.checkbox.value){
+		data.private = true;
+	}
+
 	Alloy.Globals.API.editGroup(data,  function(result){
 		Ti.API.info("success result-->"+ JSON.stringify(result));
 		var data = {
 			name : $.groupNameTxtField.value,
-			description : $.groupDescTxtField.value
+			description : $.groupDescTxtField.value,
+			private: $.checkbox.value
 		};
 		
 		if(uploadedImage !== null){
@@ -92,6 +128,7 @@ function updateGroup(){
 		$.groupNameTxtField.value ="";
 		$.groupDescTxtField.value = "";
 		uploadedImage = null;
+		$.checkbox.off();
 		$.uploadImage.title = "Upload Image";
 		alert("Update succesfully.");
 		

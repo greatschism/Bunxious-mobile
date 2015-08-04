@@ -6,28 +6,6 @@ var tableData = [];
 
 var user_id = args.user_id || Alloy.Globals.currentUser.user_info.id;
 
-/*var orders = [{
- id : '451d823',
- name : 'Matt Doe',
- cost : '10 $',
- description : 'My babys shirt'
- }, {
- id : '441d8h3',
- name : 'Johnny Silverwings',
- cost : '20 $',
- description : 'New one dress'
- }, {
- id : '441d8h3',
- name : 'Mark Doe Johnson',
- cost : '50 $',
- description : 'Description for that data'
- }];
- for (var i = 0; i < orders.length; i++) {
-
- tableData.push(Alloy.createController('product/closetRow', orders[i]).getView());
- }
- $.closetTable.setData(tableData);*/
-
 function createFilter(list, label, filterType) {
 
 	var items = [],

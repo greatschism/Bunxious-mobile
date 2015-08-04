@@ -5,7 +5,7 @@
 			<View class="info">
 				<ImageView id="avatar"/>
 				<Label id="user" />
-				<Label ns="require('ti.styledlabel')" id="post_title" />
+				<Label id="post_title" />
 				<ImageView id="pin_img"/>
 			</View>
 			<TableView id="commentsTable" />

@@ -3,6 +3,13 @@
 	backgroundColor: '#f4f4f4'
 }
 
+".table" : {
+	separatorInsets: {
+		left: 0,
+		right: 0
+	},
+}
+
 
 "#favoriteWrapper": {
 	height: '125dp'

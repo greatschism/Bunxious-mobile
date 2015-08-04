@@ -104,15 +104,12 @@ function initTextField() {
 	if (args.textarea) {
 
 		$.txtField.addEventListener('focus', function() {//show a modal window to input data to the textarea
-			Ti.API.info('focus');
-			$.txtField.blur();
+			//$.txtField.blur();
 			var win = Alloy.createWidget('com.harkdev.stylehinttextfield', 'TextAreaWin', {
 				value : $.txtField.value
 			}).getView();
 
-			win.open({
-				modal : true
-			});
+			win.open();
 
 			win.addEventListener('save', function(e) {
 

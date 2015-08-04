@@ -2,18 +2,6 @@ var args = arguments[0] || {};
 
 var genders = ['male','female','unsigned'];
 
-var countryList = [];
-for(var c in Alloy.Globals.countryFilters) {
-	countryList.push(Alloy.Globals.countryFilters[c].title);
-}
-$.country.setOptions(countryList);
-
-var stateList = [];
-for(var s in Alloy.Globals.StateFilters) {
-	stateList.push(Alloy.Globals.StateFilters[s].title);
-}
-$.state.setOptions(stateList);
-
 if (Alloy.Globals.currentUser != null) {
 
 	$.firstname.getField().value = Alloy.Globals.currentUser.user_info.firstname;
@@ -22,10 +10,6 @@ if (Alloy.Globals.currentUser != null) {
 	$.email.getField().value = Alloy.Globals.currentUser.user_info.email;
 	$.city.getField().value = Alloy.Globals.currentUser.user_info.city;
 	var index = Alloy.Globals.findIndexWithAttribute(Alloy.Globals.countryFilters,'iso_code_3',Alloy.Globals.currentUser.user_info.country_iso_code_3);
-	$.country.setSelectedIndex(index);
-	
-	 var stateIndex = Alloy.Globals.findIndexWithAttribute(Alloy.Globals.StateFilters,'code',Alloy.Globals.currentUser.user_info.state);
-	 $.state.setSelectedIndex(stateIndex);
  		
 	$.gender.setSelectedIndex(genders.indexOf(Alloy.Globals.currentUser.user_info.gender));
 	$.about.getField().value = Alloy.Globals.currentUser.user_info.about;
@@ -54,10 +38,7 @@ if (Alloy.Globals.currentUser != null) {
 		Alloy.Globals.currentUser.user_info.notification_like_pin = $.notification_like_pin.getValue();
 		Alloy.Globals.currentUser.user_info.notification_repin_pin = $.notification_repin_pin.getValue();
 		Alloy.Globals.currentUser.user_info.notification_follow_user = $.notification_follow_user.getValue();
-		var country = Alloy.Globals.getCountryByName($.country.getValue());
-		Alloy.Globals.currentUser.user_info.country_iso_code_3 = country[0].iso_code_3;
-		var state = Alloy.Globals.getStateByTitle($.state.getValue());
-		Alloy.Globals.currentUser.user_info.state = state[0].code;
+		Alloy.Globals.currentUser.user_info.country_iso_code_3 = 'USA'
 		
 		var gender = $.gender.getValue();
 		Alloy.Globals.currentUser.user_info.gender = genders[$.gender.getOptions().indexOf(gender)];

@@ -13,9 +13,8 @@
 				<Widget src="ti.ux.forms.row.text" inputType="text" title="Last Name" id="lastname" />
 				<Widget src="ti.ux.forms.row.text" inputType="text" title="User Name" id="username" />
 				<Widget src="ti.ux.forms.row.text" inputType="email" title="Email" id="email" />
-				<Widget src="ti.ux.forms.row.optionspicker" id="country" title="Country" />
-				<Widget src="ti.ux.forms.row.optionspicker" id="state" title="State" dialogType="popup" />
-				<Widget src="ti.ux.forms.row.text" title="City" inputType="text" id="city" />
+				<TableViewRow title="United States" />
+				<Widget src="ti.ux.forms.row.text" title="City/State" inputType="text" id="city" />
 				<Widget src="ti.ux.forms.row.optionspicker" id="gender" title="Gender" cancel="3" options="Male|Female|Unspecified|Cancel" />
 				<Widget src="ti.ux.forms.row.text" inputType="textarea" title="About You" id="about" />
 				<Widget src="ti.ux.forms.row.text" inputType="url" title="Website" id="website" />

@@ -12,6 +12,31 @@
 '.groupWrapper[platform=ios]': {
 	width: '300dp'
 }
+
+"#checkbox": {
+	title: '',
+	left: '10dp',
+	top: '10dp',
+	width: '18dp',
+	height: '18dp',
+	borderColor: '#000000',
+	borderWidth: '1dp',
+	borderRadius: '3dp',
+	backgroundColor: 'transparent',
+	color: '#fff',
+	font:{
+		fontSize: '15dp',
+		fontWeight: 'bold'
+	},
+	value: false
+}
+
+"#privateGroupLbl": {
+	top: '10dp',
+	left: '10dp',
+	height : Ti.UI.SIZE
+}
+
 ".btn":{
 	height : '34dp',
 	color : 'white',

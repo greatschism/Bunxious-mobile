@@ -28,7 +28,7 @@ function processPosts(data) {
 
 	}
 
-	Ti.API.info(data.posts);
+	// Ti.API.info(data.posts);
 	var tableData = [];
 
 	for (var i in data.posts.Post) {
@@ -59,6 +59,9 @@ function postInGroup() {
 			uploadedImage = null;
 			$.postImage.image = null;
 			$.postImage.visible = false;
+			
+			Ti.App.fireEvent("updateGroup");
+			Alloy.Globals.pageflow.back();
 		} else {
 			if (result.message) {
 				alert(result.message);
@@ -201,7 +204,8 @@ $.editGroup.addEventListener('click', function() {
 		update : true,
 		id : args.group.id,
 		name : args.group.name,
-		description : args.group.description
+		description : args.group.description,
+		private : args.group.private
 	}, true);
 });
 
@@ -253,6 +257,13 @@ $.members.addEventListener('click', function() {
 Ti.App.addEventListener("updateGroup_groupView", function(data) {
 	$.groupTitle.text = data.name;
 	$.description.text = data.description;
+	if (data.private != 1) {
+		$.groupTypeTxt.text = "Public";
+		$.lockIcon.image = "/images/public.png";
+	} else {
+		$.groupTypeTxt.text = "Private";
+		$.lockIcon.image = "/images/private.png";
+	}
 });
 
 //================== Group items Filter==============

@@ -1,11 +1,14 @@
 var args = arguments[0] || {};
 
-Alloy.Globals.API.getOrders(function(results) {
+Alloy.Globals.API.getPurchases(function(results) {
 	
 	var tableData = [];
+
+	console.log(results);
+
+	var results = results.Data[0];
 	
 	for (var i in results) {
-		
 		tableData.push(Alloy.createController('profile/orderRow', results[i]).getView());
 	}
 	

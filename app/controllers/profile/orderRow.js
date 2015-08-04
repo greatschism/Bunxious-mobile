@@ -14,6 +14,6 @@ switch(args.status) {
 }
 
 $.id.text = args.uid;
-$.ago.text = moment(new Date(args.date_modified)).fromNow();
+$.ago.text = moment(args.date_modified).format('lll');
 $.amount.text = "$" + args.amount.toFixed(2);
-$.from.text = args.from_user;
+$.from.text = args.seller;

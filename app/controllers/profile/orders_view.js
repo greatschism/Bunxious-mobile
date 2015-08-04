@@ -1,4 +1,13 @@
 var args = arguments[0] || {};
+var moment = require('alloy/moment');
+
+function compareMilli(a, b) {
+		if (moment(a.date_modified).unix() < moment(b.date_modified).unix())
+			return 1;
+		if (moment(a.date_modified).unix() > moment(b.date_modified).unix())
+			return -1;
+		return 0;
+	}
 
 Alloy.Globals.API.getPurchases(function(results) {
 	
@@ -7,6 +16,8 @@ Alloy.Globals.API.getPurchases(function(results) {
 	console.log(results);
 
 	var results = results.Data[0];
+
+	results.sort(compareMilli);
 	
 	for (var i in results) {
 		tableData.push(Alloy.createController('profile/orderRow', results[i]).getView());

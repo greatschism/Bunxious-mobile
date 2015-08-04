@@ -29,9 +29,9 @@ $.boards.addEventListener('click', function() {
 
 $.repin.addEventListener('click', function() {
 
-	if ($.description.getField().value.length != 0 && $.boardsTitle.selectedID) {
+	if ($.boardsTitle.selectedID) {
 
-		Alloy.Globals.API.pinToBoard(args.id, $.boardsTitle.selectedID, $.description.getField().value, function(result) {
+		Alloy.Globals.API.pinToBoard(args.id, $.boardsTitle.selectedID, function(result) {
 
 			if (result.affected_row_id) {
 
@@ -46,6 +46,6 @@ $.repin.addEventListener('click', function() {
 		});
 	} else {
 
-		alert('Please select a treasure chest and add a title');
+		alert('Please select a treasure chest');
 	}
 });

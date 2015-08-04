@@ -1,7 +1,6 @@
 <Alloy>
 	<View class="container">
 		<TableView backgroundColor="#eee" class="tableview-form">
-			<Widget src="ti.ux.forms.row.text" inputType="text" title="Title" id="description" />
 			<TableViewRow>
 				<View id="boards" class="tabChange">
 					<Label id="boardsTitle" idValue="" class="tabTitle" text="L('add_to_chest').toUpperCase()"/>

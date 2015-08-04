@@ -48,7 +48,7 @@
 
 "#pin_img": {
 	width:"70%",
-	top: '30dp'
+	top: '50dp'
 }
 
 "#commentsTable": {

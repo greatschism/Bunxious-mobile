@@ -44,6 +44,10 @@
 	left: '50dp',
 	height : Ti.UI.SIZE,
 	top: '25dp',
+	wordWrap: true,
+	font: {
+		fontStyle : "Helvetica Neue"
+	}
 }
 
 "#pin_img": {

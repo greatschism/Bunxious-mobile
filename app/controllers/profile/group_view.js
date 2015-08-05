@@ -61,7 +61,6 @@ function postInGroup() {
 			$.postImage.visible = false;
 			
 			Ti.App.fireEvent("updateGroup");
-			Alloy.Globals.pageflow.back();
 		} else {
 			if (result.message) {
 				alert(result.message);
@@ -260,9 +259,11 @@ Ti.App.addEventListener("updateGroup_groupView", function(data) {
 	if (data.private != 1) {
 		$.groupTypeTxt.text = "Public";
 		$.lockIcon.image = "/images/public.png";
+		args.group.private = 0;
 	} else {
 		$.groupTypeTxt.text = "Private";
 		$.lockIcon.image = "/images/private.png";
+		args.group.private = 1;
 	}
 });
 

@@ -55,8 +55,12 @@
 	// visible: false
 }
 
+"#followButton": {
+	width: '100dp',
+}
+
 "#contactButton": {
-	left: '167dp'
+	left: '177dp'
 }
 
 ".buttonLabel": {

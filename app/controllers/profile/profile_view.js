@@ -29,7 +29,8 @@ function openTab(tab, data) {
 }
 
 if (args.user_id) {
-
+	
+	Alloy.Globals.loading.show();
 	Alloy.Globals.API.getUser(args.user_id, function(result) {
 
 		if (!Alloy.Globals.currentUser || Alloy.Globals.currentUser.user_info.id != args.user_id) {
@@ -140,9 +141,10 @@ if (args.user_id) {
 			popupDialog.getView().show();
 
 		});
+		Alloy.Globals.loading.hide();
 
 	}, function(error) {
-
+		Alloy.Globals.loading.hide();
 	});
 }
 

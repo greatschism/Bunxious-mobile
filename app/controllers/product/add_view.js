@@ -382,13 +382,13 @@ $.addItem.addEventListener('click', function() {
 	if (args.pin) {
 		data.id = args.pin.id;
 		data['X-form-cmd'] = x_form;
-		
+
 		console.debug('Edit item mode');
 
 		Alloy.Globals.API.editPinUpdate(data, function(result) {
 
 			if (result.Error || result.errors) {
-				alert('enter_valid_details');
+				alert('Please enter valid details.');
 			} else {
 				// clear all fields
 				gallery.length = 0;
@@ -410,14 +410,22 @@ $.addItem.addEventListener('click', function() {
 				$.tfProcessingTime.setValue("");
 				$.shipToUS.setValue("");
 				$.shipToElsewhere.setValue("");
+				
+				$.uploadImageTable.setData([]);
+				$.noImage.text = L('no_image');
+				uploadedImages = 1;
+				$.uploadImageTable.animate({
+					height : '50dp'
+				});
+
+				alert("Product Successfully Updated");
 			}
-			
-			alert("Product Successfully Updated");
+
 			Alloy.Globals.loading.hide();
 			Alloy.Globals.pageflow.back();
 		}, function(error) {
 
-			alert(L('pin_upload_error'));
+			alert(L('Error occurred while updating the details. Please try again.'));
 			Alloy.Globals.loading.hide();
 		});
 	} else {
@@ -425,7 +433,7 @@ $.addItem.addEventListener('click', function() {
 		Alloy.Globals.API.addNewItem(data, function(result) {
 
 			if (result.Error || result.errors) {
-				alert('enter_valid_details');
+				alert('Please enter valid details.');
 			} else {
 				// clear all fields
 				gallery.length = 0;
@@ -447,15 +455,22 @@ $.addItem.addEventListener('click', function() {
 				$.tfProcessingTime.setValue("");
 				$.shipToUS.setValue("");
 				$.shipToElsewhere.setValue("");
+
+				$.uploadImageTable.setData([]);
+				$.noImage.text = L('no_image');
+				uploadedImages = 1;
+				$.uploadImageTable.animate({
+					height : '50dp'
+				});
+
+				alert("Product Successfully Added");
 			}
-			
-			alert("Product Successfully Added");
 
 			Alloy.Globals.loading.hide();
 			Alloy.Globals.pageflow.back();
 		}, function(error) {
 
-			alert(L('pin_upload_error'));
+			alert(L('Error occurred while adding the details. Please try again.'));
 			Alloy.Globals.loading.hide();
 		});
 	}

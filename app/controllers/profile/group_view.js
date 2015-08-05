@@ -2,6 +2,7 @@ var args = arguments[0] || {};
 var moment = require('alloy/moment');
 var group_id = args.group.id;
 var group_name = args.group.name;
+var group_private = args.group.private;
 var filters = {},
     uploadedImage = null;
 
@@ -247,9 +248,11 @@ $.groupTitle.text = args.group.name;
 $.description.text = args.group.description;
 
 $.members.addEventListener('click', function() {
+
 	Alloy.Globals.openWindow('groups/group_members_list', {
 		group_id : group_id,
-		group_name : group_name
+		group_name : group_name,
+		group_private : group_private
 	}, true);
 });
 

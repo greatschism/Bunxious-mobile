@@ -1,22 +1,29 @@
 var args = arguments[0] || {};
 
 var user = args.user;
+var private = args.group_private;
+var group_id = args.group_id;
 
 if (user) {
+	console.log(user);
 	$.avatar.image = user.avatar_medium.image;
 	$.fullname.text = user.firstname + ' ' + user.lastname;
+
 	if (user.enabled === true) {
 		$.accept.hide();
 		$.decline.hide();
 		$.unban.hide();
 		$.promote.show();
 		$.ban.show();
+	} else if (user.enabled === false && !private) {
+		$.promote.show();
+		$.unban.show();
 	} else {
+		$.promote.hide();
+		$.unban.hide();
+		$.ban.hide();
 		$.accept.show();
 		$.decline.show();
-		$.promote.hide();
-		$.ban.hide();
-		$.unban.hide();
 	}
 }
 
@@ -30,11 +37,10 @@ $.promote.addEventListener('click', function() {
 
 $.ban.addEventListener('click', function() {
 
-	Alloy.Globals.API.banGroupMember(args.group_id, args.user.id, true, function(result){
+	Alloy.Globals.API.banGroupMember(args.group_id, args.user.id, function(result){
 
 		$.ban.hide();
 		$.unban.show();
-
 
 	}, function(error){
 
@@ -44,7 +50,7 @@ $.ban.addEventListener('click', function() {
 
 $.unban.addEventListener('click', function() {
 
-	Alloy.Globals.API.banGroupMember(args.group_id, args.user.id, false, function(result){
+	Alloy.Globals.API.banGroupMember(args.group_id, args.user.id, function(result){
 
 		$.ban.show();
 		$.unban.hide();
@@ -61,6 +67,8 @@ $.accept.addEventListener('click', function() {
 	Alloy.Globals.API.addUserToGroup(args.group_id, args.user.id, "accept", function(result){
 		$.accept.hide();
 		$.decline.hide();
+		$.ban.show();
+		$.promote.show();
 	}, function(error){
 		
 	});

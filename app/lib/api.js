@@ -516,12 +516,11 @@ api.getGroupMembers = function(id, success, fail) {
 	httpRequest('group/members', 'POST', data, success, fail);
 };
 
-api.banGroupMember = function(group_id, user_id, decision, success, fail) {
+api.banGroupMember = function(group_id, user_id, success, fail) {
 	
 	var data = {
 		group_id: group_id,
 		user_id: user_id,
-		decision: decision,
 		token: Alloy.Globals.currentUser.token
 	};
 

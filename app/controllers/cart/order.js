@@ -111,10 +111,9 @@ function addButtonToWindow() {
 Ti.API.info(args);
 
 $.add_address.addEventListener('click', function() {
-	alert('This is WIP');
 	var addAddressWin = Alloy.createController('profile/add_address').getView();
 	addAddressWin.addEventListener('close', function(){
-		// Refresh the address list when the add address view closes.
+		args.parentUpdate();
 		console.log('Closed add address win');
 	});
 	addAddressWin.open({modal:true});

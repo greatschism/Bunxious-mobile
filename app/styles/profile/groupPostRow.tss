@@ -2,7 +2,10 @@
 ".container": {
 	height: Ti.UI.SIZE,
 	layout: 'vertical',
-	backgroundColor: 'transparent',
+	backgroundColor: 'transparent'
+}
+
+".container[platform=ios]": {
 	selectionStyle: Titanium.UI.iPhone.TableViewCellSelectionStyle.NONE
 }
 
@@ -58,6 +61,9 @@
 "#commentsTable": {
 	height: Ti.UI.SIZE,
 	left: '15dp',
-	scrollable: false,
+	scrollable: false
+}
+
+"#commentsTable[platform=ios]" : {
 	separatorStyle: Titanium.UI.iPhone.TableViewSeparatorStyle.NONE
 }

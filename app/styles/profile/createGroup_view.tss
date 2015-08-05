@@ -34,7 +34,8 @@
 "#privateGroupLbl": {
 	top: '10dp',
 	left: '10dp',
-	height : Ti.UI.SIZE
+	height : Ti.UI.SIZE,
+	color: '#000000'
 }
 
 ".btn":{

@@ -97,6 +97,11 @@
 	width : '86dp',
 }
 
+"#resetButton[platform=android]": {
+	backgroundColor: 'transparent',
+	color: 'blue'
+}
+
 ".topRow" : {
 	top : 0
 }

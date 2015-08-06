@@ -49,6 +49,11 @@
 	height: '30dp'
 }
 
+"#add_address[platform=android]": {
+	height: '50dp',
+	backgroundColor: 'transparent',
+	color: 'blue'
+}
 
 //
 //

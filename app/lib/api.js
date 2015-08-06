@@ -973,4 +973,19 @@ api.getBoardPins = function(board_id, success, fail) {
 	httpRequest('pin/find-by', 'GET', data, success, fail);
 };
 
+api.addAddress = function(recipient, address, country, city, state, success, fail) {
+
+	var data = {
+		token: Alloy.Globals.currentUser.token,
+		alias: address,
+		recipient: recipient,
+		country: country,
+		city: city,
+		address: address,
+		state_id: state
+	};
+
+	httpRequest('address/address', 'POST', data, success, fail);
+};
+
 module.exports = api;

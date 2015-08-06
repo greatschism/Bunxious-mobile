@@ -1,5 +1,5 @@
 <Alloy>
-	<View class="container">
+	<View id="closetView" class="container">
 		<ImageView id="cover" width="100%" height="60"/>
 		<Label id="store_title"/>
 		<View class="saveWrapper" id="addNewItem">

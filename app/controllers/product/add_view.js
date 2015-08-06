@@ -5,6 +5,15 @@ var gallery = [],
     rows = 1,
     x_form = '';
 
+function postLayout() {
+	$.addViewScrollView.setHeight($.addViewScrollView.rect.height - 25);
+	$.addViewScrollView.removeEventListener('postlayout', postLayout);
+}
+
+if (Titanium.Platform.osname == "android") {
+	$.addViewScrollView.addEventListener('postlayout', postLayout);
+}
+
 if (args.pin) {
 	$.favLbl.text = L('edit_item');
 	$.saveBtn.title = L('edit_item');
@@ -410,7 +419,7 @@ $.addItem.addEventListener('click', function() {
 				$.tfProcessingTime.setValue("");
 				$.shipToUS.setValue("");
 				$.shipToElsewhere.setValue("");
-				
+
 				$.uploadImageTable.setData([]);
 				$.noImage.text = L('no_image');
 				uploadedImages = 1;

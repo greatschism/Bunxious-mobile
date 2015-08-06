@@ -1,5 +1,5 @@
 <Alloy>
-	<ScrollView class="container">
+	<ScrollView id="addViewScrollView" class="container">
 
 		<View id="favoriteSection">
 			<View class="labelWrapper">

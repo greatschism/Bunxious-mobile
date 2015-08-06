@@ -1,6 +1,15 @@
 var args = arguments[0] || {};
 var filters = {};
 
+function postLayout() {
+	$.home_view.setHeight($.home_view.rect.height - 25);
+	$.home_view.removeEventListener('postlayout', postLayout);
+}
+
+if (Titanium.Platform.osname == "android") {
+	$.home_view.addEventListener('postlayout', postLayout);
+}
+
 function resetFilterSelection() {
 	filters = {};
 	$.categoryLabel.text = L('all_items');

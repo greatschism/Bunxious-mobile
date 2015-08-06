@@ -35,8 +35,15 @@
 	backgroundColor : '#f26b1d'
 }
 
+"#btnContainer": {
+	right: '15dp',
+	top: '0dp',
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE
+}
+
 "#boxButton" : {
-	right : '75dp',
+	right : '5dp',
 }
 
 "#box" : {
@@ -44,7 +51,7 @@
 }
 
 "#heartButton" : {
-	right : '40dp',
+	right : '5dp',
 }
 
 "#heart" : {

@@ -62,15 +62,21 @@ $.login_logout.button.addEventListener('click', function() {
 
 updateMenu();
 
+
 $.searchBtn.addEventListener("click", function() {
 
-	var searchTerm = $.searchField.value;
+	if (Alloy.Globals.currentUser) {
 
-	Ti.App.fireEvent('toggleMenu');
+		var searchTerm = $.searchField.value;
 
-	Alloy.Globals.openWindow('misc/search', {searchTerm: searchTerm}, true);
+		Ti.App.fireEvent('toggleMenu');
 
-	//alert(value);
+		Alloy.Globals.openWindow('misc/search', {searchTerm: searchTerm}, true);
+
+	} else {
+		alert("Please login to search.")
+	}
+
 });
 
 $.homeButton.button.addEventListener('click', function() {

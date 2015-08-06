@@ -2,6 +2,15 @@ var args = arguments[0] || {};
 
 Alloy.Globals.loading.show();
 
+function postLayout() {
+	$.scrollview.setHeight($.scrollview.rect.height - 25);
+	$.scrollview.removeEventListener('postlayout', postLayout);
+}
+
+if (Titanium.Platform.osname == "android") {
+	$.scrollview.addEventListener('postlayout', postLayout);
+}
+
 function loadData() {
 	
 	$.container.removeAllChildren();

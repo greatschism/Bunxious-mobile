@@ -248,7 +248,7 @@ $.groupTitle.text = args.group.name;
 $.description.text = args.group.description;
 
 $.members.addEventListener('click', function() {
-	Alloy.Globals.loading.show();
+
 	Alloy.Globals.openWindow('groups/group_members_list', {
 		group_id : group_id,
 		group_name : group_name,

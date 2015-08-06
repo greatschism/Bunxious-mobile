@@ -4,59 +4,87 @@ var user = args.user;
 var private = args.group_private;
 var group_id = args.group_id;
 
-var banned, promoted;
 
 if (user) {
-
-	Alloy.Globals.API.promoteGroupMember(group_id, user.id, function(result){
-	// check for initial state of user and set button visibility accordinly
-	if (result.data.caption == "Promote") {
-
-		$.demote.show();
-		$.promote.hide();
-
-	} else {
-
-		$.promote.show();
-		$.demote.hide();
-
-	}
-	// since in order to check initial state, we had to change the state, now we change it back to original
-		Alloy.Globals.API.promoteGroupMember(group_id, user.id, function(result){}, function(error) {});
-
-	}, function(error){
-
-	});
-
-	Alloy.Globals.API.banGroupMember(group_id, user.id, function(result){
-
-		if (result.data.caption_ban == "Ban") {
-			$.unban.show();
-			$.ban.hide();
-		} else {
-			$.ban.show();
-			$.unban.hide();
-		}
-
-		Alloy.Globals.API.banGroupMember(group_id, user.id, function(result){
-			Alloy.Globals.loading.hide();
-		}, function(error){});
-
-
-	}, function(error){ 
-
-	});
 
 	$.avatar.image = user.avatar_medium.image;
 	$.fullname.text = user.firstname + ' ' + user.lastname;
 
-	if (user.enabled === true) {
-		$.accept.hide();
-		$.decline.hide();
-	} else {
-		$.accept.show();
-		$.decline.show();
-	}
+		
+		Alloy.Globals.API.promoteGroupMember(group_id, user.id, function(result){
+		// check for initial state of user and set button visibility accordingly
+		if (result.data.caption == "Promote") {
+
+			showDemoteButton();
+
+		} else if (result.data.caption == "Demote") {
+
+			showPromoteButton();
+
+		}
+		// since in order to check initial state, we had to change the state, now we change it back to original
+			Alloy.Globals.API.promoteGroupMember(group_id, user.id, function(result){}, function(error) {});
+
+		}, function(error){
+
+		});
+
+		Alloy.Globals.API.banGroupMember(group_id, user.id, function(result){
+
+			if (result.data.caption_ban == "Ban") {
+
+				showUnbanButton();
+
+
+			} else if (user.enabled && result.data.caption_ban == "Unban") {
+
+				showBanButton();
+
+			} else {
+
+				acceptDeclineButtons();
+			}
+
+			Alloy.Globals.API.banGroupMember(group_id, user.id, function(result){}, function(error){});
+
+
+		}, function(error){ 
+
+		});
+
+}
+
+function acceptDeclineButtons() {
+	$.accept.show();
+	$.decline.show();
+	$.unban.hide();
+	$.ban.hide();
+	$.promote.hide();
+	$.demote.hide();
+}
+
+function showBanButton() {
+	$.ban.show();
+	$.unban.hide();
+	$.decline.hide();
+}
+
+function showUnbanButton() {
+	$.unban.show();
+	$.ban.hide();
+	$.decline.hide();
+}
+
+function showDemoteButton(){
+	$.demote.show();
+	$.promote.hide();
+	$.accept.hide();
+}
+
+function showPromoteButton() {
+	$.promote.show();
+	$.demote.hide();
+	$.accept.hide();
 }
 
 $.row.addEventListener('click', function() {
@@ -67,10 +95,7 @@ $.promote.addEventListener('click', function() {
 
 	Alloy.Globals.API.promoteGroupMember(args.group_id, args.user.id, function(result){
 
-		$.promote.hide();
-		$.demote.show();
-
-		console.log(result.data.caption);
+		showDemoteButton();
 
 	}, function(error){
 
@@ -82,10 +107,7 @@ $.demote.addEventListener('click', function() {
 
 	Alloy.Globals.API.promoteGroupMember(args.group_id, args.user.id, function(result){
 
-		$.promote.show();
-		$.demote.hide();
-
-		console.log(result.data.caption);
+		showPromoteButton();
 
 	}, function(error){
 
@@ -97,8 +119,7 @@ $.ban.addEventListener('click', function() {
 
 	Alloy.Globals.API.banGroupMember(args.group_id, args.user.id, function(result){
 
-		$.ban.hide();
-		$.unban.show();
+		showUnbanButton();
 
 	}, function(error){
 
@@ -110,8 +131,7 @@ $.unban.addEventListener('click', function() {
 
 	Alloy.Globals.API.banGroupMember(args.group_id, args.user.id, function(result){
 
-		$.ban.show();
-		$.unban.hide();
+		showBanButton();
 
 	}, function(error){
 
@@ -123,10 +143,10 @@ $.accept.addEventListener('click', function() {
 	// console.log('Accept click: ' + user.firstname);
 	
 	Alloy.Globals.API.addUserToGroup(args.group_id, args.user.id, "accept", function(result){
-		$.accept.hide();
-		$.decline.hide();
-		$.ban.show();
-		$.promote.show();
+
+		showBanButton();
+		showPromoteButton();
+
 	}, function(error){
 		
 	});

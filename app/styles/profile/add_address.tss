@@ -3,6 +3,47 @@
   
 }
 
+"TableView": {
+	top: '15dp',
+	width: '300dp',
+	bottom : '25dp',
+	rowHeight : Ti.UI.SIZE
+}
+
+"TableViewRow[platform=ios]":{
+	selectionStyle: Titanium.UI.iPhone.TableViewCellSelectionStyle.NONE,
+},
+
+"TableViewRow" : {
+	height : Ti.UI.SIZE
+}
+
+"TableView[platform=ios]":{
+	separatorStyle: Ti.UI.iPhone.TableViewSeparatorStyle.NONE
+},
+
+'TableView[platform=android]': {
+	width: '320dp'
+}
+
+".buttonLabel": {
+	color: '#fff',
+	font: {
+		fontSize: '12dp',
+		fontWeight: 'bold'
+	}
+}
+
+".button_wrapper" : {
+	height : '50dp'
+}
+
+".button": {
+	width: '80dp',
+	height: '40dp',
+	backgroundColor: '#f26b1d',
+}
+
 "#header_label": {
 	top: 10
 }

@@ -1,5 +1,14 @@
 var args = arguments[0] || {};
 
+function postLayout() {
+	$.followersView.setHeight($.followersView.rect.height - 25);
+	$.followersView.removeEventListener('postlayout', postLayout);
+}
+
+if (Titanium.Platform.osname == "android") {
+	$.followersView.addEventListener('postlayout', postLayout);
+}
+
 if (Alloy.Globals.currentUser.user_info.id) {
 
 	Alloy.Globals.loading.show();

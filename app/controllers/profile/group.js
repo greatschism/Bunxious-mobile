@@ -1,6 +1,15 @@
 var args = arguments[0] || {};
 var tableData = [];
 
+function postLayout() {
+	$.groupsView.setHeight($.groupsView.rect.height - 25);
+	$.groupsView.removeEventListener('postlayout', postLayout);
+}
+
+if (Titanium.Platform.osname == "android") {
+	$.groupsView.addEventListener('postlayout', postLayout);
+}
+
 Alloy.Globals.API.findGroups(function(results) {
 	
 	for (var i in results.Group) {

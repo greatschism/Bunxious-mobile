@@ -6,6 +6,15 @@ var tableData = [];
 
 var user_id = args.user_id || Alloy.Globals.currentUser.user_info.id;
 
+function postLayout() {
+	$.closetView.setHeight($.closetView.rect.height - 25);
+	$.closetView.removeEventListener('postlayout', postLayout);
+}
+
+if (Titanium.Platform.osname == "android") {
+	$.closetView.addEventListener('postlayout', postLayout);
+}
+
 function createFilter(list, label, filterType) {
 
 	var items = [],

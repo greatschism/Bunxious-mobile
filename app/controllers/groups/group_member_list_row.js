@@ -4,24 +4,56 @@ var user = args.user;
 var private = args.group_private;
 var group_id = args.group_id;
 
+var banned, promoted;
+
 if (user) {
-	console.log(user);
+
+	Alloy.Globals.API.promoteGroupMember(group_id, user.id, function(result){
+	// check for initial state of user and set button visibility accordinly
+	if (result.data.caption == "Promote") {
+
+		$.demote.show();
+		$.promote.hide();
+
+	} else {
+
+		$.promote.show();
+		$.demote.hide();
+
+	}
+	// since in order to check initial state, we had to change the state, now we change it back to original
+		Alloy.Globals.API.promoteGroupMember(group_id, user.id, function(result){}, function(error) {});
+
+	}, function(error){
+
+	});
+
+	Alloy.Globals.API.banGroupMember(group_id, user.id, function(result){
+
+		if (result.data.caption_ban == "Ban") {
+			$.unban.show();
+			$.ban.hide();
+		} else {
+			$.ban.show();
+			$.unban.hide();
+		}
+
+		Alloy.Globals.API.banGroupMember(group_id, user.id, function(result){
+			Alloy.Globals.loading.hide();
+		}, function(error){});
+
+
+	}, function(error){ 
+
+	});
+
 	$.avatar.image = user.avatar_medium.image;
 	$.fullname.text = user.firstname + ' ' + user.lastname;
 
 	if (user.enabled === true) {
 		$.accept.hide();
 		$.decline.hide();
-		$.unban.hide();
-		$.promote.show();
-		$.ban.show();
-	} else if (user.enabled === false && !private) {
-		$.promote.show();
-		$.unban.show();
 	} else {
-		$.promote.hide();
-		$.unban.hide();
-		$.ban.hide();
 		$.accept.show();
 		$.decline.show();
 	}
@@ -32,7 +64,33 @@ $.row.addEventListener('click', function() {
 });
 
 $.promote.addEventListener('click', function() {
-	alert("promote");
+
+	Alloy.Globals.API.promoteGroupMember(args.group_id, args.user.id, function(result){
+
+		$.promote.hide();
+		$.demote.show();
+
+		console.log(result.data.caption);
+
+	}, function(error){
+
+	});
+
+});
+
+$.demote.addEventListener('click', function() {
+
+	Alloy.Globals.API.promoteGroupMember(args.group_id, args.user.id, function(result){
+
+		$.promote.show();
+		$.demote.hide();
+
+		console.log(result.data.caption);
+
+	}, function(error){
+
+	});
+
 });
 
 $.ban.addEventListener('click', function() {

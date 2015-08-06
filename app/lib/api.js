@@ -528,6 +528,18 @@ api.banGroupMember = function(group_id, user_id, success, fail) {
 
 };
 
+api.promoteGroupMember = function(group_id, user_id, success, fail) {
+
+	var data = {
+		group_id: group_id,
+		user_id: user_id,
+		token: Alloy.Globals.currentUser.token
+	};
+
+	httpRequest('group/role', 'POST', data, success, fail);
+
+};
+
 api.inviteUserToGroup = function(group_id, name, success, fail) {
 
 	var data = {

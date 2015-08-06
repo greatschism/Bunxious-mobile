@@ -1,20 +1,32 @@
 <Alloy>
 	<View backgroundColor="white" class="container">
 		<Label id="header_label" text="Add Address Form"/>
-		<View id="address_form" layout="vertical" top="50">
-			<TextField id="recipient_name" hintText="Recipient Name"/>
-			<TextField id="address" hintText="Address"/>
-			<TextField id="country" hintText="Country"/>
-			<TextField id="city" hintText="City" />
-			<View id="state" class="tabChange">
-				<Label id="stateTitle" idValue="" class="tabTitle" text="L('State')"/>
-				<View class="separator"/>
-				<View class="dropdown">
-					<ImageView class="downArrow"/>
+		<TableView backgroundColor="#fff" class="tableview-form">
+			<TableViewSection>
+				<Widget src="ti.ux.forms.row.text" inputType="text" title="Recipient Name" id="recipientName" />
+				<Widget src="ti.ux.forms.row.text" inputType="text" title="Address" id="address" />
+				<Widget src="ti.ux.forms.row.text" inputType="text" title="Country" id="country" />
+				<Widget src="ti.ux.forms.row.text" inputType="text" title="City" id="city" />
+			</TableViewSection>
+				<TableViewSection>
+				<HeaderView>
+				<View id="state" class="tabChange">
+					<Label id="stateTitle" idValue="" class="tabTitle" text="L('State')"/>
+					<View class="separator"/>
+					<View class="dropdown">
+						<ImageView class="downArrow"/>
+					</View>
 				</View>
-			</View>
-			<TextField id="zip" hintText="Zip" />
-			<Button id="save_address" title="Save"/>
-		</View>
+			</HeaderView>
+			<Widget src="ti.ux.forms.row.text" inputType="text" title="Zip" id="zip" />
+		</TableViewSection>
+		<TableViewRow>
+					<View class="button_wrapper">
+						<View id="saveButton" class="button">
+							<Label class="buttonLabel" text="L('save')"/>
+						</View>
+					</View>
+				</TableViewRow>
+		</TableView>
 	</View>
 </Alloy>

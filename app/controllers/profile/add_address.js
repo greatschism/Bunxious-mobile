@@ -2,20 +2,20 @@ var args = arguments[0] || {};
 
 
 
-$.save_address.addEventListener('click', function() {
+$.saveButton.addEventListener('click', function() {
 
-	var recipient = $.recipient_name.value;
-	var city = $.city.value;
-	var address = $.address.value;
+	var recipient = $.recipientName.getField().value;
+	var city = $.city.getField().value;
+	var address = $.address.getField().value;
 	var state = $.stateTitle.idValue;
 	
 	Alloy.Globals.API.addAddress(recipient, address, 223, city, state, function(results) {
 
-		$.recipient_name.value = "";
-		$.city.value = "";
-		$.address.value = "";
-		$.country.value = "";
-		$.zip.value = "";
+		$.recipientName.getField().value = "";
+		$.city.getField().value = "";
+		$.address.getField().value = "";
+		$.country.getField().value = "";
+		$.zip.getField().value = "";
 		$.stateTitle.idValue = "";
 		$.stateTitle.setText("");
 

@@ -2,6 +2,8 @@ var args = arguments[0] || {};
 
 var group_id = args.group_id;
 var group_name = args.group_name;
+var group_private = args.group_private;
+console.log(args);
 
 $.header_title.text = group_name + ' Members';
 
@@ -12,6 +14,7 @@ Alloy.Globals.API.getGroupMembers(group_id, function(result) {
 			tableData.push(Alloy.createController('groups/group_member_list_row', {
 				user : result.data[i],
 				group_id: group_id,
+				group_private: group_private,
 				tableView: $.groupMemberListTable
 			}).getView());
 		}

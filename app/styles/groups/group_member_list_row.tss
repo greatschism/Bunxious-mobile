@@ -28,7 +28,19 @@
 }
 
 "#promote":{
-	color:'white',
+	color:'black',
+	right:55,
+	width: '49dp',
+	height: '40dp',
+	backgroundColor:'#22FF22',
+	font: {
+		fontSize:'10dp',
+		fontWeight:'bold'
+	}
+}
+
+"#demote":{
+	color:'black',
 	right:55,
 	width: '49dp',
 	height: '40dp',

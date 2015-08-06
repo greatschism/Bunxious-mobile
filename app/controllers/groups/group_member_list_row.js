@@ -1,23 +1,90 @@
 var args = arguments[0] || {};
 
 var user = args.user;
+var private = args.group_private;
+var group_id = args.group_id;
+
 
 if (user) {
+
 	$.avatar.image = user.avatar_medium.image;
 	$.fullname.text = user.firstname + ' ' + user.lastname;
-	if (user.enabled === true) {
-		$.accept.hide();
-		$.decline.hide();
-		$.unban.hide();
-		$.promote.show();
-		$.ban.show();
-	} else {
-		$.accept.show();
-		$.decline.show();
-		$.promote.hide();
-		$.ban.hide();
-		$.unban.hide();
-	}
+
+		
+		Alloy.Globals.API.promoteGroupMember(group_id, user.id, function(result){
+		// check for initial state of user and set button visibility accordingly
+		if (result.data.caption == "Promote") {
+
+			showDemoteButton();
+
+		} else if (result.data.caption == "Demote") {
+
+			showPromoteButton();
+
+		}
+		// since in order to check initial state, we had to change the state, now we change it back to original
+			Alloy.Globals.API.promoteGroupMember(group_id, user.id, function(result){}, function(error) {});
+
+		}, function(error){
+
+		});
+
+		Alloy.Globals.API.banGroupMember(group_id, user.id, function(result){
+
+			if (result.data.caption_ban == "Ban") {
+
+				showUnbanButton();
+
+
+			} else if (user.enabled && result.data.caption_ban == "Unban") {
+
+				showBanButton();
+
+			} else {
+
+				acceptDeclineButtons();
+			}
+
+			Alloy.Globals.API.banGroupMember(group_id, user.id, function(result){}, function(error){});
+
+
+		}, function(error){ 
+
+		});
+
+}
+
+function acceptDeclineButtons() {
+	$.accept.show();
+	$.decline.show();
+	$.unban.hide();
+	$.ban.hide();
+	$.promote.hide();
+	$.demote.hide();
+}
+
+function showBanButton() {
+	$.ban.show();
+	$.unban.hide();
+	$.decline.hide();
+}
+
+function showUnbanButton() {
+	$.unban.show();
+	$.ban.hide();
+	$.decline.hide();
+}
+
+function showDemoteButton(){
+	$.demote.show();
+	$.promote.hide();
+	$.accept.hide();
+}
+
+function showPromoteButton() {
+	$.promote.show();
+	$.demote.hide();
+	$.accept.hide();
 }
 
 $.row.addEventListener('click', function() {
@@ -25,16 +92,34 @@ $.row.addEventListener('click', function() {
 });
 
 $.promote.addEventListener('click', function() {
-	alert("promote");
+
+	Alloy.Globals.API.promoteGroupMember(args.group_id, args.user.id, function(result){
+
+		showDemoteButton();
+
+	}, function(error){
+
+	});
+
+});
+
+$.demote.addEventListener('click', function() {
+
+	Alloy.Globals.API.promoteGroupMember(args.group_id, args.user.id, function(result){
+
+		showPromoteButton();
+
+	}, function(error){
+
+	});
+
 });
 
 $.ban.addEventListener('click', function() {
 
-	Alloy.Globals.API.banGroupMember(args.group_id, args.user.id, true, function(result){
+	Alloy.Globals.API.banGroupMember(args.group_id, args.user.id, function(result){
 
-		$.ban.hide();
-		$.unban.show();
-
+		showUnbanButton();
 
 	}, function(error){
 
@@ -44,10 +129,9 @@ $.ban.addEventListener('click', function() {
 
 $.unban.addEventListener('click', function() {
 
-	Alloy.Globals.API.banGroupMember(args.group_id, args.user.id, false, function(result){
+	Alloy.Globals.API.banGroupMember(args.group_id, args.user.id, function(result){
 
-		$.ban.show();
-		$.unban.hide();
+		showBanButton();
 
 	}, function(error){
 
@@ -59,8 +143,10 @@ $.accept.addEventListener('click', function() {
 	// console.log('Accept click: ' + user.firstname);
 	
 	Alloy.Globals.API.addUserToGroup(args.group_id, args.user.id, "accept", function(result){
-		$.accept.hide();
-		$.decline.hide();
+
+		showBanButton();
+		showPromoteButton();
+
 	}, function(error){
 		
 	});

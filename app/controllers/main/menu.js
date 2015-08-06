@@ -27,6 +27,8 @@ function updateMenu() {
 	}
 }
 
+
+
 $.login_logout.button.addEventListener('click', function() {
 
 	if ($.login_logout.action == 'login') {
@@ -59,6 +61,23 @@ $.login_logout.button.addEventListener('click', function() {
 });
 
 updateMenu();
+
+
+$.searchBtn.addEventListener("click", function() {
+
+	if (Alloy.Globals.currentUser) {
+
+		var searchTerm = $.searchField.value;
+
+		Ti.App.fireEvent('toggleMenu');
+
+		Alloy.Globals.openWindow('misc/search', {searchTerm: searchTerm}, true);
+
+	} else {
+		alert("Please login to search.")
+	}
+
+});
 
 $.homeButton.button.addEventListener('click', function() {
 

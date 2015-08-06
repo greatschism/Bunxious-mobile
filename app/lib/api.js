@@ -454,6 +454,16 @@ api.findGroups = function(success, fail) {
 	httpRequest('group/grouplist', 'POST', data, success, fail);
 };
 
+api.searchUsers = function(query, success, fail) {
+	var data = {
+		token: Alloy.Globals.currentUser.token,
+		query: query
+	};
+
+	httpRequest('user/search', 'GET', data, success, fail);
+
+}
+
 api.getGroup = function(id, success, fail) {
 
 	var data = {

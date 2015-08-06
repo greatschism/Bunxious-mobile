@@ -1,5 +1,5 @@
 <Alloy>
-	<View class="container">
+	<View id="searchView" class="container">
 		<TableView id="searchTable" />
 	</View>
 </Alloy>

@@ -1,15 +1,20 @@
 <Alloy>
-	<Window id="add_address_win" backgroundColor="white">
+	<View backgroundColor="white" class="container">
 		<Label id="header_label" text="Add Address Form"/>
 		<View id="address_form" layout="vertical" top="50">
 			<TextField id="recipient_name" hintText="Recipient Name"/>
 			<TextField id="address" hintText="Address"/>
 			<TextField id="country" hintText="Country"/>
-			<TextField id="state" hintText="State"/>
 			<TextField id="city" hintText="City" />
+			<View id="state" class="tabChange">
+				<Label id="stateTitle" idValue="" class="tabTitle" text="L('State')"/>
+				<View class="separator"/>
+				<View class="dropdown">
+					<ImageView class="downArrow"/>
+				</View>
+			</View>
 			<TextField id="zip" hintText="Zip" />
 			<Button id="save_address" title="Save"/>
 		</View>
-		<Button id="close" title="Close" bottom="10" />
-	</Window>
+	</View>
 </Alloy>

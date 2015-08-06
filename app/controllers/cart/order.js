@@ -111,12 +111,13 @@ function addButtonToWindow() {
 Ti.API.info(args);
 
 $.add_address.addEventListener('click', function() {
-	var addAddressWin = Alloy.createController('profile/add_address').getView();
-	addAddressWin.addEventListener('close', function(){
+	var data = {};
+	Alloy.Globals.openWindow('profile/add_address', data, true);
+
+	Ti.App.addEventListener("newAddress", function(e) {
 		args.parentUpdate();
-		console.log('Closed add address win');
 	});
-	addAddressWin.open({modal:true});
+	
 });
 
 $.addressFilter.addEventListener('click', function() {

@@ -6,6 +6,7 @@
 			<Label id="ago" />
 			<Label id="id" />
 			<Label id="amount" />
+			<Label id="noPurchases" text="No Purchases yet..." color="black" />
 		</View>
 	</TableViewRow>
 </Alloy>

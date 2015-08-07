@@ -8,6 +8,18 @@
 	height : Ti.UI.FILL,
 }
 
+"#noPurchases": {
+	width : Ti.UI.FILL,
+	height : Ti.UI.FILL,
+	left : '40dp',
+	top : '30dp',
+	font : {
+		fontWeight : 'bold',
+		fontSize : '18dp'
+	},
+	color: "#000"
+}
+
 
 "#status" : {
 	height : '20dp',
@@ -16,6 +28,16 @@
 }
 
 "#from" : {
+	left : '40dp',
+	top : '8dp',
+	font : {
+		fontWeight : 'bold',
+		fontSize : '13dp'
+	},
+	color: "#000"
+}
+
+"#noPurchases": {
 	left : '40dp',
 	top : '8dp',
 	font : {

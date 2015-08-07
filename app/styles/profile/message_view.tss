@@ -43,7 +43,7 @@
 	bottom : '20dp',
 	backgroundColor : '#fff',
 	width : Ti.UI.FILL,
-	height : '60dp',
+	height : '60dp'
 }
 
 "#textInput" : {
@@ -54,13 +54,18 @@
 
 "#textSend" : {
 	right : '10dp',
-	width : '40dp',
-	height : '40dp',
-	image : '/images/sendgrey.png'
+	width: '40dp',
+	height: '40dp',
+	backgroundImage : '/images/sendgrey.png'
 }
 
 "#textSend[platform=ios]" : {
 	tintColor : '#A29FA9'
+}
+
+"#textSend[platform=android]" : {
+	backgroundSelectedImage: '/images/sendgrey-2.png',
+	backgroundFocusedImage: '/images/sendgrey-2.png'
 }
 
 "#messageTable" : {

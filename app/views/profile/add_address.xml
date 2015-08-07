@@ -1,15 +1,12 @@
 <Alloy>
 	<View backgroundColor="white" class="container">
-		<Label id="header_label" text="Add Address Form"/>
 		<TableView backgroundColor="#fff" class="tableview-form">
 			<TableViewSection>
 				<Widget src="ti.ux.forms.row.text" inputType="text" title="Recipient Name" id="recipientName" />
+				<Widget src="ti.ux.forms.row.text" inputType="text" title="Address Alias" id="addressAlias" />
 				<Widget src="ti.ux.forms.row.text" inputType="text" title="Address" id="address" />
-				<Widget src="ti.ux.forms.row.text" inputType="text" title="Country" id="country" />
 				<Widget src="ti.ux.forms.row.text" inputType="text" title="City" id="city" />
-			</TableViewSection>
-				<TableViewSection>
-				<HeaderView>
+				<TableViewRow>
 				<View id="state" class="tabChange">
 					<Label id="stateTitle" idValue="" class="tabTitle" text="L('State')"/>
 					<View class="separator"/>
@@ -17,9 +14,10 @@
 						<ImageView class="downArrow"/>
 					</View>
 				</View>
-			</HeaderView>
-			<Widget src="ti.ux.forms.row.text" inputType="text" title="Zip" id="zip" />
-		</TableViewSection>
+			</TableViewRow>
+				<Widget src="ti.ux.forms.row.text" inputType="text" title="Zip" id="zip" />
+				<Widget src="ti.ux.forms.row.text" type="text" title="Country" id="country" />
+			</TableViewSection>
 		<TableViewRow>
 					<View class="button_wrapper">
 						<View id="saveButton" class="button">

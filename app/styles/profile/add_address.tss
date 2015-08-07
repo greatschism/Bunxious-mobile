@@ -1,6 +1,7 @@
 
 ".container" : {
-  
+  backgroundColor: '#fff',
+	layout : 'vertical'
 }
 
 "TableView": {

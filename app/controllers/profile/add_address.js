@@ -5,23 +5,27 @@ var args = arguments[0] || {};
 $.saveButton.addEventListener('click', function() {
 
 	var recipient = $.recipientName.getField().value;
-	var city = $.city.getField().value;
+	var alias = $.addressAlias.getField().value;
 	var address = $.address.getField().value;
+	var city = $.city.getField().value;
 	var state = $.stateTitle.idValue;
 	
-	Alloy.Globals.API.addAddress(recipient, address, 223, city, state, function(results) {
+	Alloy.Globals.API.addAddress(recipient, alias, address, city, state, 223, function(results) {
 
 		$.recipientName.getField().value = "";
-		$.city.getField().value = "";
+		$.addressAlias.getField().value = "";
 		$.address.getField().value = "";
-		$.country.getField().value = "";
-		$.zip.getField().value = "";
+		$.city.getField().value = "";
 		$.stateTitle.idValue = "";
 		$.stateTitle.setText("");
+		$.zip.getField().value = "";
+		$.country.getField().value = "";
 
 		Ti.App.fireEvent("newAddress");
 
 		alert("Address successfully added.");
+
+		Alloy.Globals.pageflow.back();
 
 	}, function(error) {
 

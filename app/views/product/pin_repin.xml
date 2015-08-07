@@ -3,7 +3,7 @@
 		<TableView backgroundColor="#eee" class="tableview-form">
 			<TableViewRow>
 				<View id="boards" class="tabChange">
-					<Label id="boardsTitle" idValue="" class="tabTitle" text="L('add_to_chest').toUpperCase()"/>
+					<Label id="boardsTitle" idValue="" class="tabTitle" text="L('add_to_chest')"/>
 					<View class="separator"/>
 					<View class="dropdown">
 						<ImageView class="downArrow"/>

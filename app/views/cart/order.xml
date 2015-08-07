@@ -38,7 +38,7 @@
 		
 		<View height="Titanium.UI.SIZE">
 			<TextField id="orderOptional" onChange="txtField_Change" class="top"></TextField>
-			<Label id="lblHint" text="L('add_optional_note').toUpperCase()"></Label>
+			<Label id="lblHint" text="L('add_optional_note')"></Label>
 		</View>
 		
 		<View id="checkoutWrapper"></View>

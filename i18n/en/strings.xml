@@ -81,4 +81,5 @@
 	<string name="no_followers">You have no followers yet.</string>
 	<string name="post_in_groups">Post To Group</string>
 	<string name="comment">Comment</string>
+	<string name="add_optional_note">Add optional note to seller</string>
 </resources>

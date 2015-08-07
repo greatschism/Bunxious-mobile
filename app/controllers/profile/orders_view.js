@@ -13,9 +13,9 @@ Alloy.Globals.API.getPurchases(function(results) {
 	
 	var tableData = [];
 
-	console.log(results);
-
 	var results = results.Data[0];
+
+	if (_.isObject(results)) {
 
 	results.sort(compareMilli);
 	
@@ -24,6 +24,12 @@ Alloy.Globals.API.getPurchases(function(results) {
 	}
 	
 	$.ordersTable.setData(tableData);
+
+	} else {
+
+		alert("You don't have any purchases yet.");
+
+	}
 	
 }, function(error) {
 	

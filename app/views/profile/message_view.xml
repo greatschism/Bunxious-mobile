@@ -5,7 +5,7 @@
 			<Label id="username" />
 		</View>
 		<TableView id="messageTable"/>
-		<View class="messageInputWrapper" id="textView">
+		<View class="messageInputWrapper" id="textView" >
 			<TextArea id="textInput"/>
 			<Button id="textSend"/>
 		</View>

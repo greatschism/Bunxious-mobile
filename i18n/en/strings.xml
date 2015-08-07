@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-	<string name="email_address">E-MAIL ADDRESS</string>
-	<string name="password">PASSWORD</string>
-	<string name="password_again">PASSWORD AGAIN</string>
+	<string name="email_address">E-mail address</string>
+	<string name="password">Password</string>
+	<string name="password_again">Password again</string>
 	<string name="login">Login</string>
 	<string name="forgot_password">Forgot your password?</string>
 	<string name="request_invite">Request an Invitation</string>
 	<string name="create_account">Create a Bunxious Account</string>
-	<string name="request_invitation">REQUEST AN INVITATION</string>
-	<string name="send">SEND</string>
-	<string name="first_name">FIRST NAME</string>
-	<string name="last_name">LAST NAME</string>
-	<string name="username">USERNAME</string>
+	<string name="request_invitation">Request an Invitation</string>
+	<string name="send">Send</string>
+	<string name="first_name">First name</string>
+	<string name="last_name">Last name</string>
+	<string name="username">Username</string>
 	<string name="disclaimer">I would like to receive communications from bunoxious through email.</string>
 	<string name="register">Register</string>
 	<string name="login_to">Login to Bunxious</string>
 	<string name="search">Search</string>
-	<string name="bunxious_caps">BUNXIOUS</string>
+	<string name="bunxious_caps">Bunxious</string>
 	<string name="home">Home</string>
 	<string name="activity">Activity</string>
 	<string name="favorites">Favorites</string>
@@ -24,7 +24,7 @@
 	<string name="conversations">My Conversations</string>
 	<string name="followers">My Followers</string>
 	<string name="treasure">My Treasure Chest</string>
-	<string name="account">ACCOUNT</string>
+	<string name="account">Account</string>
 	<string name="cart">My Cart</string>
 	<string name="my_orders">My Purchases</string>
 	<string name="add_item">Add New Item</string>
@@ -41,7 +41,7 @@
 	<string name="quantity">Quantity</string>
 	<string name="price">Price</string>
 	<string name="sort_by">Sort By</string>
-	<string name="fav_text">NEW ITEMS FOR YOUR FAVORITE CLOSETS</string>
+	<string name="fav_text">New Items for your Favorite Closets</string>
 	<string name="follow">Follow</string>
 	<string name="unfollow">Unfollow</string>
 	<string name="contact">Contact</string>

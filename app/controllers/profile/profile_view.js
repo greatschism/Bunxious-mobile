@@ -22,7 +22,7 @@ var tabMapping = {
 
 function openTab(tab, data) {
 
-	$.tabTitle.text = tabMapping[tab].title.toUpperCase();
+	$.tabTitle.text = tabMapping[tab].title;
 
 	$.tabContent.removeAllChildren();
 	$.tabContent.add(Alloy.createController(tabMapping[tab].controller, data).getView());

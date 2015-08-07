@@ -6,24 +6,24 @@
 				<Label id="favLbl" class="favLabel" text="Add New Item" />
 			</View>
 		</View>
-		<Widget id="tfTitle" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="300dp" top="20dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('title').toUpperCase()" tfTop="5dp" tfWidth="220dp" />
-		<Widget id="tfDesc" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="300dp" top="10dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('description').toUpperCase()" tfTop="5dp" tfWidth="220dp" textarea="true" />
+		<Widget id="tfTitle" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="300dp" top="20dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('title')" tfTop="5dp" tfWidth="220dp" />
+		<Widget id="tfDesc" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="300dp" top="10dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('description')" tfTop="5dp" tfWidth="220dp" textarea="true" />
 		<View id="category" class="tabChange">
-			<Label id="categoryTitle" idValue="" class="tabTitle" text="L('category').toUpperCase()"/>
+			<Label id="categoryTitle" idValue="" class="tabTitle" text="L('category')"/>
 			<View class="separator"/>
 			<View class="dropdown">
 				<ImageView class="downArrow"/>
 			</View>
 		</View>
 		<!-- <View id="closet" class="tabChange">
-			<Label id="closetTitle" class="tabTitle" text="L('closet_selection').toUpperCase()"/>
+			<Label id="closetTitle" class="tabTitle" text="L('closet_selection')"/>
 			<View class="separator"/>
 			<View class="dropdown">
 				<ImageView class="downArrow"/>
 			</View>
 		</View> -->
 		<View id="groups" class="tabChange">
-			<Label id="groupsTitle" idValue="" class="tabTitle" text="L('post_in_groups').toUpperCase()"/>
+			<Label id="groupsTitle" idValue="" class="tabTitle" text="L('post_in_groups')"/>
 			<View class="separator"/>
 			<View class="dropdown">
 				<ImageView class="downArrow"/>
@@ -31,21 +31,21 @@
 		</View>
 		
 		<View id="brand" class="tabChange">
-			<Label id="brandTitle" idValue="" class="tabTitle" text="L('brand').toUpperCase()"/>
+			<Label id="brandTitle" idValue="" class="tabTitle" text="L('brand')"/>
 			<View class="separator"/>
 			<View class="dropdown">
 				<ImageView class="downArrow"/>
 			</View>
 		</View>
 		<View id="gender" class="tabChange">
-			<Label id="genderTitle" idValue="" class="tabTitle" text="L('gender').toUpperCase()"/>
+			<Label id="genderTitle" idValue="" class="tabTitle" text="L('gender')"/>
 			<View class="separator"/>
 			<View class="dropdown">
 				<ImageView class="downArrow"/>
 			</View>
 		</View>
 		<View id="condition" class="tabChange">
-			<Label id="conditionTitle" idValue="" class="tabTitle" text="L('condition').toUpperCase()"/>
+			<Label id="conditionTitle" idValue="" class="tabTitle" text="L('condition')"/>
 			<View class="separator"/>
 			<View class="dropdown">
 				<ImageView class="downArrow"/>
@@ -57,7 +57,7 @@
 			<TableView id="uploadImageTable">
 				<FooterView height="45dp">
 					<View class="footerView">
-						<Label id="noImage" class="dollarSign" text="L('no_image').toUpperCase()"></Label>
+						<Label id="noImage" class="dollarSign" text="L('no_image')"></Label>
 						<Button id="uploadImage" title="L('upload_image')" class="variationButton" top='10dp' left='160dp' width='140dp'/>
 					</View>
 				</FooterView>
@@ -66,7 +66,7 @@
 		</View>
 		
 		<View class="sectionWrapper">
-			<Label class="sectionLabel" text="L('item_variations').toUpperCase()"/>
+			<Label class="sectionLabel" text="L('item_variations')"/>
 			<View class="border"/>
 			<TableView id="itemVariationTable">
 				<FooterView height="45dp">
@@ -79,22 +79,22 @@
 			<!-- <View class="border" />
 			<View class="priceWrapper">
 				<Label text="$" class="dollarSign" />
-				<Widget id="tfPrice" src="com.harkdev.stylehinttextfield" left="10dp" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="165dp" top="0" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('price').toUpperCase()" tfTop="5dp" tfWidth="220dp" />
+				<Widget id="tfPrice" src="com.harkdev.stylehinttextfield" left="10dp" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="165dp" top="0" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('price')" tfTop="5dp" tfWidth="220dp" />
 			</View> -->
 		</View>
 		<View class="sectionWrapper">
-			<Label class="sectionLabel" text="L('item_tags').toUpperCase()"/>
+			<Label class="sectionLabel" text="L('item_tags')"/>
 			<View class="border"/>
-			<Widget id="tfStyle" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="100%" top="10dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('style').toUpperCase()" tfTop="5dp" tfWidth="220dp" />
-			<Widget id="tfTags" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="100%" top="10dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('tags').toUpperCase()" tfTop="5dp" tfWidth="220dp" />
-			<Widget id="tfMaterials" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="100%" top="10dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('materials').toUpperCase()" tfTop="5dp" tfWidth="220dp" />
+			<Widget id="tfStyle" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="100%" top="10dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('style')" tfTop="5dp" tfWidth="220dp" />
+			<Widget id="tfTags" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="100%" top="10dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('tags')" tfTop="5dp" tfWidth="220dp" />
+			<Widget id="tfMaterials" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="100%" top="10dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('materials')" tfTop="5dp" tfWidth="220dp" />
 		</View>
 		<View class="sectionWrapper">
-			<Label class="sectionLabel" text="L('item_shipment').toUpperCase()"/>
+			<Label class="sectionLabel" text="L('item_shipment')"/>
 			<View class="border"/>
-			<Widget id="tfProcessingTime" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="100%" top="10dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('processing_time').toUpperCase()" tfTop="5dp" tfWidth="220dp" />
+			<Widget id="tfProcessingTime" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="100%" top="10dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('processing_time')" tfTop="5dp" tfWidth="220dp" />
 			<!-- <View id="shipsFrom" class="tabChange">
-				<Label id="shipsFromTitle" class="tabTitle" text="L('ships_from').toUpperCase()"/>
+				<Label id="shipsFromTitle" class="tabTitle" text="L('ships_from')"/>
 				<View class="separator"/>
 				<View class="dropdown">
 					<ImageView class="downArrow"/>
@@ -102,14 +102,14 @@
 			</View> -->
 			
 			<View id="shipsFrom">
-				<Label id="shipsFromTitle" text="L('ships_from').toUpperCase()" class="dollarSign" />
-				<Label id="shipsFromValue" text="L('united_states').toUpperCase()" class="dollarSign" />
+				<Label id="shipsFromTitle" text="L('ships_from')" class="dollarSign" />
+				<Label id="shipsFromValue" text="L('united_states')" class="dollarSign" />
 			</View>
 			
 			<View class="shippingOptions">
-				<Label id="shipsToTitle" text="L('ships_to').toUpperCase()" class="dollarSign" />
+				<Label id="shipsToTitle" text="L('ships_to')" class="dollarSign" />
 				<View id="shipsTo">
-					<Label id="shipsToValue" text="L('united_states').toUpperCase()" class="shipsToLabel center" />
+					<Label id="shipsToValue" text="L('united_states')" class="shipsToLabel center" />
 					<View class="shippingPrice center">
 						<Label class="dollarSign center" text="$"/>
 						<TextField id="shipToUS" class="priceTextfield center"/>
@@ -117,7 +117,7 @@
 				</View>
 				
 				<View id="shipsToElsewhere">
-					<Label class="shipsToLabel center" text="L('everywhere_else').toUpperCase()"/>
+					<Label class="shipsToLabel center" text="L('everywhere_else')"/>
 					<View class="shippingPrice center">
 						<Label class="dollarSign center" text="$"/>
 						<TextField id="shipToElsewhere" class="priceTextfield center"/>
@@ -125,7 +125,7 @@
 				</View>
 				
 				<!-- <View id="shipsTo" class="tabChange">
-					<Label id="shipsToTitle" idValue="" class="tabTitle" text="L('ships_to').toUpperCase()"/>
+					<Label id="shipsToTitle" idValue="" class="tabTitle" text="L('ships_to')"/>
 					<View class="separator"/>
 					<View class="dropdown">
 						<ImageView class="downArrow"/>
@@ -135,7 +135,7 @@
 					<Label class="dollarSign" text="$"/>
 					<TextField class="priceTextfield"/>
 				</View> -->
-				<!-- <Label class="elsewhere" text="L('everywhere_else').toUpperCase()"/> -->
+				<!-- <Label class="elsewhere" text="L('everywhere_else')"/> -->
 				<!-- <View class="shippingElsewherePrice">
 					<Label class="dollarSign" text="$"/>
 					<TextField class="priceTextfield"/>

@@ -30,10 +30,10 @@ $.title.addOnReturn(function(event) {
 
 		if (result.result) {
 
-			$.commentsTable.appendRow(createRow(Alloy.Globals.currentUser.user_info.avatar_medium.image, Alloy.Globals.currentUser.user_info.firstname + ' ' + Alloy.Globals.currentUser.user_info.lastname, event.value));
-			$.commentsTable.animate({
-				height : Ti.UI.SIZE
-			});
+			$.commentsTable.add(createRow(Alloy.Globals.currentUser.user_info.avatar_medium.image, Alloy.Globals.currentUser.user_info.firstname + ' ' + Alloy.Globals.currentUser.user_info.lastname, event.value));
+			// $.commentsTable.animate({
+				// height : Ti.UI.SIZE
+			// });
 			$.title.setValue('');
 		} else {
 
@@ -49,10 +49,10 @@ $.title.addOnReturn(function(event) {
 
 function createRow(avatar, name, text) {
 
-	var row = Ti.UI.createTableViewRow({
+	var row = Ti.UI.createView({
+		top: 0,
 		height : Ti.UI.SIZE,
-		selectionStyle : OS_IOS ? Ti.UI.iPhone.TableViewCellSelectionStyle.NONE : null,
-		backgroundColor : 'transparent',
+		backgroundColor : 'transparent'
 	});
 
 	var avatar = Ti.UI.createImageView({
@@ -92,11 +92,8 @@ function createRow(avatar, name, text) {
 	return row;
 }
 
-var tableData = [];
-
 for (var i in args.comments) {
 
-	tableData.push(createRow(args.comments[i].user_avatar, args.comments[i].user_name, args.comments[i].comment));
+	$.commentsTable.add(createRow(args.comments[i].user_avatar, args.comments[i].user_name, args.comments[i].comment));
 }
 
-$.commentsTable.setData(tableData);

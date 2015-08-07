@@ -15,10 +15,14 @@
 }
 
 ".postWrapper": {
+	top: 0,
 	backgroundColor: '#fff',
-	borderRadius: '3dp',
 	height: Ti.UI.SIZE,
 	layout: 'vertical'
+}
+
+".postWrapper[platform=ios]":{
+	borderRadius: '3dp',
 }
 
 "#avatar": {
@@ -39,6 +43,7 @@
 }
 
 ".info": {
+	top: 0,
 	height: Ti.UI.SIZE
 }
 
@@ -59,11 +64,8 @@
 }
 
 "#commentsTable": {
+	top: 0,
 	height: Ti.UI.SIZE,
 	left: '15dp',
-	scrollable: false
-}
-
-"#commentsTable[platform=ios]" : {
-	separatorStyle: Titanium.UI.iPhone.TableViewSeparatorStyle.NONE
+	layout: 'vertical'
 }

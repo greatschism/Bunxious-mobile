@@ -35,7 +35,12 @@
 			<Label id="orderTotalPrice" class="orderRight bold"></Label>
 		</View>
 		<View class="lineBreak"></View>
-		<TextField id="orderOptional" class="top"></TextField>
+		
+		<View height="Titanium.UI.SIZE">
+			<TextField id="orderOptional" onChange="txtField_Change" class="top"></TextField>
+			<Label id="lblHint" text="L('add_optional_note').toUpperCase()"></Label>
+		</View>
+		
 		<View id="checkoutWrapper"></View>
 		<View class="padding"/>
 	</View>

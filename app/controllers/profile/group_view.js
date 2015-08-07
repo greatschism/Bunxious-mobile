@@ -6,6 +6,15 @@ var group_private = args.group.private;
 var filters = {},
     uploadedImage = null;
 
+function postLayout() {
+	$.postsTable.setHeight($.postsTable.rect.height - 25);
+	$.postsTable.removeEventListener('postlayout', postLayout);
+}
+
+if (Titanium.Platform.osname == "android") {
+	$.postsTable.addEventListener('postlayout', postLayout);
+}
+
 function processPosts(data) {
 	// adding names and avatars to comments
 	console.log('DATA:'+ JSON.stringify(data));

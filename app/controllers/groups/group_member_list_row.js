@@ -1,7 +1,7 @@
 var args = arguments[0] || {};
 
 var user = args.user;
-var private = args.group_private;
+var is_private = args.group_private;
 var group_id = args.group_id;
 
 

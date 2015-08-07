@@ -21,6 +21,10 @@ for (var i in args.paypal.items) {
 	delete args.paypal.items[i].shipping;
 }
 
+function txtField_Change(){
+	$.lblHint.visible = ($.orderOptional.value.trim() == "");
+}
+
 // used for checkout prevent if there is no address selected
 
 function updatePriceValues(dontAddButton) {

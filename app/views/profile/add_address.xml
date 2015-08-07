@@ -1,6 +1,5 @@
 <Alloy>
 	<View backgroundColor="white" class="container">
-		<Label id="header_label" text="Add Address Form"/>
 		<TableView backgroundColor="#fff" class="tableview-form">
 			<TableViewSection>
 				<Widget src="ti.ux.forms.row.text" inputType="text" title="Recipient Name" id="recipientName" />

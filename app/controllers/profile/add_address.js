@@ -12,20 +12,29 @@ $.saveButton.addEventListener('click', function() {
 	
 	Alloy.Globals.API.addAddress(recipient, alias, address, city, state, 223, function(results) {
 
-		$.recipientName.getField().value = "";
-		$.addressAlias.getField().value = "";
-		$.address.getField().value = "";
-		$.city.getField().value = "";
-		$.stateTitle.idValue = "";
-		$.stateTitle.setText("");
-		$.zip.getField().value = "";
-		$.country.getField().value = "";
+		
+		if (results.success) {
 
-		Ti.App.fireEvent("newAddress");
+			$.recipientName.getField().value = "";
+			$.addressAlias.getField().value = "";
+			$.address.getField().value = "";
+			$.city.getField().value = "";
+			$.stateTitle.idValue = "";
+			$.stateTitle.setText("");
+			$.zip.getField().value = "";
+			$.country.getField().value = "";
 
-		alert("Address successfully added.");
+			Ti.App.fireEvent("newAddress");
 
-		Alloy.Globals.pageflow.back();
+			alert("Address successfully added.");
+
+			Alloy.Globals.pageflow.back(); 
+
+		} else {
+
+			alert("Please enter address info.")
+
+		}
 
 	}, function(error) {
 

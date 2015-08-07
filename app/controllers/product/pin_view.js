@@ -50,14 +50,20 @@ function createRow(avatar, name, text) {
 
 function displayPin() {
 
-	Ti.API.info('args: ' + JSON.stringify(args));
-
 	Alloy.Globals.API.getPin(args.pin_id, function(result) {
-		
-		
-		Ti.API.info(result);
+
+		if (result.user.id == Alloy.Globals.currentUser.user_info.id) {
+
+			$.editButton.visible = true;
+			$.heartButton.right = '40dp';
+			$.boxButton.right = '75dp';
+		}
+
 		$.editButton.addEventListener('click', function() {
-			Alloy.Globals.openWindow('product/add_view', args, true);
+			
+			Alloy.Globals.openWindow('product/add_view', {
+				pin : result
+			}, true);
 		});
 
 		pinObj = JSON.parse(JSON.stringify(result));

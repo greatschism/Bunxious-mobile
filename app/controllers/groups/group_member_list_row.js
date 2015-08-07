@@ -54,6 +54,7 @@ if (user) {
 
 }
 
+
 function acceptDeclineButtons() {
 	$.accept.show();
 	$.decline.show();

@@ -2,8 +2,18 @@ var args = arguments[0] || {};
 var moment = require('alloy/moment');
 var group_id = args.group.id;
 var group_name = args.group.name;
+var group_private = args.group.private;
 var filters = {},
     uploadedImage = null;
+
+function postLayout() {
+	$.postsTable.setHeight($.postsTable.rect.height - 25);
+	$.postsTable.removeEventListener('postlayout', postLayout);
+}
+
+if (Titanium.Platform.osname == "android") {
+	$.postsTable.addEventListener('postlayout', postLayout);
+}
 
 function processPosts(data) {
 	// adding names and avatars to comments
@@ -61,7 +71,6 @@ function postInGroup() {
 			$.postImage.visible = false;
 			
 			Ti.App.fireEvent("updateGroup");
-			Alloy.Globals.pageflow.back();
 		} else {
 			if (result.message) {
 				alert(result.message);
@@ -248,9 +257,11 @@ $.groupTitle.text = args.group.name;
 $.description.text = args.group.description;
 
 $.members.addEventListener('click', function() {
+
 	Alloy.Globals.openWindow('groups/group_members_list', {
 		group_id : group_id,
-		group_name : group_name
+		group_name : group_name,
+		group_private : group_private
 	}, true);
 });
 
@@ -260,9 +271,11 @@ Ti.App.addEventListener("updateGroup_groupView", function(data) {
 	if (data.private != 1) {
 		$.groupTypeTxt.text = "Public";
 		$.lockIcon.image = "/images/public.png";
+		args.group.private = 0;
 	} else {
 		$.groupTypeTxt.text = "Private";
 		$.lockIcon.image = "/images/private.png";
+		args.group.private = 1;
 	}
 });
 

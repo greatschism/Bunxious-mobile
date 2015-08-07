@@ -53,7 +53,7 @@
 }
 
 "#contactButton": {
-	left: '167dp'
+	left: '177dp'
 }
 
 ".buttonLabel": {
@@ -175,6 +175,6 @@
 }
 
 "#followButton" : {
-	width : '70dp'
+	width : '80dp'
 }
 

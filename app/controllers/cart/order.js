@@ -21,6 +21,10 @@ for (var i in args.paypal.items) {
 	delete args.paypal.items[i].shipping;
 }
 
+function txtField_Change(){
+	$.lblHint.visible = ($.orderOptional.value.trim() == "");
+}
+
 // used for checkout prevent if there is no address selected
 
 function updatePriceValues(dontAddButton) {
@@ -42,7 +46,7 @@ function updatePriceValues(dontAddButton) {
 var checkoutButton;
 
 function addButtonToWindow() {
-	
+
 	Ti.API.info("shipping :" + shippingValue, "invoiceItems :" + JSON.stringify(args.paypal.items), "subtotal :" + parseFloat(args.sub_total).toFixed(2), typeof args.sub_total);
 
 	if (checkoutButton) {
@@ -68,10 +72,10 @@ function addButtonToWindow() {
 		textStyle : Paypal.PAYPAL_TEXT_PAY, // Causes the button's text to change from "Pay" to "Donate"
 
 		appID : 'APP-80W284485P519543T', // The appID issued by Paypal for your application; for testing, feel free to delete this property entirely.
-		paypalEnvironment : Paypal.PAYPAL_ENV_SANDBOX, // Sandbox, None or Live
+		paypalEnvironment : Paypal.PAYPAL_ENV_NONE, // Sandbox, None or Live
 
 		feePaidByReceiver : false,
-		//enableShipping : false, // Whether or not to select/send shipping information
+		enableShipping : false, // Whether or not to select/send shipping information
 
 		payment : {// The payment itself
 			paymentType : Paypal.PAYMENT_TYPE_GOODS, // The type of payment
@@ -109,6 +113,16 @@ function addButtonToWindow() {
 }
 
 Ti.API.info(args);
+
+$.add_address.addEventListener('click', function() {
+	var data = {};
+	Alloy.Globals.openWindow('profile/add_address', data, true);
+
+	Ti.App.addEventListener("newAddress", function(e) {
+		args.parentUpdate();
+	});
+	
+});
 
 $.addressFilter.addEventListener('click', function() {
 

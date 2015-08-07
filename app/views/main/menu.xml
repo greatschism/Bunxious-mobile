@@ -4,7 +4,10 @@
 		<ScrollView class="container">
 			<ImageView id="logo" />
 			<View class="border topBorder" />
-			<Widget src="com.harkdev.stylehinttextfield" tffontsize="12dp" height="30dp" width="220dp" top="10dp" hintLeft="10dp" backgroundColor="#55888f" color="#89b1b7" hintColor="#89b1b7" hintText="L('search')" tfTop="5dp" tfWidth="210dp" rightImage="/images/search.png"/>
+			<View layout="horizontal" width="Ti.UI.SIZE" height="Ti.UI.SIZE">
+				<Widget id="searchField" src="com.harkdev.stylehinttextfield" tffontsize="12dp" height="30dp" width="220dp" top="10dp" hintLeft="10dp" left="5dp" backgroundColor="#55888f" color="#89b1b7" hintColor="#89b1b7" hintText="L('search')" tfTop="5dp" tfWidth="150dp" rightImage="/images/search.png"/>
+				<Button id="searchBtn" backgroundImage="/images/search.png" bottom="2dp" height="25dp" width="25dp" />
+			</View>
 			<View class="border searchBorder" />
 			<View id="userInfo">
 				<ImageView id="userPicture" />

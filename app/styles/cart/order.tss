@@ -49,6 +49,11 @@
 	height: '30dp'
 }
 
+"#add_address[platform=android]": {
+	height: '50dp',
+	backgroundColor: 'transparent',
+	color: 'blue'
+}
 
 //
 //
@@ -135,7 +140,6 @@
 }
 
 "#orderOptional": {
-	hintText: 'ADD OPTIONAL NOTE TO SELLER',
 	paddingLeft: '10dp',
 	font: {
 		fontSize: '14dp'
@@ -144,6 +148,11 @@
 	width: '100%',
 	color: '#2E2E2F',
 	backgroundColor: 'white'
+}
+
+"#lblHint": {
+	top: '18dp',
+	color: "#666"
 }
 
 ".lineBreak": {

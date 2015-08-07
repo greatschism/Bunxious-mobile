@@ -1,5 +1,5 @@
 <Alloy>
-	<View class="container">
+	<View id="groupsView" class="container">
 		<View height="Ti.UI.SIZE">
 			<Button id="createGroupBtn"/>
 		</View>

@@ -454,6 +454,16 @@ api.findGroups = function(success, fail) {
 	httpRequest('group/grouplist', 'POST', data, success, fail);
 };
 
+api.searchUsers = function(query, success, fail) {
+	var data = {
+		token: Alloy.Globals.currentUser.token,
+		query: query
+	};
+
+	httpRequest('user/search', 'GET', data, success, fail);
+
+}
+
 api.getGroup = function(id, success, fail) {
 
 	var data = {
@@ -516,6 +526,30 @@ api.getGroupMembers = function(id, success, fail) {
 	httpRequest('group/members', 'POST', data, success, fail);
 };
 
+api.banGroupMember = function(group_id, user_id, success, fail) {
+	
+	var data = {
+		group_id: group_id,
+		user_id: user_id,
+		token: Alloy.Globals.currentUser.token
+	};
+
+	httpRequest('group/ban', 'POST', data, success, fail);
+
+};
+
+api.promoteGroupMember = function(group_id, user_id, success, fail) {
+
+	var data = {
+		group_id: group_id,
+		user_id: user_id,
+		token: Alloy.Globals.currentUser.token
+	};
+
+	httpRequest('group/role', 'POST', data, success, fail);
+
+};
+
 api.inviteUserToGroup = function(group_id, name, success, fail) {
 
 	var data = {
@@ -537,6 +571,8 @@ api.addUserToGroup = function(group_id, user_id, decision, success, fail) {
 
 	httpRequest('group/request', 'POST', data, success, fail);
 };
+
+
 
 api.feedUploadImage = function(image, success, fail) {
 
@@ -956,6 +992,21 @@ api.getBoardPins = function(board_id, success, fail) {
 	};
 
 	httpRequest('pin/find-by', 'GET', data, success, fail);
+};
+
+api.addAddress = function(recipient, address, country, city, state, success, fail) {
+
+	var data = {
+		token: Alloy.Globals.currentUser.token,
+		alias: address,
+		recipient: recipient,
+		country: country,
+		city: city,
+		address: address,
+		state_id: state
+	};
+
+	httpRequest('address/address', 'POST', data, success, fail);
 };
 
 module.exports = api;

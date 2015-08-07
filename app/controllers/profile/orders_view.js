@@ -27,7 +27,8 @@ Alloy.Globals.API.getPurchases(function(results) {
 
 	} else {
 
-		alert("You don't have any purchases yet.");
+		tableData.push(Alloy.createController('profile/orderRow', {}).getView());
+		$.ordersTable.setData(tableData);
 
 	}
 	

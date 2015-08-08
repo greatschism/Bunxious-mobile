@@ -7,3 +7,7 @@
 "#drawermenu[platform=ios]": {
 	top: '20dp'
 }
+
+"#mainWindow[platform=android]": {
+	windowSoftInputMode : Titanium.UI.Android.SOFT_INPUT_STATE_HIDDEN | Titanium.UI.Android.SOFT_INPUT_ADJUST_PAN
+}

@@ -79,7 +79,7 @@ function displayPin() {
 
 		Alloy.Globals.API.getSizesForPin(pinObj.id, function(result) {
 
-			$.size.text = 'SIZE: ' + result.SizeIfo[0].name;
+			$.size.text = 'Size: ' + result.SizeIfo[0].name;
 		}, function(error) {
 
 		});
@@ -88,11 +88,11 @@ function displayPin() {
 		//var size = Alloy.Globals.findSizeById(pinObj.size_id);
 		var condition = Alloy.Globals.findConditionById(pinObj.condition_id);
 
-		$.brand.text = 'BRAND: ' + brand.title;
+		$.brand.text = 'Brand: ' + brand.title;
 		//$.size.text = 'SIZE: ' + size.title;
-		$.condition.text = 'CONDITION: ' + condition.title;
+		$.condition.text = 'Condition: ' + condition.title;
 		$.description.value = 'Description: ' + pinObj.description;
-		$.shipping.text = 'SHIPPING FROM United States';
+		$.shipping.text = 'Shipping from United States';
 		// + pinObj.from;
 
 		for (i in pinObj.shipping) {// When shipping info is available

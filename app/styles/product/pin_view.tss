@@ -190,7 +190,7 @@
 "#shipTo": {
 	top: 0,
 	left: 0,
-	text: 'SHIP TO',
+	text: 'Ship To',
 	font: {
 		fontWeight: 'bold',
 		fontSize: '12dp'
@@ -202,7 +202,7 @@
 "#shipCost": {
 	top: 0,
 	left: '100dp',
-	text: 'COST',
+	text: 'Cost',
 	font: {
 		fontWeight: 'bold',
 		fontSize: '12dp'
@@ -213,7 +213,7 @@
 "#shipWith": {
 	top: 0,
 	left: '200dp',
-	text: 'WITH ANOTHER ITEM',
+	text: 'With Another Item',
 	font: {
 		fontWeight: 'bold',
 		fontSize: '12dp'
@@ -277,7 +277,7 @@
 
 "#comments": {
 	top: 0,
-	text: 'COMMENTS',
+	text: 'Comments',
 	width: Titanium.UI.FILL,
 	height: '40dp',
 	font: {
@@ -301,7 +301,7 @@
 
 "#payment": {
 	top: 0,
-	text: 'PAYMENT METHODS',
+	text: 'Payment Methods',
 	width: Titanium.UI.FILL,
 	height: '40dp',
 	font: {
@@ -323,7 +323,7 @@
 
 "#closet": {
 	top: 0,
-	text: 'CLOSET',
+	text: 'Closet',
 	width: Titanium.UI.FILL,
 	height: '40dp',
 	font: {
@@ -337,7 +337,7 @@
 
 "#owner": {
 	top: 0,
-	text: 'OWNER',
+	text: 'Owner',
 	width: Titanium.UI.FILL,
 	height: '40dp',
 	font: {

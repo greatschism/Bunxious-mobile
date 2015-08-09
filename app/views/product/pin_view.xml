@@ -1,5 +1,5 @@
 <Alloy>
-	<View>
+	<View height="Ti.UI.SIZE">
 		<TableView id="tableView">
 			<HeaderView>
 				<View id="tableHeader">

@@ -52,7 +52,7 @@ function displayPin() {
 
 	Alloy.Globals.API.getPin(args.pin_id, function(result) {
 
-		if (result.user.id == Alloy.Globals.currentUser.user_info.id) {
+		if (Alloy.Globals.currentUser && result.user.id == Alloy.Globals.currentUser.user_info.id) {
 
 			$.editButton.visible = true;
 			$.heartButton.right = '40dp';

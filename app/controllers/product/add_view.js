@@ -68,9 +68,9 @@ if (args.pin) {
 
 			for (var i = 0; i < result.LocationInfo.options.length; i++) {
 				if (result.LocationInfo.options[i].country_id === null) {
-					$.shipToElsewhere.value = result.LocationInfo.options[i].price;
+					$.shipToElsewhere.setValue() = result.LocationInfo.options[i].price;
 				} else if (result.LocationInfo.options[i].country_id === 223) {
-					$.shipToUS.value = result.LocationInfo.options[i].price;
+					$.shipToUS.setValue() = result.LocationInfo.options[i].price;
 				}
 			}
 		}

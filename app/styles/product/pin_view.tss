@@ -1,24 +1,33 @@
 
-".wrapper": {
-	width: Ti.UI.FILL,
-	// height: Ti.UI.SIZE,
-	// height : '900dp',
-	height: 'auto',
-	//contentHeight: '3800px',
-	backgroundColor: '#fff',
-	layout: 'vertical'
-}
-
-"HeaderView": {
+"#headerView": {
 	height: Titanium.UI.SIZE
 }
 
+"#tableView" : {
+	top : 0,
+	bottom : '50dp',
+	//contentHeight : Ti.UI.SIZE
+}
+
+"TableViewRow" : {
+	height : Ti.UI.SIZE
+}
+
+"#wrapper" : {
+	top : 0,
+	bottom : '20dp',
+	backgroundColor : '#fff',
+	layout : 'vertical'
+}
+
 "#tableHeader": {
-	left: '10dp',
-	right: '10dp',
 	width: '300dp',
-	height: Titanium.UI.SIZE,
+	height: Ti.UI.SIZE,
 	layout: 'vertical'
+}
+
+"#tableHeader[platform=android]" : {
+	width : '320dp'
 }
 
 "#title": {
@@ -42,18 +51,24 @@
 }
 
 "#imageElements":{
-	width: Titanium.UI.FILL,
-	height: '400dp',
+	width: '300dp',
+	height: Ti.UI.SIZE,
 	top: '25dp',
-	left: '10dp',
-	right: '10dp'
+	backgroundColor : 'red'
+}
+
+"#imageElements[platform=android]" : {
+	width : '320dp'
 }
 
 "#pinImage": {
-	width: Titanium.UI.FILL,
-	height: '400dp',
-	left: 0
+	width : Ti.UI.FILL,
+	height : '400dp',
+	center : {
+		x : '50%'
+	}
 }
+
 
 ".buttonWrapper": {
 	top: '10dp',

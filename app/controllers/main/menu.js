@@ -160,6 +160,10 @@ $.settingsButton.button.addEventListener('click', function() {
 
 	Ti.App.fireEvent('toggleMenu');
 
+	Alloy.Globals.loading.show();
+
+	setTimeout(function(){ Alloy.Globals.loading.hide() }, 1000);
+
 	Alloy.Globals.openWindow('misc/settings_view');
 });
 

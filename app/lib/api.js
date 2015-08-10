@@ -86,10 +86,11 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction, fil
 				} else if (errorFunction && responseJSON && responseJSON.error) {
 
 					if (responseJSON.error == "Invalid or expired token.") {
-
+						
 						Alloy.Globals.currentUser = null;
 						Ti.App.Properties.setString('token', null);
 						Ti.App.fireEvent('loggedIn');
+						alert('Your session has expired. Please login again');
 					}
 
 					errorFunction(responseJSON.error);

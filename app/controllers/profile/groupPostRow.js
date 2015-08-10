@@ -5,9 +5,29 @@ $.user.text = args.user_name;
 
 if(args.pin_id) {
 	// Has a Pin image
-	$.post_title.hide();
 	$.pin_img.show();
 	$.pin_img.image = args.pin_image;
+	
+	if(args.title){
+		$.post_title.text = args.title.trim();
+	} else{
+		$.post_title.hide();
+	}
+	
+	if(args.description){
+		$.post_desc.text = args.description.trim();
+	} else {
+		$.post_desc.hide();
+	}
+	
+	$.pin_img.addEventListener('click', function(){
+		
+		Alloy.Globals.openWindow('product/pin_view', {
+			pin_id : args.pin_id,
+			user_id : args.user_id
+		}, true);
+	});
+	
 } else {
 	// No Pin image
 	$.post_title.show();

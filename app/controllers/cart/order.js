@@ -110,8 +110,6 @@ function addButtonToWindow() {
 	$.checkoutWrapper.add(checkoutButton);
 }
 
-Ti.API.info(args);
-
 $.add_address.addEventListener('click', function() {
 	var data = {};
 	Alloy.Globals.openWindow('profile/add_address', data, true);

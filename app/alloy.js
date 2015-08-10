@@ -92,7 +92,7 @@ Alloy.Globals.API.getAllCategories(function(results) {
 });
 
 Alloy.Globals.findCategoryById = function(id) {
-	var index = Alloy.Globals.findIndexWithAttribute(Alloy.Globals.categoryFilters,'id',id);
+	var index = Alloy.Globals.findIndexWithAttribute(Alloy.Globals.categoryFilters, 'id', id);
 	return Alloy.Globals.categoryFilters[index];
 };
 
@@ -106,7 +106,7 @@ Alloy.Globals.API.getBrands(function(results) {
 });
 
 Alloy.Globals.findBrandById = function(id) {
-	var index = Alloy.Globals.findIndexWithAttribute(Alloy.Globals.brandFilters,'id',id.toString());
+	var index = Alloy.Globals.findIndexWithAttribute(Alloy.Globals.brandFilters, 'id', id.toString());
 	return Alloy.Globals.brandFilters[index];
 };
 
@@ -128,7 +128,7 @@ Alloy.Globals.API.getGender(function(results) {
 });
 
 Alloy.Globals.findGenderById = function(id) {
-	var index = Alloy.Globals.findIndexWithAttribute(Alloy.Globals.genderFilters,'id',id.toString());
+	var index = Alloy.Globals.findIndexWithAttribute(Alloy.Globals.genderFilters, 'id', id.toString());
 	return Alloy.Globals.genderFilters[index];
 };
 
@@ -142,15 +142,15 @@ Alloy.Globals.API.getSize(function(results) {
 });
 
 Alloy.Globals.findSizeById = function(id) {
-	var index = Alloy.Globals.findIndexWithAttribute(Alloy.Globals.sizeFilters,'id',id.toString());
+	var index = Alloy.Globals.findIndexWithAttribute(Alloy.Globals.sizeFilters, 'id', id.toString());
 	return Alloy.Globals.sizeFilters[index];
 };
 
 // Get States
-Alloy.Globals.API.getStates(function(results) {	
+Alloy.Globals.API.getStates(function(results) {
 	var items = [];
-	if(results.Data.length){
-		for(var i in results.Data){
+	if (results.Data.length) {
+		for (var i in results.Data) {
 			items.push({
 				"title" : results.Data[i].name,
 				"id" : results.Data[i].id,
@@ -166,9 +166,10 @@ Alloy.Globals.API.getStates(function(results) {
 });
 
 Alloy.Globals.getStateByTitle = function(title) {
-	return Alloy.Globals.StateFilters.filter(function(obj){return obj.title == title;});
+	return Alloy.Globals.StateFilters.filter(function(obj) {
+		return obj.title == title;
+	});
 };
-
 
 // Get Condition
 Alloy.Globals.API.getCondition(function(results) {
@@ -180,7 +181,7 @@ Alloy.Globals.API.getCondition(function(results) {
 });
 
 Alloy.Globals.findConditionById = function(id) {
-	var index = Alloy.Globals.findIndexWithAttribute(Alloy.Globals.conditionFilters,'id',id.toString());
+	var index = Alloy.Globals.findIndexWithAttribute(Alloy.Globals.conditionFilters, 'id', id.toString());
 	return Alloy.Globals.conditionFilters[index];
 };
 
@@ -194,26 +195,30 @@ Alloy.Globals.API.getAllCountries(function(results) {
 });
 
 Alloy.Globals.getCountryByCode = function(code) {
-	return Alloy.Globals.countryFilters.filter(function(obj){return obj.iso_code_3 == code;});
+	return Alloy.Globals.countryFilters.filter(function(obj) {
+		return obj.iso_code_3 == code;
+	});
 };
 
 Alloy.Globals.getCountryByName = function(country) {
-	return Alloy.Globals.countryFilters.filter(function(obj){return obj.title == country;});
+	return Alloy.Globals.countryFilters.filter(function(obj) {
+		return obj.title == country;
+	});
 };
 
 Alloy.Globals.findIndexWithAttribute = function(array, attr, value) {
-    for(var i = 0; i < array.length; i += 1) {
-        if(array[i][attr] === value) {
-            return i;
-        }
-    }
+	for (var i = 0; i < array.length; i += 1) {
+		if (array[i][attr] === value) {
+			return i;
+		}
+	}
 };
 
 Alloy.Globals.getIDByItem = function(list, item) {
 	var id;
-	
-	for (i in list){
-		if(list[i].title === item){
+
+	for (i in list) {
+		if (list[i].title === item) {
 			id = list[i].id;
 			break;
 		}
@@ -221,42 +226,42 @@ Alloy.Globals.getIDByItem = function(list, item) {
 	return id;
 };
 
-Alloy.Globals.createFilter = function(list, label){
-	
+Alloy.Globals.createFilter = function(list, label) {
+
 	var items = [];
-	
-	for(i in list){
+
+	for (i in list) {
 		items.push(list[i].title);
 	}
-	
+
 	var popupDialog = Alloy.createWidget('ti.ux.popup.list', 'widget', {
-			closeButton : true,
-			selectable : true,
-			options : items,
-		});
+		closeButton : true,
+		selectable : true,
+		options : items,
+	});
 
-		popupDialog.getView('table').addEventListener('click', function(e) {
+	popupDialog.getView('table').addEventListener('click', function(e) {
 
-			label.text = e.row.data.title;
-			popupDialog.hide();
-			label.idValue = Alloy.Globals.getIDByItem(list, e.row.data.title);
-			
-		});
+		label.text = e.row.data.title;
+		popupDialog.hide();
+		label.idValue = Alloy.Globals.getIDByItem(list, e.row.data.title);
 
-		popupDialog.getView().show();
+	});
+
+	popupDialog.getView().show();
 };
 
-Alloy.Globals.uploadImage = function(callback){
+Alloy.Globals.uploadImage = function(callback) {
 	var dialog = Ti.UI.createOptionDialog({
-		options: ['Camera', 'Gallery', 'Cancel'],
-		title: 'Upload image using?'
+		options : ['Camera', 'Gallery', 'Cancel'],
+		title : 'Upload image using?'
 	});
-	
+
 	dialog.show();
-	
-	dialog.addEventListener('click', function(e){
-		
-		if(e.index === 0){
+
+	dialog.addEventListener('click', function(e) {
+
+		if (e.index === 0) {
 			//Open Camera
 			Ti.Media.showCamera({
 				saveToPhotoGallery : true,
@@ -277,7 +282,7 @@ Alloy.Globals.uploadImage = function(callback){
 				mediaTypes : Ti.Media.MEDIA_TYPE_PHOTO,
 				autohide : true
 			});
-		} else if(e.index === 1){
+		} else if (e.index === 1) {
 			//Open gallery
 			Ti.Media.openPhotoGallery({
 				success : function(event) {
@@ -291,35 +296,35 @@ Alloy.Globals.uploadImage = function(callback){
 
 				error : function(e) {
 				},
-			}); 
+			});
 		} else {
 			// Do nothing
 		}
 		dialog.hide();
 	});
-	
+
 };
 
 Alloy.Globals.loading = Alloy.createWidget("nl.fokkezb.loading");
 
 Alloy.Globals.priceListOptions = [{
- title : '$0 - $10',
- min : '0',
- max: '10'
- }, {
- title : '$10 - $20',
- min : '10',
- max: '20'
- }, {
- title : '$20 - $50',
- min : '20',
- max: '50'
- }, {
- title : '$50 - $100',
- min : '50',
- max: '100'
- },{
- title : '$100 or more',
- min : '100',
- max: '9999'
- }];
+	title : '$0 - $10',
+	min : '0',
+	max : '10'
+}, {
+	title : '$10 - $20',
+	min : '10',
+	max : '20'
+}, {
+	title : '$20 - $50',
+	min : '20',
+	max : '50'
+}, {
+	title : '$50 - $100',
+	min : '50',
+	max : '100'
+}, {
+	title : '$100 or more',
+	min : '100',
+	max : '9999'
+}];

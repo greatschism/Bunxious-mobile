@@ -11,7 +11,23 @@ $.drawermenu.init({
 });
 
 Ti.App.addEventListener('toggleMenu', function() {
+	
 	$.drawermenu.showhidemenu();
 	$.drawermenu.menuOpen = !$.drawermenu.menuOpen;
 });
 
+if (OS_ANDROID) {
+	
+	$.mainWindow.addEventListener('androidback', function() {
+
+		if (Alloy.Globals.pageflow.countPages() > 1) {
+			
+			Alloy.Globals.pageflow.back();
+			return false;
+		}
+		else {
+			
+			$.mainWindow.close();
+		}
+	});
+}

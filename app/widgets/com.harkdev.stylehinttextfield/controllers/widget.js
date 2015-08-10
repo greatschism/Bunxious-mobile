@@ -115,6 +115,11 @@ function initTextField() {
 
 				$.txtField.value = e.value;
 				showHideHint();
+				$.txtField.blur();
+			});
+			
+			win.addEventListener('cancel', function(e) {
+				$.txtField.blur();
 			});
 		});
 	}

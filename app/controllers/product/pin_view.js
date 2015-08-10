@@ -182,6 +182,11 @@ function displayPin() {
 				$.userLocation.text = result.city || result.country_iso_code_3;
 			}
 
+			$.userName.addEventListener('click', function() {
+				Alloy.Globals.openWindow('profile/profile_view', {user_id: result.id}, true);
+			});
+
+
 			if (!Alloy.Globals.currentUser || Alloy.Globals.currentUser.user_info.id != result.id) {
 				$.followButton.visible = true;
 				$.contactButton.visible = true;
@@ -298,6 +303,7 @@ if (!Alloy.Globals.currentUser || Alloy.Globals.currentUser.user_info.id != args
 		}
 	});
 }
+
 
 $.cart.addEventListener('click', function() {
 

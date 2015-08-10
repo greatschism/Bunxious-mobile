@@ -72,9 +72,9 @@ if (args.pin) {
 
 			for (var i = 0; i < result.LocationInfo.options.length; i++) {
 				if (result.LocationInfo.options[i].country_id === null) {
-					$.shipToElsewhere.setValue() = result.LocationInfo.options[i].price;
+					$.shipToElsewhere.setValue(result.LocationInfo.options[i].price);
 				} else if (result.LocationInfo.options[i].country_id === 223) {
-					$.shipToUS.setValue() = result.LocationInfo.options[i].price;
+					$.shipToUS.setValue(result.LocationInfo.options[i].price);
 				}
 			}
 		}
@@ -96,7 +96,6 @@ if (args.pin) {
 
 					rows++;
 					var height = 90 * rows + 45 + 'dp';
-
 					// Collecting the variation row data and checking if it is empty
 					var itemVariationTableRows = $.itemVariationTable.data[0].rows;
 

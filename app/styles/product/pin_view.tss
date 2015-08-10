@@ -54,7 +54,6 @@
 	width: '300dp',
 	height: Ti.UI.SIZE,
 	top: '25dp',
-	backgroundColor : 'red'
 }
 
 "#imageElements[platform=android]" : {

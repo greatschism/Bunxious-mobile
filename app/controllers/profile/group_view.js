@@ -35,6 +35,8 @@ function processPosts(data) {
 		data.posts.Post[i].user_avatar = data.posts.PostAvtrImg[i];
 		data.posts.Post[i].comments = data.posts.Comments[i];
 		data.posts.Post[i].pin_image = data.posts.myPinImg[i];
+		data.posts.Post[i].title = data.posts.myPin[i].title;
+		data.posts.Post[i].description = data.posts.myPin[i].description;
 
 	}
 

@@ -10,7 +10,7 @@
 		<View id="container" />
 		<Button id="contactButton" title="Contact" />
 		<View id="addressFilter" class="filterWrapper topRow firstElement">
-			<Label id="addressLabel" class="filterLabel" text="SELECT AN ADDRESS" />
+			<Label id="addressLabel" class="filterLabel" text="Select An Address" />
 			<View class="filterSeparator" />
 			<ImageView class="filterIcon" />
 		</View>

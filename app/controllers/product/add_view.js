@@ -14,6 +14,10 @@ if (Titanium.Platform.osname == "android") {
 	$.addViewScrollView.addEventListener('postlayout', postLayout);
 }
 
+$.tfDesc.addOnReturn(function(e){
+	$.tfDesc.value = e.value;
+});
+
 if (args.pin) {
 	$.favLbl.text = L('edit_item');
 	$.saveBtn.title = L('edit_item');
@@ -269,7 +273,6 @@ $.uploadImage.addEventListener('click', function(e) {
 });
 
 // we'll need to calculate the tableview's height because the Ti.UI.SIZE is not working in this case.
-var rows = 1;
 
 $.addVariation.addEventListener('click', function() {
 
@@ -326,6 +329,57 @@ $.addVariation.addEventListener('click', function() {
  }
  });
  */
+
+function setDefaults() {
+	var itemVariationTableRows = $.itemVariationTable.data[0].rows;
+
+	// clear all fields
+	gallery.length = 0;
+	$.tfTitle.setValue("");
+	$.tfDesc.setValue("");
+	$.categoryTitle.idValue = "";
+	$.categoryTitle.setText("");
+	$.groupsTitle.idValue = "";
+	$.groupsTitle.setText("");
+	$.brandTitle.idValue = "";
+	$.brandTitle.setText("");
+	$.genderTitle.idValue = "";
+	$.genderTitle.setText("");
+	$.conditionTitle.idValue = "";
+	$.conditionTitle.setText("");
+	$.tfStyle.setValue("");
+	$.tfTags.setValue("");
+	$.tfMaterials.setValue("");
+	$.tfProcessingTime.setValue("");
+	$.shipToUS.setValue("");
+	$.shipToElsewhere.setValue("");
+
+	for (i in itemVariationTableRows) {
+
+		itemVariationTableRows[i].children[0].children[0].idValue = "";
+		itemVariationTableRows[i].children[0].children[0].setValue("");
+
+		itemVariationTableRows[i].children[1].children[0].children[0].setValue("");
+		itemVariationTableRows[i].children[1].children[1].children[0].setValue("");
+	}
+
+	rows = 1;
+	$.itemVariationTable.setData([]);
+	$.itemVariationTable.appendRow(Alloy.createController('product/variationRow').getView());
+	$.itemVariationTable.animate({
+		height : '145dp'
+	});
+
+	$.uploadImageTable.setData([]);
+	$.noImage.text = L('no_image');
+	uploadedImages = 1;
+	$.uploadImageTable.animate({
+		height : '50dp'
+	});
+	
+	return;
+}
+
 $.addItem.addEventListener('click', function() {
 	// Checking if image is uploaded
 	if (gallery.length === 0) {
@@ -399,33 +453,8 @@ $.addItem.addEventListener('click', function() {
 			if (result.Error || result.errors) {
 				alert('Please enter valid details.');
 			} else {
-				// clear all fields
-				gallery.length = 0;
-				$.tfTitle.setValue("");
-				$.tfDesc.setValue("");
-				$.categoryTitle.idValue = "";
-				$.categoryTitle.setText("");
-				$.groupsTitle.idValue = "";
-				$.groupsTitle.setText("");
-				$.brandTitle.idValue = "";
-				$.brandTitle.setText("");
-				$.genderTitle.idValue = "";
-				$.genderTitle.setText("");
-				$.conditionTitle.idValue = "";
-				$.conditionTitle.setText("");
-				$.tfStyle.setValue("");
-				$.tfTags.setValue("");
-				$.tfMaterials.setValue("");
-				$.tfProcessingTime.setValue("");
-				$.shipToUS.setValue("");
-				$.shipToElsewhere.setValue("");
-
-				$.uploadImageTable.setData([]);
-				$.noImage.text = L('no_image');
-				uploadedImages = 1;
-				$.uploadImageTable.animate({
-					height : '50dp'
-				});
+				
+				setDefaults();
 
 				alert("Product Successfully Updated");
 			}
@@ -434,7 +463,7 @@ $.addItem.addEventListener('click', function() {
 			Alloy.Globals.pageflow.back();
 		}, function(error) {
 
-			alert(L('Error occurred while updating the details. Please try again.'));
+			alert('Error occurred while adding the details. Please try again.');
 			Alloy.Globals.loading.hide();
 		});
 	} else {
@@ -444,33 +473,7 @@ $.addItem.addEventListener('click', function() {
 			if (result.Error || result.errors) {
 				alert('Please enter valid details.');
 			} else {
-				// clear all fields
-				gallery.length = 0;
-				$.tfTitle.setValue("");
-				$.tfDesc.setValue("");
-				$.categoryTitle.idValue = "";
-				$.categoryTitle.setText("");
-				$.groupsTitle.idValue = "";
-				$.groupsTitle.setText("");
-				$.brandTitle.idValue = "";
-				$.brandTitle.setText("");
-				$.genderTitle.idValue = "";
-				$.genderTitle.setText("");
-				$.conditionTitle.idValue = "";
-				$.conditionTitle.setText("");
-				$.tfStyle.setValue("");
-				$.tfTags.setValue("");
-				$.tfMaterials.setValue("");
-				$.tfProcessingTime.setValue("");
-				$.shipToUS.setValue("");
-				$.shipToElsewhere.setValue("");
-
-				$.uploadImageTable.setData([]);
-				$.noImage.text = L('no_image');
-				uploadedImages = 1;
-				$.uploadImageTable.animate({
-					height : '50dp'
-				});
+				setDefaults();
 
 				alert("Product Successfully Added");
 			}
@@ -479,7 +482,7 @@ $.addItem.addEventListener('click', function() {
 			Alloy.Globals.pageflow.back();
 		}, function(error) {
 
-			alert(L('Error occurred while adding the details. Please try again.'));
+			alert('Error occurred while adding the details. Please try again.');
 			Alloy.Globals.loading.hide();
 		});
 	}

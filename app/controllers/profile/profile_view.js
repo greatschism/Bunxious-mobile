@@ -86,7 +86,7 @@ if (args.user_id) {
 
 		$.avatar.image = result.avatar_medium.image;
 		$.userName.text = result.firstname + ' ' + result.lastname;
-		$.gender.text = result.gender ? result.gender : '';
+		$.gender.text = result.gender ? Alloy.Globals.toTitleCase(result.gender) : '';
 
 		var date = moment(result.date_added);
 

@@ -41,7 +41,7 @@
 	<string name="quantity">Quantity</string>
 	<string name="price">Price</string>
 	<string name="sort_by">Sort By</string>
-	<string name="fav_text">New Items for your Favorite Closets</string>
+	<string name="fav_text">New Items For Your Favorite Closets</string>
 	<string name="follow">Follow</string>
 	<string name="unfollow">Unfollow</string>
 	<string name="contact">Contact</string>
@@ -59,14 +59,14 @@
 	<string name="upload_image">Upload Image</string>
 	<string name="no_image">No Image</string>
 	<string name="item_variations">Item Variations</string>
-	<string name="add_new_variation">Add new variation</string>
+	<string name="add_new_variation">Add New Variation</string>
 	<string name="item_tags">Item Tags</string>
 	<string name="item_shipment">Item Shipment</string>
 	<string name="processing_time">Processing Time</string>
-	<string name="ships_from">Ships from</string>
-	<string name="ships_to">Ships to</string>
+	<string name="ships_from">Ships From</string>
+	<string name="ships_to">Ships To</string>
 	<string name="everywhere_else">Everywhere else</string>
-	<string name="add_new_item">Add new item</string>
+	<string name="add_new_item">Add New Item</string>
 	<string name="cart_empty">Cart is empty</string>
 	<string name="group">My Groups</string>
 	<string name="add_post">Add Post</string>
@@ -81,5 +81,5 @@
 	<string name="no_followers">You have no followers yet.</string>
 	<string name="post_in_groups">Post To Group</string>
 	<string name="comment">Comment</string>
-	<string name="add_optional_note">Add optional note to seller</string>
+	<string name="add_optional_note">Add Optional Note to Seller</string>
 </resources>

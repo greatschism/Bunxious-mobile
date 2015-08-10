@@ -33,6 +33,10 @@ Alloy.Globals.pageflow = null;
 
 var currentPage = null;
 
+Alloy.Globals.toTitleCase = function(str) {
+	return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
+
 Alloy.Globals.openWindow = function(controller, arguments, newOne) {
 
 	if (Alloy.Globals.pageflow.getCurrentPage() == null || newOne === true) {

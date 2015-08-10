@@ -4,7 +4,7 @@ var moment = require('alloy/moment');
 
 $.avatar.image = args.avatar_medium.image;
 $.userName.text = args.firstname + ' ' + args.lastname;
-$.gender.text = args.gender ? args.gender : '';
+$.gender.text = args.gender ? Alloy.Globals.toTitleCase(args.gender) : '';
 
 if (args.following_user == "1") {
 	

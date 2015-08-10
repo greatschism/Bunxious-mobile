@@ -92,7 +92,7 @@ function displayPin() {
 		//$.size.text = 'SIZE: ' + size.title;
 		$.condition.text = 'Condition: ' + condition.title;
 		$.description.value = 'Description: ' + pinObj.description;
-		$.shipping.text = 'Shipping from United States';
+		$.shipping.text = 'Shipping From United States';
 		// + pinObj.from;
 
 		for (i in pinObj.shipping) {// When shipping info is available

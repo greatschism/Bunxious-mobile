@@ -10,7 +10,7 @@ if (args) {
 		text = args.firstname + ' ' + args.lastname + ' liked your pin(' + args.pin + ')';
 		break;
 	case 'FOLLOW':
-		text = args.firstname + ' ' + args.lastname + ' follows you';
+		text = args.firstname + ' ' + args.lastname + ' Follows You';
 		break;
 	case 'REPIN':
 		text = args.firstname + ' ' + args.lastname + ' repinned ' + args.pin;

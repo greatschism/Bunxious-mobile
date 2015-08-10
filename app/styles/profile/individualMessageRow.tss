@@ -24,7 +24,8 @@
 "#messageWrapper": {
 	width: '230dp',
 	height: Ti.UI.SIZE,
-	backgroundColor : 'transparent'
+	backgroundColor : 'transparent',
+	borderRadius : '5dp'
 }
 
 ".padding" : {

@@ -70,11 +70,14 @@ if (args.pin) {
 
 		if (result.LocationInfo.options) {
 
+
 			for (var i = 0; i < result.LocationInfo.options.length; i++) {
 				if (result.LocationInfo.options[i].country_id === null) {
-					$.shipToElsewhere.setValue(result.LocationInfo.options[i].price);
+					$.shipToElsewhere.setValue(result.LocationInfo.options[i].price.toString());
+
 				} else if (result.LocationInfo.options[i].country_id === 223) {
-					$.shipToUS.setValue(result.LocationInfo.options[i].price);
+					$.shipToUS.setValue(result.LocationInfo.options[i].price.toString());
+
 				}
 			}
 		}
@@ -97,9 +100,11 @@ if (args.pin) {
 					rows++;
 					var height = 90 * rows + 45 + 'dp';
 					// Collecting the variation row data and checking if it is empty
+					
+					$.itemVariationTable.appendRow(Alloy.createController('product/variationRow').getView());
+					
 					var itemVariationTableRows = $.itemVariationTable.data[0].rows;
 
-					$.itemVariationTable.appendRow(Alloy.createController('product/variationRow').getView());
 
 					itemVariationTableRows[i].children[0].children[0].field_id = result.SizeIfo[i].id;
 					itemVariationTableRows[i].children[0].children[0].idValue = result.SizeIfo[i].size_id;

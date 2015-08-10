@@ -22,7 +22,8 @@
 
 "#orderFrom":{
 	top: '10dp',
-	text: '    Order From ',
+	left: '10dp',
+	text: 'Order From ',
 	font: {
 		fontWeight: 'bold',
 		fontSize: '14dp'

@@ -4,6 +4,13 @@
 	layout : 'vertical'
 }
 
+"#wrapper" : {
+	top : 0,
+	bottom : '20dp',
+	backgroundColor : '#fff',
+	layout : 'vertical'
+}
+
 "#favoriteSection": {
 	height: '40dp',
 	top: '15dp',

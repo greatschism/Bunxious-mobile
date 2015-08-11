@@ -92,7 +92,6 @@
 		<View class="sectionWrapper">
 			<Label class="sectionLabel" text="L('item_shipment')"/>
 			<View class="border"/>
-			<Widget id="tfProcessingTime" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="100%" top="10dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('processing_time')" tfTop="5dp" tfWidth="220dp" />
 			<!-- <View id="shipsFrom" class="tabChange">
 				<Label id="shipsFromTitle" class="tabTitle" text="L('ships_from')"/>
 				<View class="separator"/>

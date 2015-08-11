@@ -30,7 +30,7 @@
 							<ImageView class="filterIcon" />
 						</View>
 						<View id="resetFilter" class="filterWrapper botRow lastElement">
-							<Button id="resetButton" title="Reset"/>
+							<Button id="resetButton" title="Clear"/>
 						</View>
 						<!-- <View id="sortFilter" class="filterWrapper botRow lastElement">
 							<Label class="filterLabel" text="L('sort_by')" />

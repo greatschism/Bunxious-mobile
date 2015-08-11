@@ -11,6 +11,6 @@
 				</View>
 			</TableViewRow>
 		</TableView>
-		<Button id="repin" title="Repin" />
+		<Button id="repin" title="Add" />
 	</View>
 </Alloy>

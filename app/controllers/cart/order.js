@@ -21,7 +21,7 @@ for (var i in args.paypal.items) {
 	delete args.paypal.items[i].shipping;
 }
 
-function txtField_Change(){
+function txtField_Change() {
 	$.lblHint.visible = ($.orderOptional.value.trim() == "");
 }
 
@@ -100,14 +100,13 @@ function addButtonToWindow() {
 		addButtonToWindow();
 	});
 	checkoutButton.addEventListener('paymentSuccess', function(e) {
-		
+
 		Alloy.Globals.API.completePayment(args.paypal.email, args.maindata[0].user.user_id, args.cartId, e.transactionID, totalValue, args.paypal.currency, function(result) {
-			
-			Ti.API.info(result);
+
 			alert('Thank you for your purchase');
-			Alloy.Globals.pageflow.back();
+			Alloy.Globals.openWindow('main/home_view');
 		}, function(error) {
-			
+
 			//TBD
 		});
 	});
@@ -127,7 +126,7 @@ $.add_address.addEventListener('click', function() {
 	Ti.App.addEventListener("newAddress", function(e) {
 		args.parentUpdate();
 	});
-	
+
 });
 
 $.addressFilter.addEventListener('click', function() {

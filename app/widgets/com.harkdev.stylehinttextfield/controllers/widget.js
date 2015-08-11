@@ -108,6 +108,11 @@ function initTextField() {
 			var win = Alloy.createWidget('com.harkdev.stylehinttextfield', 'TextAreaWin', {
 				value : $.txtField.value
 			}).getView();
+			
+			if (OS_ANDROID) {
+				
+				win.windowSoftInputMode = Ti.UI.Android.SOFT_INPUT_ADJUST_PAN;
+			}
 
 			win.open();
 

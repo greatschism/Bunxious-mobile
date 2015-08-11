@@ -394,7 +394,7 @@ $.addItem.addEventListener('click', function() {
 	}
 
 	// Checking if all fields are filled
-	if ($.tfTitle.getValue().trim() === "" || $.tfDesc.getValue().trim() === "" || $.categoryTitle.idValue === "" || $.brandTitle.idValue === "" || $.genderTitle.idValue === "" || $.conditionTitle.idValue === "" || $.tfStyle.getValue().trim() === "" || $.tfTags.getValue().trim() === "" || $.tfMaterials.getValue() === "" || $.tfProcessingTime.getValue().trim() === "" || $.shipToUS.getValue().trim() === "" || $.shipToElsewhere.getValue().trim() === "") {
+	if ($.tfTitle.getValue().trim() === "" || $.tfDesc.getValue().trim() === "" || $.categoryTitle.idValue === "" || $.brandTitle.idValue === "" || $.genderTitle.idValue === "" || $.conditionTitle.idValue === "" || $.tfStyle.getValue().trim() === "" || $.tfMaterials.getValue() === "" || $.tfProcessingTime.getValue().trim() === "" || $.shipToUS.getValue().trim() === "" || $.shipToElsewhere.getValue().trim() === "") {
 		alert(L("missing_field_error"));
 		return;
 	}

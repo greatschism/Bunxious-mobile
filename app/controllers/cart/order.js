@@ -45,6 +45,8 @@ function updatePriceValues(dontAddButton) {
 
 var checkoutButton;
 
+Ti.API.info(args);
+
 function addButtonToWindow() {
 
 	Ti.API.info("shipping :" + shippingValue, "invoiceItems :" + JSON.stringify(args.paypal.items), "subtotal :" + parseFloat(args.sub_total).toFixed(2), typeof args.sub_total);
@@ -98,8 +100,16 @@ function addButtonToWindow() {
 		addButtonToWindow();
 	});
 	checkoutButton.addEventListener('paymentSuccess', function(e) {
-		alert('Thank you for your purchase');
-		Alloy.Globals.pageflow.back();
+		
+		Alloy.Globals.API.completePayment(args.paypal.email, args.maindata[0].user.user_id, args.cartId, e.transactionID, totalValue, args.paypal.currency, function(result) {
+			
+			Ti.API.info(result);
+			alert('Thank you for your purchase');
+			Alloy.Globals.pageflow.back();
+		}, function(error) {
+			
+			//TBD
+		});
 	});
 	checkoutButton.addEventListener('paymentError', function(e) {
 		alert('Payment Error,  errorCode: ' + e.errorCode + ', errorMessage: ' + e.errorMessage);

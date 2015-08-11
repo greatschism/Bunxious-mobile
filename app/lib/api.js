@@ -1016,4 +1016,21 @@ api.addAddress = function(recipient, alias, address, city, state, country, succe
 	httpRequest('address/address', 'POST', data, success, fail);
 };
 
+api.completePayment = function(sellerEmail, sellerID, cartID, txnID, total, currency, success, fail) {
+
+	data = {
+		paypalEmail : sellerEmail,
+		fromId : sellerID,
+		cartId : cartID,
+		payment_status : 'Completed',
+		txnId : txnID,
+		total : total,
+		currency : currency,
+		userId : Alloy.Globals.currentUser.user_info.id,
+		token : Alloy.Globals.currentUser.token,
+	};
+
+	httpRequest('store/checkout', 'POST', data, success, fail);
+};
+
 module.exports = api;

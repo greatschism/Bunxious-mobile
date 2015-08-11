@@ -1023,7 +1023,7 @@ api.completePayment = function(sellerEmail, sellerID, cartID, txnID, total, curr
 		fromId : sellerID,
 		cartId : cartID,
 		payment_status : 'Completed',
-		txnId : txnID,
+		txn_id : txnID,
 		total : total,
 		currency : currency,
 		userId : Alloy.Globals.currentUser.user_info.id,

@@ -41,6 +41,8 @@ if (args.user_id) {
 			// console.log("Profile View result ", JSON.stringify(result));
 
 			if (result.following_user) {
+				
+				$.followIcon.image = '/images/minuswhite.png';
 				$.follow.setText(L('unfollow'));
 			}
 
@@ -55,8 +57,12 @@ if (args.user_id) {
 						// console.debug("follow-unfollow response ", JSON.stringify(response));
 
 						if (response.isFollow) {
+							
+							$.followIcon.image = '/images/minuswhite.png';
 							$.follow.setText(L('unfollow'));
 						} else {
+							
+							$.followIcon.image = '/images/pluswhite.png';
 							$.follow.setText(L('follow'));
 						}
 					}, function(error) {

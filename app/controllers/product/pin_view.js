@@ -193,6 +193,8 @@ function displayPin() {
 				$.contactButton.visible = true;
 
 				if (result.following_user) {
+					
+					$.followIcon.image = '/images/minuswhite.png';
 					$.follow.setText(L('unfollow'));
 				}
 			}
@@ -279,8 +281,12 @@ if (!Alloy.Globals.currentUser || Alloy.Globals.currentUser.user_info.id != args
 				// console.debug("follow-unfollow response ", JSON.stringify(response));
 
 				if (response.isFollow) {
+					
+					$.followIcon.image = '/images/minuswhite.png';
 					$.follow.setText(L('unfollow'));
 				} else {
+					
+					$.followIcon.image = '/images/pluswhite.png';
 					$.follow.setText(L('follow'));
 				}
 			});

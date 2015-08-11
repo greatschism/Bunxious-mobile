@@ -50,3 +50,7 @@
 	backgroundColor : '#f4f4f4',
 	separatorColor : 'transparent'
 }
+
+"#followersTable[platform=ios]" : {
+	selectionStyle : Ti.UI.iPhone.TableViewCellSelectionStyle.NONE
+}

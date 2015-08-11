@@ -8,6 +8,7 @@ $.gender.text = args.gender ? Alloy.Globals.toTitleCase(args.gender) : '';
 
 if (args.following_user == "1") {
 	
+	$.followIcon.image = '/images/minuswhite.png';
 	$.follow.text = L('unfollow');
 	$.followButton.width = '90dp';
 	$.contactButton.left = '177dp';
@@ -23,8 +24,12 @@ $.followButton.addEventListener('click', function(e) {
 		// console.debug("follow-unfollow response ", JSON.stringify(response));
 
 		if (response.isFollow) {
+			
+			$.followIcon.image = '/images/minuswhite.png';
 			$.follow.setText(L('unfollow'));
 		} else {
+			
+			$.followIcon.image = '/images/pluswhite.png';
 			$.follow.setText(L('follow'));
 		}
 	});

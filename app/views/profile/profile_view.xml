@@ -6,7 +6,7 @@
 				<Label id="userName"/>
 				<Label id="userLocation"/>
 				<View id="followButton" class="button">
-					<ImageView class="plus"/>
+					<ImageView id="followIcon" class="plus"/>
 					<Label class="buttonLabel followLabel" id="follow" text="L('follow')"/>
 				</View>
 				<View id="contactButton" class="button">

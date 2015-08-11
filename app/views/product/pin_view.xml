@@ -68,7 +68,7 @@
 				<Label id="userName"/>
 				<Label id="userLocation"/>
 				<View id="followButton" class="buttonUser">
-					<ImageView class="plus"/>
+					<ImageView id="followIcon" class="plus"/>
 					<Label id="follow" class="buttonLabel followLabel" text="L('follow')"/>
 				</View>
 				<View id="contactButton" class="buttonUser">

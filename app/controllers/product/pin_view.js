@@ -60,7 +60,7 @@ function displayPin() {
 		}
 
 		$.editButton.addEventListener('click', function() {
-			
+
 			Alloy.Globals.openWindow('product/add_view', {
 				pin : result
 			}, true);
@@ -183,9 +183,10 @@ function displayPin() {
 			}
 
 			$.userName.addEventListener('click', function() {
-				Alloy.Globals.openWindow('profile/profile_view', {user_id: result.id}, true);
+				Alloy.Globals.openWindow('profile/profile_view', {
+					user_id : result.id
+				}, true);
 			});
-
 
 			if (!Alloy.Globals.currentUser || Alloy.Globals.currentUser.user_info.id != result.id) {
 				$.followButton.visible = true;
@@ -304,15 +305,31 @@ if (!Alloy.Globals.currentUser || Alloy.Globals.currentUser.user_info.id != args
 	});
 }
 
-
 $.cart.addEventListener('click', function() {
 
 	Alloy.Globals.loading.show();
 
 	Alloy.Globals.API.addToCart(args.pin_id, function(result) {
 
-		alert('Product successfully added to your cart.');
 		Alloy.Globals.loading.hide();
+		
+		var dialog = Ti.UI.createAlertDialog({
+			cancel : 1,
+			buttonNames : ['Go to cart', 'Continue shopping'],
+			message : 'Product successfully added to your cart.',
+			title : 'Bunxious'
+		});
+		
+		dialog.addEventListener('click', function(e) {
+
+			if (e.index === 0) {
+				
+				Alloy.Globals.pageflow.back();
+				Alloy.Globals.openWindow('profile/cart_view');
+			}
+		});
+		
+		dialog.show();
 	}, function(error) {
 
 		alert('There was an error while adding the product to your cart.');

@@ -360,11 +360,13 @@ function setDefaults() {
 
 	for (i in itemVariationTableRows) {
 
+		itemVariationTableRows[i].children[0].children[0].field_id = "";
 		itemVariationTableRows[i].children[0].children[0].idValue = "";
-		itemVariationTableRows[i].children[0].children[0].setValue("");
+		itemVariationTableRows[i].children[0].children[0].text = "";
 
-		itemVariationTableRows[i].children[1].children[0].children[0].setValue("");
-		itemVariationTableRows[i].children[1].children[1].children[0].setValue("");
+		itemVariationTableRows[i].children[1].children[0].children[0].value = "";
+		itemVariationTableRows[i].children[1].children[1].children[0].value = "";
+
 	}
 
 	rows = 1;

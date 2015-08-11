@@ -1,4 +1,5 @@
 <Alloy>
+	<ScrollView id="wrapper">
 	<View id="followersView" class="container">
 		<View id="favoriteSection">
 			<View class="labelWrapper">
@@ -8,4 +9,5 @@
 		<Label id="noFollowers" text="L('no_followers')" ></Label>
 		<TableView id="followersTable"/>
 	</View>
+</ScrollView>
 </Alloy>

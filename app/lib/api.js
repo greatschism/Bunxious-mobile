@@ -85,7 +85,16 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction, fil
 					}
 				} else if (errorFunction && responseJSON && responseJSON.error) {
 
+					if (responseJSON.error == "Invalid or expired token.") {
+						
+						Alloy.Globals.currentUser = null;
+						Ti.App.Properties.setString('token', null);
+						Ti.App.fireEvent('loggedIn');
+						alert('Your session has expired. Please login again');
+					}
+
 					errorFunction(responseJSON.error);
+
 				}
 			} catch (e) {
 
@@ -108,7 +117,7 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction, fil
 	xhr.onerror = function(e) {
 
 		if (retries < 3) {
-			
+
 			retries++;
 			doRequest();
 		} else {
@@ -154,7 +163,7 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction, fil
 			xhr.send();
 		}
 	}
-	
+
 	doRequest();
 
 }
@@ -280,8 +289,8 @@ api.getPin = function(id, success, fail) {
 	httpRequest('pin/find', 'GET', data, success, fail);
 };
 
-api.getEditPin = function(id, success, fail){
-		var data = {
+api.getEditPin = function(id, success, fail) {
+	var data = {
 		id : id,
 		token : Alloy.Globals.currentUser.token
 	};
@@ -289,7 +298,7 @@ api.getEditPin = function(id, success, fail){
 	httpRequest('editpin/getEditPin', 'POST', data, success, fail);
 };
 
-api.editPinUpdate = function(data, success, fail){
+api.editPinUpdate = function(data, success, fail) {
 
 	httpRequest('editpin/update', 'POST', data, success, fail);
 };
@@ -456,8 +465,8 @@ api.findGroups = function(success, fail) {
 
 api.searchUsers = function(query, success, fail) {
 	var data = {
-		token: Alloy.Globals.currentUser.token,
-		query: query
+		token : Alloy.Globals.currentUser.token,
+		query : query
 	};
 
 	httpRequest('user/search', 'GET', data, success, fail);
@@ -527,11 +536,11 @@ api.getGroupMembers = function(id, success, fail) {
 };
 
 api.banGroupMember = function(group_id, user_id, success, fail) {
-	
+
 	var data = {
-		group_id: group_id,
-		user_id: user_id,
-		token: Alloy.Globals.currentUser.token
+		group_id : group_id,
+		user_id : user_id,
+		token : Alloy.Globals.currentUser.token
 	};
 
 	httpRequest('group/ban', 'POST', data, success, fail);
@@ -541,9 +550,9 @@ api.banGroupMember = function(group_id, user_id, success, fail) {
 api.promoteGroupMember = function(group_id, user_id, success, fail) {
 
 	var data = {
-		group_id: group_id,
-		user_id: user_id,
-		token: Alloy.Globals.currentUser.token
+		group_id : group_id,
+		user_id : user_id,
+		token : Alloy.Globals.currentUser.token
 	};
 
 	httpRequest('group/role', 'POST', data, success, fail);
@@ -571,8 +580,6 @@ api.addUserToGroup = function(group_id, user_id, decision, success, fail) {
 
 	httpRequest('group/request', 'POST', data, success, fail);
 };
-
-
 
 api.feedUploadImage = function(image, success, fail) {
 
@@ -997,13 +1004,13 @@ api.getBoardPins = function(board_id, success, fail) {
 api.addAddress = function(recipient, alias, address, city, state, country, success, fail) {
 
 	var data = {
-		token: Alloy.Globals.currentUser.token,
-		recipient: recipient,
-		alias: alias,
-		address: address,
-		city: city,		
-		state_id: state,	
-		country: country
+		token : Alloy.Globals.currentUser.token,
+		recipient : recipient,
+		alias : alias,
+		address : address,
+		city : city,
+		state_id : state,
+		country : country
 	};
 
 	httpRequest('address/address', 'POST', data, success, fail);

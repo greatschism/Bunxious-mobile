@@ -94,14 +94,12 @@ function addButtonToWindow() {
 
 	// Events available
 	checkoutButton.addEventListener('paymentCancelled', function(e) {
-		alert('Payment Cancelled.');
 		// The button should only be used once; so after a payment is cancelled, succeeds, or errors, we must redisplay it.
 		addButtonToWindow();
 	});
 	checkoutButton.addEventListener('paymentSuccess', function(e) {
-		alert('Payment Success.  TransactionID: ' + e.transactionID + ', Reloading...');
-		// The button should only be used once; so after a payment is cancelled, succeeds, or errors, we must redisplay it.
-		addButtonToWindow();
+		alert('Thank you for your purchase');
+		Alloy.Globals.pageflow.back();
 	});
 	checkoutButton.addEventListener('paymentError', function(e) {
 		alert('Payment Error,  errorCode: ' + e.errorCode + ', errorMessage: ' + e.errorMessage);
@@ -111,8 +109,6 @@ function addButtonToWindow() {
 
 	$.checkoutWrapper.add(checkoutButton);
 }
-
-Ti.API.info(args);
 
 $.add_address.addEventListener('click', function() {
 	var data = {};

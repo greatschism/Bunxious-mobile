@@ -112,7 +112,7 @@
 					<Label id="shipsToValue" text="L('united_states')" class="shipsToLabel center" />
 					<View class="shippingPrice center">
 						<Label class="dollarSign center" text="$"/>
-						<TextField id="shipToUS" class="priceTextfield center"/>
+						<Widget id="shipToUS" src="com.harkdev.stylehinttextfield" left="10dp" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="Ti.UI.FILL" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="" tfTop="5dp" tfWidth="Ti.UI.FILL" />
 					</View>
 				</View>
 				
@@ -120,7 +120,7 @@
 					<Label class="shipsToLabel center" text="L('everywhere_else')"/>
 					<View class="shippingPrice center">
 						<Label class="dollarSign center" text="$"/>
-						<TextField id="shipToElsewhere" class="priceTextfield center"/>
+						<Widget id="shipToElsewhere" src="com.harkdev.stylehinttextfield" left="10dp" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="Ti.UI.FILL" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="" tfTop="5dp" tfWidth="Ti.UI.FILL" />
 					</View>
 				</View>
 				

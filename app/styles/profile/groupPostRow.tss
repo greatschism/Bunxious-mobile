@@ -47,20 +47,38 @@
 	height: Ti.UI.SIZE
 }
 
+"#postDetails": {
+	top: '25dp',
+	height : Ti.UI.SIZE,
+	layout: 'vertical'
+}
+
 "#post_title": {
 	right : '10dp',
 	left: '50dp',
 	height : Ti.UI.SIZE,
-	top: '25dp',
+	top: '10dp',
+	color: '#000000',
 	wordWrap: true,
 	font: {
-		fontStyle : "Helvetica Neue"
+		fontFamily : "Helvetica Neue"
+	}
+}
+
+"#post_desc": {
+	right : '10dp',
+	left: '50dp',
+	height : Ti.UI.SIZE,
+	color: '#000000',
+	wordWrap: true,
+	font: {
+		fontFamily : "Helvetica Neue"
 	}
 }
 
 "#pin_img": {
 	width:"70%",
-	top: '50dp'
+	top: '10dp'
 }
 
 "#commentsTable": {

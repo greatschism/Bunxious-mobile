@@ -15,6 +15,15 @@ if (Titanium.Platform.osname == "android") {
 	$.postsTable.addEventListener('postlayout', postLayout);
 }
 
+function resetFilterSelection() {
+	filters = {};
+	$.categoryLabel.text = L('all_items');
+	$.brandLabel.text = L('brand');
+	$.genderLabel.text = L('gender');
+	$.sizeLabel.text = L('size');
+	$.priceLabel.text = L('price');
+}
+
 function processPosts(data) {
 	// adding names and avatars to comments
 	console.log('DATA:'+ JSON.stringify(data));
@@ -35,6 +44,8 @@ function processPosts(data) {
 		data.posts.Post[i].user_avatar = data.posts.PostAvtrImg[i];
 		data.posts.Post[i].comments = data.posts.Comments[i];
 		data.posts.Post[i].pin_image = data.posts.myPinImg[i];
+		data.posts.Post[i].title = data.posts.myPin[i].title;
+		data.posts.Post[i].description = data.posts.myPin[i].description;
 
 	}
 
@@ -368,6 +379,7 @@ $.priceFilter.addEventListener('click', function(){
 });
 
 $.resetButton.addEventListener('click', function() {
+	resetFilterSelection();
 	processPosts(args);
 });
 

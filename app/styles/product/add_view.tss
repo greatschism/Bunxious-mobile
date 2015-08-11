@@ -198,7 +198,7 @@
 }
 
 ".shippingOptions" : {
-	height : '115dp', 
+	height : '120dp', 
 	top : '10dp',
 	layout: 'vertical'
 }
@@ -215,7 +215,7 @@
 
 "#shipsToElsewhere" :{
 	top: '10dp',
-	height: '40dp',
+	height: '45dp',
 	layout : 'horizontal',
 	width : '100%'
 }

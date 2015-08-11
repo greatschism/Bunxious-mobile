@@ -54,3 +54,4 @@ if (Alloy.Globals.currentUser != null) {
 		});
 	});
 }
+

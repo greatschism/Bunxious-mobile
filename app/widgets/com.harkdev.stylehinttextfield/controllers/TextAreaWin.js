@@ -11,6 +11,7 @@ function save(){
 }
 
 function cancel(){
+	$.textarea.blur();
 	$.win.close();
 	$.win.fireEvent('cancel', {value: $.textarea.value});
 }

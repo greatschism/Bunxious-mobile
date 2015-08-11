@@ -52,7 +52,7 @@ function displayPin() {
 
 	Alloy.Globals.API.getPin(args.pin_id, function(result) {
 
-		if (result.user.id == Alloy.Globals.currentUser.user_info.id) {
+		if (Alloy.Globals.currentUser && result.user.id == Alloy.Globals.currentUser.user_info.id) {
 
 			$.editButton.visible = true;
 			$.heartButton.right = '40dp';
@@ -92,7 +92,7 @@ function displayPin() {
 		//$.size.text = 'SIZE: ' + size.title;
 		$.condition.text = 'Condition: ' + condition.title;
 		$.description.value = 'Description: ' + pinObj.description;
-		$.shipping.text = 'Shipping from United States';
+		$.shipping.text = 'Shipping From United States';
 		// + pinObj.from;
 
 		for (i in pinObj.shipping) {// When shipping info is available
@@ -181,6 +181,11 @@ function displayPin() {
 
 				$.userLocation.text = result.city || result.country_iso_code_3;
 			}
+
+			$.userName.addEventListener('click', function() {
+				Alloy.Globals.openWindow('profile/profile_view', {user_id: result.id}, true);
+			});
+
 
 			if (!Alloy.Globals.currentUser || Alloy.Globals.currentUser.user_info.id != result.id) {
 				$.followButton.visible = true;
@@ -298,6 +303,7 @@ if (!Alloy.Globals.currentUser || Alloy.Globals.currentUser.user_info.id != args
 		}
 	});
 }
+
 
 $.cart.addEventListener('click', function() {
 

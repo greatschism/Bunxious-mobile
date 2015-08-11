@@ -14,6 +14,10 @@ if (Titanium.Platform.osname == "android") {
 	$.addViewScrollView.addEventListener('postlayout', postLayout);
 }
 
+$.tfDesc.addOnReturn(function(e){
+	$.tfDesc.value = e.value;
+});
+
 if (args.pin) {
 	$.favLbl.text = L('edit_item');
 	$.saveBtn.title = L('edit_item');
@@ -66,11 +70,14 @@ if (args.pin) {
 
 		if (result.LocationInfo.options) {
 
+
 			for (var i = 0; i < result.LocationInfo.options.length; i++) {
 				if (result.LocationInfo.options[i].country_id === null) {
-					$.shipToElsewhere.value = result.LocationInfo.options[i].price;
+					$.shipToElsewhere.setValue(result.LocationInfo.options[i].price.toString());
+
 				} else if (result.LocationInfo.options[i].country_id === 223) {
-					$.shipToUS.value = result.LocationInfo.options[i].price;
+					$.shipToUS.setValue(result.LocationInfo.options[i].price.toString());
+
 				}
 			}
 		}
@@ -92,11 +99,12 @@ if (args.pin) {
 
 					rows++;
 					var height = 90 * rows + 45 + 'dp';
-
 					// Collecting the variation row data and checking if it is empty
+					
+					$.itemVariationTable.appendRow(Alloy.createController('product/variationRow').getView());
+					
 					var itemVariationTableRows = $.itemVariationTable.data[0].rows;
 
-					$.itemVariationTable.appendRow(Alloy.createController('product/variationRow').getView());
 
 					itemVariationTableRows[i].children[0].children[0].field_id = result.SizeIfo[i].id;
 					itemVariationTableRows[i].children[0].children[0].idValue = result.SizeIfo[i].size_id;
@@ -269,7 +277,6 @@ $.uploadImage.addEventListener('click', function(e) {
 });
 
 // we'll need to calculate the tableview's height because the Ti.UI.SIZE is not working in this case.
-var rows = 1;
 
 $.addVariation.addEventListener('click', function() {
 
@@ -326,6 +333,57 @@ $.addVariation.addEventListener('click', function() {
  }
  });
  */
+
+function setDefaults() {
+	var itemVariationTableRows = $.itemVariationTable.data[0].rows;
+
+	// clear all fields
+	gallery.length = 0;
+	$.tfTitle.setValue("");
+	$.tfDesc.setValue("");
+	$.categoryTitle.idValue = "";
+	$.categoryTitle.setText("");
+	$.groupsTitle.idValue = "";
+	$.groupsTitle.setText("");
+	$.brandTitle.idValue = "";
+	$.brandTitle.setText("");
+	$.genderTitle.idValue = "";
+	$.genderTitle.setText("");
+	$.conditionTitle.idValue = "";
+	$.conditionTitle.setText("");
+	$.tfStyle.setValue("");
+	$.tfTags.setValue("");
+	$.tfMaterials.setValue("");
+	$.tfProcessingTime.setValue("");
+	$.shipToUS.setValue("");
+	$.shipToElsewhere.setValue("");
+
+	for (i in itemVariationTableRows) {
+
+		itemVariationTableRows[i].children[0].children[0].idValue = "";
+		itemVariationTableRows[i].children[0].children[0].setValue("");
+
+		itemVariationTableRows[i].children[1].children[0].children[0].setValue("");
+		itemVariationTableRows[i].children[1].children[1].children[0].setValue("");
+	}
+
+	rows = 1;
+	$.itemVariationTable.setData([]);
+	$.itemVariationTable.appendRow(Alloy.createController('product/variationRow').getView());
+	$.itemVariationTable.animate({
+		height : '145dp'
+	});
+
+	$.uploadImageTable.setData([]);
+	$.noImage.text = L('no_image');
+	uploadedImages = 1;
+	$.uploadImageTable.animate({
+		height : '50dp'
+	});
+	
+	return;
+}
+
 $.addItem.addEventListener('click', function() {
 	// Checking if image is uploaded
 	if (gallery.length === 0) {
@@ -399,33 +457,8 @@ $.addItem.addEventListener('click', function() {
 			if (result.Error || result.errors) {
 				alert('Please enter valid details.');
 			} else {
-				// clear all fields
-				gallery.length = 0;
-				$.tfTitle.setValue("");
-				$.tfDesc.setValue("");
-				$.categoryTitle.idValue = "";
-				$.categoryTitle.setText("");
-				$.groupsTitle.idValue = "";
-				$.groupsTitle.setText("");
-				$.brandTitle.idValue = "";
-				$.brandTitle.setText("");
-				$.genderTitle.idValue = "";
-				$.genderTitle.setText("");
-				$.conditionTitle.idValue = "";
-				$.conditionTitle.setText("");
-				$.tfStyle.setValue("");
-				$.tfTags.setValue("");
-				$.tfMaterials.setValue("");
-				$.tfProcessingTime.setValue("");
-				$.shipToUS.setValue("");
-				$.shipToElsewhere.setValue("");
-
-				$.uploadImageTable.setData([]);
-				$.noImage.text = L('no_image');
-				uploadedImages = 1;
-				$.uploadImageTable.animate({
-					height : '50dp'
-				});
+				
+				setDefaults();
 
 				alert("Product Successfully Updated");
 			}
@@ -434,7 +467,7 @@ $.addItem.addEventListener('click', function() {
 			Alloy.Globals.pageflow.back();
 		}, function(error) {
 
-			alert(L('Error occurred while updating the details. Please try again.'));
+			alert('Error occurred while adding the details. Please try again.');
 			Alloy.Globals.loading.hide();
 		});
 	} else {
@@ -444,33 +477,7 @@ $.addItem.addEventListener('click', function() {
 			if (result.Error || result.errors) {
 				alert('Please enter valid details.');
 			} else {
-				// clear all fields
-				gallery.length = 0;
-				$.tfTitle.setValue("");
-				$.tfDesc.setValue("");
-				$.categoryTitle.idValue = "";
-				$.categoryTitle.setText("");
-				$.groupsTitle.idValue = "";
-				$.groupsTitle.setText("");
-				$.brandTitle.idValue = "";
-				$.brandTitle.setText("");
-				$.genderTitle.idValue = "";
-				$.genderTitle.setText("");
-				$.conditionTitle.idValue = "";
-				$.conditionTitle.setText("");
-				$.tfStyle.setValue("");
-				$.tfTags.setValue("");
-				$.tfMaterials.setValue("");
-				$.tfProcessingTime.setValue("");
-				$.shipToUS.setValue("");
-				$.shipToElsewhere.setValue("");
-
-				$.uploadImageTable.setData([]);
-				$.noImage.text = L('no_image');
-				uploadedImages = 1;
-				$.uploadImageTable.animate({
-					height : '50dp'
-				});
+				setDefaults();
 
 				alert("Product Successfully Added");
 			}
@@ -479,7 +486,7 @@ $.addItem.addEventListener('click', function() {
 			Alloy.Globals.pageflow.back();
 		}, function(error) {
 
-			alert(L('Error occurred while adding the details. Please try again.'));
+			alert('Error occurred while adding the details. Please try again.');
 			Alloy.Globals.loading.hide();
 		});
 	}

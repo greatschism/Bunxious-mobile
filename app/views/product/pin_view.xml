@@ -1,87 +1,80 @@
 <Alloy>
-	<View>
-		<TableView id="tableView">
-			<HeaderView>
-				<View id="tableHeader">
-					<Label id="title" />
-					<View id="imageElements">
-						<ImageView id="pinImage"/>
-						<View id="boxButton" class="buttonWrapper">
-							<ImageView id="box" class="button" />
-						</View>
-						<View id="heartButton" class="buttonWrapper">
-							<ImageView id="heart" class="button" />
-						</View>
-						<View id="editButton" class="buttonWrapper">
-							<ImageView id="edit" class="button" />
-						</View>
+	<ScrollView id="wrapper">
+		<View id="tableHeader">
+			<Label id="title" />
+			<View id="imageElements">
+				<ImageView id="pinImage"/>
+				<View id="boxButton" class="buttonWrapper">
+					<ImageView id="box" class="button" />
+				</View>
+				<View id="heartButton" class="buttonWrapper">
+					<ImageView id="heart" class="button" />
+				</View>
+				<View id="editButton" class="buttonWrapper">
+					<ImageView id="edit" class="button" />
+				</View>
+			</View>
+		</View>
+		<View class="container">
+			<Label id="price" />
+			<View id="lineOne"></View>
+			<View id="itemValues">
+				<Label id="brand" />
+				<Label id="size" />
+				<Label id="condition" />
+			</View>
+			<Button id="cart">Add to Cart</Button>
+			<View id="lineTwo"></View>
+			<TextArea id="description" />
+			<View class="lblClass">
+				<Label id="shipping" />
+			</View>
+			<View id="shippingDetails">
+				<Label id="shipTo" />
+				<Label id="shipCost" />
+				<Label id="shipWith" />
+				<View id="lineThree"></View>
+				<View id="shippingValues" />
+			</View>
+			<View class="lblClass">
+				<Label id="payment" />
+			</View>
+			<ImageView id="paypal"></ImageView>
+			<View class="lblClass">
+				<Label id="comments" />
+			</View>
+			<View id="commentsView" />
+			<Widget id="commentTxt" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="25dp" left="50dp" right="10dp" top="7dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('comment')" tfTop="5dp" tfWidth="Ti.UI.FILL" />
+			<View class="lblClass">
+				<Label id="closet" />
+			</View>
+			<View id="closetView">
+				<ImageView id="closetAvatar" class="placeholderImage"></ImageView>
+				<View id="closetText">
+					<Label id="closetTitle" />
+					<TextArea id="closetDescription"></TextArea>
+					<View id="closetFav">
+						<Label id="closetAdd" class="closetFavourite" />
+						<Label id="closetSee" class="closetFavourite" />
 					</View>
 				</View>
-			</HeaderView>
-			<TableViewRow>
-				<View class="container">
-					<Label id="price" />
-					<View id="lineOne"></View>
-					<View id="itemValues">
-						<Label id="brand" />
-						<Label id="size" />
-						<Label id="condition" />
-					</View>
-					<Button id="cart">Add to Cart</Button>
-					<View id="lineTwo"></View>
-					<TextArea id="description" />
-					<View class="lblClass">
-						<Label id="shipping" />
-					</View>
-					<View id="shippingDetails">
-						<Label id="shipTo" />
-						<Label id="shipCost" />
-						<Label id="shipWith" />
-						<View id="lineThree"></View>
-						<View id="shippingValues" />
-					</View>
-					<View class="lblClass">
-						<Label id="payment" />
-					</View>
-					<ImageView id="paypal"></ImageView>
-					<View class="lblClass">
-						<Label id="comments" />
-					</View>
-					<View id="commentsView" />
-					<Widget id="commentTxt" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="25dp" left="50dp" right="10dp" top="7dp" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('comment')" tfTop="5dp" tfWidth="Ti.UI.FILL" />
-					<View class="lblClass">
-						<Label id="closet" />
-					</View>
-					<View id="closetView">
-						<ImageView id="closetAvatar" class="placeholderImage"></ImageView>
-						<View id="closetText">
-							<Label id="closetTitle" />
-							<TextArea id="closetDescription"></TextArea>
-							<View id="closetFav">
-								<Label id="closetAdd" class="closetFavourite" />
-								<Label id="closetSee" class="closetFavourite" />
-							</View>
-						</View>
-					</View>
-					<View id="imageSlideshow"></View>
-					<View class="lblClass">
-						<Label id="owner" />
-					</View>
-					<View id="ownerProfile">
-						<ImageView id="avatar" />
-						<Label id="userName"/>
-						<Label id="userLocation"/>
-						<View id="followButton" class="buttonUser">
-							<ImageView class="plus"/>
-							<Label id="follow" class="buttonLabel followLabel" text="L('follow')"/>
-						</View>
-						<View id="contactButton" class="buttonUser">
-							<Label class="buttonLabel" text="L('contact')"/>
-						</View>
-					</View>
-
+			</View>
+			<View id="imageSlideshow"></View>
+			<View class="lblClass">
+				<Label id="owner" />
+			</View>
+			<View id="ownerProfile">
+				<ImageView id="avatar" />
+				<Label id="userName"/>
+				<Label id="userLocation"/>
+				<View id="followButton" class="buttonUser">
+					<ImageView class="plus"/>
+					<Label id="follow" class="buttonLabel followLabel" text="L('follow')"/>
 				</View>
-			</TableViewRow>
-		</TableView>
-	</View>
+				<View id="contactButton" class="buttonUser">
+					<Label class="buttonLabel" text="L('contact')"/>
+				</View>
+			</View>
+		</View>
+	</ScrollView>
 </Alloy>

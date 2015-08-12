@@ -69,13 +69,13 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction, fil
 
 	xhr.onload = function() {
 
+		Ti.API.info(endpoint, this.responseText);
+		
 		if (this.status == '200') {
 
 			try {
 
 				var responseJSON = JSON.parse(this.responseText);
-
-				Ti.API.info(endpoint, this.responseText);
 
 				if (responseJSON && !responseJSON.error) {
 
@@ -86,7 +86,7 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction, fil
 				} else if (errorFunction && responseJSON && responseJSON.error) {
 
 					if (responseJSON.error == "Invalid or expired token.") {
-						
+
 						Alloy.Globals.currentUser = null;
 						Ti.App.Properties.setString('token', null);
 						Ti.App.fireEvent('loggedIn');

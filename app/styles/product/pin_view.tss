@@ -526,7 +526,7 @@
 
 
 ".buttonUser": {
-	width: '66dp',
+	width: '80dp',
 	height: '22dp',
 	backgroundColor: '#f26b1d',
 	top: '48dp',
@@ -535,7 +535,7 @@
 }
 
 "#contactButton": {
-	left: '167dp'
+	left: '177dp'
 }
 
 "#editButton" : {

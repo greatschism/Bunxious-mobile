@@ -71,6 +71,8 @@
 }
 
 "#description" : {
+	height: '18dp',
+	width: '220dp',
 	left : '10dp',
 	bottom : '30dp',
 	color : '#666666',

@@ -118,7 +118,6 @@ function createFilter(list, label, filterType) {
 
 		// Getting array of keys
 		for (var key in filters) {
-			// console.log("key ", key); // shows key
 			keyArray.push(key);
 		}
 
@@ -193,28 +192,6 @@ $.categoryFilter.addEventListener('click', function() {
 
 		});
 	}
-
-	/*	Alloy.Globals.API.getAllCategories(function(results) {
-
-	 Ti.API.info('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%' + JSON.stringify(results));
-	 var popupDialog = Alloy.createWidget('ti.ux.popup.list', 'widget', {
-	 closeButton : true,
-	 selectable : true,
-	 options : results,
-	 });
-
-	 popupDialog.getView('table').addEventListener('click', function(e) {
-
-	 $.categoryLabel.text = e.row.data.title;
-	 popupDialog.hide();
-	 });
-
-	 popupDialog.getView().show();
-
-	 }, function(error) {
-
-	 });
-	 */
 });
 
 $.brandFilter.addEventListener('click', function() {
@@ -282,7 +259,6 @@ $.sizeFilter.addEventListener('click', function() {
 $.priceFilter.addEventListener('click', function() {
 
 	Alloy.Globals.priceFilters = JSON.parse(JSON.stringify(Alloy.Globals.priceListOptions));
-	//createFilter(Alloy.Globals.priceFilters, $.priceLabel, "price");
 	createFilter(Alloy.Globals.priceListOptions, $.priceLabel, "price");
 });
 

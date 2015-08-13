@@ -36,6 +36,12 @@
 	backgroundColor : '#f26b1d'
 }
 
+".buttonWrapperHrt" : {
+	top : '5dp',
+	width : '30dp',
+	height : '30dp'
+}
+
 "#boxButton" : {
 	right : '40dp',
 }
@@ -49,7 +55,9 @@
 }
 
 "#heart" : {
-	image : '/images/heartwhite.png'
+	image : '/images/heartunlike.png',
+	width: '30dp',
+	height: '30dp'
 }
 
 ".button" : {

@@ -27,6 +27,9 @@ function populateTable() {
 
 		var productArray = [];
 
+		console.log("---------------------");
+		console.log(results);
+
 		for (var i in results) {
 
 			productArray.push(Alloy.createController('product/productRow', results[i]).getView());

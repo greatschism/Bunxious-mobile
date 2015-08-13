@@ -6,8 +6,8 @@
 			<View id="boxButton" class="buttonWrapper">
 				<ImageView id="box" class="button" />
 			</View>
-			<View id="heartButton" class="buttonWrapper">
-				<ImageView id="heart" class="button" />
+			<View id="heartButton" class="buttonWrapperHrt">
+				<ImageView id="heart" />
 			</View>
 			<Label id="title" />
 			<Label id="description" />

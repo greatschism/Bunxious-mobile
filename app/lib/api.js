@@ -70,7 +70,7 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction, fil
 	xhr.onload = function() {
 
 		Ti.API.info(endpoint, this.responseText);
-		
+
 		if (this.status == '200') {
 
 			try {
@@ -207,10 +207,10 @@ api.getHomePins = function(success, fail, offset) {
 		data.offset = offset;
 	}
 
-	/*if (Alloy.Globals.currentUser) {
+	if (Alloy.Globals.currentUser) {
 
-	 data.token = Alloy.Globals.currentUser.token;
-	 }*/
+		data.token = Alloy.Globals.currentUser.token;
+	}
 
 	httpRequest('pin/home', 'GET', data, success, fail);
 };
@@ -527,7 +527,7 @@ api.editGroup = function(data, success, fail) {
 	httpRequest('group/update', 'POST', group, success, fail);
 };
 
-api.getGroupPins = function(id, filters, success, fail){
+api.getGroupPins = function(id, filters, success, fail) {
 	var data = {
 		limit : 20,
 		group_id : id,

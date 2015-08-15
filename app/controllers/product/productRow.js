@@ -1,7 +1,6 @@
 var args = arguments[0] || {};
 
 if (args) {
-	console.log('Product Row: ' + JSON.stringify(args));
 	$.pinImage.image = args.image_big.image || 'placeholder.png';
 	$.avatar.image = args.user.avatar_medium == null ? 'placeholder.png' : args.user.avatar_medium.image;
 	$.title.text = args.title;

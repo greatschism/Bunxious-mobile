@@ -2,7 +2,7 @@ var args = arguments[0] || {};
 
 var moment = require('alloy/moment');
 
-$.avatar.image = args.avatar_medium.image;
+$.avatar.image = args.avatar_medium == null ? 'placeholder.png' : args.avatar_medium.image;
 $.userName.text = args.firstname + ' ' + args.lastname;
 $.gender.text = args.gender ? Alloy.Globals.toTitleCase(args.gender) : '';
 

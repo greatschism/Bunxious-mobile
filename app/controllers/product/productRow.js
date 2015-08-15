@@ -1,9 +1,9 @@
 var args = arguments[0] || {};
 
 if (args) {
-
-	$.pinImage.image = args.image_big.image;
-	$.avatar.image = args.user.avatar_medium.image;
+	console.log('Product Row: ' + JSON.stringify(args));
+	$.pinImage.image = args.image_big.image || 'placeholder.png';
+	$.avatar.image = args.user.avatar_medium == null ? 'placeholder.png' : args.user.avatar_medium.image;
 	$.title.text = args.title;
 	$.description.text = args.description.replace('\r', '').replace('\n', '');
 	//stripping new lines

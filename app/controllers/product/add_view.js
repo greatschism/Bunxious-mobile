@@ -14,7 +14,7 @@ if (Titanium.Platform.osname == "android") {
 	$.addViewScrollView.addEventListener('postlayout', postLayout);
 }
 
-$.tfDesc.addOnReturn(function(e){
+$.tfDesc.addOnReturn(function(e) {
 	$.tfDesc.value = e.value;
 });
 
@@ -70,7 +70,6 @@ if (args.pin) {
 
 		if (result.LocationInfo.options) {
 
-
 			for (var i = 0; i < result.LocationInfo.options.length; i++) {
 				if (result.LocationInfo.options[i].country_id === null) {
 					$.shipToElsewhere.setValue(result.LocationInfo.options[i].price.toString());
@@ -100,11 +99,10 @@ if (args.pin) {
 					rows++;
 					var height = 90 * rows + 45 + 'dp';
 					// Collecting the variation row data and checking if it is empty
-					
-					$.itemVariationTable.appendRow(Alloy.createController('product/variationRow').getView());
-					
-					var itemVariationTableRows = $.itemVariationTable.data[0].rows;
 
+					$.itemVariationTable.appendRow(Alloy.createController('product/variationRow').getView());
+
+					var itemVariationTableRows = $.itemVariationTable.data[0].rows;
 
 					itemVariationTableRows[i].children[0].children[0].field_id = result.SizeIfo[i].id;
 					itemVariationTableRows[i].children[0].children[0].idValue = result.SizeIfo[i].size_id;
@@ -244,6 +242,46 @@ $.uploadImage.addEventListener('click', function(e) {
 
 	var image = Alloy.Globals.uploadImage(function(image) {
 
+		var blobToJpgString = function(_blob) {
+			var filename = Titanium.Filesystem.applicationDataDirectory + "/image.jpg";
+			f = Titanium.Filesystem.getFile(filename);
+			f.write(_blob);
+
+			return f.nativePath;
+		};
+
+		var imagePath = blobToJpgString(image);
+
+		var ImageFactory = require('fh.imagefactory');
+		var exifTags = {
+			'Date/time' : ImageFactory.TAG_DATETIME,
+			'Flash' : ImageFactory.TAG_FLASH,
+			'GPS altitude' : ImageFactory.TAG_GPS_ALTITUDE,
+			'GPS altitude ref' : ImageFactory.TAG_GPS_ALTITUDE_REF,
+			'GPS date stamp' : ImageFactory.TAG_GPS_DATESTAMP,
+			'GPS latitude' : ImageFactory.TAG_GPS_LATITUDE,
+			'GPS latitude ref' : ImageFactory.TAG_GPS_LATITUDE_REF,
+			'GPS longitude' : ImageFactory.TAG_GPS_LONGITUDE,
+			'GPS longitude ref' : ImageFactory.TAG_GPS_LONGITUDE_REF,
+			'GPS processing method' : ImageFactory.TAG_GPS_PROCESSING_METHOD,
+			'GPS timestamp' : ImageFactory.TAG_GPS_TIMESTAMP,
+			'Image length' : ImageFactory.TAG_IMAGE_LENGTH,
+			'Image width' : ImageFactory.TAG_IMAGE_WIDTH,
+			'Camera make' : ImageFactory.TAG_MAKE,
+			'Camera model' : ImageFactory.TAG_MODEL,
+			'Orientation' : ImageFactory.TAG_ORIENTATION,
+			'White balance' : ImageFactory.TAG_WHITEBALANCE
+		};
+
+
+		var exifInformation = 'Exif information:' + "\n";
+		for (tag in exifTags) {
+			exifInformation += "\n" + tag + ': ' + ImageFactory.getExifTag(imagePath, exifTags[tag]);
+		}
+		
+		Ti.API.info(exifInformation);
+		
+
 		Alloy.Globals.API.uploadImage(image, function(result) {
 
 			if (result.success) {
@@ -381,7 +419,7 @@ function setDefaults() {
 	$.uploadImageTable.animate({
 		height : '50dp'
 	});
-	
+
 	return;
 }
 
@@ -458,7 +496,7 @@ $.addItem.addEventListener('click', function() {
 			if (result.Error || result.errors) {
 				alert('Please enter valid details.');
 			} else {
-				
+
 				setDefaults();
 
 				alert("Product Successfully Updated");

@@ -25,7 +25,6 @@ function populateTable() {
 
 	Alloy.Globals.API.getHomePins(function(results) {
 
-
 		var productArray = [];
 
 		for (var i in results) {

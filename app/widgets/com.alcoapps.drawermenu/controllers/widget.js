@@ -12,8 +12,7 @@ var init=function(opts){
 	$.drawermenuview.add(opts.menuview);
 	duration=opts.duration;
 	parent=opts.parent;
-	Ti.API.info('initialized');
-	//setSwipe();
+	setSwipe();
 };
 
 var setSwipe=function(){

@@ -209,8 +209,6 @@ function displayPin() {
 
 			$.heartButton.backgroundColor = '#27ae60';
 		}
-
-	
 	});
 }
 

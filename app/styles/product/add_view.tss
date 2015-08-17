@@ -160,6 +160,9 @@
 		left: 0,
 		right: 0
 	},
+}
+
+"#itemVariationTable[platform=ios]": {
 	selectionStyle: Titanium.UI.iPhone.TableViewCellSelectionStyle.NONE
 }
 

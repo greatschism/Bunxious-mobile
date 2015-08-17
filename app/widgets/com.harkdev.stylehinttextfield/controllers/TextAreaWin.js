@@ -20,13 +20,10 @@ function cancel() {
 	});
 }
 
-if (OS_IOS) {
+$.textarea.addEventListener('postlayout', function() {
 
-	$.textarea.addEventListener('postlayout', function() {
-
-		$.textarea.focus();
-	});
-}
+	$.textarea.focus();
+});
 
 if (OS_ANDROID) {
 

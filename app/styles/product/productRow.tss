@@ -92,9 +92,34 @@
 	color : '#666666',
 }
 
+"#brand" : {
+	left : '10dp',
+	bottom : '50dp',
+	color : '#666666',
+	font : {
+		fontSize : '14dp'
+	}
+}
+
+"#condition" : {
+	right : '10dp',
+	bottom : '50dp',
+	color : '#666666',
+	font : {
+		fontSize : '14dp'
+	}
+}
+
+"#size" : {
+	left : '10dp',
+	bottom : '30dp',
+	color : '#666666',
+	font : {
+		fontSize : '14dp'
+	}
+}
+
 "TableViewRow[platform=ios]" : {
 	selectedBackgroundColor : "transparent"
-},
-
-
+}
 

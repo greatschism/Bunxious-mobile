@@ -28,8 +28,11 @@ function populateTable() {
 		var productArray = [];
 
 		for (var i in results) {
+			
+			var rowResult = results[i];
+			rowResult.showTitle = true;
 
-			productArray.push(Alloy.createController('product/productRow', results[i]).getView());
+			productArray.push(Alloy.createController('product/productRow', rowResult).getView());
 		}
 
 		if (results.length == 0) {
@@ -151,7 +154,10 @@ function createFilter(list, label, filterType) {
 			console.debug("Alloy.Globals.API.getFilteredPins", JSON.stringify(results));
 
 			for (var i in results) {
-				productArray.push(Alloy.createController('product/productRow', results[i]).getView());
+				var rowResult = results[i];
+				rowResult.showTitle = true;
+				
+				productArray.push(Alloy.createController('product/productRow', rowResult).getView());
 			}
 
 			if (results.length == 0) {

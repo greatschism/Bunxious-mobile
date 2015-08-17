@@ -8,6 +8,7 @@ handlers.open = function(){};
 handlers.close = function(){};
 
 var init=function(opts){
+	opts.mainview.zIndex = 2;
 	$.drawermainview.add(opts.mainview);
 	$.drawermenuview.add(opts.menuview);
 	duration=opts.duration;
@@ -34,10 +35,12 @@ var showhidemenu=function(){
 		moveTo="0";
 		menuOpen=false;
 		handlers.close();
+		$.coverView.zIndex = 1;
 	}else{
 		moveTo="250dp";
 		menuOpen=true;
 		handlers.open();
+		$.coverView.zIndex = 3;
 	}
 
 	var newWidth = Ti.Platform.displayCaps.platformWidth;

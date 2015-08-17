@@ -1,6 +1,8 @@
 <Alloy>
 	<View id="drawermenuview"></View>
 	
-	<View id="drawermainview"></View>
+	<View id="drawermainview">
+		<View id="coverView"></View>
+	</View>
 	
 </Alloy>

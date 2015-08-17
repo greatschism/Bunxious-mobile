@@ -1,10 +1,16 @@
 "#menuview":{
-	backgroundColor:"#cacaca",
+	backgroundColor: "#cacaca",
 	height: Ti.UI.FILL,
 	width: Ti.UI.FILL
 },
 "#mainview":{
-	backgroundColor:"red",
+	backgroundColor: "red",
+	height: Ti.UI.FILL,
+	width: Ti.UI.FILL
+},
+"#coverView":{
+	top : '40dp',
+	zIndex: 1,
 	height: Ti.UI.FILL,
 	width: Ti.UI.FILL
 },
@@ -20,5 +26,5 @@
 	borderColor: "#000",
 	width: "40dp",
 	height: "40dp",
-	visible:true
+	visible: true
 }

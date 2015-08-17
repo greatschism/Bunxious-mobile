@@ -19,6 +19,7 @@ function resetFilterSelection() {
 	$.priceLabel.text = L('price');
 }
 
+
 function populateTable() {
 
 	Alloy.Globals.loading.show();
@@ -274,5 +275,5 @@ $.resetButton.addEventListener('click', function() {
 	populateTable();
 });
 
-// Will be triggered from login, to update the data after a user logs in
-exports.populateTable = populateTable;
+Ti.App.addEventListener("loggedIn", populateTable);
+

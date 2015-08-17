@@ -2,6 +2,7 @@ var args = arguments[0] || {};
 
 if (args) {
 
+
 	if (args.showTitle) {
 		
 		if (args.brand_id) {
@@ -58,6 +59,10 @@ if (args) {
 	if (args.liked) {
 
 		$.heartButton.backgroundColor = '#27ae60';
+	}
+
+	if (args.board_id) {
+		$.boxButton.backgroundColor = '#27ae60';
 	}
 
 	$.heartButton.addEventListener('click', function() {

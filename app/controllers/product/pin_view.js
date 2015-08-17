@@ -68,6 +68,11 @@ function displayPin() {
 
 		pinObj = JSON.parse(JSON.stringify(result));
 
+		if (pinObj.board_id) {
+
+			$.boxButton.backgroundColor = '#27ae60';
+		}
+
 		$.pinImage.image = pinObj.image_big.image;
 		$.title.text = pinObj.title;
 
@@ -204,6 +209,8 @@ function displayPin() {
 
 			$.heartButton.backgroundColor = '#27ae60';
 		}
+
+	
 	});
 }
 

@@ -62,7 +62,7 @@ function addButtonToWindow() {
 		// is determined by the buttonStyle property!
 		buttonStyle : Paypal.BUTTON_152x33, // The style & size of the button
 		top : '10dp',
-		width : '150dp',
+		width : '152dp',
 		height : '40dp',
 		font : {
 			fontWeight : 'bold',
@@ -86,11 +86,11 @@ function addButtonToWindow() {
 			shipping : shippingValue,
 			currency : args.paypal.currency,
 			recipient : args.paypal.email,
-			customID : 'anythingYouWant',
+			customID : 'Bunxious',
 			invoiceItems : args.paypal.items,
 			ipnUrl : 'http://www.appcelerator.com/',
 			merchantName : 'Bunxious Mobile',
-			memo : 'For the orphans and widows in the world!'
+			memo : 'Bunxious.com!'
 		}
 	});
 

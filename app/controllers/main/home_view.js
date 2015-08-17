@@ -19,11 +19,13 @@ function resetFilterSelection() {
 	$.priceLabel.text = L('price');
 }
 
+
 function populateTable() {
 
 	Alloy.Globals.loading.show();
 
 	Alloy.Globals.API.getHomePins(function(results) {
+
 
 		var productArray = [];
 
@@ -31,8 +33,11 @@ function populateTable() {
 		console.log(results);
 
 		for (var i in results) {
+			
+			var rowResult = results[i];
+			rowResult.showTitle = true;
 
-			productArray.push(Alloy.createController('product/productRow', results[i]).getView());
+			productArray.push(Alloy.createController('product/productRow', rowResult).getView());
 		}
 
 		if (results.length == 0) {
@@ -154,7 +159,10 @@ function createFilter(list, label, filterType) {
 			console.debug("Alloy.Globals.API.getFilteredPins", JSON.stringify(results));
 
 			for (var i in results) {
-				productArray.push(Alloy.createController('product/productRow', results[i]).getView());
+				var rowResult = results[i];
+				rowResult.showTitle = true;
+				
+				productArray.push(Alloy.createController('product/productRow', rowResult).getView());
 			}
 
 			if (results.length == 0) {
@@ -270,5 +278,5 @@ $.resetButton.addEventListener('click', function() {
 	populateTable();
 });
 
-// Will be triggered from login, to update the data after a user logs in
-exports.populateTable = populateTable;
+Ti.App.addEventListener("loggedIn", populateTable);
+

@@ -2,8 +2,40 @@ var args = arguments[0] || {};
 
 if (args) {
 
-	$.pinImage.image = args.image_big.image;
-	$.avatar.image = args.user.avatar_medium.image;
+
+	if (args.showTitle) {
+		
+		if (args.brand_id) {
+			$.brand.text = Alloy.Globals.findBrandById(args.brand_id).title;
+		}
+
+		if (args.condition_id) {
+			$.condition.text = Alloy.Globals.findConditionById(args.condition_id).title;
+		}
+
+		if (args.size) {
+			$.size.text = "";
+			var sizeArray = args.size.SizeIfo;
+			for(var i = 0, len = sizeArray.length; i < len; i++){
+				
+				$.size.text += Alloy.Globals.findSizeById(sizeArray[i].size_id).title;
+				
+				if(i !== len-1){
+					$.size.text += ', ';
+				}
+			}
+		}
+		
+		$.title.hide();
+		$.description.hide();
+	} else {
+		$.brand.hide();
+		$.condition.hide();
+		$.size.hide();
+	}
+
+	$.pinImage.image = args.image_big.image || 'placeholder.png';
+	$.avatar.image = args.user.avatar_medium == null ? 'placeholder.png' : args.user.avatar_medium.image;
 	$.title.text = args.title;
 	$.description.text = args.description.replace('\r', '').replace('\n', '');
 	//stripping new lines
@@ -26,6 +58,10 @@ if (args) {
 
 	if (args.liked) {
 		$.heart.image = '/images/heartlike.png';
+	}
+
+	if (args.board_id) {
+		$.boxButton.backgroundColor = '#27ae60';
 	}
 
 	$.heartButton.addEventListener('click', function() {

@@ -26,7 +26,7 @@ function resetFilterSelection() {
 
 function processPosts(data) {
 	// adding names and avatars to comments
-	console.log('DATA:'+ JSON.stringify(data));
+	console.log('DATA:' + JSON.stringify(data));
 	for (var i in data.posts.Comments) {
 
 		for (var j in data.posts.Comments[i]) {
@@ -63,7 +63,9 @@ function processPosts(data) {
 function loadGroupPosts() {
 	Alloy.Globals.loading.show();
 	Alloy.Globals.API.getGroup(group_id, function(result) {
-		processPosts({posts:result});
+		processPosts({
+			posts : result
+		});
 		Alloy.Globals.loading.hide();
 	}, function(error) {
 		//TBD
@@ -80,7 +82,7 @@ function postInGroup() {
 			uploadedImage = null;
 			$.postImage.image = null;
 			$.postImage.visible = false;
-			
+
 			Ti.App.fireEvent("updateGroup");
 		} else {
 			if (result.message) {
@@ -134,41 +136,47 @@ function createFilter(list, label, filterType) {
 		// Checking the filter type
 		if (filterType === "category") {
 
-			filters['filters[category_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
+			filters['pin_filter[category.widget.filter][category_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
 
 		} else if (filterType === "brand") {
 
-			filters['filters[brand_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
+			filters['pin_filter[brand.widget.filter][brand_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
 
 		} else if (filterType === "gender") {
 
-			filters['filters[gender_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
+			filters['pin_filter[gender.widget.filter][gender_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
 
 		} else if (filterType === "size") {
 
-			filters['filters[size_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
+			filters['pin_filter[size.widget.filter][size_id]'] = Alloy.Globals.getIDByItem(list, e.row.data.title);
 
 		} else if (filterType === "price") {
 
-			filters['filters[price]'] = min + '&filters[price]=' + max;
+			filters['pin_filter[pricefilter.widget.filter][from]'] = min;
+			// + '&filters[price]=' + max;
+			filters['pin_filter[pricefilter.widget.filter][to]'] = max;
 		}
 
 		// Call the service
 		Alloy.Globals.loading.show();
 		var productArray = [];
-		Alloy.Globals.API.getFilteredPins(filters, function(results) {
+		Alloy.Globals.API.getGroupPins(group_id, filters, function(results) {
 
-			console.debug("Alloy.Globals.API.getFilteredPins", JSON.stringify(results));
-
-			for (var i in results) {
-				productArray.push(Alloy.createController('product/productRow', results[i]).getView());
-			}
-
-			if (results.length == 0) {
+			if (results.result) {
+				for (var i in results.Pins) {
+					var pin = {};
+					pin = JSON.parse(JSON.stringify(results.Pins[i]));
+					pin.image_big = {}, pin.user = {}, pin.user.avatar_medium = {};
+					pin.image_big.image = results.PinImg[i].image;
+					pin.user.avatar_medium.image = results.Avatar[i];
+					productArray.push(Alloy.createController('product/productRow', pin).getView());
+				}
+			} else {
 				productArray.push(Ti.UI.createTableViewRow({
 					title : 'No results.'
 				}));
 			}
+
 			$.postsTable.setData(productArray);
 			Alloy.Globals.loading.hide();
 
@@ -373,7 +381,7 @@ $.sizeFilter.addEventListener('click', function() {
 	}
 });
 
-$.priceFilter.addEventListener('click', function(){
+$.priceFilter.addEventListener('click', function() {
 	Alloy.Globals.priceFilters = JSON.parse(JSON.stringify(Alloy.Globals.priceListOptions));
 	createFilter(Alloy.Globals.priceListOptions, $.priceLabel, "price");
 });

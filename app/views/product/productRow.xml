@@ -12,6 +12,10 @@
 			<Label id="title" />
 			<Label id="description" />
 			<Label id="price" />
+			
+			<Label id="brand" />
+			<Label id="condition" />
+			<Label id="size" />
 		</View>
 	</TableViewRow>
 </Alloy>

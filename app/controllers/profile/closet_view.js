@@ -116,7 +116,8 @@ function loadClosetData() {
 			Ti.API.info('PIN: ' + JSON.stringify(result.MyPins.pin[i]));
 			tableData.push(Alloy.createController('product/closetRow', {
 				pin : result.MyPins.pin[i],
-				img : result.MyPins.pinImg[i]
+				img : result.MyPins.pinImg[i],
+				avatar : result.MyPins.avatar[i]
 			}).getView());
 		}
 		$.closetTable.setData(tableData);

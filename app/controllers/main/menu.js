@@ -44,7 +44,7 @@ $.login_logout.button.addEventListener('click', function() {
 			Alloy.Globals.currentUser = null;
 			Ti.App.Properties.setString('token', null);
 			updateMenu();
-			
+			Ti.App.fireEvent("loggedOut");
 			// Redirecting to home
 			$.homeButton.button.fireEvent('click');
 		}, function(error) {

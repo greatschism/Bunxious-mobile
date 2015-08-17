@@ -4,6 +4,18 @@ var pinObj = null,
     username = '',
     avatarImage = '';
 
+if (!Alloy.Globals.currentUser) {
+	$.boxButton.hide();
+	$.heartButton.hide();
+	$.cart.hide();
+}
+
+Ti.App.addEventListener("loggedOut", function() {
+	$.boxButton.hide();
+	$.heartButton.hide();
+	$.cart.hide();
+});
+
 function createRow(avatar, name, text) {
 
 	var view = Ti.UI.createView({

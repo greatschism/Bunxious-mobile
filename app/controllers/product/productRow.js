@@ -1,6 +1,38 @@
 var args = arguments[0] || {};
 
 if (args) {
+
+	if (args.showTitle) {
+		
+		if (args.brand_id) {
+			$.brand.text = Alloy.Globals.findBrandById(args.brand_id).title;
+		}
+
+		if (args.condition_id) {
+			$.condition.text = Alloy.Globals.findConditionById(args.condition_id).title;
+		}
+
+		if (args.size) {
+			$.size.text = "";
+			var sizeArray = args.size.SizeIfo;
+			for(var i = 0, len = sizeArray.length; i < len; i++){
+				
+				$.size.text += Alloy.Globals.findSizeById(sizeArray[i].size_id).title;
+				
+				if(i !== len-1){
+					$.size.text += ', ';
+				}
+			}
+		}
+		
+		$.title.hide();
+		$.description.hide();
+	} else {
+		$.brand.hide();
+		$.condition.hide();
+		$.size.hide();
+	}
+
 	$.pinImage.image = args.image_big.image || 'placeholder.png';
 	$.avatar.image = args.user.avatar_medium == null ? 'placeholder.png' : args.user.avatar_medium.image;
 	$.title.text = args.title;

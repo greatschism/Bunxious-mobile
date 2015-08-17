@@ -1,9 +1,9 @@
 var args = arguments[0] || {};
 Ti.API.info('ARGS:'+JSON.stringify(args));
 $.pinImage.image = args.img.image;
-$.avatar.image = args.pin.avatar;
-$.title.text = args.pin.title;
-$.description.text = args.pin.description;
+$.avatar.image = args.avatar;
+$.title.text = args.pin.title.trim();
+$.description.text = args.pin.description.trim();
 $.price.text = String.formatCurrency(args.pin.price);
 
 

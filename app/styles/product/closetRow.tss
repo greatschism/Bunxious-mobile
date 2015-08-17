@@ -1,7 +1,7 @@
 
 ".container": {
 	width: '300dp',
-	height: '380dp',
+	height: '360dp',
 	backgroundColor: '#FFFFFF',
 	top: '5dp'
 }
@@ -17,7 +17,7 @@
 }
 
 "#pinImage" : {
-	width : '90%',
+	width : '100%',
 	top : 0
 }
 
@@ -84,6 +84,8 @@
 }
 
 "#description" : {
+	height: '18dp',
+	width: '220dp',
 	left : '10dp',
 	bottom : '5dp',
 	color : '#666666',

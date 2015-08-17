@@ -47,9 +47,6 @@ $.login_button.addEventListener('click', function() {
 
 		// Updating the main menu
 		Ti.App.fireEvent('loggedIn');
-		Alloy.createController('main/home_view', {
-			fromAnotherController : true
-		}).populateTable();
 		$.loginWindow.close();
 	}, function(error) {
 

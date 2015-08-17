@@ -1,5 +1,15 @@
 var args = arguments[0] || {};
 
+if (!Alloy.Globals.currentUser) {
+	$.boxButton.hide();
+	$.heartButton.hide();
+}
+
+Ti.App.addEventListener("loggedOut", function() {
+	$.boxButton.hide();
+	$.heartButton.hide();
+});
+
 if (args) {
 
 

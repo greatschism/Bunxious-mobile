@@ -1,5 +1,15 @@
 var args = arguments[0] || {};
 
+if (!Alloy.Globals.currentUser) {
+	$.boxButton.hide();
+	$.heartButton.hide();
+}
+
+Ti.App.addEventListener("loggedOut", function() {
+	$.boxButton.hide();
+	$.heartButton.hide();
+});
+
 if (args) {
 
 
@@ -57,8 +67,7 @@ if (args) {
 	});
 
 	if (args.liked) {
-
-		$.heartButton.backgroundColor = '#27ae60';
+		$.heart.image = '/images/heartlike.png';
 	}
 
 	if (args.board_id) {
@@ -68,13 +77,14 @@ if (args) {
 	$.heartButton.addEventListener('click', function() {
 
 		Alloy.Globals.API.togglePinLike(args.id, function(result) {
+			console.log(result);
 
 			if (result.status == 'success' && result.action == "like") {
-
-				$.heartButton.backgroundColor = '#27ae60';
+				console.log("like");
+				$.heart.image = '/images/heartlike.png';
 			} else if (result.status == 'success' && result.action == "unlike") {
-
-				$.heartButton.backgroundColor = '#f26b1d';
+				console.log("unlike")
+				$.heart.image = '/images/heartunlike.png';
 			}
 		});
 	});

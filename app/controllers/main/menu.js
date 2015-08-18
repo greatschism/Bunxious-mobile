@@ -17,7 +17,7 @@ function updateMenu() {
 	} else {
 
 		$.login_logout.setTitle(L('login'));
-		$.login_logout.setIcon('/images/login.png');
+		$.login_logout.setIcon('/images/loginwhite.png');
 		$.userInfo.height = '0dp';
 		$.firstLoginDependant.height = '0dp';
 		$.secondLoginDependant.height = '0dp';

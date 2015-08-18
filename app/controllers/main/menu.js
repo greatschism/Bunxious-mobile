@@ -5,7 +5,7 @@ function updateMenu() {
 	if (Alloy.Globals.currentUser) {
 
 		$.login_logout.setTitle(L('sign_out'));
-		$.login_logout.setIcon('/images/logout.png');
+		$.login_logout.setIcon('/images/logoutwhite.png');
 		$.userName.text = Alloy.Globals.currentUser.user_info.firstname + ' ' + Alloy.Globals.currentUser.user_info.lastname;
 		$.userPicture.image = Alloy.Globals.currentUser.user_info.avatar_medium.image;
 		$.userInfo.height = '60dp';

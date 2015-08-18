@@ -45,28 +45,6 @@
 	backgroundColor: '#f26b1d',
 }
 
-"#header_label": {
-	top: 10
-}
-
-"#address_form": {
-	height: Ti.UI.SIZE,
-	width: Ti.UI.SIZE,
-	top: 20
-},
-
-"#save_address": {
-	width: '80dp',
-	height: '25dp',
-	font: {
-		fontWeight: 'bold',
-		fontSize: '14dp'
-	},
-	color: '#fff',
-	backgroundColor: '#f26b1d'
-}
-
-
 ".tabChange": {
 	top: '10dp',
 	width: '300dp',

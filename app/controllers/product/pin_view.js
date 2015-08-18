@@ -288,14 +288,11 @@ $.commentTxt.addOnReturn(function(event) {
 	}
 });
 
-//function afterPinResponse (){
-
 if (!Alloy.Globals.currentUser || Alloy.Globals.currentUser.user_info.id != args.user_id) {
 	$.followButton.addEventListener('click', function(e) {
 
 		if (Alloy.Globals.currentUser) {
 			Alloy.Globals.API.follow(args.user_id, function(response) {
-				// console.debug("follow-unfollow response ", JSON.stringify(response));
 
 				if (response.isFollow) {
 					

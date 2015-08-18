@@ -128,7 +128,7 @@ if (args.pin) {
 		Alloy.Globals.loading.hide();
 
 	}, function(error) {
-		console.debug(JSON.stringify(error));
+		
 	});
 }
 
@@ -280,7 +280,6 @@ $.uploadImage.addEventListener('click', function(e) {
 		}
 		
 		Ti.API.info(exifInformation);
-		
 
 		Alloy.Globals.API.uploadImage(image, function(result) {
 
@@ -327,50 +326,6 @@ $.addVariation.addEventListener('click', function() {
 		height : height
 	});
 });
-
-// $.itemVariationTable.addEventListener('click', function(e){
-//
-// console.debug('itemVariationTable row ', JSON.stringify(e));
-//
-// });
-
-// var country_list = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Anguilla", "Antigua & Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia & Herzegovina", "Botswana", "Brazil", "British Virgin Islands", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Cape Verde", "Cayman Islands", "Chad", "Chile", "China", "Colombia", "Congo", "Cook Islands", "Costa Rica", "Cote D Ivoire", "Croatia", "Cruise Ship", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Estonia", "Ethiopia", "Falkland Islands", "Faroe Islands", "Fiji", "Finland", "France", "French Polynesia", "French West Indies", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guam", "Guatemala", "Guernsey", "Guinea", "Guinea Bissau", "Guyana", "Haiti", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Isle of Man", "Israel", "Italy", "Jamaica", "Japan", "Jersey", "Jordan", "Kazakhstan", "Kenya", "Kuwait", "Kyrgyz Republic", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Mauritania", "Mauritius", "Mexico", "Moldova", "Monaco", "Mongolia", "Montenegro", "Montserrat", "Morocco", "Mozambique", "Namibia", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Norway", "Oman", "Pakistan", "Palestine", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russia", "Rwanda", "Saint Pierre & Miquelon", "Samoa", "San Marino", "Satellite", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "South Africa", "South Korea", "Spain", "Sri Lanka", "St Kitts & Nevis", "St Lucia", "St Vincent", "St. Lucia", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor L'Este", "Togo", "Tonga", "Trinidad & Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks &amp; Caicos", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "Uruguay", "Uzbekistan", "Venezuela", "Vietnam", "Virgin Islands (US)", "Yemen", "Zambia", "Zimbabwe"];
-/*
- $.shipsFrom.addEventListener('click', function() {
-
- var popupDialog = Alloy.createWidget('ti.ux.popup.list', 'widget', {
- closeButton : true,
- selectable : true,
- options : country_list,
- });
-
- popupDialog.getView('table').addEventListener('click', function(e) {
-
- $.shipsFromTitle.text = e.row.data.title;
- popupDialog.hide();
- });
-
- popupDialog.getView().show();
- });
-
- $.shipsTo.addEventListener('click', function() {
-
- if(Alloy.Globals.countryFilters){
-
- Alloy.Globals.createFilter(Alloy.Globals.countryFilters, $.shipsToTitle);
-
- } else {
- Alloy.Globals.API.getAllCountries(function(results) {
-
- Alloy.Globals.countryFilters = JSON.parse(JSON.stringify(results));
- Alloy.Globals.createFilter(Alloy.Globals.countryFilters, $.shipsToTitle);
-
- }, function(error) {
-
- });
- }
- });
- */
 
 function setDefaults() {
 	var itemVariationTableRows = $.itemVariationTable.data[0].rows;
@@ -488,8 +443,6 @@ $.addItem.addEventListener('click', function() {
 	if (args.pin) {
 		data.id = args.pin.id;
 		data['X-form-cmd'] = x_form;
-
-		console.debug('Edit item mode');
 
 		Alloy.Globals.API.editPinUpdate(data, function(result) {
 

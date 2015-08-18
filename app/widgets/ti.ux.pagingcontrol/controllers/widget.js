@@ -13,7 +13,6 @@ WTools.setTiProps(args, $.view);
 $.linkScrollableView = function(scrollable){
 	
 	if(!scrollable || !scrollable.views){
-		Ti.API.warning('WARNING: ti.ux.pagingcontrol.linkScrollableView(): scrollable not found or does not contain views');
 		return;
 	}
 	

@@ -141,7 +141,6 @@ $.unban.addEventListener('click', function() {
 });
 
 $.accept.addEventListener('click', function() {
-	// console.log('Accept click: ' + user.firstname);
 	
 	Alloy.Globals.API.addUserToGroup(args.group_id, args.user.id, "accept", function(result){
 
@@ -155,7 +154,6 @@ $.accept.addEventListener('click', function() {
 });
 
 $.decline.addEventListener('click', function() {
-	// console.log('Decline click: ' + user.firstname);
 	
 	Alloy.Globals.API.addUserToGroup(args.group_id, args.user.id, "decline", function(result){
 		

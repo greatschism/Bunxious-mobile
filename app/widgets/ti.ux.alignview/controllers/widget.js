@@ -65,8 +65,6 @@ function sortChildren(){
 	for(var i = 0, j = views.length; i < j; i++){
 		
 		views[i].left = distance * (i + factor) - views[i].rect.width / 2 - distance / 2;
-		Ti.API.info('width element ' + views[i].rect.width + ' w ' + w + ' distance: ' + distance + ' final left: ' + views[i].left);
-		
 	}
 
 		

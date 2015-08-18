@@ -7,7 +7,6 @@
 ".profileWrapper": {
 	width: '320dp',
 	height : Ti.UI.SIZE,
-	// backgroundColor : 'yellow'
 }
 
 '.profileWrapper[platform=ios]': {
@@ -34,7 +33,6 @@
 		fontSize: '15dp',
 		fontWeight: 'bold'
 	},
-	// backgroundColor : 'red'
 }
 
 '#userLocation': {
@@ -52,7 +50,6 @@
 	backgroundColor: '#f26b1d',
 	top: '48dp',
 	left: '80dp',
-	// visible: false
 }
 
 "#followButton": {

@@ -16,8 +16,6 @@ function initUI(){
 	if(args.value) $.field.value = args.value;
 	if(args.tipText) $.tipText.text = args.tipText;
 	
-	//Ti.API.info('args: ' + JSON.stringify(args));
-	
 	Scope.setupField({params:args, control:$.field});
 }
 
@@ -60,7 +58,6 @@ $.validate = function(callback){
 		});
 	}else{
 		var isValid = $.field.validate($.field.value);
-		Ti.API.info('isValid: ' + isValid);
 		callback(isValid);	
 		if(!isValid) showValidationError();
 	}

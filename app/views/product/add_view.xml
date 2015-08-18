@@ -15,13 +15,6 @@
 				<ImageView class="downArrow"/>
 			</View>
 		</View>
-		<!-- <View id="closet" class="tabChange">
-			<Label id="closetTitle" class="tabTitle" text="L('closet_selection')"/>
-			<View class="separator"/>
-			<View class="dropdown">
-				<ImageView class="downArrow"/>
-			</View>
-		</View> -->
 		<View id="groups" class="tabChange">
 			<Label id="groupsTitle" idValue="" class="tabTitle" text="L('post_in_groups')"/>
 			<View class="separator"/>
@@ -76,11 +69,6 @@
 				</FooterView>
 				<Require id="variationRow" src="product/variationRow"/>
 			</TableView>
-			<!-- <View class="border" />
-			<View class="priceWrapper">
-				<Label text="$" class="dollarSign" />
-				<Widget id="tfPrice" src="com.harkdev.stylehinttextfield" left="10dp" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="165dp" top="0" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('price')" tfTop="5dp" tfWidth="220dp" />
-			</View> -->
 		</View>
 		<View class="sectionWrapper">
 			<Label class="sectionLabel" text="L('item_tags')"/>
@@ -92,13 +80,6 @@
 		<View class="sectionWrapper">
 			<Label class="sectionLabel" text="L('item_shipment')"/>
 			<View class="border"/>
-			<!-- <View id="shipsFrom" class="tabChange">
-				<Label id="shipsFromTitle" class="tabTitle" text="L('ships_from')"/>
-				<View class="separator"/>
-				<View class="dropdown">
-					<ImageView class="downArrow"/>
-				</View>
-			</View> -->
 			
 			<View id="shipsFrom">
 				<Label id="shipsFromTitle" text="L('ships_from')" class="dollarSign" />
@@ -122,23 +103,6 @@
 						<Widget id="shipToElsewhere" src="com.harkdev.stylehinttextfield" left="10dp" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="Ti.UI.FILL" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="" tfTop="5dp" tfWidth="Ti.UI.FILL" />
 					</View>
 				</View>
-				
-				<!-- <View id="shipsTo" class="tabChange">
-					<Label id="shipsToTitle" idValue="" class="tabTitle" text="L('ships_to')"/>
-					<View class="separator"/>
-					<View class="dropdown">
-						<ImageView class="downArrow"/>
-					</View>
-				</View> -->
-				<!-- <View class="shippingPrice">
-					<Label class="dollarSign" text="$"/>
-					<TextField class="priceTextfield"/>
-				</View> -->
-				<!-- <Label class="elsewhere" text="L('everywhere_else')"/> -->
-				<!-- <View class="shippingElsewherePrice">
-					<Label class="dollarSign" text="$"/>
-					<TextField class="priceTextfield"/>
-				</View> -->
 			</View>
 			<View class="border paddingTop" />
 			<View id="addItem" class="saveWrapper">

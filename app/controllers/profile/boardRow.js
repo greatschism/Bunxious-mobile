@@ -5,7 +5,6 @@ $.title.text = args.title;
 $.ago.text = moment(args.date_added).fromNow();
 $.text.text = args.description;
 
-Ti.API.error(args);
 $.row.addEventListener('click', function() {
 
 	Alloy.Globals.loading.show();

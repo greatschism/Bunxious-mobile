@@ -18,10 +18,8 @@ if (args.following_user == "1") {
 }
 
 $.followButton.addEventListener('click', function(e) {
-	// console.debug("User view - args ", JSON.stringify(args));
 	
 	Alloy.Globals.API.follow(args.id, function(response) {
-		// console.debug("follow-unfollow response ", JSON.stringify(response));
 
 		if (response.isFollow) {
 			

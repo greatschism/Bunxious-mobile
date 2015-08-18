@@ -7,10 +7,6 @@ $.price.text = String.formatCurrency(args.pin.price);
 
 
 $.pinImage.addEventListener('click', function(e) {
-	// console.debug('closet row product/pin_view args ', JSON.stringify(args));
-	
-	// var data = args.pin;
-	// data.image_big = args.img;
 	
 	Alloy.Globals.openWindow('product/pin_view', {
 		pin_id : args.pin.id,
@@ -24,7 +20,6 @@ if (args.pin.liked) {
 }
 
 $.heartButton.addEventListener('click', function() {
-	// console.debug('closet row product/pin_view args.pin ', JSON.stringify(args.pin));
 
 	Alloy.Globals.API.togglePinLike(args.pin.id, function(result) {
 

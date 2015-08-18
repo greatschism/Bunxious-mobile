@@ -36,7 +36,6 @@ $.checkbox.addEventListener('click', function(e) {
 $.uploadImage.addEventListener('click', function(e){
 	var image = Alloy.Globals.uploadImage(function(image){
 		Alloy.Globals.API.uploadGroupImage(image, function(result){
-			console.debug(result.file);
 			uploadedImage = result.file;
 			$.uploadImage.title = "Image uploaded";
 			Alloy.Globals.loading.hide();

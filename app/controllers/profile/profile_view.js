@@ -38,8 +38,6 @@ if (args.user_id) {
 			$.followButton.visible = true;
 			$.contactButton.visible = true;
 
-			// console.log("Profile View result ", JSON.stringify(result));
-
 			if (result.following_user) {
 				
 				$.followIcon.image = '/images/minuswhite.png';
@@ -54,7 +52,6 @@ if (args.user_id) {
 				} else {
 
 					Alloy.Globals.API.follow(args.user_id, function(response) {
-						// console.debug("follow-unfollow response ", JSON.stringify(response));
 
 						if (response.isFollow) {
 							

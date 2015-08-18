@@ -17,8 +17,6 @@ if (Alloy.Globals.currentUser.user_info.id) {
 	
 	Alloy.Globals.API.findFollowers(Alloy.Globals.currentUser.user_info.id, function(result) {
 		
-		console.debug("My-Followers-result ", JSON.stringify(result));
-		
 		if(result.length === 0){
 			// No followers
 			$.noFollowers.setHeight('30dp');

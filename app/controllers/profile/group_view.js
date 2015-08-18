@@ -26,7 +26,6 @@ function resetFilterSelection() {
 
 function processPosts(data) {
 	// adding names and avatars to comments
-	console.log('DATA:' + JSON.stringify(data));
 	for (var i in data.posts.Comments) {
 
 		for (var j in data.posts.Comments[i]) {
@@ -128,7 +127,6 @@ function createFilter(list, label, filterType) {
 
 		// Getting array of keys
 		for (var key in filters) {
-			// console.log("key ", key); // shows key
 			keyArray.push(key);
 		}
 

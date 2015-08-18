@@ -295,7 +295,6 @@ if (!Alloy.Globals.currentUser || Alloy.Globals.currentUser.user_info.id != args
 
 		if (Alloy.Globals.currentUser) {
 			Alloy.Globals.API.follow(args.user_id, function(response) {
-				// console.debug("follow-unfollow response ", JSON.stringify(response));
 
 				if (response.isFollow) {
 					

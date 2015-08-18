@@ -47,7 +47,6 @@ $.saveButton.addEventListener('click', function() {
 $.state.addEventListener('click', function() {
 
 	var stateTitle = $.stateTitle.idValue;
-	console.log(stateTitle);
 
 	if (Alloy.Globals.StateFilters) {
 

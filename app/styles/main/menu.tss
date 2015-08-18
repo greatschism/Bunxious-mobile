@@ -70,7 +70,7 @@
 	font: {
 		fontSize: '15dp'
 	},
-	color: '#d5dae2'
+	color: '#fff'
 }
 
 ".headerWrapper": {
@@ -87,7 +87,7 @@
 		fontWeight: "bold",
 		fontSize: '14dp'
 	},
-	color: '#89b1b7'
+	color: '#fff'
 }
 
 ".loginDependant" : {

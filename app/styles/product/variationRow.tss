@@ -13,13 +13,6 @@
 	backgroundColor: '#fff'
 }
 
-".priceWrapper" : {
-	top : '40dp',
-	height : '40dp',
-	layout : 'horizontal',
-	width : '45%'
-}
-
 ".tabTitle": {
 	color: '#666',
 	left: '10dp',

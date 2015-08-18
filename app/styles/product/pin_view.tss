@@ -1,13 +1,4 @@
 
-"#headerView": {
-	height: Titanium.UI.SIZE
-}
-
-"#tableView" : {
-	top : 0,
-	bottom : '50dp',
-}
-
 "TableViewRow" : {
 	height : Ti.UI.SIZE
 }
@@ -235,47 +226,6 @@
 
 "#lineThree": {
 	top: '30dp',
-	height: '2px',
-	width: '300dp',
-	backgroundColor: "#DADADA"
-}
-
-
-"#shipToOut": {
-	top: '40dp',
-	left: 0,
-	font: {
-		fontWeight: 'bold',
-		fontSize: '12dp'
-	},
-	color: '#636363'
-}
-
-
-"#shipCostOut": {
-	top: '40dp',
-	left: '100dp',
-	font: {
-		fontWeight: 'bold',
-		fontSize: '12dp'
-	},
-	color: '#636363'
-}
-
-
-"#shipWithOut": {
-	top: '40dp',
-	left: '200dp',
-	font: {
-		fontWeight: 'bold',
-		fontSize: '12dp'
-	},
-	color: '#636363'
-}
-
-
-"#lineFour": {
-	top: '60dp',
 	height: '2px',
 	width: '300dp',
 	backgroundColor: "#DADADA"

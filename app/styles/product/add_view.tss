@@ -193,9 +193,6 @@
 }
 
 "#shipsTo" : {
-	// width : '45%',
-	// left : 0,
-	// top : 0
 	top: '10dp',
 	height: '40dp',
 	layout : 'horizontal',
@@ -234,7 +231,6 @@
 
 ".shippingPrice" : {
 	left : '10dp',
-	// top : 0,
 	right : 0,
 	height : '40dp',
 	width : Ti.UI.FILL,

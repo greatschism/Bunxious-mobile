@@ -6,10 +6,6 @@ var totalValue = 0.00;
 
 // preparing the paypal items list
 for (var i in args.paypal.items) {
-	//name : 'Shoes',
-	//			totalPrice : 8,
-	//			itemPrice : 2,
-	//			itemCount : 4
 	args.paypal.items[i].name = args.paypal.items[i].item_name;
 	args.paypal.items[i].totalPrice = args.paypal.items[i].amount * args.paypal.items[i].quantity;
 	args.paypal.items[i].itemPrice = args.paypal.items[i].amount;

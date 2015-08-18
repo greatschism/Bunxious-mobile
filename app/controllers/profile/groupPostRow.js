@@ -48,9 +48,6 @@ $.title.addOnReturn(function(event) {
 		if (result.result) {
 
 			$.commentsTable.add(createRow(Alloy.Globals.currentUser.user_info.avatar_medium.image, Alloy.Globals.currentUser.user_info.firstname + ' ' + Alloy.Globals.currentUser.user_info.lastname, event.value));
-			// $.commentsTable.animate({
-				// height : Ti.UI.SIZE
-			// });
 			$.title.setValue('');
 		} else {
 

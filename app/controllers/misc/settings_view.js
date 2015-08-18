@@ -38,7 +38,7 @@ if (Alloy.Globals.currentUser != null) {
 		Alloy.Globals.currentUser.user_info.notification_like_pin = $.notification_like_pin.getValue();
 		Alloy.Globals.currentUser.user_info.notification_repin_pin = $.notification_repin_pin.getValue();
 		Alloy.Globals.currentUser.user_info.notification_follow_user = $.notification_follow_user.getValue();
-		Alloy.Globals.currentUser.user_info.country_iso_code_3 = 'USA'
+		Alloy.Globals.currentUser.user_info.country_iso_code_3 = 'USA';
 		
 		var gender = $.gender.getValue();
 		Alloy.Globals.currentUser.user_info.gender = genders[$.gender.getOptions().indexOf(gender)];

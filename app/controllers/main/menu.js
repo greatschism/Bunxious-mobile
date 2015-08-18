@@ -74,7 +74,7 @@ $.searchBtn.addEventListener("click", function() {
 		Alloy.Globals.openWindow('misc/search', {searchTerm: searchTerm}, true);
 
 	} else {
-		alert("Please login to search.")
+		alert("Please login to search.");
 	}
 
 });
@@ -162,7 +162,7 @@ $.settingsButton.button.addEventListener('click', function() {
 
 	Alloy.Globals.loading.show();
 
-	setTimeout(function(){ Alloy.Globals.loading.hide() }, 1000);
+	setTimeout(function(){ Alloy.Globals.loading.hide(); }, 1000);
 
 	Alloy.Globals.openWindow('misc/settings_view');
 });

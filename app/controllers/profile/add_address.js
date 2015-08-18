@@ -32,7 +32,7 @@ $.saveButton.addEventListener('click', function() {
 
 		} else {
 
-			alert("Please enter address info.")
+			alert("Please enter address info.");
 
 		}
 

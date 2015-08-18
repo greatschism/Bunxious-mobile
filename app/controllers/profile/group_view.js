@@ -150,7 +150,6 @@ function createFilter(list, label, filterType) {
 		} else if (filterType === "price") {
 
 			filters['pin_filter[pricefilter.widget.filter][from]'] = min;
-			// + '&filters[price]=' + max;
 			filters['pin_filter[pricefilter.widget.filter][to]'] = max;
 		}
 

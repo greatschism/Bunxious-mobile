@@ -42,7 +42,6 @@
 	width: Ti.UI.FILL,
 	top: 0,
 	bottom : '10dp',
-	//scrollable : false,
 	rowHeight: Ti.UI.SIZE,
 	backgroundColor : 'white',
 	showVerticalScrollIndicator : false,

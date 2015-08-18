@@ -26,10 +26,8 @@ function drawChildren(children){
 	
 	//remove other platforms views if they exist
 	for(var i = 0, j = children.length; i < j; i++){
-		Ti.API.info('adding children to sticky view');
 		// fix: https://jira.appcelerator.org/browse/TC-3583 (thx, fokke!)
 		if (!children[i]) {
-			Ti.API.info('no children!');
 			continue;
 		}
 		

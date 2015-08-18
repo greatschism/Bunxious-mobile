@@ -1,14 +1,4 @@
 
-"#headerView": {
-	height: Titanium.UI.SIZE
-}
-
-"#tableView" : {
-	top : 0,
-	bottom : '50dp',
-	//contentHeight : Ti.UI.SIZE
-}
-
 "TableViewRow" : {
 	height : Ti.UI.SIZE
 }
@@ -116,7 +106,6 @@
 	left: 0,
 	top: '10dp',
 	height: '120dp',
-	// backgroundColor: 'red',
 }
 
 "#brand": {
@@ -242,47 +231,6 @@
 	backgroundColor: "#DADADA"
 }
 
-
-"#shipToOut": {
-	top: '40dp',
-	left: 0,
-	font: {
-		fontWeight: 'bold',
-		fontSize: '12dp'
-	},
-	color: '#636363'
-}
-
-
-"#shipCostOut": {
-	top: '40dp',
-	left: '100dp',
-	font: {
-		fontWeight: 'bold',
-		fontSize: '12dp'
-	},
-	color: '#636363'
-}
-
-
-"#shipWithOut": {
-	top: '40dp',
-	left: '200dp',
-	font: {
-		fontWeight: 'bold',
-		fontSize: '12dp'
-	},
-	color: '#636363'
-}
-
-
-"#lineFour": {
-	top: '60dp',
-	height: '2px',
-	width: '300dp',
-	backgroundColor: "#DADADA"
-}
-
 "#shippingValues" : {
 	layout : 'vertical',
 	height : Ti.UI.SIZE,
@@ -385,10 +333,8 @@
 "#closetView": {
 	top: '20dp',
 	layout: 'vertical',
-	// height : '160dp',
 	height: Ti.UI.SIZE,
 	width: '300dp'
-	// backgroundColor : 'red'
 }
 
 "#closetAvatar": {
@@ -399,7 +345,6 @@
 
 "#closetText": {
 	top: '10dp',
-	// left : '70dp',
 	layout: 'vertical',
 	height: Titanium.UI.SIZE
 }
@@ -407,7 +352,6 @@
 "#closetTitle": {
 	top: 0,
 	left: 0,
-	// text : 'Closet Boutique Closet',
 	font: {
 		fontWeight: 'bold',
 		fontSize: '14dp'
@@ -416,11 +360,9 @@
 }
 
 "#closetDescription": {
-	// value : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non mattis lectus. Nunc et mattis sapien. Praesent ac metus ac dolor laoreet vulputate ac eu lacus.',
 	top: '5dp',
 	left: 0,
 	height: Ti.UI.SIZE,
-	// width : '230dp',
 	width: Ti.UI.SIZE,
 	font: {
 		fontWeight: 'bold',
@@ -444,7 +386,6 @@
 	},
 	width: '100dp',
 	color: '#F26B1D',
-	// left : '15dp',
 	height: Ti.UI.SIZE
 }
 
@@ -460,7 +401,6 @@
 "#imageSlideshow":{
 	top: '5dp',
 	layout: 'horizontal',
-	// backgroundColor : 'yellow',
 	height: Titanium.UI.SIZE
 }
 

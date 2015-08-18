@@ -29,7 +29,6 @@ function initUI(){
 function initValues(){
 	
 	var value = args.value === "true" || args.value == true;
-	Ti.API.info('value: ' + value);
 	$.switchControl.value = value;
 	$.value = value;
 

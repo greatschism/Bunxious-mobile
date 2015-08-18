@@ -40,7 +40,6 @@ function createFilter(list, label, filterType) {
 		label.text = e.row.data.title;
 		var min = e.row.data.min;
 		var max = e.row.data.max;
-		Ti.API.info('e.row.data-------> ' + JSON.stringify(e.row.data));
 		popupDialog.hide();
 
 		// Update filters []
@@ -104,8 +103,6 @@ function createFilter(list, label, filterType) {
 	popupDialog.getView().show();
 }
 
-// if (Alloy.Globals.currentUser.user_info.id) {
-
 function loadClosetData() {
 	Alloy.Globals.loading.show();
 	Alloy.Globals.API.getCloset(user_id, function(result) {
@@ -113,7 +110,6 @@ function loadClosetData() {
 		var tableData = [];
 
 		for (var i in result.MyPins.pin) {
-			Ti.API.info('PIN: ' + JSON.stringify(result.MyPins.pin[i]));
 			tableData.push(Alloy.createController('product/closetRow', {
 				pin : result.MyPins.pin[i],
 				img : result.MyPins.pinImg[i],
@@ -225,7 +221,6 @@ $.sizeFilter.addEventListener('click', function() {
 $.priceFilter.addEventListener('click', function() {
 
 	Alloy.Globals.priceFilters = JSON.parse(JSON.stringify(Alloy.Globals.priceListOptions));
-	//createFilter(Alloy.Globals.priceFilters, $.priceLabel, "price");
 	createFilter(Alloy.Globals.priceListOptions, $.priceLabel, "price");
 });
 
@@ -234,29 +229,3 @@ $.resetButton.addEventListener('click', function() {
 });
 
 loadClosetData();
-
-// }
-
-//Alloy.Globals.loading.hide();
-
-// if (Alloy.Globals.currentUser.user_info.id) {
-//
-// Alloy.Globals.loading.show();
-// Alloy.Globals.API.getCloset(Alloy.Globals.currentUser.user_info.id, function(result) {
-//
-// var tableData = [];
-//
-// for (var i in result) {
-//
-// //Use user list view
-// //tableData.push(Alloy.createController('profile/user_view', result[i]).getView());
-// }
-//
-// //$.followersTable.setData(tableData);
-//
-// Alloy.Globals.loading.hide();
-// }, function(error) {
-//
-// Alloy.Globals.loading.hide();
-// });
-// }

@@ -28,9 +28,6 @@ function populateTable() {
 
 		var productArray = [];
 
-		console.log("---------------------");
-		console.log(results);
-
 		for (var i in results) {
 			
 			var rowResult = results[i];
@@ -154,8 +151,6 @@ function createFilter(list, label, filterType) {
 		Alloy.Globals.loading.show();
 		var productArray = [];
 		Alloy.Globals.API.getFilteredPins(filters, function(results) {
-
-			console.debug("Alloy.Globals.API.getFilteredPins", JSON.stringify(results));
 
 			for (var i in results) {
 				var rowResult = results[i];

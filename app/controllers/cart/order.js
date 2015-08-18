@@ -6,10 +6,6 @@ var totalValue = 0.00;
 
 // preparing the paypal items list
 for (var i in args.paypal.items) {
-	//name : 'Shoes',
-	//			totalPrice : 8,
-	//			itemPrice : 2,
-	//			itemCount : 4
 	args.paypal.items[i].name = args.paypal.items[i].item_name;
 	args.paypal.items[i].totalPrice = args.paypal.items[i].amount * args.paypal.items[i].quantity;
 	args.paypal.items[i].itemPrice = args.paypal.items[i].amount;
@@ -30,7 +26,6 @@ function txtField_Change() {
 function updatePriceValues(dontAddButton) {
 
 	totalValue = (parseFloat(args.sub_total) + parseFloat(shippingValue)).toFixed(2);
-	Ti.API.info(totalValue);
 	$.orderShippingPrice.text = "$" + parseFloat(shippingValue).toFixed(2);
 	$.orderTotalPrice.text = "$" + parseFloat(totalValue).toFixed(2);
 
@@ -45,11 +40,7 @@ function updatePriceValues(dontAddButton) {
 
 var checkoutButton;
 
-Ti.API.info(args);
-
 function addButtonToWindow() {
-
-	Ti.API.info("shipping :" + shippingValue, "invoiceItems :" + JSON.stringify(args.paypal.items), "subtotal :" + parseFloat(args.sub_total).toFixed(2), typeof args.sub_total);
 
 	if (checkoutButton) {
 

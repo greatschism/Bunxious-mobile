@@ -36,7 +36,6 @@ function initUI(){
 function initValues(){
 	
 	var value = args.value;
-	Ti.API.info('value: ' + value);
 	
 	if(value){
 		var t = moment(value, args.format || '');
@@ -67,7 +66,6 @@ function toggleRow(e){
 }
 
 function updateLabels(e){
-	Ti.API.info('User selected: ' + e.value);
 	var t = moment(e.value);
 	
 	$.dateLbl.text = t.calendar();

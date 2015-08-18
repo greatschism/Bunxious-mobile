@@ -77,13 +77,10 @@ if (args) {
 	$.heartButton.addEventListener('click', function() {
 
 		Alloy.Globals.API.togglePinLike(args.id, function(result) {
-			console.log(result);
 
 			if (result.status == 'success' && result.action == "like") {
-				console.log("like");
 				$.heart.image = '/images/heartlike.png';
 			} else if (result.status == 'success' && result.action == "unlike") {
-				console.log("unlike")
 				$.heart.image = '/images/heartunlike.png';
 			}
 		});

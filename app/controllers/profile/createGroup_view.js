@@ -36,7 +36,6 @@ $.checkbox.addEventListener('click', function(e) {
 $.uploadImage.addEventListener('click', function(e){
 	var image = Alloy.Globals.uploadImage(function(image){
 		Alloy.Globals.API.uploadGroupImage(image, function(result){
-			console.debug(result.file);
 			uploadedImage = result.file;
 			$.uploadImage.title = "Image uploaded";
 			Alloy.Globals.loading.hide();
@@ -78,7 +77,6 @@ function createNewGroup(){
 	}
 	
 	Alloy.Globals.API.createGroup(data,  function(result){
-		Ti.API.info("success result-->"+ JSON.stringify(result));
 		
 		$.groupNameTxtField.value ="";
 		$.groupDescTxtField.value = "";
@@ -90,7 +88,7 @@ function createNewGroup(){
 		alert("Group succesfully created.");
 		
 	},function(result){
-		Ti.API.info("fail result-->"+JSON.stringify(result));
+
 	});
 	
 	Alloy.Globals.loading.hide();
@@ -111,7 +109,6 @@ function updateGroup(){
 	}
 
 	Alloy.Globals.API.editGroup(data,  function(result){
-		Ti.API.info("success result-->"+ JSON.stringify(result));
 		var data = {
 			name : $.groupNameTxtField.value,
 			description : $.groupDescTxtField.value,
@@ -133,7 +130,7 @@ function updateGroup(){
 		alert("Update succesfully.");
 		
 	},function(result){
-		Ti.API.info("fail result-->"+JSON.stringify(result));
+		
 	});
 
 	Alloy.Globals.loading.hide();

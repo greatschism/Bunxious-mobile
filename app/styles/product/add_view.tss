@@ -127,13 +127,6 @@
 	height: '1dp'
 }
 
-"#uploadImageLabel" :{
-	height: '50dp',
-	width: '100%',
-	top: 0,
-	backgroundColor : 'transparent',
-}
-
 "#uploadImageTable" : {
 	height: '50dp',
 	width: '100%',
@@ -188,13 +181,6 @@
 	top: 0
 }
 
-".priceWrapper" : {
-	top : '10dp',
-	height : '40dp',
-	layout : 'horizontal',
-	width : '100%'
-}
-
 ".dollarSign" : {
 	color : '#666',
 	left : 0
@@ -207,9 +193,6 @@
 }
 
 "#shipsTo" : {
-	// width : '45%',
-	// left : 0,
-	// top : 0
 	top: '10dp',
 	height: '40dp',
 	layout : 'horizontal',
@@ -248,31 +231,10 @@
 
 ".shippingPrice" : {
 	left : '10dp',
-	// top : 0,
 	right : 0,
 	height : '40dp',
 	width : Ti.UI.FILL,
 	layout : 'horizontal'
-}
-
-".priceTextfield" : {
-	left : '10dp',
-	backgroundColor : '#fff',
-	right : 0,
-	height : '30dp',
-	width : Ti.UI.FILL,
-	borderWidth: '1dp',
-	borderRadius : 0,
-	borderColor: '#d5dae2',
-	backgroundColor: '#fff'
-}
-
-".shippingElsewherePrice" : {
-	left : '55%',
-	bottom : 0,
-	right : 0,
-	height : '30dp',
-	layout : 'horizontal', 
 }
 
 ".paddingTop" : {

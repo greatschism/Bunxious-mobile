@@ -5,7 +5,7 @@ function updateMenu() {
 	if (Alloy.Globals.currentUser) {
 
 		$.login_logout.setTitle(L('sign_out'));
-		$.login_logout.setIcon('/images/logout.png');
+		$.login_logout.setIcon('/images/logoutwhite.png');
 		$.userName.text = Alloy.Globals.currentUser.user_info.firstname + ' ' + Alloy.Globals.currentUser.user_info.lastname;
 		$.userPicture.image = Alloy.Globals.currentUser.user_info.avatar_medium.image;
 		$.userInfo.height = '60dp';
@@ -17,7 +17,7 @@ function updateMenu() {
 	} else {
 
 		$.login_logout.setTitle(L('login'));
-		$.login_logout.setIcon('/images/login.png');
+		$.login_logout.setIcon('/images/loginwhite.png');
 		$.userInfo.height = '0dp';
 		$.firstLoginDependant.height = '0dp';
 		$.secondLoginDependant.height = '0dp';
@@ -74,7 +74,7 @@ $.searchBtn.addEventListener("click", function() {
 		Alloy.Globals.openWindow('misc/search', {searchTerm: searchTerm}, true);
 
 	} else {
-		alert("Please login to search.")
+		alert("Please login to search.");
 	}
 
 });
@@ -162,7 +162,7 @@ $.settingsButton.button.addEventListener('click', function() {
 
 	Alloy.Globals.loading.show();
 
-	setTimeout(function(){ Alloy.Globals.loading.hide() }, 1000);
+	setTimeout(function(){ Alloy.Globals.loading.hide(); }, 1000);
 
 	Alloy.Globals.openWindow('misc/settings_view');
 });

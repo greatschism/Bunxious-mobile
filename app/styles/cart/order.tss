@@ -38,8 +38,6 @@
 		fontWeight: 'bold',
 		fontSize: '14dp'
 	},
-	// left: 0,
-	// backgroundColor : 'red',
 	color: '#F26B1D'
 }
 
@@ -66,10 +64,6 @@
 	height: '30dp',
 	backgroundColor: '#d1d7dc'
 }
-
-// ".filterWrapper[platform=ios]" : {
-// width : '86dp',
-// }
 
 ".topRow": {
 	top: '5dp'
@@ -112,7 +106,6 @@
 //
 
 ".orderDetails": {
-	// layout : 'horizontal',
 	top: 0,
 	height: '20dp',
 	width: '300dp'

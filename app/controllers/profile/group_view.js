@@ -26,7 +26,6 @@ function resetFilterSelection() {
 
 function processPosts(data) {
 	// adding names and avatars to comments
-	console.log('DATA:' + JSON.stringify(data));
 	for (var i in data.posts.Comments) {
 
 		for (var j in data.posts.Comments[i]) {
@@ -49,7 +48,6 @@ function processPosts(data) {
 
 	}
 
-	// Ti.API.info(data.posts);
 	var tableData = [];
 
 	for (var i in data.posts.Post) {
@@ -129,7 +127,6 @@ function createFilter(list, label, filterType) {
 
 		// Getting array of keys
 		for (var key in filters) {
-			// console.log("key ", key); // shows key
 			keyArray.push(key);
 		}
 
@@ -153,7 +150,6 @@ function createFilter(list, label, filterType) {
 		} else if (filterType === "price") {
 
 			filters['pin_filter[pricefilter.widget.filter][from]'] = min;
-			// + '&filters[price]=' + max;
 			filters['pin_filter[pricefilter.widget.filter][to]'] = max;
 		}
 

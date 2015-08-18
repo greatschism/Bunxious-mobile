@@ -8,15 +8,15 @@ function setActive() {
 	$.container.backgroundColor = '#55888f';
 	$.title.color = '#fff';
 	
-	$.icon.image = $.icon.image.split('.')[0] + 'white.png';
+	$.icon.image = $.icon.image.split('white')[0] + '.png';
 }
 
 function setNormal() {
 	
 	$.container.backgroundColor = '#62949b';
-	$.title.color = '#89b1b7';
-	
-	$.icon.image = $.icon.image.split('white')[0] + '.png';
+	$.title.color = '#fff';
+
+	$.icon.image =$.icon.image.split('.')[0] + 'white.png'; 
 }
 
 $.container.addEventListener('touchstart', function() {

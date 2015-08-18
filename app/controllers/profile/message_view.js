@@ -30,12 +30,6 @@ if(args.to_user_id || args.conversation_id){
 	});
 }
 
-// for (var i in args.data) {
-	// tableData.push(Alloy.createController('profile/individualMessageRow', args.data[i]).getView());
-// }
-
-// $.messageTable.setData(tableData);
-
 $.textInput.addEventListener('return', function(e){
 	$.textInput.blur();
 	$.messageView.scrollTo(0, 0);

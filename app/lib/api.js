@@ -866,8 +866,6 @@ api.getBrands = function(success, fail) {
 
 	function onSuccess(results) {
 
-		// console.debug("Brands result ", JSON.parse(results));
-
 		var items = [];
 
 		for (var i in results.Brands) {

@@ -38,22 +38,16 @@ if(args.pin_id) {
 		$.pin_img.setHeight(0);
 	}
 	// Adding html style as it is a styled label, unable to set text
-	// $.post_title.html = '<style>a, span {font-family : HelveticaNeue; word-wrap : break-word;}</style><span>' + args.article.title + '</span>';
 	$.post_title.text = args.article.title.trim();
 }
 
 $.title.addOnReturn(function(event) {
-
-	// Ti.API.info(args, event);
 
 	Alloy.Globals.API.addPostComment(event.value, args.id, function(result) {
 
 		if (result.result) {
 
 			$.commentsTable.add(createRow(Alloy.Globals.currentUser.user_info.avatar_medium.image, Alloy.Globals.currentUser.user_info.firstname + ' ' + Alloy.Globals.currentUser.user_info.lastname, event.value));
-			// $.commentsTable.animate({
-				// height : Ti.UI.SIZE
-			// });
 			$.title.setValue('');
 		} else {
 

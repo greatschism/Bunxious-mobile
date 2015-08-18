@@ -6,7 +6,6 @@ var productArray = [];
 
 for (var i in args.pins) {
 
-	Ti.API.info(args[i]);
 	productArray.push(Alloy.createController('product/productRow', args.pins[i]).getView());
 }
 

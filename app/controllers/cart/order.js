@@ -30,7 +30,6 @@ function txtField_Change() {
 function updatePriceValues(dontAddButton) {
 
 	totalValue = (parseFloat(args.sub_total) + parseFloat(shippingValue)).toFixed(2);
-	Ti.API.info(totalValue);
 	$.orderShippingPrice.text = "$" + parseFloat(shippingValue).toFixed(2);
 	$.orderTotalPrice.text = "$" + parseFloat(totalValue).toFixed(2);
 
@@ -45,11 +44,7 @@ function updatePriceValues(dontAddButton) {
 
 var checkoutButton;
 
-Ti.API.info(args);
-
 function addButtonToWindow() {
-
-	Ti.API.info("shipping :" + shippingValue, "invoiceItems :" + JSON.stringify(args.paypal.items), "subtotal :" + parseFloat(args.sub_total).toFixed(2), typeof args.sub_total);
 
 	if (checkoutButton) {
 

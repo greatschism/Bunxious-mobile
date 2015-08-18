@@ -6,7 +6,6 @@ $.username.text = args.fullName;
 $.ago.text = moment(args.date, 'DD.MM.YYYY HH:mm:ss').fromNow();
 $.text.text = args.title;
 
-Ti.API.error(args);
 $.row.addEventListener('click', function() {
 
 	Alloy.Globals.loading.show();

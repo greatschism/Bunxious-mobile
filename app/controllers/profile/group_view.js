@@ -49,7 +49,6 @@ function processPosts(data) {
 
 	}
 
-	// Ti.API.info(data.posts);
 	var tableData = [];
 
 	for (var i in data.posts.Post) {

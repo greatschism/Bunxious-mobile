@@ -40,7 +40,6 @@ function createFilter(list, label, filterType) {
 		label.text = e.row.data.title;
 		var min = e.row.data.min;
 		var max = e.row.data.max;
-		Ti.API.info('e.row.data-------> ' + JSON.stringify(e.row.data));
 		popupDialog.hide();
 
 		// Update filters []
@@ -113,7 +112,6 @@ function loadClosetData() {
 		var tableData = [];
 
 		for (var i in result.MyPins.pin) {
-			Ti.API.info('PIN: ' + JSON.stringify(result.MyPins.pin[i]));
 			tableData.push(Alloy.createController('product/closetRow', {
 				pin : result.MyPins.pin[i],
 				img : result.MyPins.pinImg[i],

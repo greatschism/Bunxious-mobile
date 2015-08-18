@@ -62,7 +62,6 @@ exports.set = function(params){
 //alternative method for parallax fx
 /*var lastPos = 0;
 $.updateScroll = function(e){
-	Ti.API.info('lastPos: ' + lastPos + ' offset: ' + e.contentOffset.y + ' lastPos-offset: ' + (lastPos-e.contentOffset.y));
 	
 	$.imageView.top += (lastPos - e.contentOffset.y) ;
 	lastPos = e.contentOffset.y;

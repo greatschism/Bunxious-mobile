@@ -20,7 +20,6 @@ $.request_button.addEventListener('click', function() {
 	}
 	
 	Alloy.Globals.API.requestInvite($.firstname.getValue(), $.lastname.getValue(), $.email.getValue(), function(result) {
-		Ti.API.error(result);
 		if (result && result.success) {
 			
 			alert(result.success);

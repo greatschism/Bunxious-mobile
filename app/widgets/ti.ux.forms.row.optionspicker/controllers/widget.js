@@ -37,8 +37,6 @@ function initValues(){
 
 	var value = args.value;
 	
-	//Ti.API.info('allValues: ' + JSON.stringify(args) + ' ' + value);	
-	
 	if(typeof value !== 'undefined' && value !== -1 && value !== "-1"){
 
 		value = parseInt(value);
@@ -63,16 +61,13 @@ function openPicker(e){
 	var type = (args.dialogType || TYPE_OPTION_DIALOG).toLowerCase();
 	
 	if(type === TYPE_OPTION_DIALOG){
-		//Ti.API.info('ti.ux.forms.optionspicker: option dialog');
 		$.dialog.options = $.OPTIONS;
 		if(args.cancel) $.dialog.cancel = args.cancel;
 		$.dialog.show();
 	}else if(type === TYPE_POPUP){
-		//Ti.API.info('ti.ux.forms.optionspicker: popup');		
 		var popupDialog = Alloy.createWidget('ti.ux.popup.list', 'widget', {closeButton:false, selectable:true, options:$.OPTIONS, value:$.value});
 
 		popupDialog.getView('table').addEventListener('click', function(e){
-			//Ti.API.info('optionSelected ' + JSON.stringify(e));
 			$.value = e.index;
 			$.subtitleLbl.text = e.row.data.title;
 			popupDialog.hide();
@@ -81,7 +76,6 @@ function openPicker(e){
 		popupDialog.getView().show();
 		
 	}else if(type === TYPE_MODALWINDOW){
-		Ti.API.info('ti.ux.forms.optionspicker: modal window');
 		alert('modal window not implemented yet');
 	}
 }

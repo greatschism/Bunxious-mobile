@@ -52,7 +52,6 @@ $.hide = function(){
 
 
 $.addEventListener = function(event, fn){
-	Ti.API.info('on ' + event);
 	if (event === 'optionSelected') $.table.optionSelectedCallback = fn;
 	else{
 		$.popup.addEventListener(event, fn);

@@ -30,12 +30,10 @@ exports.setupField = function (args){
 	
 	var params = args.params || {};
 	var control = args.control;
-	Ti.API.info('params: ' + JSON.stringify(params));
 	
 	if(!control) return;
 	
 	var type = params.inputType || "text";
-	Ti.API.info('set type ' + type);
 	
 	control.value = params.value || '';
 	
@@ -82,7 +80,6 @@ function setTypeTextArea(control){
 	control.autocorrect = true;
 	
 	control.addEventListener('focus', function(){	//show a modal window to input data to the textarea
-		Ti.API.info('focus textarea ' + control.value);
 		control.blur();
 		var win = Alloy.createWidget('ti.ux.forms.row.text', 'TextAreaWin', {value:control.value}).getView();
 		
@@ -93,7 +90,6 @@ function setTypeTextArea(control){
 		});
 		
 		win.addEventListener('cancel', function(e){
-			Ti.API.info('textarea editing cancelled');
 		});
 		
 	});

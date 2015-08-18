@@ -75,7 +75,6 @@ $.validate = function(callback){
 		});
 	}else{
 		var isValid = $.field.validate($.field.value);
-		Ti.API.info('isValid: ' + isValid);
 		if(callback)callback(isValid);	
 		if(!isValid) showValidationError();
 	}

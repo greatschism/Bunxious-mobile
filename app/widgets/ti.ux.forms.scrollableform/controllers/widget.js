@@ -90,7 +90,6 @@ function changeFocus(e){
 function executeLastStep(){
 	
 	if(!formData.onFinish){
-		Ti.API.warn('ti.ux.forms.scrollableform: WARNING, onFinish() callback function not defined');
 		return;
 	}
 	

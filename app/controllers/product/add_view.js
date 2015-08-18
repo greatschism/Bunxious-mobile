@@ -280,7 +280,6 @@ $.uploadImage.addEventListener('click', function(e) {
 		}
 		
 		Ti.API.info(exifInformation);
-		
 
 		Alloy.Globals.API.uploadImage(image, function(result) {
 

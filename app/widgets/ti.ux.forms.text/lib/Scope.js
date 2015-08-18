@@ -30,13 +30,10 @@ exports.setupField = function (args){
 	
 	var params = args.params || {};
 	var control = args.control;
-	Ti.API.info('params: ' + JSON.stringify(params));
 	
 	if(!control) return;
 	
 	var type = params.inputType || "text";
-	Ti.API.info('set type ' + type);
-	
 	
 	//setup keyboard and default validators
 	if(type == "text"){

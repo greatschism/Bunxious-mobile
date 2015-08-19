@@ -18,22 +18,22 @@
 				<Label class="headerText" text="L('bunxious_caps')" />
 			</View>
 			<View class="border" />
-			<Require id="homeButton" src="misc/menuButton" title="L('home')" icon="/images/home.png" />
+			<Require id="homeButton" src="misc/menuButton" title="L('home')" icon="/images/homewhite.png" />
 			<View class="border" />
 			<View id="firstLoginDependant" class="loginDependant">
-				<Require id="activityButton" src="misc/menuButton" title="L('activity')" icon="/images/menu.png" />
+				<Require id="activityButton" src="misc/menuButton" title="L('activity')" icon="/images/menuwhite.png" />
 				<View class="border" />
-				<Require id="favoriteButton" src="misc/menuButton" title="L('favorites')" icon="/images/heart.png" />
+				<Require id="favoriteButton" src="misc/menuButton" title="L('favorites')" icon="/images/heartwhite.png" />
 				<View class="border" />
-				<Require id="closetButton" src="misc/menuButton" title="L('closet')" icon="/images/bag.png" />
+				<Require id="closetButton" src="misc/menuButton" title="L('closet')" icon="/images/bagwhite.png" />
 				<View class="border" />
-				<Require id="conversationButton" src="misc/menuButton" title="L('conversations')" icon="/images/chat.png" />
+				<Require id="conversationButton" src="misc/menuButton" title="L('conversations')" icon="/images/chatwhite.png" />
 				<View class="border" />
-				Ï<Require id="groupButton" src="misc/menuButton" title="L('group')" icon="/images/group.png" />
+				Ï<Require id="groupButton" src="misc/menuButton" title="L('group')" icon="/images/groupwhite.png" />
 				<View class="border" />
-				<Require id="followersButton" src="misc/menuButton" title="L('followers')" icon="/images/friends.png" />
+				<Require id="followersButton" src="misc/menuButton" title="L('followers')" icon="/images/friendswhite.png" />
 				<View class="border" />
-				<Require id="treasureButton" src="misc/menuButton" title="L('treasure')" icon="/images/box.png" />
+				<Require id="treasureButton" src="misc/menuButton" title="L('treasure')" icon="/images/boxwhite.png" />
 				<View class="border" />
 			</View>
 			<View class="headerWrapper">
@@ -41,16 +41,16 @@
 			</View>
 			<View class="border" />
 			<View id="secondLoginDependant" class="loginDependant">
-				<Require id="cartButton" src="misc/menuButton" title="L('cart')" icon="/images/cart.png" />
+				<Require id="cartButton" src="misc/menuButton" title="L('cart')" icon="/images/cartwhite.png" />
 				<View class="border" />
-				<Require id="ordersButton" src="misc/menuButton" title="L('my_orders')" icon="/images/clipboard.png" />
+				<Require id="ordersButton" src="misc/menuButton" title="L('my_orders')" icon="/images/clipboardwhite.png" />
 				<View class="border" />
-				<Require id="addButton" src="misc/menuButton" title="L('add_item')" icon="/images/add.png" />
+				<Require id="addButton" src="misc/menuButton" title="L('add_item')" icon="/images/addwhite.png" />
 				<View class="border" />
-				<Require id="settingsButton" src="misc/menuButton" title="L('settings')" icon="/images/gear.png" />
+				<Require id="settingsButton" src="misc/menuButton" title="L('settings')" icon="/images/gearwhite.png" />
 				<View class="border" />
 			</View>
-			<Require id="login_logout" src="misc/menuButton" title="L('sign_out')" icon="/images/logout.png" />
+			<Require id="login_logout" src="misc/menuButton" title="L('sign_out')" icon="/images/logoutwhite.png" />
 			<View class="border" />
 		</ScrollView>
 	</View>

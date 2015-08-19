@@ -1,6 +1,6 @@
 <Alloy>
 	<TableViewRow class="container">
-		<Label id="uploadImage" text="L('no_image')"></Label>
 		<ImageView id="image" />
+		<Button id="rotate" />
 	</TableViewRow>
 </Alloy>

@@ -19,6 +19,12 @@ if (args.pin.liked) {
 	$.heartButton.backgroundColor = '#27ae60';
 }
 
+if (Alloy.Globals.currentUser && Alloy.Globals.currentUser.user_info.id == args.pin.user_id) {
+	
+	$.heartButton.visible = false;
+	$.boxButton.visible = false;
+}
+
 $.heartButton.addEventListener('click', function() {
 
 	Alloy.Globals.API.togglePinLike(args.pin.id, function(result) {

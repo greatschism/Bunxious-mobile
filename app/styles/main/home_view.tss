@@ -12,7 +12,7 @@
 }
 
 "#filterWrapper": {
-	height: '85dp'
+	height: '85dp',
 }
 
 "#filterSection": {

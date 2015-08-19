@@ -1,21 +1,21 @@
 ".container" : {
-	height : '45dp',
+	height : '80dp',
 	width : Ti.UI.FILL,
 	backgroundColor : 'transparent',
 }
 
-"#uploadImage" :{
-	color : '#666',
-	left : 0,
-	top: '5dp',
-	height: '25dp',
-	font: {
-		fontSize: '15dp'
-	}
+"#image" : {
+	height : '80dp',
+	top : 0,
+	left : 0
 }
 
-"#image" : {
-	height : '45dp',
-	top : 0,
-	right : 0
+"#rotate" : {
+	width : "35dp",
+	height : "35dp",
+	center : {
+		y : '50%'
+	},
+	right : 0,
+	backgroundImage : "/images/rotate.png"
 }

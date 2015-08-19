@@ -76,7 +76,7 @@ function addButtonToWindow() {
 			tax : 0,
 			shipping : shippingValue,
 			currency : args.paypal.currency,
-			recipient : args.paypal.email,
+			recipient : /*args.paypal.email*/ 'sandbox-seller@bunxious.com', //TBD
 			customID : 'Bunxious',
 			invoiceItems : args.paypal.items,
 			ipnUrl : 'http://www.appcelerator.com/',

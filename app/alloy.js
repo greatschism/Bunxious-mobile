@@ -271,9 +271,8 @@ Alloy.Globals.uploadImage = function(callback) {
 				saveToPhotoGallery : true,
 
 				success : function(event) {
-					var image = event.media;
 					Alloy.Globals.loading.show();
-					callback(image);
+					callback(event.media);
 				},
 
 				cancel : function(e) {
@@ -290,9 +289,9 @@ Alloy.Globals.uploadImage = function(callback) {
 			//Open gallery
 			Ti.Media.openPhotoGallery({
 				success : function(event) {
-					var image = event.media;
+
 					Alloy.Globals.loading.show();
-					callback(image);
+					callback(event.media);
 				},
 
 				cancel : function(e) {

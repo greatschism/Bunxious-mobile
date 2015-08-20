@@ -1,12 +1,12 @@
 ".container" : {
-	height : '80dp',
+	height : '85dp',
 	width : Ti.UI.FILL,
 	backgroundColor : 'transparent',
 }
 
 "#image" : {
 	height : '80dp',
-	top : 0,
+	top: '5dp',
 	left : 0
 }
 

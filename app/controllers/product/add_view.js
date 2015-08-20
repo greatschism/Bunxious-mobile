@@ -246,7 +246,7 @@ $.uploadImage.addEventListener('click', function(e) {
 
 			if (result.success) {
 
-				var height = 45 * uploadedImages + 45 + 'dp';
+				var height = 85 * uploadedImages + 45 + 'dp';
 
 				$.uploadImageTable.appendRow(Alloy.createController('product/upload_image', {
 					image : image

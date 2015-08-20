@@ -240,7 +240,7 @@ $.condition.addEventListener('click', function() {
 
 $.uploadImage.addEventListener('click', function(e) {
 
-	var image = Alloy.Globals.uploadImage(function(image) {
+	Alloy.Globals.uploadImage(function(image) {
 
 		Alloy.Globals.API.uploadImage(image, function(result) {
 
@@ -249,7 +249,7 @@ $.uploadImage.addEventListener('click', function(e) {
 				var height = 45 * uploadedImages + 45 + 'dp';
 
 				$.uploadImageTable.appendRow(Alloy.createController('product/upload_image', {
-					image : image
+					image : image.imageAsResized(image.width / 3, image.height / 3)
 				}).getView());
 
 				$.uploadImageTable.animate({
@@ -270,7 +270,6 @@ $.uploadImage.addEventListener('click', function(e) {
 		}, function(error) {
 			Alloy.Globals.loading.hide();
 		});
-
 	});
 });
 

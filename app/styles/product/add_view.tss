@@ -3,7 +3,8 @@
 	backgroundColor: '#f4f4f4',
 	layout: 'vertical',
 	top: 0,
-	bottom: '20dp'
+	bottom: '20dp',
+	scrollType: 'vertical'
 }
 
 "#favoriteSection": {

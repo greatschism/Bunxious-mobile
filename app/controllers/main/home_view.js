@@ -94,7 +94,6 @@ function createFilter(list, label, filterType) {
 	var items = [],
 	    min = [],
 	    max = [];
-	;
 
 	for (i in list) {
 		items.push(list[i].title);

@@ -46,7 +46,7 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction, fil
 
 	if (!Ti.Network.online) {
 
-		alert('No internet connection');
+		alert('No internet connection. Please review your data settings');
 
 		if (errorFunction) {
 

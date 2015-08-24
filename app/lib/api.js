@@ -46,7 +46,29 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction, fil
 
 	if (!Ti.Network.online) {
 
-		alert('No internet connection. Please review your data settings');
+		if (OS_ANDROID) {
+
+			var dialog = Ti.UI.createAlertDialog({
+				cancel : 1,
+				buttonNames : ['Review Settings', 'Cancel'],
+				message : 'No internet connection. Please review your data settings',
+				title : 'Bunxious'
+			});
+			dialog.addEventListener('click', function(e) {
+
+				if (e.index === 0) {
+
+					var intent = Ti.Android.createIntent({
+						action : "android.settings.WIRELESS_SETTINGS"
+					});
+					Ti.Android.currentActivity.startActivity(intent);
+				}
+			});
+			dialog.show();
+		} else {
+
+			alert('No internet connection. Please review your data settings');
+		}
 
 		if (errorFunction) {
 

@@ -1028,7 +1028,7 @@ api.addAddress = function(recipient, alias, address, city, state, country, succe
 	httpRequest('address/address', 'POST', data, success, fail);
 };
 
-api.completePayment = function(sellerEmail, sellerID, cartID, txnID, total, currency, success, fail) {
+api.completePayment = function(sellerEmail, sellerID, cartID, txnID, total, currency, addressID, success, fail) {
 
 	data = {
 		paypalEmail : sellerEmail,
@@ -1037,6 +1037,7 @@ api.completePayment = function(sellerEmail, sellerID, cartID, txnID, total, curr
 		payment_status : 'Completed',
 		txn_id : txnID,
 		total : total,
+		address_id : addressID,
 		currency : currency,
 		userId : Alloy.Globals.currentUser.user_info.id,
 		token : Alloy.Globals.currentUser.token,

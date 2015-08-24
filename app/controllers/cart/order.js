@@ -3,6 +3,7 @@ var Paypal = require('ti.paypal');
 
 var shippingValue = 0.00;
 var totalValue = 0.00;
+var addressID;
 
 // preparing the paypal items list
 for (var i in args.paypal.items) {
@@ -92,7 +93,7 @@ function addButtonToWindow() {
 	});
 	checkoutButton.addEventListener('paymentSuccess', function(e) {
 
-		Alloy.Globals.API.completePayment(args.paypal.email, args.maindata[0].user.user_id, args.cartId, e.transactionID, totalValue, args.paypal.currency, function(result) {
+		Alloy.Globals.API.completePayment(args.paypal.email, args.maindata[0].user.user_id, args.cartId, e.transactionID, totalValue, args.paypal.currency, addressID, function(result) {
 
 			alert('Thank you for your purchase');
 			Alloy.Globals.openWindow('main/home_view');
@@ -148,6 +149,7 @@ $.addressFilter.addEventListener('click', function() {
 			if (args.item_shipping[i].addressId == addressesIds[e.index]) {
 
 				shippingValue = args.item_shipping[i].ShippingAmt;
+				addressID = addressesIds[e.index];
 			}
 		}
 

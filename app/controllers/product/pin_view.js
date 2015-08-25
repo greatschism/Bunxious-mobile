@@ -2,7 +2,8 @@ var args = arguments[0] || {};
 
 var pinObj = null,
     username = '',
-    avatarImage = '';
+    avatarImage = '',
+    closetID;
 
 if (!Alloy.Globals.currentUser) {
 	$.boxButton.hide();
@@ -289,6 +290,7 @@ $.commentTxt.addOnReturn(function(event) {
 });
 
 if (!Alloy.Globals.currentUser || Alloy.Globals.currentUser.user_info.id != args.user_id) {
+	
 	$.followButton.addEventListener('click', function(e) {
 
 		if (Alloy.Globals.currentUser) {
@@ -358,7 +360,9 @@ $.cart.addEventListener('click', function() {
 });
 
 Alloy.Globals.API.getCloset(args.user_id, function(result) {
-
+	
+	closetID = result.Shop.id;
+	Ti.API.info(result);
 	$.closetAvatar.setImage(result.cover.image);
 	$.closetTitle.setText(result.Shop.title);
 	$.closetDescription.setValue(result.Shop.description);
@@ -378,5 +382,59 @@ Alloy.Globals.API.getCloset(args.user_id, function(result) {
 	}
 
 }, function(error) {
+	
+	//TBD
+});
 
+$.closetAdd.addEventListener('click', function() {
+	
+	if (!Alloy.Globals.currentUser) {
+		
+		alert('Please login first.');
+		return;
+	}
+	
+	if (Alloy.Globals.currentUser.user_info.id == args.user_id) {
+		
+		alert('You can\'t like your own closet');
+		return;
+	}
+	
+	Alloy.Globals.loading.show();
+	
+	Alloy.Globals.API.toggleClosetLike(closetID, function(result) {
+		
+		if (result.message == "Store Liked") {
+			
+			$.closetAdd.text = 'Remove closet from favorites';
+		}
+		else if (result.message == "Store Unliked") {
+			
+			$.closetAdd.text = 'Add closet to favorites';
+		}
+		Alloy.Globals.loading.hide();
+	}, function(error) {
+		
+		Alloy.Globals.loading.hide();
+	});
+});
+
+$.closetSee.addEventListener('click', function() {
+	
+	if (!Alloy.Globals.currentUser) {
+		
+		alert('Please login first.');
+		return;
+	}
+	
+	Alloy.Globals.loading.show();
+	
+	Alloy.Globals.API.getClosetLikes(closetID, function(result) {
+		
+		Ti.API.info(result);
+		Alloy.Globals.loading.hide();
+	}, function(error) {
+		
+		Alloy.Globals.loading.hide();
+	});
 });

@@ -57,7 +57,7 @@ if (args.pin) {
 				var height = 45 * uploadedImages + 45 + 'dp';
 
 				$.uploadImageTable.appendRow(Alloy.createController('product/upload_image', {
-					image : gallery[i]
+					image : gallery[i],
 				}).getView());
 
 				$.uploadImageTable.animate({
@@ -249,7 +249,8 @@ $.uploadImage.addEventListener('click', function(e) {
 				var height = 85 * uploadedImages + 45 + 'dp';
 
 				$.uploadImageTable.appendRow(Alloy.createController('product/upload_image', {
-					image : image.imageAsResized(image.width / 3, image.height / 3)
+					image : image.imageAsResized(image.width / 3, image.height / 3),
+					imgPath : result.file
 				}).getView());
 
 				$.uploadImageTable.animate({

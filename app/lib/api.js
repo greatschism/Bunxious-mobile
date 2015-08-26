@@ -1068,4 +1068,34 @@ api.completePayment = function(sellerEmail, sellerID, cartID, txnID, total, curr
 	httpRequest('store/checkout', 'POST', data, success, fail);
 };
 
+api.rotateImage = function(imgPath, success, fail) {
+
+	data = {
+		imgPath : imgPath,
+		token : Alloy.Globals.currentUser.token,
+	};
+
+	httpRequest('store/rotate', 'POST', data, success, fail);
+};
+
+api.toggleClosetLike = function(store_id, success, fail) {
+
+	data = {
+		store_id : store_id,
+		token : Alloy.Globals.currentUser.token,
+	};
+
+	httpRequest('store/like-store', 'POST', data, success, fail);
+};
+
+api.getClosetLikes = function(store_id, success, fail) {
+
+	data = {
+		store_id : store_id,
+		token : Alloy.Globals.currentUser.token,
+	};
+
+	httpRequest('storesettings/getliked', 'POST', data, success, fail);
+};
+
 module.exports = api;

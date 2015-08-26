@@ -5,6 +5,7 @@
 }
 
 "#image" : {
+	autorotate : false,
 	height : '80dp',
 	top: '5dp',
 	left : 0

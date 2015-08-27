@@ -1,6 +1,6 @@
 var args = arguments[0] || {};
 
-$.image.image = args.image;
+$.image.image = Ti.Utils.base64decode(args.image);
 
 $.rotate.addEventListener('click', function() {
 	

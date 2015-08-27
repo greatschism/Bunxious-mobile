@@ -249,7 +249,7 @@ $.uploadImage.addEventListener('click', function(e) {
 				var height = 85 * uploadedImages + 45 + 'dp';
 
 				$.uploadImageTable.appendRow(Alloy.createController('product/upload_image', {
-					image : image.imageAsResized(image.width / 3, image.height / 3),
+					image : result.image,
 					imgPath : result.file
 				}).getView());
 

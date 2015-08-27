@@ -54,10 +54,10 @@ if (args.pin) {
 			gallery = JSON.parse(JSON.stringify(result.Gallery));
 
 			for (var i = 0; i < gallery.length; i++) {
-				var height = 45 * uploadedImages + 45 + 'dp';
+				var height = 85 * uploadedImages + 45 + 'dp';
 
 				$.uploadImageTable.appendRow(Alloy.createController('product/upload_image', {
-					image : gallery[i],
+					imgPath : gallery[i],
 				}).getView());
 
 				$.uploadImageTable.animate({
@@ -250,7 +250,8 @@ $.uploadImage.addEventListener('click', function(e) {
 
 				$.uploadImageTable.appendRow(Alloy.createController('product/upload_image', {
 					image : result.image,
-					imgPath : result.file
+					imgPath : result.file,
+					uploaded : true
 				}).getView());
 
 				$.uploadImageTable.animate({

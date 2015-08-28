@@ -1,6 +1,7 @@
 <Alloy>
-	<TableViewRow class="container">
+	<TableViewRow class="container" id="row">
 		<ImageView id="image" />
 		<Button id="rotate" />
+		<Button id="deleteImage" />
 	</TableViewRow>
 </Alloy>

@@ -3,7 +3,8 @@ var args = arguments[0] || {};
 var pinObj = null,
     username = '',
     avatarImage = '',
-    closetID;
+    closetID,
+    pinToEdit;
 
 if (!Alloy.Globals.currentUser) {
 	$.boxButton.hide();
@@ -61,9 +62,18 @@ function createRow(avatar, name, text) {
 	return view;
 }
 
+$.editButton.addEventListener('click', function() {
+
+	Alloy.Globals.openWindow('product/add_view', {
+		pin : pinToEdit
+	}, true);
+});
+
 function displayPin() {
 
 	Alloy.Globals.API.getPin(args.pin_id, function(result) {
+		
+		pinToEdit = result;
 
 		if (Alloy.Globals.currentUser && result.user.id == Alloy.Globals.currentUser.user_info.id) {
 
@@ -72,13 +82,6 @@ function displayPin() {
 			$.boxButton.right = '75dp';
 		}
 
-		$.editButton.addEventListener('click', function() {
-
-			Alloy.Globals.openWindow('product/add_view', {
-				pin : result
-			}, true);
-		});
-
 		pinObj = JSON.parse(JSON.stringify(result));
 
 		if (pinObj.board_id) {
@@ -86,7 +89,7 @@ function displayPin() {
 			$.boxButton.backgroundColor = '#27ae60';
 		}
 
-		$.pinImage.image = pinObj.image_big.image;
+		$.pinImage.image = pinObj.image_big.image + '?t=' + new Date().getTime();
 		$.title.text = pinObj.title;
 
 		if (pinObj.currency_code) {
@@ -211,7 +214,7 @@ function displayPin() {
 				$.contactButton.visible = true;
 
 				if (result.following_user) {
-					
+
 					$.followIcon.image = '/images/minuswhite.png';
 					$.follow.setText(L('unfollow'));
 				}
@@ -224,6 +227,11 @@ function displayPin() {
 		}
 	});
 }
+
+Ti.App.addEventListener('reloadPin', function() {
+
+	displayPin();
+});
 
 displayPin();
 
@@ -290,18 +298,18 @@ $.commentTxt.addOnReturn(function(event) {
 });
 
 if (!Alloy.Globals.currentUser || Alloy.Globals.currentUser.user_info.id != args.user_id) {
-	
+
 	$.followButton.addEventListener('click', function(e) {
 
 		if (Alloy.Globals.currentUser) {
 			Alloy.Globals.API.follow(args.user_id, function(response) {
 
 				if (response.isFollow) {
-					
+
 					$.followIcon.image = '/images/minuswhite.png';
 					$.follow.setText(L('unfollow'));
 				} else {
-					
+
 					$.followIcon.image = '/images/pluswhite.png';
 					$.follow.setText(L('follow'));
 				}
@@ -334,23 +342,23 @@ $.cart.addEventListener('click', function() {
 	Alloy.Globals.API.addToCart(args.pin_id, function(result) {
 
 		Alloy.Globals.loading.hide();
-		
+
 		var dialog = Ti.UI.createAlertDialog({
 			cancel : 1,
 			buttonNames : ['Go to cart', 'Continue shopping'],
 			message : 'Product successfully added to your cart.',
 			title : 'Bunxious'
 		});
-		
+
 		dialog.addEventListener('click', function(e) {
 
 			if (e.index === 0) {
-				
+
 				Alloy.Globals.pageflow.back();
 				Alloy.Globals.openWindow('profile/cart_view');
 			}
 		});
-		
+
 		dialog.show();
 	}, function(error) {
 
@@ -360,7 +368,7 @@ $.cart.addEventListener('click', function() {
 });
 
 Alloy.Globals.API.getCloset(args.user_id, function(result) {
-	
+
 	closetID = result.Shop.id;
 	Ti.API.info(result);
 	$.closetAvatar.setImage(result.cover.image);
@@ -382,59 +390,58 @@ Alloy.Globals.API.getCloset(args.user_id, function(result) {
 	}
 
 }, function(error) {
-	
+
 	//TBD
 });
 
 $.closetAdd.addEventListener('click', function() {
-	
+
 	if (!Alloy.Globals.currentUser) {
-		
+
 		alert('Please login first.');
 		return;
 	}
-	
+
 	if (Alloy.Globals.currentUser.user_info.id == args.user_id) {
-		
+
 		alert('You can\'t like your own closet');
 		return;
 	}
-	
+
 	Alloy.Globals.loading.show();
-	
+
 	Alloy.Globals.API.toggleClosetLike(closetID, function(result) {
-		
+
 		if (result.message == "Store Liked") {
-			
+
 			$.closetAdd.text = 'Remove closet from favorites';
-		}
-		else if (result.message == "Store Unliked") {
-			
+		} else if (result.message == "Store Unliked") {
+
 			$.closetAdd.text = 'Add closet to favorites';
 		}
 		Alloy.Globals.loading.hide();
 	}, function(error) {
-		
+
 		Alloy.Globals.loading.hide();
 	});
 });
 
 $.closetSee.addEventListener('click', function() {
-	
+
 	if (!Alloy.Globals.currentUser) {
-		
+
 		alert('Please login first.');
 		return;
 	}
-	
+
 	Alloy.Globals.loading.show();
-	
+
 	Alloy.Globals.API.getClosetLikes(closetID, function(result) {
-		
+
 		Ti.API.info(result);
 		Alloy.Globals.loading.hide();
 	}, function(error) {
-		
+
 		Alloy.Globals.loading.hide();
 	});
 });

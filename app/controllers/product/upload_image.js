@@ -20,3 +20,11 @@ $.rotate.addEventListener('click', function() {
 		Alloy.Globals.loading.hide();
 	});
 });
+
+$.deleteImage.addEventListener('click', function() {
+	
+	args.remove(args.imgPath);
+	$.row.animate({
+		height : 0
+	});
+});

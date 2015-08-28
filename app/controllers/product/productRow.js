@@ -44,7 +44,7 @@ if (args) {
 		$.size.hide();
 	}
 
-	$.pinImage.image = args.image_big.image || 'placeholder.png';
+	$.pinImage.image = args.image_big.image + '?t=' + new Date().getTime() || 'placeholder.png';
 	$.avatar.image = args.user.avatar_medium == null ? 'placeholder.png' : args.user.avatar_medium.image;
 	$.title.text = args.title;
 	$.description.text = args.description.replace('\r', '').replace('\n', '');

@@ -12,11 +12,21 @@
 }
 
 "#rotate" : {
-	width : "35dp",
-	height : "35dp",
+	width : "30dp",
+	height : "30dp",
+	center : {
+		y : '50%'
+	},
+	right : '40dp',
+	backgroundImage : "/images/rotate.png"
+}
+
+"#deleteImage" : {
+	width : "30dp",
+	height : "30dp",
 	center : {
 		y : '50%'
 	},
 	right : 0,
-	backgroundImage : "/images/rotate.png"
+	backgroundImage : "/images/delete.png"
 }

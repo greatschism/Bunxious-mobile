@@ -58,6 +58,8 @@ if (args.pin) {
 
 				$.uploadImageTable.appendRow(Alloy.createController('product/upload_image', {
 					imgPath : gallery[i],
+					image : result.imgLink[i].image + '?t=' + new Date().getTime(),
+					remove : removeFromGallery
 				}).getView());
 
 				$.uploadImageTable.animate({
@@ -128,7 +130,7 @@ if (args.pin) {
 		Alloy.Globals.loading.hide();
 
 	}, function(error) {
-		
+
 	});
 }
 
@@ -238,6 +240,32 @@ $.condition.addEventListener('click', function() {
 	}
 });
 
+$.uploadImageTable.addEventListener('click', function(e) {
+
+	if (e.source == "[object deleteImage]") {
+
+		$.uploadImageTable.deleteRow($.uploadImageTable.data[0].rows[e.index]);
+		
+		uploadedImages--;
+
+		var height = 85 * uploadedImages + 45 + 'dp';
+
+		$.uploadImageTable.animate({
+			height : height
+		});
+	}
+});
+
+function removeFromGallery(file) {
+
+	var index = gallery.indexOf(file);
+
+	if (index > -1) {
+
+		gallery.splice(index, 1);
+	}
+};
+
 $.uploadImage.addEventListener('click', function(e) {
 
 	Alloy.Globals.uploadImage(function(image) {
@@ -251,7 +279,8 @@ $.uploadImage.addEventListener('click', function(e) {
 				$.uploadImageTable.appendRow(Alloy.createController('product/upload_image', {
 					image : result.image,
 					imgPath : result.file,
-					uploaded : true
+					uploaded : true,
+					remove : removeFromGallery
 				}).getView());
 
 				$.uploadImageTable.animate({
@@ -375,6 +404,7 @@ $.addItem.addEventListener('click', function() {
 
 	// Service call uploadpin
 	Alloy.Globals.loading.show();
+	Ti.API.error(gallery);
 	var data = {
 		"token" : Alloy.Globals.currentUser.token,
 		"X-form-cmd" : "",
@@ -419,6 +449,7 @@ $.addItem.addEventListener('click', function() {
 
 			Alloy.Globals.loading.hide();
 			Alloy.Globals.pageflow.back();
+			Ti.App.fireEvent('reloadPin');
 		}, function(error) {
 
 			alert('Error occurred while adding the details. Please try again.');

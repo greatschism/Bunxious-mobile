@@ -2,7 +2,15 @@ var args = arguments[0] || {};
 
 var moment = require('alloy/moment');
 
-$.avatar.image = args.avatar_medium == null ? 'placeholder.png' : args.avatar_medium.image;
+if (args.fromWhoFav) {
+	
+	$.avatar.image = args.avatar ? args.avatar : '/images/placeholder.png';	
+}
+else {
+	
+	$.avatar.image = args.avatar_medium == null ? '/images/placeholder.png' : args.avatar_medium.image;
+}
+
 $.userName.text = args.firstname + ' ' + args.lastname;
 $.gender.text = args.gender ? Alloy.Globals.toTitleCase(args.gender) : '';
 
@@ -39,7 +47,7 @@ $.contactButton.addEventListener('click', function(e){
 	var data = {
 		to_user_id : args.id,
 		name: args.firstname + " "+ args.lastname,
-		avatar: args.avatar_small.image
+		avatar: args.avatar_small ? args.avatar_small.image : args.avatar
 	};
 	
 	Alloy.Globals.openWindow('profile/message_view', data, true);

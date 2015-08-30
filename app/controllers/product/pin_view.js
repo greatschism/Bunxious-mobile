@@ -72,7 +72,7 @@ $.editButton.addEventListener('click', function() {
 function displayPin() {
 
 	Alloy.Globals.API.getPin(args.pin_id, function(result) {
-		Ti.API.error(result.pinGallery);
+
 		pinToEdit = result;
 
 		if (Alloy.Globals.currentUser && result.user.id == Alloy.Globals.currentUser.user_info.id) {
@@ -417,7 +417,6 @@ $.cart.addEventListener('click', function() {
 Alloy.Globals.API.getCloset(args.user_id, function(result) {
 
 	closetID = result.Shop.id;
-	Ti.API.info(result);
 	$.closetAvatar.setImage(result.cover.image);
 	$.closetTitle.setText(result.Shop.title);
 	$.closetDescription.setValue(result.Shop.description);
@@ -485,7 +484,7 @@ $.closetSee.addEventListener('click', function() {
 
 	Alloy.Globals.API.getClosetLikes(closetID, function(result) {
 
-		//Ti.API.info(result);
+		Alloy.Globals.openWindow('profile/whoFav_view', result, true);
 		Alloy.Globals.loading.hide();
 	}, function(error) {
 

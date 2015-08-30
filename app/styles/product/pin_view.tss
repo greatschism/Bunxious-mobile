@@ -50,12 +50,15 @@
 	width : '320dp'
 }
 
-"#pinImage": {
+"#scrollableView": {
 	width : Ti.UI.FILL,
 	height : '400dp',
 	center : {
 		x : '50%'
-	}
+	},
+	top : 0,
+	backgroundColor : 'transparent',
+	pagingControlColor  : 'transparent'
 }
 
 

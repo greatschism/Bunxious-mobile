@@ -3,7 +3,7 @@
 		<View id="tableHeader">
 			<Label id="title" />
 			<View id="imageElements">
-				<ImageView id="pinImage"/>
+				<ScrollableView id="scrollableView" showPagingControl="true" />
 				<View id="boxButton" class="buttonWrapper">
 					<ImageView id="box" class="button" />
 				</View>

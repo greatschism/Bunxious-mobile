@@ -72,7 +72,7 @@ $.editButton.addEventListener('click', function() {
 function displayPin() {
 
 	Alloy.Globals.API.getPin(args.pin_id, function(result) {
-		
+		Ti.API.error(result.pinGallery);
 		pinToEdit = result;
 
 		if (Alloy.Globals.currentUser && result.user.id == Alloy.Globals.currentUser.user_info.id) {
@@ -88,8 +88,55 @@ function displayPin() {
 
 			$.boxButton.backgroundColor = '#27ae60';
 		}
+		
+		var views = [];
 
-		$.pinImage.image = pinObj.image_big.image + '?t=' + new Date().getTime();
+		for (var i in result.pinGallery) {
+			
+			var wrapper = Ti.UI.createView({
+				width : Ti.UI.FILL,
+				height : Ti.UI.FILL,
+				backgroundColor : 'transparent'
+			});
+
+			var imageView = Ti.UI.createImageView({
+				image : result.pinGallery[i].image_big.image + '?t=' + new Date().getTime(),
+				width : Ti.UI.FILL,
+				defaultImage: '/images/placeholder.png',
+				top : 0,
+				height : '400dp',
+				center : {
+					x : '50%'
+				}
+			});
+			
+			views.push(imageView);
+		}
+		
+		if (views.length == 0) {
+			
+			var wrapper = Ti.UI.createView({
+				width : Ti.UI.FILL,
+				height : Ti.UI.FILL,
+				backgroundColor : 'transparent'
+			});
+
+			var imageView = Ti.UI.createImageView({
+				image : pinObj.image_big.image + '?t=' + new Date().getTime(),
+				width : Ti.UI.FILL,
+				top : 0,
+				defaultImage: '/images/placeholder.png',
+				height : '400dp',
+				center : {
+					x : '50%'
+				}
+			});
+			
+			views.push(imageView);
+		}
+		
+		$.scrollableView.setViews(views);
+
 		$.title.text = pinObj.title;
 
 		if (pinObj.currency_code) {
@@ -438,7 +485,7 @@ $.closetSee.addEventListener('click', function() {
 
 	Alloy.Globals.API.getClosetLikes(closetID, function(result) {
 
-		Ti.API.info(result);
+		//Ti.API.info(result);
 		Alloy.Globals.loading.hide();
 	}, function(error) {
 

@@ -1,0 +1,56 @@
+
+".container": {
+	backgroundColor: '#f4f4f4',
+	layout : 'vertical'
+}
+
+"#wrapper" : {
+	top : 0,
+	bottom : '20dp',
+	backgroundColor : '#fff',
+	layout : 'vertical'
+}
+
+"#favoriteSection": {
+	height: '40dp',
+	top: '15dp',
+	width: '300dp'
+}
+
+'#favoriteSection[platform=android]': {
+	width: '320dp'
+}
+
+".labelWrapper" : {
+	backgroundColor : '#e4e7ea',
+	height : '30dp',
+	top : 0
+}
+
+"#noFollowers" : {
+	height : '0dp',
+	visible: false
+}
+
+".favLabel" : {
+	left : '7dp',
+	center : {
+		y : '50%'
+	},
+	color : '#2e2e2f',
+	font : {
+		fontSize : '13dp',
+		fontWeight : 'bold'
+	}
+}
+
+"#followersTable" :{
+	top : 0,
+	height : Ti.UI.FILL,
+	backgroundColor : '#f4f4f4',
+	separatorColor : 'transparent'
+}
+
+"#followersTable[platform=ios]" : {
+	selectionStyle : Ti.UI.iPhone.TableViewCellSelectionStyle.NONE
+}

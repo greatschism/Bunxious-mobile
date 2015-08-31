@@ -1,0 +1,13 @@
+<Alloy>
+	<ScrollView id="wrapper">
+	<View id="followersView" class="container">
+		<View id="favoriteSection">
+			<View class="labelWrapper">
+				<Label class="favLabel" text="Who favorited this item" />
+			</View> 
+		</View>
+		<Label id="noFollowers" text="No one favorited this item" ></Label>
+		<TableView id="followersTable"/>
+	</View>
+</ScrollView>
+</Alloy>

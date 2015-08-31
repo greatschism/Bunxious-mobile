@@ -23,11 +23,13 @@ var init=function(opts){
 var setSwipe=function(){
 	parent.addEventListener('swipe',function(e){ 
 	    if(menuOpen == false && e.direction == 'right'){
+	        Alloy.Globals.openingMenu = true;
 	        showhidemenu();
 	        menuOpen = true;
 	    }
 	    
 	    if(menuOpen == true && e.direction == 'left' ){
+	        Alloy.Globals.openingMenu = false;
 	        showhidemenu();
 	        menuOpen = false;
 	    }
@@ -36,11 +38,13 @@ var setSwipe=function(){
 
 var showhidemenu=function(){
 	if (menuOpen){
+		Alloy.Globals.openingMenu = false;
 		moveTo="0";
 		menuOpen=false;
 		handlers.close();
 		$.coverView.zIndex = 1;
 	}else{
+		Alloy.Globals.openingMenu = true;
 		moveTo="250dp";
 		menuOpen=true;
 		handlers.open();

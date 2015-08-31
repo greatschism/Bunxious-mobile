@@ -12,6 +12,8 @@
 
 Alloy.Globals.Facebook = require('facebook');
 
+Alloy.Globals.openingMenu = false;
+
 Alloy.Globals.jolicode = {};
 Alloy.Globals.jolicode.pageflow = {};
 Alloy.Globals.jolicode.pageflow.height = Ti.Platform.displayCaps.platformHeight;

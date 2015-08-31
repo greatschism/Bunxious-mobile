@@ -378,7 +378,6 @@
 "#closetFav": {
 	top: '10dp',
 	left: 0,
-	layout: 'horizontal',
 	height: Ti.UI.SIZE
 }
 
@@ -387,16 +386,18 @@
 		fontWeight: 'bold',
 		fontSize: '10dp'
 	},
-	width: '100dp',
+	width: Ti.UI.SIZE,
 	color: '#F26B1D',
 	height: Ti.UI.SIZE
 }
 
 "#closetAdd": {
+	left : 0,
 	text: 'Add closet to favorites'
 }
 
 "#closetSee": {
+	right : 0,
 	text: 'See who favorites this item'
 }
 

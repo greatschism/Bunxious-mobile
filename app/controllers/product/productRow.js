@@ -12,9 +12,8 @@ Ti.App.addEventListener("loggedOut", function() {
 
 if (args) {
 
-
 	if (args.showTitle) {
-		
+
 		if (args.brand_id) {
 			$.brand.text = Alloy.Globals.findBrandById(args.brand_id).title;
 		}
@@ -26,16 +25,17 @@ if (args) {
 		if (args.size) {
 			$.size.text = "";
 			var sizeArray = args.size.SizeIfo;
-			for(var i = 0, len = sizeArray.length; i < len; i++){
-				
+			for (var i = 0,
+			    len = sizeArray.length; i < len; i++) {
+
 				$.size.text += Alloy.Globals.findSizeById(sizeArray[i].size_id).title;
-				
-				if(i !== len-1){
+
+				if (i !== len - 1) {
 					$.size.text += ', ';
 				}
 			}
 		}
-		
+
 		$.title.hide();
 		$.description.hide();
 	} else {
@@ -59,11 +59,18 @@ if (args) {
 	});
 
 	$.pinImage.addEventListener('click', function() {
-
-		Alloy.Globals.openWindow('product/pin_view', {
-			pin_id : args.id,
-			user_id : args.user_id
-		}, true);
+		
+		// fixing the swipe on imageview that triggered the menu open and pin open in the same time
+		setTimeout(function() {
+			
+			if (!Alloy.Globals.openingMenu) {
+				
+				Alloy.Globals.openWindow('product/pin_view', {
+					pin_id : args.id,
+					user_id : args.user_id
+				}, true);
+			}
+		}, 100);
 	});
 
 	if (args.liked) {

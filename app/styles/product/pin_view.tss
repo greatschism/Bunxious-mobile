@@ -408,10 +408,6 @@
 	height: Titanium.UI.SIZE
 }
 
-".placeholderImage": {
-	image: 'http://i.imgur.com/AUIomGV.jpg'
-}
-
 ".small": {
 	left: '10dp',
 	height: '50dp',

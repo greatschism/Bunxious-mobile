@@ -415,7 +415,7 @@ $.cart.addEventListener('click', function() {
 });
 
 Alloy.Globals.API.getCloset(args.user_id, function(result) {
-
+	
 	closetID = result.Shop.id;
 	$.closetAvatar.setImage(result.cover.image);
 	$.closetTitle.setText(result.Shop.title);

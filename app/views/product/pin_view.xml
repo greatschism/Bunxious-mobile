@@ -49,7 +49,7 @@
 				<Label id="closet" />
 			</View>
 			<View id="closetView">
-				<ImageView id="closetAvatar" class="placeholderImage"></ImageView>
+				<ImageView id="closetAvatar" ></ImageView>
 				<View id="closetText">
 					<Label id="closetTitle" />
 					<TextArea id="closetDescription"></TextArea>

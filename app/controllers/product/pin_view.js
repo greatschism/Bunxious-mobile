@@ -88,11 +88,30 @@ function displayPin() {
 
 			$.boxButton.backgroundColor = '#27ae60';
 		}
-		
+
 		var views = [];
 
+		var wrapper = Ti.UI.createView({
+			width : Ti.UI.FILL,
+			height : Ti.UI.FILL,
+			backgroundColor : 'transparent'
+		});
+
+		var imageView = Ti.UI.createImageView({
+			image : pinObj.image_big.image + '?t=' + new Date().getTime(),
+			width : Ti.UI.FILL,
+			top : 0,
+			defaultImage : '/images/placeholder.png',
+			height : '400dp',
+			center : {
+				x : '50%'
+			}
+		});
+
+		views.push(imageView);
+
 		for (var i in result.pinGallery) {
-			
+
 			var wrapper = Ti.UI.createView({
 				width : Ti.UI.FILL,
 				height : Ti.UI.FILL,
@@ -102,39 +121,17 @@ function displayPin() {
 			var imageView = Ti.UI.createImageView({
 				image : result.pinGallery[i].image_big.image + '?t=' + new Date().getTime(),
 				width : Ti.UI.FILL,
-				defaultImage: '/images/placeholder.png',
+				defaultImage : '/images/placeholder.png',
 				top : 0,
 				height : '400dp',
 				center : {
 					x : '50%'
 				}
-			});
-			
-			views.push(imageView);
-		}
-		
-		if (views.length == 0) {
-			
-			var wrapper = Ti.UI.createView({
-				width : Ti.UI.FILL,
-				height : Ti.UI.FILL,
-				backgroundColor : 'transparent'
 			});
 
-			var imageView = Ti.UI.createImageView({
-				image : pinObj.image_big.image + '?t=' + new Date().getTime(),
-				width : Ti.UI.FILL,
-				top : 0,
-				defaultImage: '/images/placeholder.png',
-				height : '400dp',
-				center : {
-					x : '50%'
-				}
-			});
-			
 			views.push(imageView);
 		}
-		
+
 		$.scrollableView.setViews(views);
 
 		$.title.text = pinObj.title;
@@ -415,7 +412,7 @@ $.cart.addEventListener('click', function() {
 });
 
 Alloy.Globals.API.getCloset(args.user_id, function(result) {
-	
+
 	closetID = result.Shop.id;
 	$.closetAvatar.setImage(result.cover.image);
 	$.closetTitle.setText(result.Shop.title);

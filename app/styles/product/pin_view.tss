@@ -58,7 +58,8 @@
 	},
 	top : 0,
 	backgroundColor : 'transparent',
-	pagingControlColor  : 'transparent'
+	pagingControlColor  : 'transparent',
+	pagingControlTimeout : 0
 }
 
 

@@ -59,7 +59,7 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction, fil
 				if (e.index === 0) {
 
 					var intent = Ti.Android.createIntent({
-						action : "android.settings.WIRELESS_SETTINGS"
+						action : "android.settings.WIFI_SETTINGS"
 					});
 					Ti.Android.currentActivity.startActivity(intent);
 				}

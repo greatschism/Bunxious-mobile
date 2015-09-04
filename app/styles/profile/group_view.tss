@@ -79,8 +79,8 @@
 
 "#editGroup" : {
 	top : 5,
-	left : 10,
-	right : 10,
+	left : 5,
+	right : 5,
 	height : '34dp',
 	color : 'white',
 	backgroundColor : '#62949b'
@@ -88,8 +88,8 @@
 
 "#invite" : {
 	color : 'white',
-	right : 10,
-	left : 10,
+	right : 5,
+	left : 5,
 	top : 5,
 	height : '34dp',
 	backgroundColor : '#62949b'
@@ -97,8 +97,8 @@
 
 "#members" : {
 	color : 'white',
-	right : 10,
-	left: 10,
+	right : 5,
+	left: 5,
 	top:5,
 	height: '34dp',
 	backgroundColor: '#62949b'

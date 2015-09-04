@@ -457,10 +457,10 @@ $.closetAdd.addEventListener('click', function() {
 
 		if (result.message == "Store Liked") {
 
-			$.closetAdd.text = 'Remove closet from favorites';
+			$.closetAdd.text = 'Unfavorite this Closet';
 		} else if (result.message == "Store Unliked") {
 
-			$.closetAdd.text = 'Add closet to favorites';
+			$.closetAdd.text = 'Favorite this Closet';
 		}
 		Alloy.Globals.loading.hide();
 	}, function(error) {

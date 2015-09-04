@@ -387,19 +387,20 @@
 		fontWeight: 'bold',
 		fontSize: '10dp'
 	},
-	width: Ti.UI.SIZE,
-	color: '#F26B1D',
+	backgroundColor : '#13B5D6',
+	width: '110dp',
+	color: '#fff',
 	height: Ti.UI.SIZE
 }
 
 "#closetAdd": {
 	left : 0,
-	text: 'Add closet to favorites'
+	title: 'Favorite this Closet'
 }
 
 "#closetSee": {
 	right : 0,
-	text: 'See who favorites this item'
+	title: 'Who Favorites This'
 }
 
 

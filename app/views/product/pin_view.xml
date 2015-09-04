@@ -54,8 +54,8 @@
 					<Label id="closetTitle" />
 					<TextArea id="closetDescription"></TextArea>
 					<View id="closetFav">
-						<Label id="closetAdd" class="closetFavourite" />
-						<Label id="closetSee" class="closetFavourite" />
+						<Button id="closetAdd" class="closetFavourite" />
+						<Button id="closetSee" class="closetFavourite" />
 					</View>
 				</View>
 			</View>

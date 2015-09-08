@@ -108,9 +108,10 @@
 "#tabChange": {
 	top: '145dp',
 	width:Ti.UI.FILL,
-	height: '30dp',
+	height: '35dp',
 	borderWidth: '1dp',
-	borderColor: '#d5dae2'
+	borderColor: '#d5dae2',
+	borderRadius : 8
 }
 
 "#tabTitle": {

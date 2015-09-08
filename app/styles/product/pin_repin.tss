@@ -9,10 +9,11 @@
 ".tabChange": {
 	top: '10dp',
 	width: '300dp',
-	height: '30dp',
+	height: '35dp',
 	borderWidth: '1dp',
 	borderColor: '#d5dae2',
-	backgroundColor: '#fff'
+	backgroundColor: '#fff',
+	borderRadius : 8
 }
 
 ".tabChange[platform=android]": {

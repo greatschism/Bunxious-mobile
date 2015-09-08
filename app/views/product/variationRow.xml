@@ -8,7 +8,7 @@
 			</View>
 		</View>
 		
-		<View layout="horizontal" top='45dp'>
+		<View layout="horizontal" top='50dp'>
 			<Widget id="tfQuantity" src="com.harkdev.stylehinttextfield" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="145dp" top="0" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('quantity')" tfTop="5dp" tfWidth="150dp" />
 			<Widget id="tfPriceValue" src="com.harkdev.stylehinttextfield" left="10dp" borderWidth="1dp" borderColor="#d5dae2" height="35dp" width="145dp" top="0" hintLeft="10dp" backgroundColor="#fff" color="#000" hintColor="#666" hintText="L('price')" tfTop="5dp" tfWidth="150dp" />
 		</View>

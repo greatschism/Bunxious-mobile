@@ -61,8 +61,8 @@ function initView() {
 		$.vwContainer.bottom = args.bottom;
 	if (args.backgroundColor != null)
 		$.vwContainer.backgroundColor = args.backgroundColor;
-	if (args.borderRadius != null)
-		$.vwContainer.borderRadius = args.borderRadius;
+	// if (args.borderRadius != null)
+		$.vwContainer.borderRadius = 8;
 	if (args.borderWidth != null)
 		$.vwContainer.borderWidth = args.borderWidth;
 	if (args.borderColor != null)

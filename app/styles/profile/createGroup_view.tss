@@ -43,7 +43,8 @@
 	color : 'white',
 	width : "75%",
 	top: '10dp',
-	backgroundColor: '#62949b'
+	backgroundColor: '#62949b',
+	borderRadius : 8
 }
 "#saveBtn":{
 	

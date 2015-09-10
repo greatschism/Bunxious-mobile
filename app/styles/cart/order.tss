@@ -11,7 +11,8 @@
 	left: 0,
 	width: '300dp',
 	height: '40dp',
-	backgroundColor: '#E4E7EA'
+	backgroundColor: '#E4E7EA',
+	borderRadius : 8
 }
 
 
@@ -183,6 +184,7 @@
 		fontSize: '14dp'
 	},
 	color: '#fff',
-	backgroundColor: '#f26b1d'
+	backgroundColor: '#f26b1d',
+	borderRadius : 8
 }
 

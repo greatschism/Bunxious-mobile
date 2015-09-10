@@ -67,7 +67,8 @@
 	top: '10dp',
 	width: '30dp',
 	height: '30dp',
-	backgroundColor: '#f26b1d'
+	backgroundColor: '#f26b1d',
+	borderRadius : 8
 }
 
 "#boxButton": {
@@ -152,7 +153,8 @@
 	},
 	left: '150dp',
 	color: '#fff',
-	backgroundColor: '#13B5D6'
+	backgroundColor: '#13B5D6',
+	borderRadius : 8
 }
 
 "#description": {
@@ -172,7 +174,8 @@
 ".lblClass": {
 	top: '20dp',
 	backgroundColor: '#E4E7EA',
-	height: '40dp'
+	height: '40dp',
+	borderRadius : 8
 }
 
 
@@ -390,7 +393,8 @@
 	backgroundColor : '#13B5D6',
 	width: '110dp',
 	color: '#fff',
-	height: Ti.UI.SIZE
+	height: Ti.UI.SIZE,
+	borderRadius : 4
 }
 
 "#closetAdd": {

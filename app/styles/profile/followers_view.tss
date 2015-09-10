@@ -24,7 +24,8 @@
 ".labelWrapper" : {
 	backgroundColor : '#e4e7ea',
 	height : '30dp',
-	top : 0
+	top : 0,
+	borderRadius : 8
 }
 
 "#noFollowers" : {

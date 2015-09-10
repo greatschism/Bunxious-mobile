@@ -49,7 +49,8 @@
 	backgroundColor: '#f26b1d',
 	top: '48dp',
 	left: '80dp',
-	visible : false
+	visible : false,
+	borderRadius : 8
 }
 
 "#contactButton": {

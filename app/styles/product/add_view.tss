@@ -173,7 +173,8 @@
 	left: 0,
 	center: {
 		y: '50%'
-	}
+	},
+	borderRadius : 8
 }
 
 ".footerView": {
@@ -259,6 +260,7 @@
 	left: 0,
 	center: {
 		y: '50%'
-	}
+	},
+	borderRadius : 8
 }
  

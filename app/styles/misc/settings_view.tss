@@ -49,6 +49,7 @@
 	width: '80dp',
 	height: '40dp',
 	backgroundColor: '#f26b1d',
+	borderRadius : 8
 }
 
 "#contactButton": {

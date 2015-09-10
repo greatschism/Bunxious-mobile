@@ -63,7 +63,8 @@
 	},
 	center: {
 		y: '50%'
-	}
+	},
+	borderRadius : 8
 }
 
 "#filterWrapper" : {

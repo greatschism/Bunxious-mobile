@@ -1,15 +1,7 @@
 <Alloy>
 	<View class="container">
 		<TableView id="activityTable" class="table" >
-			<HeaderView>
-				<View id="favoriteWrapper">
-					<View id="favoriteSection">
-						<View class="labelWrapper">
-							<Label class="favLabel" text="L('fav_text')" />
-						</View>
-					</View>
-				</View>
-			</HeaderView>
+			
 		</TableView>
 	</View>
 </Alloy>

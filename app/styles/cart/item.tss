@@ -103,7 +103,8 @@
 		fontSize: '14dp'
 	},
 	color: '#fff',
-	backgroundColor: '#B8BBBE'
+	backgroundColor: '#B8BBBE',
+	borderRadius : 8
 }
 
 "#orderPrice": {

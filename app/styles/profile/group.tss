@@ -24,5 +24,6 @@
 	height : '34dp',
 	color : 'white',
 	title :"Create Group",
-	backgroundColor : '#f26b1d'
+	backgroundColor : '#f26b1d',
+	borderRadius : 8
 }

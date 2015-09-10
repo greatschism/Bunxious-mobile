@@ -1,7 +1,7 @@
 <Alloy>
 	<TableView id="postsTable" >
 		<HeaderView height="Ti.UI.SIZE">
-			<View layout="horizontal" height="35dp">
+			<View layout="horizontal" height="40dp">
 				<View height="Ti.UI.SIZE" width="33%">
 					<Button id="invite" title="Invite" />
 				</View>

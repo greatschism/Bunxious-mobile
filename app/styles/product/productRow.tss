@@ -33,13 +33,15 @@
 	top : '5dp',
 	width : '30dp',
 	height : '30dp',
-	backgroundColor : '#f26b1d'
+	backgroundColor : '#f26b1d',
+	borderRadius : 8
 }
 
 ".buttonWrapperHrt" : {
 	top : '5dp',
 	width : '30dp',
-	height : '30dp'
+	height : '30dp',
+	borderRadius : 8
 }
 
 "#boxButton" : {

@@ -41,7 +41,8 @@
 	top: '10dp',
 	width: '250dp',
 	height: '40dp',
-	color: '#fff'
+	color: '#fff',
+	borderRadius : 8
 }
 
 "#request_button": {

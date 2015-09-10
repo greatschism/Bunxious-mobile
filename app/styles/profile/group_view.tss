@@ -83,7 +83,8 @@
 	right : 5,
 	height : '34dp',
 	color : 'white',
-	backgroundColor : '#62949b'
+	backgroundColor : '#62949b',
+	borderRadius : 8
 }
 
 "#invite" : {
@@ -92,7 +93,8 @@
 	left : 5,
 	top : 5,
 	height : '34dp',
-	backgroundColor : '#62949b'
+	backgroundColor : '#62949b',
+	borderRadius : 8
 }
 
 "#members" : {
@@ -101,7 +103,8 @@
 	left: 5,
 	top:5,
 	height: '34dp',
-	backgroundColor: '#62949b'
+	backgroundColor: '#62949b',
+	borderRadius : 8
 }
 
 "#filterWrapper" : {

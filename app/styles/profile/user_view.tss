@@ -50,6 +50,7 @@
 	backgroundColor: '#f26b1d',
 	top: '48dp',
 	left: '80dp',
+	borderRadius : 8
 }
 
 "#followButton": {

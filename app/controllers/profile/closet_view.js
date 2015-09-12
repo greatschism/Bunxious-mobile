@@ -220,8 +220,78 @@ $.sizeFilter.addEventListener('click', function() {
 
 $.priceFilter.addEventListener('click', function() {
 
-	Alloy.Globals.priceFilters = JSON.parse(JSON.stringify(Alloy.Globals.priceListOptions));
-	createFilter(Alloy.Globals.priceListOptions, $.priceLabel, "price");
+	var items = [],
+	    min = [],
+	    max = [];
+
+	for (i in Alloy.Globals.priceListOptions) {
+		items.push(Alloy.Globals.priceListOptions[i].title);
+		min.push(Alloy.Globals.priceListOptions[i].min);
+		max.push(Alloy.Globals.priceListOptions[i].max);
+	}
+
+	var popupDialog = Alloy.createWidget('ti.ux.popup.list', 'widget', {
+		closeButton : true,
+		closeFunction : function(options) {
+			
+			if (options.length == 0) {
+				
+				return;
+			}
+						
+			var min = 9999, max = 0;
+			
+			for (var i in options) {
+				
+				if (options[i].min < min) {
+					
+					min = options[i].min;
+				}
+				
+				if (options[i].max > max) {
+					
+					max = options[i].max;
+				}
+			}
+
+
+			filters['filters[price]'] = min + '&filters[price]=' + max;
+
+			// Call the service
+			Alloy.Globals.loading.show();
+			var productArray = [];
+			Alloy.Globals.API.getFilteredPins(filters, function(results) {
+
+				for (var i in results) {
+					var rowResult = results[i];
+					rowResult.showTitle = true;
+
+					productArray.push(Alloy.createController('product/productRow', rowResult).getView());
+				}
+
+				if (results.length == 0) {
+					productArray.push(Ti.UI.createTableViewRow({
+						title : 'No results.'
+					}));
+				}
+				$.closetTable.setData(productArray);
+				Alloy.Globals.loading.hide();
+
+			}, function(error) {
+
+				alert('No Data Found');
+				var productArray = [];
+				$.closetTable.setData(productArray);
+				Alloy.Globals.loading.hide();
+			});
+		},
+		selectable : true,
+		min : min,
+		max : max,
+		options : items,
+	});
+
+	popupDialog.getView().show();
 });
 
 $.resetButton.addEventListener('click', function() {

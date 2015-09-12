@@ -27,14 +27,13 @@ function initUI(){
 		
 	}
 	
-	var closeBtnView = $.closeBtn.getView();
 	if(args.closeButton){
-		closeBtnView.visible = true;
-		closeBtnView.addEventListener('click', function(e){
+		$.closeBtn.visible = true;
+		$.closeBtn.addEventListener('click', function(e){
 			cancelPopup(e);
 		});
 	}else{
-		closeBtnView.visible = false;
+		$.closeBtn.visible = false;
 	}
 	
 }
@@ -47,9 +46,22 @@ $.hide = function(){
 	fadeOut();
 };
 
+
+	$.enableCloseButton = function(fn) {
+		$.closeBtn.visible = true;
+		$.closeBtn.addEventListener('click', function(e) {
+			cancelPopup(e);
+			if (fn) {
+				
+				fn();
+			}
+		});
+	}
+
+
 function cancelPopup(e){	
 
-	if(e.source !== $.bgView && e.source !== $.closeBtn.getView()) return;
+	if(e.source !== $.bgView && e.source !== $.closeBtn) return;
 	
 	fadeOut();
 }

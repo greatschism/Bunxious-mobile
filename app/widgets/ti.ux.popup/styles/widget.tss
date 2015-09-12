@@ -8,3 +8,9 @@
 	visible: false,
 	opacity: 0
 }
+
+"#closeBtn" : {
+	image : '/images/delete.png',
+	width : '20dp',
+	height : '20dp'
+}

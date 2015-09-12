@@ -1,5 +1,6 @@
 var args = arguments[0];
 var WTools = require('WidgetTools');
+var selectedOptions = [];
 
 //WTools.setTiProps(args, $.bgView);
 
@@ -28,7 +29,7 @@ function initUI(){
 		
 		for(var i = 0, j = options.length; i < j; i++){
 			icon = selectable && value == i ? 'fa-check-circle' : undefined;
-			rows.push(Alloy.createWidget('ti.ux.rowitem', 'widget', {title:options[i], min : min && min[i] ? min[i] : null, max : max && max[i] ? max[i] : null, hasChildren:args.selectable, icon:icon}).getView()); 
+			rows.push(Alloy.createWidget('ti.ux.rowitem', 'widget', {title:options[i], min : min && min[i] ? min[i] : null, max : max && max[i] ? max[i] : null, icon:icon}).getView()); 
 		}
 		
 	}
@@ -36,7 +37,47 @@ function initUI(){
 	$.table.data = rows;
 	
 	if(args.selectable == "true" || args.selectable === true){
+		
+		$.table.addEventListener('click', function(e) {
+			
+			if (e.row.hasCheck) {
+				
+				e.row.hasCheck = false;
+				
+				for (var i in selectedOptions) {
+					
+					if (selectedOptions[i].title == e.row.data.title) {
+						
+						selectedOptions.splice(i, 1);
+					}
+				}
+				Ti.API.info(selectedOptions);
+			}
+			else {
+				
+				e.row.hasCheck = true;
+				selectedOptions.push(e.row.data);
+				Ti.API.info(selectedOptions);
+			}
+		});
+		
 		$.table.allowsSelection = true;
+	}
+	
+	if (args.closeButton) {
+		
+		if (args.closeFunction) {
+			
+			$.popup.enableCloseButton(function () {
+				
+				args.closeFunction(selectedOptions);
+			});
+		}
+		else {
+			
+			$.popup.enableCloseButton();
+		}
+		
 	}
 }
 

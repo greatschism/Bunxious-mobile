@@ -126,7 +126,8 @@ function displayPin() {
 				height : '400dp',
 				center : {
 					x : '50%'
-				}
+				},
+				borderRadius : 8
 			});
 
 			views.push(imageView);

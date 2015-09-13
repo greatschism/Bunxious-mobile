@@ -18,14 +18,16 @@
 
 "#pinImage" : {
 	width : '100%',
-	top : 0
+	top : 0,
+	borderRadius : 8
 }
 
 "#avatar" : {
 	width : '70dp',
 	height : '70dp',
 	top : '10dp',
-	left : '10dp'
+	left : '10dp',
+	borderRadius : 8
 }
 
 ".buttonWrapper" : {

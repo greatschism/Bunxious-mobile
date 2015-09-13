@@ -33,6 +33,7 @@
 		fontSize: '15dp',
 		fontWeight: 'bold'
 	},
+	borderRadius : 8
 }
 
 '#userLocation': {

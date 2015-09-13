@@ -2,5 +2,6 @@
 	top: '5dp',
 	left: '10dp',
 	height: '50dp',
-	width: '50dp'
+	width: '50dp',
+	borderRadius : 4
 }

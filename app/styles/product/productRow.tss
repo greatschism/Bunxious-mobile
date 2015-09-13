@@ -20,13 +20,15 @@
 	height : '400dp',
 	top : 0,
 	left : 0,
+	borderRadius : 8
 }
 
 "#avatar" : {
 	width : '70dp',
 	height : '70dp',
 	top : '10dp',
-	left : '10dp'
+	left : '10dp',
+	borderRadius : 8
 }
 
 ".buttonWrapper" : {

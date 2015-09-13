@@ -65,8 +65,8 @@ function addButtonToWindow() {
 		language : 'en_US',
 		textStyle : Paypal.PAYPAL_TEXT_PAY, // Causes the button's text to change from "Pay" to "Donate"
 
-		appID : 'APP-80W284485P519543T', // The appID issued by Paypal for your application; for testing, feel free to delete this property entirely.
-		paypalEnvironment : Paypal.PAYPAL_ENV_SANDBOX, // Sandbox, None or Live
+		appID : 'APP-1JJ82255SH3889306', // The appID issued by Paypal for your application; for testing, feel free to delete this property entirely.
+		paypalEnvironment : Paypal.PAYPAL_ENV_LIVE, // Sandbox, None or Live
 
 		feePaidByReceiver : false,
 		enableShipping : false, // Whether or not to select/send shipping information
@@ -77,7 +77,7 @@ function addButtonToWindow() {
 			tax : 0,
 			shipping : shippingValue,
 			currency : args.paypal.currency,
-			recipient : /*args.paypal.email*/ 'sandbox-seller@bunxious.com', //TBD
+			recipient : args.paypal.email /*'sandbox-seller@bunxious.com'*/, //TBD
 			customID : 'Bunxious',
 			invoiceItems : args.paypal.items,
 			ipnUrl : 'http://www.appcelerator.com/',

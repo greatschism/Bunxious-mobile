@@ -1,5 +1,6 @@
 var args = arguments[0] || {};
 var filters = {};
+var priceFilterOptions;
 
 function postLayout() {
 	$.home_view.setHeight($.home_view.rect.height - 25);
@@ -274,7 +275,10 @@ $.priceFilter.addEventListener('click', function() {
 	var popupDialog = Alloy.createWidget('ti.ux.popup.list', 'widget', {
 		closeButton : true,
 		doneButton : true,
+		selectedOptions : priceFilterOptions,
 		doneFunction : function(options) {
+			
+			priceFilterOptions = options;
 			
 			if (options.length == 0) {
 				

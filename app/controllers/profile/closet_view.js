@@ -1,5 +1,6 @@
 var args = arguments[0] || {};
 var filters = {};
+var priceFilterOptions;
 
 Alloy.Globals.loading.show();
 var tableData = [];
@@ -233,7 +234,10 @@ $.priceFilter.addEventListener('click', function() {
 	var popupDialog = Alloy.createWidget('ti.ux.popup.list', 'widget', {
 		closeButton : true,
 		doneButton : true,
+		selectedOptions : priceFilterOptions,
 		doneFunction : function(options) {
+			
+			priceFilterOptions = options;
 			
 			if (options.length == 0) {
 				

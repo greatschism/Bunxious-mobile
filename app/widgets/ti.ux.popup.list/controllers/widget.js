@@ -10,6 +10,17 @@ function initUI(){
 	var rows = [];
 	$.value = args.value;
 	
+	if (args.selectedOptions) {
+		
+		for (var i in args.selectedOptions) {
+			
+			if (args.selectedOptions[i] != null) {
+				
+				selectedOptions.push(args.selectedOptions[i]);
+			}
+		}
+	}
+	
 	if (args.children) {
 		
 		children = args.children || [];
@@ -29,7 +40,22 @@ function initUI(){
 		
 		for(var i = 0, j = options.length; i < j; i++){
 			icon = selectable && value == i ? 'fa-check-circle' : undefined;
-			rows.push(Alloy.createWidget('ti.ux.rowitem', 'widget', {title:options[i], min : min && min[i] ? min[i] : null, max : max && max[i] ? max[i] : null, icon:icon}).getView()); 
+			
+			var row = Alloy.createWidget('ti.ux.rowitem', 'widget', {title:options[i], min : min && min[i] ? min[i] : null, max : max && max[i] ? max[i] : null, icon:icon}).getView(); 
+			
+			if (args.selectedOptions) {
+				
+				for (var k in args.selectedOptions) {
+					
+					if (args.selectedOptions[k] && args.selectedOptions[k].title && args.selectedOptions[k].title == options[i]) {
+						
+						row.hasCheck = true;
+						break;
+					}
+				}	
+			}
+			
+			rows.push(row);
 		}
 		
 		if (args.doneButton) {
@@ -94,7 +120,6 @@ function initUI(){
 						selectedOptions.splice(i, 1);
 					}
 				}
-				Ti.API.info(selectedOptions);
 			}
 			else {
 				

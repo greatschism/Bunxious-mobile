@@ -232,7 +232,8 @@ $.priceFilter.addEventListener('click', function() {
 
 	var popupDialog = Alloy.createWidget('ti.ux.popup.list', 'widget', {
 		closeButton : true,
-		closeFunction : function(options) {
+		doneButton : true,
+		doneFunction : function(options) {
 			
 			if (options.length == 0) {
 				

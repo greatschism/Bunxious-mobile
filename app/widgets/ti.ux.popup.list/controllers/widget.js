@@ -32,9 +32,52 @@ function initUI(){
 			rows.push(Alloy.createWidget('ti.ux.rowitem', 'widget', {title:options[i], min : min && min[i] ? min[i] : null, max : max && max[i] ? max[i] : null, icon:icon}).getView()); 
 		}
 		
+		if (args.doneButton) {
+			
+			var doneRow = Ti.UI.createTableViewRow({
+				height : '35dp'
+			});
+			
+			var doneButton = Ti.UI.createButton({
+				backgroundColor : '#13B5D6',
+				height : Ti.UI.FILL,
+				width : Ti.UI.FILL,
+				borderRadius : 8,
+				font: {
+					fontWeight: 'bold',
+					fontSize: '14dp'
+				},
+				title : 'Filter',
+				color : '#fff'
+			});
+			
+			doneButton.addEventListener('click', function() {
+				
+				$.popup.hide();
+
+				if (args.doneFunction) {
+					
+					args.doneFunction(selectedOptions);
+				}
+			});
+			
+			doneRow.add(doneButton);
+			
+			rows.push(doneRow);
+		}
+		
 	}
 	
 	$.table.data = rows;
+	
+	// hack for avoiding the separators when the table is empty or has fewer rows
+	var tblFooterView = Ti.UI.createView({
+		width : 300,
+		height : 1,
+		backgroundColor : '#FFF'
+	});
+	
+	$.table.footerView = tblFooterView;
 	
 	if(args.selectable == "true" || args.selectable === true){
 		
@@ -57,7 +100,6 @@ function initUI(){
 				
 				e.row.hasCheck = true;
 				selectedOptions.push(e.row.data);
-				Ti.API.info(selectedOptions);
 			}
 		});
 		
@@ -66,18 +108,7 @@ function initUI(){
 	
 	if (args.closeButton) {
 		
-		if (args.closeFunction) {
-			
-			$.popup.enableCloseButton(function () {
-				
-				args.closeFunction(selectedOptions);
-			});
-		}
-		else {
-			
-			$.popup.enableCloseButton();
-		}
-		
+		$.popup.enableCloseButton();
 	}
 }
 

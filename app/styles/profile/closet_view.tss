@@ -101,6 +101,13 @@
 	color: 'blue'
 }
 
+"#resetButton[platform=ios]" : {
+	font: {
+		fontSize: '12dp'
+	},
+	color: '#596b7c'
+}
+
 ".topRow" : {
 	top : 0
 }

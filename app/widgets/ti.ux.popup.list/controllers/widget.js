@@ -65,7 +65,7 @@ function initUI(){
 			});
 			
 			var doneButton = Ti.UI.createButton({
-				backgroundColor : '#13B5D6',
+				backgroundColor : '#62949b',
 				height : Ti.UI.FILL,
 				width : Ti.UI.FILL,
 				borderRadius : 8,

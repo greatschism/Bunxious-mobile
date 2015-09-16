@@ -282,6 +282,12 @@ $.priceFilter.addEventListener('click', function() {
 			
 			if (options.length == 0) {
 				
+				if (filters['filters[price]']) {
+					
+					delete filters['filters[price]'];
+					populateTable();
+				}
+				
 				return;
 			}
 						

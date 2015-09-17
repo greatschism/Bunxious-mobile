@@ -1,7 +1,7 @@
 <Alloy>
 	<Window id="bgView" onClick="cancelPopup" class="view-popup-background">	
 		<View id="view" class="view-popup-container" left="20" right="20" top="50" bottom="50" backgroundColor="#fff" borderRadius="5">
-			<View id="container" top="10" bottom="10" left="10" right="10"></View>
+			<View id="container" top="20" bottom="10" left="10" right="10"></View>
 			<ImageView top="10" right="10" size="26" zIndex="9999" id="closeBtn"/>
 		</View>
 

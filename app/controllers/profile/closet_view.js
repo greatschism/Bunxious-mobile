@@ -307,6 +307,7 @@ $.priceFilter.addEventListener('click', function() {
 
 $.resetButton.addEventListener('click', function() {
 	loadClosetData();
+	priceFilterOptions = null;
 });
 
 loadClosetData();

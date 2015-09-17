@@ -469,6 +469,7 @@ $.priceFilter.addEventListener('click', function() {
 $.resetButton.addEventListener('click', function() {
 	resetFilterSelection();
 	processPosts(args);
+	priceFilterOptions = null;
 });
 
 processPosts(args);

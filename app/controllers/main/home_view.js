@@ -349,6 +349,7 @@ $.priceFilter.addEventListener('click', function() {
 $.resetButton.addEventListener('click', function() {
 	resetFilterSelection();
 	populateTable();
+	priceFilterOptions = null;
 });
 
 Ti.App.addEventListener("loggedIn", populateTable);

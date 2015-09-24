@@ -55,7 +55,13 @@ function populateTable() {
 // Prevent the update when the controller is created in another one to use the methods
 if (!args.fromAnotherController) {
 
-	populateTable();
+	Ti.App.addEventListener("loggedIn", function(arg) {
+		
+		if (arg.dontPopulate !== true) {
+			
+			populateTable();
+		}
+	});
 
 	if (Ti.App.Properties.getString('token', null) != null && !Alloy.Globals.currentUser) {
 
@@ -75,17 +81,29 @@ if (!args.fromAnotherController) {
 
 						//storing the user's boards
 						Alloy.Globals.currentUser.boards = result;
+						populateTable();
 					}
 				}, function(error) {
-
+					
+					populateTable();
 				});
 
 				// Updating the main menu
-				Ti.App.fireEvent('loggedIn');
+				Ti.App.fireEvent('loggedIn', {
+					dontPopulate : true
+				});
 				populateTable();
 
 			}
+			else {
+				
+				populateTable();
+			}
 		});
+	}
+	else {
+		
+		populateTable();
 	}
 }
 
@@ -277,35 +295,34 @@ $.priceFilter.addEventListener('click', function() {
 		doneButton : true,
 		selectedOptions : priceFilterOptions,
 		doneFunction : function(options) {
-			
+
 			priceFilterOptions = options;
-			
+
 			if (options.length == 0) {
-				
+
 				if (filters['filters[price]']) {
-					
 					delete filters['filters[price]'];
 					populateTable();
 				}
-				
+
 				return;
 			}
-						
-			var min = 9999, max = 0;
-			
+
+			var min = 9999,
+			    max = 0;
+
 			for (var i in options) {
-				
+
 				if (options[i].min < min) {
-					
+
 					min = options[i].min;
 				}
-				
+
 				if (options[i].max > max) {
-					
+
 					max = options[i].max;
 				}
 			}
-
 
 			filters['filters[price]'] = min + '&filters[price]=' + max;
 
@@ -351,6 +368,4 @@ $.resetButton.addEventListener('click', function() {
 	populateTable();
 	priceFilterOptions = null;
 });
-
-Ti.App.addEventListener("loggedIn", populateTable);
 

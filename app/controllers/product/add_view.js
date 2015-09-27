@@ -266,10 +266,15 @@ function removeFromGallery(file) {
 	}
 };
 
+$.progressBar.hide();
+
 $.uploadImage.addEventListener('click', function(e) {
+	
+	$.progressBar.show();
+	$.noImage.hide();
 
 	Alloy.Globals.uploadImage(function(image) {
-
+		
 		Alloy.Globals.API.uploadImage(image, function(result) {
 
 			if (result.success) {
@@ -291,16 +296,18 @@ $.uploadImage.addEventListener('click', function(e) {
 
 				uploadedImages++;
 				$.noImage.text = '';
-				Alloy.Globals.loading.hide();
+				$.progressBar.hide();
+				$.progressBar.value = 0;
 			} else {
 
-				Alloy.Globals.loading.hide();
 				alert('Upload failed. Please try again');
 			}
 
 		}, function(error) {
-			Alloy.Globals.loading.hide();
-		});
+			
+			$.progressBar.hide();
+			$.progressBar.value = 0;
+		}, $.progressBar);
 	});
 });
 

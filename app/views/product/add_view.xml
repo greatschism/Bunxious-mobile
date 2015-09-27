@@ -51,7 +51,8 @@
 				<FooterView height="45dp">
 					<View class="footerView">
 						<Label id="noImage" class="dollarSign" text="L('no_image')"></Label>
-						<Button id="uploadImage" title="L('upload_image')" class="variationButton" top='10dp' left='160dp' width='140dp'/>
+						<ProgressBar id="progressBar" />
+						<Button id="uploadImage" title="L('upload_image')" class="variationButton uploadImageButton" top='10dp' left='160dp' width='140dp'/>
 					</View>
 				</FooterView>
 			</TableView>

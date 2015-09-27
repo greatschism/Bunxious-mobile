@@ -42,7 +42,7 @@ function queryString(data) {
 	return arr.join("&");
 };
 
-function httpRequest(endpoint, method, data, successFunction, errorFunction, fileType) {
+function httpRequest(endpoint, method, data, successFunction, errorFunction, fileType, addUploadProgress) {
 
 	if (!Ti.Network.online) {
 
@@ -158,6 +158,15 @@ function httpRequest(endpoint, method, data, successFunction, errorFunction, fil
 			}
 		}
 	};
+
+	if (addUploadProgress) {
+		Ti.API.info('attaching');
+
+		xhr.onsendstream = function(e) {
+
+			addUploadProgress.value = e.progress ;
+		};
+	}
 
 	xhr.timeout = 20000;
 
@@ -974,14 +983,14 @@ api.getSizesForPin = function(pin_id, success, fail) {
 	httpRequest('pin/find-pin-sizes', 'GET', data, success, fail);
 };
 
-api.uploadImage = function(image, success, fail) {
+api.uploadImage = function(image, success, fail, progressBar) {
 
 	data = {
 		token : Alloy.Globals.currentUser.token,
 		file : image
 	};
 
-	httpRequest('upload', 'POST', data, success, fail, "media");
+	httpRequest('upload', 'POST', data, success, fail, "media", progressBar);
 
 };
 

@@ -5,7 +5,7 @@
 			<ImageView id="logo" />
 			<View class="border topBorder" />
 			<View layout="horizontal" width="Ti.UI.SIZE" height="Ti.UI.SIZE">
-				<Widget id="searchField" src="com.harkdev.stylehinttextfield" tffontsize="14dp" height="30dp" width="200dp" top="10dp" hintLeft="10dp" left="5dp" backgroundColor="#55888f" color="#ffffff" hintColor="#89b1b7" hintText="L('search')" tfTop="5dp" tfWidth="145dp" rightImage="/images/search.png"/>
+				<Widget id="searchField" src="com.harkdev.stylehinttextfield" tffontsize="14dp" height="30dp" width="200dp" top="10dp" hintLeft="10dp" left="5dp" backgroundColor="#55888f" color="#ffffff" hintColor="#fff" hintText="L('search')" tfTop="5dp" tfWidth="145dp" rightImage="/images/search.png"/>
 				<Button id="searchBtn" backgroundImage="/images/search.png" left="8dp" bottom="2dp" height="25dp" width="25dp" />
 			</View>
 			<View class="border searchBorder" />

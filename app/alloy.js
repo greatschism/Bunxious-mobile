@@ -292,7 +292,6 @@ Alloy.Globals.uploadImage = function(callback) {
 			Ti.Media.openPhotoGallery({
 				success : function(event) {
 
-					Alloy.Globals.loading.show();
 					callback(event.media);
 				},
 

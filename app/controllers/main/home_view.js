@@ -92,8 +92,6 @@ if (!args.fromAnotherController) {
 				Ti.App.fireEvent('loggedIn', {
 					dontPopulate : true
 				});
-				populateTable();
-
 			}
 			else {
 				

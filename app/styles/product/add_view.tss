@@ -178,6 +178,23 @@
 	borderRadius : 8
 }
 
+".uploadImageButton" : {
+	width : '45%'
+}
+
+"#progressBar" : {
+	width : '50%',
+	left : 0,
+	top : '20dp',
+	min:0,
+	max:1,
+	value:0,
+}
+
+"#progressBar[platform=ios]" : {
+	style:Titanium.UI.iPhone.ProgressBarStyle.PLAIN,
+}
+
 ".footerView": {
 	backgroundColor : 'transparent',
 	height: '45dp',
